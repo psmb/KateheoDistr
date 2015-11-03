@@ -1,0 +1,34 @@
+{
+    "name": "typo3/kateheo-distribution",
+    "description" : "Kateheo Distribution",
+    "license": "GPL-3.0+",
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin"
+    },
+    "require": {
+        "typo3/neos": "2.0.*",
+        "typo3/neos-nodetypes": "2.0.*",
+        "typo3/neos-kickstarter": "2.0.*",
+
+        "typo3/neos-seo": "~1.0",
+        "typo3/imagine": "~2.0",
+        "typo3/form": "~2.0",
+        "typo3/setup": "~2.0"
+    },
+    "require-dev": {
+        "typo3/buildessentials": "3.0.*@rc",
+        "mikey179/vfsstream": "1.5.*",
+        "phpunit/phpunit": "4.6.*",
+        "flowpack/behat": "dev-master"
+    },
+    "suggest": {
+        "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
+    },
+    "scripts": {
+        "post-update-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update":"TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install":"TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}
