@@ -6,6 +6,11 @@
         "vendor-dir": "Packages/Libraries",
         "bin-dir": "bin"
     },
+    "repositories": [
+        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.Migration.git" },
+        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.News.git" },
+        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.Grid.git" }
+    ],
     "require": {
         "typo3/neos": "2.0.*",
         "typo3/neos-nodetypes": "2.0.*",
@@ -14,7 +19,12 @@
         "typo3/neos-seo": "~1.0",
         "typo3/imagine": "~2.0",
         "typo3/form": "~2.0",
-        "typo3/setup": "~2.0"
+        "typo3/setup": "~2.0",
+
+        "sfi/migration": "@dev",
+        "sfi/news": "@dev",
+        "sfi/grid": "@dev",
+        "m12/neos-plugin-dbexport": "dev-master"
     },
     "require-dev": {
         "typo3/buildessentials": "3.0.*@rc",
