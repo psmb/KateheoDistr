@@ -1,0 +1,13 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Content">
+	<div class="row-fluid">
+		<div class="span3">
+			<f:render partial="SubNavigation" arguments="{_all}"/>
+		</div>
+		<div class="span9" role="main">
+			{main -> f:format.raw()}
+		</div>
+	</div>
+</f:section>

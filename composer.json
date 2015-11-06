@@ -22,9 +22,10 @@
         "typo3/setup": "~2.0",
 
         "sfi/migration": "@dev",
-        "sfi/news": "@dev",
+        "sfi/listable": "@dev",
         "sfi/grid": "@dev",
-        "m12/neos-plugin-dbexport": "dev-master"
+        "m12/neos-plugin-dbexport": "dev-master",
+        "sfi/youtube": "^0.1"
     },
     "require-dev": {
         "typo3/buildessentials": "3.0.*@rc",

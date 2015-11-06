@@ -1,0 +1,46 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace m=TYPO3\Media\ViewHelpers}
+
+<div class="article" itemscope="itemscope" itemtype="http://schema.org/Article">
+	<neos:link.node node="{node}">
+		<div class="header">
+			<h3>
+				<span itemprop="headline">{title}</span>
+			</h3>
+		</div>
+
+		<div class="news-img-wrap">
+			<f:if condition="{thumbnailImage}">
+				<f:if condition="{thumbnailImage.properties.image}">
+					<m:image asset="{thumbnailImage.properties.image}" maximumWidth="{configuration.thumbnailWidth}" maximumHeight="{configuration.thumbnailHeight}" allowCropping="true" allowUpScaling="true" alt="{thumbnailImage.properties.alternativeText}" />
+				</f:if>
+			</f:if>
+		</div>
+
+		<div class="teaser-text">
+			{teaser -> f:format.raw()}
+		</div>
+
+
+		<div class="footer">
+			<p>
+				<!-- date -->
+				<span class="news-list-date">
+					<time datetime="{f:format.date(date:date, format:'Y-m-d')}">
+						<f:format.date>{date}</f:format.date>
+						<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
+					</time>
+				</span>
+
+				<!-- author -->
+				<f:if condition="{node.properties.author.properties.title}">
+					<span class="news-list-author">
+						{node.properties.author.properties.title}
+					</span>
+				</f:if>
+			</p>
+		</div>
+
+
+	</neos:link.node>
+</div>

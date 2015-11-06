@@ -1,0 +1,9 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Sfi.Kateheo': TRUE
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          loadingDepth: 1

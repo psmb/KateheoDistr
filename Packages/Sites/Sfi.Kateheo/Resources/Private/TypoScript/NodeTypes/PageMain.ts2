@@ -1,0 +1,6 @@
+prototype(Sfi.Kateheo:PageMain) {
+	main = TYPO3.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+	newsList = "Hello"
+}

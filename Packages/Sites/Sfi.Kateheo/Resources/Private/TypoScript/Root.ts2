@@ -1,0 +1,60 @@
+include: NodeTypes/**/*.ts2
+
+#This is a default page object. It's being extended and never used directly.
+prototype(Sfi.Kateheo:Page) >
+prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
+	head {
+		titleTag.content = ${String.stripTags(q(node).property('title'))}
+		stylesheets.site = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
+			sectionName = 'stylesheets'
+		}
+		javascripts.headScripts = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
+			sectionName = 'headScripts'
+		}
+	}
+	htmlTag.attributes.lang="ru"
+	bodyTag.attributes.class = 'Page'
+	bodyTag.attributes.id = ${'Page-' + q(node).property('_name')}
+	body {
+		templatePath = 'resource://Sfi.Kateheo/Private/Templates/Pages/Page.html'
+		partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+		layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
+
+		mainMenu = Menu {
+			entryLevel = 1
+			maximumLevels = 1
+			attributes.class = "nav nav-pills pull-right"
+		}
+
+		sectionMenu = Menu {
+			entryLevel = 2
+			maximumLevels = 1
+			attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+			current.attributes.class = "active"
+		}
+
+		# main = PrimaryContent {
+		# 	renderByType {
+		# 		condition = TRUE
+		# 		type = ${q(node).property('_nodeType.name')}
+		# 	}
+		# }
+
+		javascripts.bodyScripts = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
+			partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+			sectionName = 'bodyScripts'
+		}
+	}
+}
+
+root.fallbackPage {
+	@position = 'before default'
+	condition = TRUE
+	type = 'Sfi.Kateheo:Page'
+}
+
+# Disable stupid layout mechanism
+root.layout>

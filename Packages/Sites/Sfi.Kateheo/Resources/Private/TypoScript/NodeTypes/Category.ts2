@@ -1,0 +1,6 @@
+prototype(Sfi.Kateheo:Category) {
+	main = TYPO3.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+	#newsList = Sfi.News:List
+}
