@@ -35,12 +35,12 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			current.attributes.class = "active"
 		}
 
-		# main = PrimaryContent {
-		# 	renderByType {
-		# 		condition = TRUE
-		# 		type = ${q(node).property('_nodeType.name')}
-		# 	}
-		# }
+		main = PrimaryContent {
+			renderByType {
+				condition = TRUE
+				type = ${q(node).property('_nodeType.name')}
+			}
+		}
 
 		javascripts.bodyScripts = TYPO3.TypoScript:Template {
 			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
