@@ -84,6 +84,18 @@ blah: &alohaRich
         aloha:
           <<: *alohaRich
           placeholder: 'Тизер'
+    date:
+      type: DateTime
+      defaultValue: 'now'
+      ui:
+        label: 'Дата'
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            format: 'd-m-Y H:i'
+      validation:
+        'TYPO3.Neos/Validation/DateTimeValidator': []
     author:
       type: reference
       ui:
