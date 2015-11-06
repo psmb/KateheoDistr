@@ -2,5 +2,7 @@ prototype(Sfi.Kateheo:PageMain) {
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
-	newsList = Sfi.Listable:List
+	newsList = Sfi.Listable:List {
+		@context.listClass = 'news-list-view'
+	}
 }
