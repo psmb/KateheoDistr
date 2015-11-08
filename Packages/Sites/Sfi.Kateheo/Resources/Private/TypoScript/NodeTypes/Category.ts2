@@ -4,5 +4,6 @@ prototype(Sfi.Kateheo:Category) {
 	}
 	newsList = Sfi.Listable:List {
 		@context.listClass = 'news-list-view'
+		@context.queryType = 'getFromCurrentPage'
 	}
 }
