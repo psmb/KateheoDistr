@@ -1,3 +1,4 @@
+include: Redirect.ts2
 include: NodeTypes/**/*.ts2
 
 #This is a default page object. It's being extended and never used directly.
