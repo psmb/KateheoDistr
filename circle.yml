@@ -1,0 +1,21 @@
+machine:
+  php:
+    version: 5.5.11
+dependencies:
+  override:
+    - rm Packages/Sites/Sfi.Kateheo/composer.json
+    - COMPOSER=composer-surf.json composer install --no-interaction --no-dev
+    - mv Packages/Libraries/sfi/surf/Build Build
+test:
+  override:
+    - echo "No tests to run"
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./flow surf:deploy Surf:
+          timeout: 1500
+          environment:
+            REPOSITORY_URL: 'git@github.com:sfi-ru/SfiKateheo.git'
+            DOMAIN: 'kateheo.ru'
+            PORT: 1123
