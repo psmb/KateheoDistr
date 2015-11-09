@@ -2,7 +2,10 @@ prototype(Sfi.Kateheo:Author) {
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
-	# newsList = Sfi.News:ListByAuthor
+	newsList = Sfi.Listable:List {
+		@context.listClass = 'news-list-view'
+		prototype(Sfi.Listable:Listable) {
+			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('author', documentNode).get()}
+		}
+	}
 }
-
-
