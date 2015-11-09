@@ -8,4 +8,6 @@ prototype(Sfi.Kateheo:Author) {
 			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('author', documentNode).get()}
 		}
 	}
+
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

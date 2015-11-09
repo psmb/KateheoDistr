@@ -14,6 +14,8 @@ prototype(Sfi.Kateheo:News) {
 		nodePath = 'main'
 	}
 	category = ${q(node).parent().get(0)}
+
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
 
 #Breif rendering of article, used in NewsList

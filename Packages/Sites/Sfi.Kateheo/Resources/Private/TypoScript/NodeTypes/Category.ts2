@@ -6,4 +6,6 @@ prototype(Sfi.Kateheo:Category) {
 		@context.listClass = 'news-list-view'
 		@context.queryType = 'getFromCurrentPage'
 	}
+
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
