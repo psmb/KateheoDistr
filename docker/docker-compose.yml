@@ -20,7 +20,7 @@ webdata:
   image: busybox:latest
   command: echo webdata
   volumes:
-    - data:/data
+    - ./data:/data
 #    - Persistent:/data/www/kateheo.loc/surf/shared/Data/Persistent
     - /etc/localtime:/etc/localtime:ro
 
@@ -34,7 +34,7 @@ web:
   volumes_from:
     - webdata
   environment:
-    VIRTUAL_HOST: 'kateheo.loc,dev.kateheo.loc,next.kateheo.loc'
+    VIRTUAL_HOST: 'kateheo.loc,www.kateheo.loc,dev.kateheo.loc,next.kateheo.loc'
     T3APP_NAME: 'kateheo.loc'
 
 ssh:
