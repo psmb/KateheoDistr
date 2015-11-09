@@ -26,7 +26,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 		mainMenu = Menu {
 			entryLevel = 1
 			maximumLevels = 1
-			attributes.class = "nav nav-pills pull-right"
+			attributes.class = "nav"
 		}
 
 		sectionMenu = Menu {
@@ -59,3 +59,7 @@ root.fallbackPage {
 
 # Disable stupid layout mechanism
 root.layout>
+
+#Needed for listable-paginate widget to work
+prototype(Sfi.Kateheo:Page).@cache.entryIdentifier.pagination = ${request.pluginArguments.listable-paginate.currentPage}
+root.@cache.entryIdentifier.pagination = ${request.pluginArguments.listable-paginate.currentPage}
