@@ -43,11 +43,15 @@ blah: &alohaRich
 'Sfi.Kateheo:PageMain':
   superTypes:
     - 'TYPO3.Neos.NodeTypes:Page'
+  ui:
+    label: 'Главная страница'
 
 'Sfi.Kateheo:Category':
   superTypes:
     - 'TYPO3.Neos:Document'
     - 'Sfi.Listable:ListableCategoryMixin'
+  ui:
+    label: 'Категория'
   childNodes:
     main:
       type: 'TYPO3.Neos:ContentCollection'
@@ -65,6 +69,8 @@ blah: &alohaRich
   superTypes:
     - 'TYPO3.Neos:Document'
     - 'Sfi.Listable:ListableMixin'
+  ui:
+    label: 'Новость'
   childNodes:
     coverCollection:
       type: 'TYPO3.Neos:ContentCollection'
@@ -123,6 +129,8 @@ blah: &alohaRich
 'Sfi.Kateheo:Author':
   superTypes:
     - 'TYPO3.Neos:Document'
+  ui:
+    label: 'Автор'
   childNodes:
     main:
       type: 'TYPO3.Neos:ContentCollection'
