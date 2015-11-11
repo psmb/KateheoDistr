@@ -29,6 +29,8 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
+		LeftMenu = "Hello"
+
 		sectionMenu = Menu {
 			entryLevel = 2
 			maximumLevels = 1

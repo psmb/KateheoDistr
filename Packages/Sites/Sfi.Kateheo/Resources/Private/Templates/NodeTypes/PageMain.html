@@ -1,6 +1,7 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 
 <div class="PageMain">
+	<div class="PageMain-Menu">{LeftMenu -> f:format.raw()}</div>
 	<div class="PageMain-Content">{main -> f:format.raw()}</div>
 	<div class="PageMain-NewsList">{newsList -> f:format.raw()}</div>
 </div>
