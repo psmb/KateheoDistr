@@ -21,7 +21,6 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 	body {
 		templatePath = 'resource://Sfi.Kateheo/Private/Templates/Pages/Page.html'
 		partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
-		layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 
 		mainMenu = Menu {
 			entryLevel = 1
@@ -65,7 +64,7 @@ root.fallbackPage {
 }
 
 # Disable stupid layout mechanism
-	root.layout>
+root.layout>
 
 #Needed for listable-paginate widget to work
 prototype(Sfi.Kateheo:Page).@cache.entryIdentifier.pagination = ${request.pluginArguments.listable-paginate.currentPage}

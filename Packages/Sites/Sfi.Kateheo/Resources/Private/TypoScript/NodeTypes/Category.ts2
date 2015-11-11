@@ -1,4 +1,7 @@
 prototype(Sfi.Kateheo:Category) {
+	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
+	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
