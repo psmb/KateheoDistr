@@ -1,13 +1,28 @@
-{namespace neos=TYPO3\Neos\ViewHelpers}
-<f:layout name="Default" />
+<!-- {namespace neos=TYPO3\Neos\ViewHelpers} -->
+
+
+
+
+<f:render partial="Navigation" arguments="{_all}"/>
+<div class="container">
+	<f:render partial="Header" arguments="{_all}"/>
+	<f:render section="Content"/>
+	<f:render partial="Footer"  arguments="{_all}"/>
+</div>
+
+
+<!-- 
 
 <f:section name="Content">
 	<div class="row-fluid">
 		<div class="span3">
 			<f:render partial="SubNavigation" arguments="{_all}"/>
+			<div class="PageMain-Menu">
+				{LeftMenu -> f:format.raw()}
+			</div>
 		</div>
 		<div class="span9" role="main">
 			{main -> f:format.raw()}
 		</div>
 	</div>
-</f:section>
+</f:section> 

@@ -29,7 +29,12 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
-		LeftMenu = "Hello"
+
+		leftMenu = Menu {
+        	itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "publication"]').find('[instanceof Sfi.Kateheo:Category]').get()}
+        	attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+			current.attributes.class = "active"
+		}
 
 		sectionMenu = Menu {
 			entryLevel = 2
@@ -60,7 +65,7 @@ root.fallbackPage {
 }
 
 # Disable stupid layout mechanism
-root.layout>
+	root.layout>
 
 #Needed for listable-paginate widget to work
 prototype(Sfi.Kateheo:Page).@cache.entryIdentifier.pagination = ${request.pluginArguments.listable-paginate.currentPage}
