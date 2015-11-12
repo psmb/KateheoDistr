@@ -28,7 +28,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
-		@context.siblingsMenu = Menu {
+		@context.sectionMenu = Menu {
 			entryLevel = 2
 			maximumLevels = 1
 			attributes.class = "nav nav-list bs-docs-sidenav affix-top"

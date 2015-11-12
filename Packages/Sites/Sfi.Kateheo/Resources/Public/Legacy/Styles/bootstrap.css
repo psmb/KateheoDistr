@@ -61,7 +61,7 @@ h2{
 }
 
 #footer_ {
-    margin-top: 15px;
+  margin-top: 15px;
 	background: #FAFAFA;
 	border: 1px solid #E7E7E7;
 	overflow:hidden;
@@ -91,6 +91,9 @@ font-size: 15px;
 	border: 1px solid #DDD;
 	padding: 3px;
 	display: inline-block;
+  max-width: 100px;
+  float: left;
+  margin: 3px 12px 5px 0;
 }
 
 .news{
@@ -238,24 +241,49 @@ input.gsc-search-button-v2 {
 }
 
 .header h3 {
-	padding: 5px 0;
+	padding: 0;
 }
 
 .csc-default .csc-textpic-text {
 margin-left: 8px;
 }
 
+.publicaton-list-view li, .news-list-view li {
+  float: left;
+}
 
-a { text-decoration: none; border-bottom:1px dashed; }
-a:hover { text-decoration: none; border-bottom:1px dashed; }
-a:over { text-decoration: none; border-bottom:1px dashed; }
+.footer {
+    clear: both;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    color: #888;
+}
 
-.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a,	
-.f3-widget-paginator > li > a, .csc-default > a, 
-.addthis_counter > a:hover, 
-.addthis_button_expanded > a,
-#at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, .brand:hover, .nav > li > a{
-	border: none;
+.footer span {
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid #ddd;
+}
+
+.footer p {
+    line-height: 1em;
+}
+
+nav.page-navigation {
+    clear: both;
+    padding: 10px 0 0 0;
+    float: right;
+}
+nav.page-navigation li{
+    float: left;
+    padding: 4px;
+    display: table;
+}
+
+.PageMain-newsList {
+    font-size: 11px;
 }
 
 /*!================ END OF CUSTOM CSS ======================*/
@@ -474,7 +502,7 @@ body {
   background-color: #ffffff;
 }
 
-a {
+/*a {
   color: #08c;
   text-decoration: none;
   line-height: 16px;
@@ -482,9 +510,8 @@ a {
 
 a:hover {
   color: #005580;
-  /*text-decoration: underline;*/
   line-height: 16px;
-}
+}*/
 
 .img-rounded {
   -webkit-border-radius: 6px;
@@ -1050,7 +1077,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10px 25px;
+  margin: 0 0 10px 5px;
 /*  list-style-type: square;*/
 }
 
@@ -1062,7 +1089,8 @@ ol ul {
 }
 
 li {
-  line-height: 20px;
+  line-height: 18px;
+  display: block;
 }
 
 ul.unstyled,
@@ -6294,4 +6322,31 @@ a.badge:hover {
 
 .affix {
   position: fixed;
+}
+
+a { 
+  color: #08c;
+  /*text-decoration: none; */
+  /*border-bottom: 1px dashed; */
+}
+
+a:hover { 
+  color: #005580;
+  /*line-height: 16px;*/
+  text-decoration: none; 
+  /*border-bottom: 1px dashed; */
+}
+
+a:over { 
+  /*text-decoration: none; */
+  /*border-bottom: 1px dashed; */
+}
+
+.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a, 
+.f3-widget-paginator > li > a, .csc-default > a, 
+.addthis_counter > a:hover, 
+.addthis_button_expanded > a,
+#at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
+  /*border: none;*/
+  text-decoration: none;
 }

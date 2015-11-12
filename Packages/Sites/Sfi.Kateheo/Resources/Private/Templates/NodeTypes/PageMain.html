@@ -1,14 +1,17 @@
 <div class="row-fluid">
 	<div class="span3">
-		<div class="leftMenu">{leftMenu -> f:format.raw()}</div>
+		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Теория и практика катехизации</h1></header>
+		<div class="PageMain-leftMenu">{leftMenu -> f:format.raw()}</div>
 	</div>
 	<div class="span6" role="main">
 		 <div class="PageMain">
+		 	<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Публикации</h1></header>
 			<div class="PageMain-Content">{main -> f:format.raw()}</div>
-			<div class="PageMain-NewsList">{newsList -> f:format.raw()}</div>
+			<div class="PageMain-publicationList">{publicationList -> f:format.raw()}</div>
 		</div>
 	</div>
 	<div class="span3">
-		right Column
+		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Новости миссии и катехизации</h1></header>
+		<div class="PageMain-newsList">{newsList -> f:format.raw()}</div>
 	</div>
 </div>
