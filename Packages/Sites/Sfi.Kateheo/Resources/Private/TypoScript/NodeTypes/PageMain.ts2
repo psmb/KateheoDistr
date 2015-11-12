@@ -5,4 +5,10 @@ prototype(Sfi.Kateheo:PageMain) {
 	newsList = Sfi.Listable:List {
 		@context.listClass = 'news-list-view'
 	}
+
+	leftMenu = Menu {
+		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "publication"]').find('[instanceof Sfi.Kateheo:Category]').get()}
+		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+		current.attributes.class = "active"
+	}
 }
