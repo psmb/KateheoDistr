@@ -21,7 +21,6 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 	body {
 		templatePath = 'resource://Sfi.Kateheo/Private/Templates/Pages/Page.html'
 		partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
-		layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 
 		mainMenu = Menu {
 			entryLevel = 1
@@ -29,9 +28,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
-		LeftMenu = "Hello"
-
-		sectionMenu = Menu {
+		@context.sectionMenu = Menu {
 			entryLevel = 2
 			maximumLevels = 1
 			attributes.class = "nav nav-list bs-docs-sidenav affix-top"

@@ -16,31 +16,28 @@
 				</f:if>
 			</f:if>
 		</div>
-
-		<div class="teaser-text">
-			{teaser -> f:format.raw()}
-		</div>
-
-
-		<div class="footer">
-			<p>
-				<!-- date -->
-				<span class="news-list-date">
-					<time datetime="{f:format.date(date:date, format:'Y-m-d')}">
-						<f:format.date>{date}</f:format.date>
-						<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
-					</time>
-				</span>
-
-				<!-- author -->
-				<f:if condition="{node.properties.author.properties.title}">
-					<span class="news-list-author">
-						{node.properties.author.properties.title}
-					</span>
-				</f:if>
-			</p>
-		</div>
-
-
 	</neos:link.node>
+	<div class="teaser-text">
+		{teaser -> f:format.raw()}
+	</div>
+
+
+	<div class="footer">
+		<p>
+			<!-- date -->
+			<span class="news-list-date">
+				<time datetime="{f:format.date(date:date, format:'Y-m-d')}">
+					<f:format.date>{date}</f:format.date>
+					<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
+				</time>
+			</span>
+
+			<!-- author -->
+			<f:if condition="{node.properties.author.properties.title}">
+				<span class="news-list-author">
+					{node.properties.author.properties.title}
+				</span>
+			</f:if>
+		</p>
+	</div>
 </div>

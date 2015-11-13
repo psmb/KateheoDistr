@@ -1,8 +1,12 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace m=TYPO3\Media\ViewHelpers}
 
-<div class="Author">
-	<h1 class="Author-Name">{neos:contentElement.editable(property: 'title', tag: 'span')}</h1>
-	<div class="Author-Content">{main -> f:format.raw()}</div>
-	<div class="Author-NewsList">{newsList -> f:format.raw()}</div>
-</div>
+<f:layout name="withCategoryMenu"/>
+
+<f:section name="Content">
+	<div class="Author">
+		<h1 class="Author-Name">{neos:contentElement.editable(property: 'title', tag: 'span')}</h1>
+		<div class="Author-Content">{main -> f:format.raw()}</div>
+		<div class="Author-NewsList">{newsList -> f:format.raw()}</div>
+	</div>
+</f:section>

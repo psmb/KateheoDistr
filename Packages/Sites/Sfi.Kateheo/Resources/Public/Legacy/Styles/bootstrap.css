@@ -50,19 +50,13 @@ h2{
 	margin-top: 5px;
 }
 
-/*.article{
-	border-bottom-color: #D5D5D5;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-}*/
-
 #c312, #c314{
 	font-size: 11px;
 }
 
 #footer_ {
-    margin-top: 15px;
-	background: #FAFAFA;
+  margin-top: 15px;
+  background: #FAFAFA;
 	border: 1px solid #E7E7E7;
 	overflow:hidden;
 }
@@ -91,6 +85,9 @@ font-size: 15px;
 	border: 1px solid #DDD;
 	padding: 3px;
 	display: inline-block;
+  max-width: 100px;
+  float: left;
+  margin: 3px 12px 5px 0;
 }
 
 .news{
@@ -111,7 +108,6 @@ font-size: 15px;
 	display: block;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
-/*	height: 300px;*/
 	line-height: 20px;
 	list-style-image: none;
 	list-style-position: outside;
@@ -225,10 +221,6 @@ input.gsc-search-button-v2 {
 	margin-left: 2px;
 }
 
-/*.span9 div {
-	padding: 1px 0;
-}*/
-
 .ul_subscribe {
   margin: 0;
 }
@@ -238,24 +230,49 @@ input.gsc-search-button-v2 {
 }
 
 .header h3 {
-	padding: 5px 0;
+	padding: 0;
 }
 
 .csc-default .csc-textpic-text {
 margin-left: 8px;
 }
 
+.publicaton-list-view li, .news-list-view li {
+  float: left;
+}
 
-a { text-decoration: none; border-bottom:1px dashed; }
-a:hover { text-decoration: none; border-bottom:1px dashed; }
-a:over { text-decoration: none; border-bottom:1px dashed; }
+.footer {
+    clear: both;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    color: #888;
+}
 
-.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a,	
-.f3-widget-paginator > li > a, .csc-default > a, 
-.addthis_counter > a:hover, 
-.addthis_button_expanded > a,
-#at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, .brand:hover, .nav > li > a{
-	border: none;
+.footer span {
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid #ddd;
+}
+
+.footer p {
+    line-height: 1em;
+}
+
+nav.page-navigation {
+    clear: both;
+    padding: 10px 0 0 0;
+    float: right;
+}
+nav.page-navigation li{
+    float: left;
+    padding: 4px;
+    display: table;
+}
+
+.PageMain-newsList {
+    font-size: 11px;
 }
 
 /*!================ END OF CUSTOM CSS ======================*/
@@ -387,12 +404,6 @@ textarea {
   a:visited {
     text-decoration: underline;
   }
-  /*a[href]:after {
-    content: " (" attr(href) ")";
-  }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }*/
   
   .ir a:after,
   a[href^="javascript:"]:after,
@@ -472,18 +483,6 @@ body {
   line-height: 20px;
   color: #333333;
   background-color: #ffffff;
-}
-
-a {
-  color: #08c;
-  text-decoration: none;
-  line-height: 16px;
-}	
-
-a:hover {
-  color: #005580;
-  /*text-decoration: underline;*/
-  line-height: 16px;
 }
 
 .img-rounded {
@@ -700,8 +699,6 @@ a:hover {
 }
 
 .row-fluid .span6 {
-/*  width: 48.93617021276595%;
-  *width: 48.88297872340425%;*/
   width: 51%;
   *width: 51%;
   border-left-style: solid;
@@ -970,20 +967,6 @@ a.text-success:hover {
   color: #356635;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 10px 0;
-  font-family: inherit;
-  font-weight: bold;
-  line-height: 20px;
-  color: inherit;
-  text-rendering: optimizelegibility;
-} */
-
 h1 small,
 h2 small,
 h3 small,
@@ -995,35 +978,6 @@ h6 small {
   color: #999999;
 }
 
-/* h1,
-h2,
-h3 {
-  line-height: 40px;
-}
-
-h1 {
-  font-size: 38.5px;
-}
-
-h2 {
-  font-size: 31.5px;
-}
-
-h3 {
-  font-size: 24.5px;
-}
-
-h4 {
-  font-size: 17.5px;
-}
-
-h5 {
-  font-size: 14px;
-}
-
-h6 {
-  font-size: 11.9px;
-} */
 
 h1 small {
   font-size: 24.5px;
@@ -1050,8 +1004,7 @@ h4 small {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10px 25px;
-/*  list-style-type: square;*/
+  margin: 0 0 10px 5px;
 }
 
 ul ul,
@@ -1062,7 +1015,8 @@ ol ul {
 }
 
 li {
-  line-height: 20px;
+  line-height: 18px;
+  display: block;
 }
 
 ul.unstyled,
@@ -6294,4 +6248,22 @@ a.badge:hover {
 
 .affix {
   position: fixed;
+}
+
+a { 
+  color: #08c;
+}
+
+a:hover { 
+  color: #005580;
+  text-decoration: none; 
+}
+
+
+.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a, 
+.f3-widget-paginator > li > a, .csc-default > a, 
+.addthis_counter > a:hover, 
+.addthis_button_expanded > a,
+#at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
+  text-decoration: none;
 }
