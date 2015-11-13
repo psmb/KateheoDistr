@@ -50,19 +50,13 @@ h2{
 	margin-top: 5px;
 }
 
-/*.article{
-	border-bottom-color: #D5D5D5;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
-}*/
-
 #c312, #c314{
 	font-size: 11px;
 }
 
 #footer_ {
   margin-top: 15px;
-	background: #FAFAFA;
+  background: #FAFAFA;
 	border: 1px solid #E7E7E7;
 	overflow:hidden;
 }
@@ -114,7 +108,6 @@ font-size: 15px;
 	display: block;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 16px;
-/*	height: 300px;*/
 	line-height: 20px;
 	list-style-image: none;
 	list-style-position: outside;
@@ -227,10 +220,6 @@ input.gsc-search-button-v2 {
 #c474 a {
 	margin-left: 2px;
 }
-
-/*.span9 div {
-	padding: 1px 0;
-}*/
 
 .ul_subscribe {
   margin: 0;
@@ -415,12 +404,6 @@ textarea {
   a:visited {
     text-decoration: underline;
   }
-  /*a[href]:after {
-    content: " (" attr(href) ")";
-  }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }*/
   
   .ir a:after,
   a[href^="javascript:"]:after,
@@ -501,17 +484,6 @@ body {
   color: #333333;
   background-color: #ffffff;
 }
-
-/*a {
-  color: #08c;
-  text-decoration: none;
-  line-height: 16px;
-}	
-
-a:hover {
-  color: #005580;
-  line-height: 16px;
-}*/
 
 .img-rounded {
   -webkit-border-radius: 6px;
@@ -727,8 +699,6 @@ a:hover {
 }
 
 .row-fluid .span6 {
-/*  width: 48.93617021276595%;
-  *width: 48.88297872340425%;*/
   width: 51%;
   *width: 51%;
   border-left-style: solid;
@@ -997,20 +967,6 @@ a.text-success:hover {
   color: #356635;
 }
 
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 10px 0;
-  font-family: inherit;
-  font-weight: bold;
-  line-height: 20px;
-  color: inherit;
-  text-rendering: optimizelegibility;
-} */
-
 h1 small,
 h2 small,
 h3 small,
@@ -1022,35 +978,6 @@ h6 small {
   color: #999999;
 }
 
-/* h1,
-h2,
-h3 {
-  line-height: 40px;
-}
-
-h1 {
-  font-size: 38.5px;
-}
-
-h2 {
-  font-size: 31.5px;
-}
-
-h3 {
-  font-size: 24.5px;
-}
-
-h4 {
-  font-size: 17.5px;
-}
-
-h5 {
-  font-size: 14px;
-}
-
-h6 {
-  font-size: 11.9px;
-} */
 
 h1 small {
   font-size: 24.5px;
@@ -1078,7 +1005,6 @@ ul,
 ol {
   padding: 0;
   margin: 0 0 10px 5px;
-/*  list-style-type: square;*/
 }
 
 ul ul,
@@ -6326,27 +6252,18 @@ a.badge:hover {
 
 a { 
   color: #08c;
-  /*text-decoration: none; */
-  /*border-bottom: 1px dashed; */
 }
 
 a:hover { 
   color: #005580;
-  /*line-height: 16px;*/
   text-decoration: none; 
-  /*border-bottom: 1px dashed; */
 }
 
-a:over { 
-  /*text-decoration: none; */
-  /*border-bottom: 1px dashed; */
-}
 
 .at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a, 
 .f3-widget-paginator > li > a, .csc-default > a, 
 .addthis_counter > a:hover, 
 .addthis_button_expanded > a,
 #at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
-  /*border: none;*/
   text-decoration: none;
 }
