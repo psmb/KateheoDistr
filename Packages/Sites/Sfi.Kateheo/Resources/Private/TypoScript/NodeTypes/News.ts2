@@ -3,7 +3,7 @@ prototype(Sfi.Kateheo:News) {
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
 	sectionMenu = ${sectionMenu}
-	
+
 	coverCollection = TYPO3.Neos:ContentCollection{
 		nodePath = 'coverCollection'
 		prototype(TYPO3.Neos.NodeTypes:Image){
