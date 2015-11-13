@@ -6277,3 +6277,7 @@ a:hover {
 #at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
   text-decoration: none;
 }
+
+header.csc-header.csc-header-n1 {
+  clear: both;
+}
