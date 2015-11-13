@@ -214,7 +214,7 @@ input.gsc-search-button-v2 {
 }
 
 #c202 p {
-	margin-left: 8px;
+  margin-left: 8px;
 }
 
 #c474 a {
@@ -237,9 +237,19 @@ input.gsc-search-button-v2 {
 margin-left: 8px;
 }
 
+ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-category {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .publicaton-list-view li, .news-list-view li {
   float: left;
+  display: table-cell;
+  width: 100%;
 }
+
 
 .footer {
     clear: both;
@@ -6266,4 +6276,8 @@ a:hover {
 .addthis_button_expanded > a,
 #at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
   text-decoration: none;
+}
+
+header.csc-header.csc-header-n1 {
+  clear: both;
 }

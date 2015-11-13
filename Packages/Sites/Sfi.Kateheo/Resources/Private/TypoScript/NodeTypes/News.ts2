@@ -1,5 +1,8 @@
 prototype(Sfi.Kateheo:News) {
+	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+
+	sectionMenu = ${sectionMenu}
 
 	coverCollection = TYPO3.Neos:ContentCollection{
 		nodePath = 'coverCollection'
