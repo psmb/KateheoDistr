@@ -237,9 +237,19 @@ input.gsc-search-button-v2 {
 margin-left: 8px;
 }
 
+ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-category {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .publicaton-list-view li, .news-list-view li {
   float: left;
+  display: table-cell;
+  width: 100%;
 }
+
 
 .footer {
     clear: both;
