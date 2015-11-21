@@ -1,3 +1,5 @@
+{namespace gcse}
+
 <div class="row-fluid">
 	<div class="span3">
 		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Теория и практика катехизации</h1></header>
@@ -11,6 +13,22 @@
 		</div>
 	</div>
 	<div class="span3">
+		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Поиск</h1></header>
+		<div id="PageMain-serach">
+			<script>
+				(function() {
+					var cx = '001422831760821001445:WMX936016672';
+					var gcse = document.createElement('script');
+					gcse.type = 'text/javascript';
+					gcse.async = true;
+					gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+						'//cse.google.com/cse.js?cx=' + cx;
+					var s = document.getElementsByTagName('script')[0];
+					s.parentNode.insertBefore(gcse, s);
+					})();
+			</script>
+			<gcse:search></gcse:search>
+		</div>
 		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">Новости миссии и катехизации</h1></header>
 		<div class="PageMain-newsList">{newsList -> f:format.raw()}</div>
 		<header class="csc-header csc-header-n1"><h1 class="csc-firstHeader">События</h1></header>

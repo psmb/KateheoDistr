@@ -6281,3 +6281,11 @@ a:hover {
 header.csc-header.csc-header-n1 {
   clear: both;
 }
+
+.gsc-control-cse.gsc-control-cse-ru {
+  padding: 0;
+}
+
+td.gsc-input {
+  padding-top: 11px;
+}
