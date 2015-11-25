@@ -18,7 +18,7 @@ prototype(Sfi.Kateheo:AuthorPage) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
 			@context.limit = 10
-			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').get()}
+			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('author', documentNode).get()}
 		}
 	}
 

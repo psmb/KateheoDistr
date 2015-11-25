@@ -27,7 +27,7 @@ body {
 -------------------------------------------------- */
 
 .bs-docs-sidenav {
-	width: 228px;
+	width: 220px;
 	margin: 0;
 	padding: 0;
 	background-color: #fff;
@@ -114,7 +114,7 @@ body {
 	}
 
 	.bs-docs-sidenav {
-		width: 258px;
+		width: 270px;
 	}
 
 	.bs-docs-sidenav > li > a {
