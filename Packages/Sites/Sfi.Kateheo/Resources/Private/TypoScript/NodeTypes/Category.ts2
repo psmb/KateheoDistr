@@ -4,13 +4,6 @@ prototype(Sfi.Kateheo:Category) {
 
 	sectionMenu = ${sectionMenu}
 
-	aMenu = Menu {
-		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').get()}
-		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
-		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
-		current.attributes.class = "active"
-	}
-
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}

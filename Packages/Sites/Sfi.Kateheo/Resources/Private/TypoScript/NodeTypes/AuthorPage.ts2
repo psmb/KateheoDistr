@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:Author) {
+prototype(Sfi.Kateheo:AuthorPage) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
@@ -9,7 +9,6 @@ prototype(Sfi.Kateheo:Author) {
 		current.attributes.class = "active"
 	}
 
-
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
@@ -19,7 +18,7 @@ prototype(Sfi.Kateheo:Author) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
 			@context.limit = 10
-			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('author', documentNode).get()}
+			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').get()}
 		}
 	}
 
