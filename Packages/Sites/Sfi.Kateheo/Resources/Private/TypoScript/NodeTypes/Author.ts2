@@ -9,7 +9,6 @@ prototype(Sfi.Kateheo:Author) {
 		current.attributes.class = "active"
 	}
 
-
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
