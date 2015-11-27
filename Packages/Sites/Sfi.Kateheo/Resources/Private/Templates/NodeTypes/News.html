@@ -55,8 +55,6 @@
 			<div class="news-text-wrap" itemprop="articleBody">
 				{main -> f:format.raw()}
 			</div>
-
-			<f:render partial="Tags" arguments="{tags: node.properties.tags}" />
 	
 			<f:render partial="Disqus" arguments="{_all}" />
 	
