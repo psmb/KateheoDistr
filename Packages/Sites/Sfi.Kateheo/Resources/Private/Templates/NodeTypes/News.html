@@ -23,7 +23,7 @@
 					<f:if condition="{node.context.workspace.name} != 'live'">
 						<f:then>
 							<span itemprop="name">
-								{neos:contentElement.editable(property: 'author.properties.title', tag: 'span')}
+								{neos:contentElement.editable(property: 'authorName', tag: 'span')}
 							</span>
 						</f:then>
 						<f:else>
