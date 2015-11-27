@@ -31,3 +31,4 @@ node_modules
 /Tests/Selenium/settings.xml
 Build/Resources/Java/selenium-server-standalone*
 /"
+/.project

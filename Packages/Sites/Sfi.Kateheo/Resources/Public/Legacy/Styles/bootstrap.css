@@ -168,14 +168,6 @@ font-size: 16px;
 font-weight: bolder;
 }
 
-.addthis_toolbox.addthis_default_style {
-	padding-left: 25%;
-}
-
-#disqus_thread {
-	padding-left: 25%;
-}
-
 .sticky { 
 	position:fixed; top: 40px;
 	width: 20.076923%;
@@ -4516,7 +4508,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inner {
-  min-height: 40px;
+  min-height: 33px;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #fafafa;
@@ -6288,4 +6280,8 @@ header.csc-header.csc-header-n1 {
 
 td.gsc-input {
   padding-top: 11px;
+}
+
+figure {
+  margin: 10px 0px;
 }
