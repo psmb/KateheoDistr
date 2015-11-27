@@ -3,6 +3,7 @@ prototype(Sfi.Kateheo:News) {
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
 	sectionMenu = ${sectionMenu}
+	authorName = ${this.author.properties.title}
 
 	coverCollection = TYPO3.Neos:ContentCollection{
 		nodePath = 'coverCollection'
