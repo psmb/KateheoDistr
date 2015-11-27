@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:Author) {
+prototype(Sfi.Kateheo:AuthorPage) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
@@ -8,7 +8,6 @@ prototype(Sfi.Kateheo:Author) {
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 		current.attributes.class = "active"
 	}
-
 
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'

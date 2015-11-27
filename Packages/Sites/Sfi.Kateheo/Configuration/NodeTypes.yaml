@@ -65,12 +65,34 @@ blah: &alohaRich
       'Sfi.Listable:ListableCategoryMixin': true
 
 
+'Sfi.Kateheo:AuthorPage':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+    - 'Sfi.Listable:ListableCategoryMixin'
+  ui:
+    label: 'Страница авторов'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    originalIdentifier:
+      type: string
+  constraints:
+    nodeTypes:
+      '*': false
+      'Sfi.Listable:ListableMixin': true
+      'Sfi.Listable:ListableCategoryMixin': true
+
 'Sfi.Kateheo:News':
   superTypes:
     - 'TYPO3.Neos:Document'
     - 'Sfi.Listable:ListableMixin'
   ui:
     label: 'Новость'
+  inspector:
+      groups:
+        news:
+          label: 'News'
   childNodes:
     coverCollection:
       type: 'TYPO3.Neos:ContentCollection'

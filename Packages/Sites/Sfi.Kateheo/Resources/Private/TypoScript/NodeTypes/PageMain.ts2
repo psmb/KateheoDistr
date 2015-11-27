@@ -30,4 +30,5 @@ prototype(Sfi.Kateheo:PageMain) {
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 		current.attributes.class = "active"
 	}
+
 }
