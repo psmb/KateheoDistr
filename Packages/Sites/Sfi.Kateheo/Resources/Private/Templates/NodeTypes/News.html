@@ -20,20 +20,11 @@
 							<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
 						</time>
 					</span>
-					<f:if condition="{node.context.workspace.name} != 'live'">
-						<f:then>
-							<span itemprop="name">
-								{neos:contentElement.editable(property: 'authorName', tag: 'span')}
-							</span>
-						</f:then>
-						<f:else>
-							<f:if condition="{node.properties.author.properties.title}">
-								<!-- author -->
-								<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
-									<span itemprop="name">{node.properties.author.properties.title}</span>
-								</span>
-							</f:if>
-						</f:else>
+					<f:if condition="{node.properties.author.properties.title}">
+						<!-- author -->
+						<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+							<span itemprop="name">{node.properties.author.properties.title}</span>
+						</span>
 					</f:if>
 				</p>
 			</div>
