@@ -71,6 +71,10 @@ blah: &alohaRich
     - 'Sfi.Listable:ListableMixin'
   ui:
     label: 'Новость'
+  inspector:
+      groups:
+        news:
+          label: 'News'
   childNodes:
     coverCollection:
       type: 'TYPO3.Neos:ContentCollection'
