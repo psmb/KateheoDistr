@@ -36,11 +36,12 @@
 				</time>
 			</span>
 			<!-- author -->
-			<f:if condition="{node.properties.author.properties.title}">
-				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					<span itemprop="name" class="news-list-author">{node.properties.author.properties.title}</span>
-				</span>
-			</f:if>
+			<f:debug title="Results of collection">{collection}</f:debug>
+				<f:for each="{collection}" as="item">
+					<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+						<span itemprop="name" class="news-list-author">{item.properties.author.properties.title}</span>
+					</span>
+				</f:for>
 		</p>
 	</div>
 </div>

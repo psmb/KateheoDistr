@@ -92,7 +92,7 @@ blah: &alohaRich
     inspector:
         groups:
           news:
-            label: 'News'
+            label: 'Атрибуты новости'
   childNodes:
     coverCollection:
       type: 'TYPO3.Neos:ContentCollection'
@@ -125,7 +125,7 @@ blah: &alohaRich
       validation:
         'TYPO3.Neos/Validation/DateTimeValidator': []
     author:
-      type: reference
+      type: references
       ui:
         label: 'Автор'
         reloadIfChanged: true

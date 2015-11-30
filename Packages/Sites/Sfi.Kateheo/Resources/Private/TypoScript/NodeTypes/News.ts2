@@ -34,4 +34,5 @@ prototype(Sfi.Kateheo:NewsShort) < prototype(TYPO3.Neos:Content) {
 	thumbnailImage = ${q(node).children('coverCollection').children().count() > 0 ? q(node).children('coverCollection').children().get(0) : null}
 	#parrent node is the category
 	category = ${q(node).parent().get(0)}
+	collection =  ${q(node).property('author')}
 }
