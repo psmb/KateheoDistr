@@ -13,7 +13,7 @@
 		<f:if condition="{thumbnailImage}">
 			<div class="news-img-wrap">
 				<f:if condition="{thumbnailImage.properties.image}">
-						<m:image asset="{thumbnailImage.properties.image}" maximumWidth="{configuration.thumbnailWidth}" maximumHeight="{configuration.thumbnailHeight}" allowCropping="true" allowUpScaling="true" 
+						<m:image asset="{thumbnailImage.properties.image}" maximumWidth="{configuration.thumbnailWidth}" maximumHeight="{configuration.thumbnailHeight}" allowCropping="true" allowUpScaling="true"
 						alt="{thumbnailImage.properties.alternativeText}" additionalAttributes="{itemprop: 'image'}"/>
 				</f:if>
 			</div>
@@ -36,12 +36,13 @@
 				</time>
 			</span>
 			<!-- author -->
-			<f:debug title="Results of collection">{collection}</f:debug>
-				<f:for each="{collection}" as="item">
+			<f:for each="{collection}" as="item">
+				<f:if condition="{item.properties.title}">
 					<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-						<span itemprop="name" class="news-list-author">{item.properties.author.properties.title}</span>
+						<span itemprop="name" class="news-list-author">{item.properties.title}</span>
 					</span>
-				</f:for>
+				</f:if>
+			</f:for>
 		</p>
 	</div>
 </div>

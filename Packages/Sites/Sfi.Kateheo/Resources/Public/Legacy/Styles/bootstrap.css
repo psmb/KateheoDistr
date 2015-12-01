@@ -168,7 +168,7 @@ font-size: 16px;
 font-weight: bolder;
 }
 
-.sticky { 
+.sticky {
 	position:fixed; top: 40px;
 	width: 20.076923%;
 	*width: 20.076923%;
@@ -178,7 +178,7 @@ font-weight: bolder;
   position: fixed;
   top: 0;
 }
- 
+
 .sticky-bottom {
   position: absolute;
   bottom: 0;
@@ -251,7 +251,7 @@ ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-cate
     color: #888;
 }
 
-.footer span {
+span.news-list-date, span.news-list-author{
     display: inline-block;
     padding-right: 8px;
     margin-right: 8px;
@@ -406,7 +406,7 @@ textarea {
   a:visited {
     text-decoration: underline;
   }
-  
+
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
@@ -440,9 +440,9 @@ textarea {
   h3 {
     page-break-after: avoid;
   }
-  
+
   .hero-unit, .navbar, #footer_, .stats, .span3	{
-	 display: none; 
+	 display: none;
   }
 }
 
@@ -6252,19 +6252,19 @@ a.badge:hover {
   position: fixed;
 }
 
-a { 
+a {
   color: #08c;
 }
 
-a:hover { 
+a:hover {
   color: #005580;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 
-.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a, 
-.f3-widget-paginator > li > a, .csc-default > a, 
-.addthis_counter > a:hover, 
+.at300b, .at300b:hover, .at300m, .at300m:hover, .atm-s a,
+.f3-widget-paginator > li > a, .csc-default > a,
+.addthis_counter > a:hover,
 .addthis_button_expanded > a,
 #at3logo, #atm-f > a, #atm-f > a:hover, .sub a, .brand, h1 > a, .lead > a, .brand:hover, .nav > li > a{
   text-decoration: none;
