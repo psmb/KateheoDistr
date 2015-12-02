@@ -6,6 +6,8 @@ ENV \
   T3APP_BUILD_BRANCH=master \
   T3APP_USE_SURF_DEPLOYMENT=true
 
+ADD container-files /
+
 # Pre-install Neos CMS
 RUN . /build-typo3-app/pre-install-typo3-app.sh
 
