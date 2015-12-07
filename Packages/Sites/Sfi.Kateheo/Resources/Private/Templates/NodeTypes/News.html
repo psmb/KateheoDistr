@@ -20,12 +20,14 @@
 							<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
 						</time>
 					</span>
-					<f:for each="{collection}" as="item">
+					<f:for each="{authors}" as="item">
 						<f:if condition="{item.properties.title}">
 							<!-- author -->
-							<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
-								<span itemprop="name">{item.properties.title}</span>
-							</span>
+							<a href="/autors/{item.properties.uriPathSegment}">
+								<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+									<span itemprop="name">{item.properties.title}</span>
+								</span>
+						</a>
 						</f:if>
 					</f:for>
 				</p>
