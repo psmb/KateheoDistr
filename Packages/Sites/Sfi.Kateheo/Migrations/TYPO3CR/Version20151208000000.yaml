@@ -1,0 +1,17 @@
+up:
+  comments: 'Migrate author to authors'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'Sfi.Kateheo:News'
+      transformations:
+        -
+          type: '\Sfi\Kateheo\Transformations\ReferenceToReferences'
+          settings:
+            sourcePropertyName: 'author'
+            targetPropertyName: 'authors'
+down:
+  comments: 'Do nothing'
