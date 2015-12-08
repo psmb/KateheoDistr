@@ -123,16 +123,6 @@ blah: &alohaRich
             format: 'd-m-Y H:i'
       validation:
         'TYPO3.Neos/Validation/DateTimeValidator': []
-    author:
-      type: reference
-      ui:
-        label: 'Автор'
-        reloadIfChanged: true
-        inspector:
-          group: news
-          editorOptions:
-            nodeTypes:
-              - 'TYPO3.Neos:Document'
     authors:
       type: references
       ui:
