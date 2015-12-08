@@ -1,50 +1,60 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace m=TYPO3\Media\ViewHelpers}
 
-<div class="article" itemscope itemtype="http://schema.org/Article">
-	<span itemprop="url">
-		<neos:link.node node="{node}">
+<f:layout name="withCategoryMenu"/>
+
+<f:section name="Content">
+	<div class="news news-single">
+		<div class="article" itemscope="itemscope" itemtype="http://schema.org/Article">
+
 			<div class="header">
-				<h3>
-					<span itemprop="name">{title}</span>
-				</h3>
+				<h3 itemprop="headline">{neos:contentElement.editable(property: 'title', tag: 'span')}</h3>
 			</div>
-		</neos:link.node>
-		<f:if condition="{thumbnailImage}">
-			<div class="news-img-wrap">
-				<f:if condition="{thumbnailImage.properties.image}">
-						<m:image asset="{thumbnailImage.properties.image}" maximumWidth="{configuration.thumbnailWidth}" maximumHeight="{configuration.thumbnailHeight}" allowCropping="true" allowUpScaling="true"
-						alt="{thumbnailImage.properties.alternativeText}" additionalAttributes="{itemprop: 'image'}"/>
-				</f:if>
+
+			<div class="footer">
+				<p>
+					<!-- date -->
+					<span class="news-list-date">
+						<time datetime="{f:format.date(date:date, format:'Y-m-d')}">
+							<f:format.date >{date}</f:format.date>
+							<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
+						</time>
+					</span>
+					<f:for each="{authors}" as="item">
+						<f:if condition="{item.properties.title}">
+							<!-- author -->
+							<a href="/autors/{item.properties.uriPathSegment}">
+								<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+									<span itemprop="name">{item.properties.title}</span>
+								</span>
+							</a>
+						</f:if>
+					</f:for>
+				</p>
 			</div>
-		</f:if>
-	</span>
-	<div class="teaser-text">
-		<span itemprop="headline">
-			{teaser -> f:format.raw()}
-		</span>
-	</div>
+			<f:if condition="{node.context.workspace.name} != 'live'">
+				<f:then>
+					<div class="teaser-text" itemprop="description">
+						{neos:contentElement.editable(property: 'teaser', tag: 'span')}
+					</div>
+				</f:then>
+				<f:else>
+					<f:if condition="{teaser}">
+						<!-- teaser -->
+						<div class="teaser-text" itemprop="description">
+							{neos:contentElement.editable(property: 'teaser', tag: 'span')}
+						</div>
+					</f:if>
+				</f:else>
+			</f:if>
+			{coverCollection -> f:format.raw()}
 
+			<div class="news-text-wrap" itemprop="articleBody">
+				{main -> f:format.raw()}
+			</div>
 
-	<div class="footer">
-		<p>
-			<!-- date -->
-			<span class="news-list-date">
-				<time datetime="{f:format.date(date:date, format:'Y-m-d')}">
-					<f:format.date>{date}</f:format.date>
-					<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
-				</time>
-			</span>
-			<!-- author -->
-			<f:for each="{authors}" as="item">
-				<f:if condition="{item.properties.title}">
-					<a href="/autors/{item.properties.uriPathSegment}">
-						<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-							<span itemprop="name" class="news-list-author">{item.properties.title}</span>
-						</span>
-					</a>
-				</f:if>
-			</f:for>
-		</p>
+			<f:render partial="Disqus" arguments="{_all}" />
+
+		</div>
 	</div>
-</div>
+</f:section>

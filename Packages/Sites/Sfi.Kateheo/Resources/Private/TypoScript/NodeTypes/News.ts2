@@ -3,7 +3,7 @@ prototype(Sfi.Kateheo:News) {
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
 	sectionMenu = ${sectionMenu}
-	
+	authors =  ${q(node).property('authors')}
 	coverCollection = TYPO3.Neos:ContentCollection{
 		nodePath = 'coverCollection'
 		prototype(TYPO3.Neos.NodeTypes:Image){
@@ -17,7 +17,6 @@ prototype(Sfi.Kateheo:News) {
 		nodePath = 'main'
 	}
 	category = ${q(node).parent().get(0)}
-
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
 
@@ -34,5 +33,5 @@ prototype(Sfi.Kateheo:NewsShort) < prototype(TYPO3.Neos:Content) {
 	thumbnailImage = ${q(node).children('coverCollection').children().count() > 0 ? q(node).children('coverCollection').children().get(0) : null}
 	#parrent node is the category
 	category = ${q(node).parent().get(0)}
-	collection =  ${q(node).property('author')}
+	authors =  ${q(node).property('authors')}
 }

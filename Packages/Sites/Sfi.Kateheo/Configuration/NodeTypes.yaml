@@ -39,7 +39,6 @@ blah: &alohaRich
     a: true
   alignment: {  }
 
-
 'Sfi.Kateheo:PageMain':
   superTypes:
     - 'TYPO3.Neos.NodeTypes:Page'
@@ -125,9 +124,19 @@ blah: &alohaRich
       validation:
         'TYPO3.Neos/Validation/DateTimeValidator': []
     author:
-      type: references
+      type: reference
       ui:
         label: 'Автор'
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            nodeTypes:
+              - 'TYPO3.Neos:Document'
+    authors:
+      type: references
+      ui:
+        label: 'Авторы'
         reloadIfChanged: true
         inspector:
           group: news
