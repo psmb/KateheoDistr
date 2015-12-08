@@ -39,7 +39,6 @@ blah: &alohaRich
     a: true
   alignment: {  }
 
-
 'Sfi.Kateheo:PageMain':
   superTypes:
     - 'TYPO3.Neos.NodeTypes:Page'
@@ -92,7 +91,7 @@ blah: &alohaRich
     inspector:
         groups:
           news:
-            label: 'News'
+            label: 'Атрибуты новости'
   childNodes:
     coverCollection:
       type: 'TYPO3.Neos:ContentCollection'
@@ -128,6 +127,16 @@ blah: &alohaRich
       type: reference
       ui:
         label: 'Автор'
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            nodeTypes:
+              - 'TYPO3.Neos:Document'
+    authors:
+      type: references
+      ui:
+        label: 'Авторы'
         reloadIfChanged: true
         inspector:
           group: news

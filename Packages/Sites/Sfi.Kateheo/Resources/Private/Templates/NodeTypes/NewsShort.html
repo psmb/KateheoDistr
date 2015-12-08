@@ -24,8 +24,6 @@
 			{teaser -> f:format.raw()}
 		</span>
 	</div>
-
-
 	<div class="footer">
 		<p>
 			<!-- date -->
@@ -36,9 +34,11 @@
 				</time>
 			</span>
 			<!-- author -->
-			<f:if condition="{node.properties.author.properties.title}">
-				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					<span itemprop="name" class="news-list-author">{node.properties.author.properties.title}</span>
+			<f:if condition="{authors}">
+				<span class="news-list-author">
+					<f:for each="{authors}" as="item">
+						{item.properties.title}
+					</f:for>
 				</span>
 			</f:if>
 		</p>
