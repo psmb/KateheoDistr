@@ -23,11 +23,11 @@
 					<f:for each="{authors}" as="item">
 						<f:if condition="{item.properties.title}">
 							<!-- author -->
-							<a href="/autors/{item.properties.uriPathSegment}">
+							<neos:link.node node="{item}">
 								<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
 									<span itemprop="name">{item.properties.title}</span>
 								</span>
-							</a>
+							</neos:link.node>
 						</f:if>
 					</f:for>
 				</p>
