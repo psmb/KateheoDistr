@@ -34,9 +34,9 @@
 				</time>
 			</span>
 			<!-- author -->
-			<f:if condition="{node.properties.authors}">
+			<f:if condition="{authors}">
 				<span class="news-list-author">
-					<f:for each="{node.properties.authors}" as="item">
+					<f:for each="{authors}" as="item">
 						{item.properties.title}
 					</f:for>
 				</span>
