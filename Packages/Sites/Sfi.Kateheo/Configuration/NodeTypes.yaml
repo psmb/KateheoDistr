@@ -64,7 +64,7 @@ blah: &alohaRich
       'Sfi.Listable:ListableCategoryMixin': true
 
 
-'Sfi.Kateheo:AuthorPage':
+'Sfi.Kateheo:AuthorsDirectoryPage':
   superTypes:
     - 'TYPO3.Neos:Document'
     - 'Sfi.Listable:ListableCategoryMixin'
