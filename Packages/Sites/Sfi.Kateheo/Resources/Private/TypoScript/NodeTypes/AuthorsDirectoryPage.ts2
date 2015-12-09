@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:AuthorPage) {
+prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 

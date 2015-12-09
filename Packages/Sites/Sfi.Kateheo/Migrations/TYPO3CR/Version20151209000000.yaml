@@ -1,0 +1,28 @@
+up:
+  comments: 'Migration to rename AutorPage into AuthorsDirectoryPage'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'Sfi.Kateheo:AuthorPage'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'Sfi.Kateheo:AuthorsDirectoryPage'
+down:
+  comments: 'Revert migration to rename AutorPage into AuthorsDirectoryPage'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'Sfi.Kateheo:AuthorsDirectoryPage'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'Sfi.Kateheo:AuthorPage'
