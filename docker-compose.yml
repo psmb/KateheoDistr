@@ -12,13 +12,14 @@ db:
     - dbdata
   environment:
     MARIADB_PASS: pass
+  restart: always
 
 webdata:
   image: busybox:latest
   command: echo webdata
   volumes:
-    - ./data:/data
-#    - Persistent:/data/www/shared/Data/Persistent
+    - /data
+    - ./Persistent:/data/www/shared/Data/Persistent
     - /etc/localtime:/etc/localtime:ro
 
 web:
@@ -30,16 +31,19 @@ web:
   volumes_from:
     - webdata
   environment:
-    VIRTUAL_HOST: 'kateheo.loc,www.kateheo.loc,dev.kateheo.loc,next.kateheo.loc'
+    VIRTUAL_HOST: 'kateheo.ru,www.kateheo.ru,dev.kateheo.ru,next.kateheo.ru'
+    REPOSITORY_URL: 'https://github.com/sfi-ru/KateheoDistr'
+  restart: always
 
 ssh:
   image: million12/php-app-ssh
   ports:
-    - '22'
+    - '1123:22'
   links:
     - db:db
     - web:web
   volumes_from:
     - webdata
   environment:
-    IMPORT_GITHUB_PUB_KEYS: dimaip
+    IMPORT_GITHUB_PUB_KEYS: dimaip, zaveryukha
+  restart: always
