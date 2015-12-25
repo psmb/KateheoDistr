@@ -1,21 +1,23 @@
 machine:
+  python:
+    version: 2.7.5
   php:
-    version: 5.5.11
+    version: 5.6.14
 dependencies:
   override:
-    - rm Packages/Sites/Sfi.Kateheo/composer.json
-    - COMPOSER=composer-surf.json composer install --no-interaction --no-dev
-    - mv Packages/Libraries/sfi/surf/Build Build
+    - if [ -d ../ansible-deploy ]; then (cd ../ansible-deploy && git pull); else git clone https://github.com/sfi-ru/ansible-deploy ../ansible-deploy;fi
+    - pip install ansible
+    - pip install httplib2
+  cache_directories:
+    - "~/ansible-deploy"
 test:
   override:
     - echo "No tests to run"
 deployment:
-  production:
+  prod:
     branch: master
     commands:
-      - ./flow surf:deploy Surf:
-          timeout: 1500
-          environment:
-            REPOSITORY_URL: 'git@github.com:sfi-ru/SfiKateheo.git'
-            DOMAIN: 'kateheo.ru'
-            PORT: 1123
+      - cd ~/ansible-deploy
+      - touch 'i'
+      - ansible-playbook ~/ansible-deploy/deploy.yml --extra-vars "REPOSITORY_URL=https://github.com/sfi-ru/KateheoDistr DOMAIN=kateheo.ru HOST=server.psmb.ru PORT=0000" -i 'i':
+          timeout: 1800
