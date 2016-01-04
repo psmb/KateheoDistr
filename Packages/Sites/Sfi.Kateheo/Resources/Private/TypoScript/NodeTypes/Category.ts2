@@ -9,7 +9,9 @@ prototype(Sfi.Kateheo:Category) {
 	}
 	newsList = Sfi.Listable:List {
 		@context.listClass = 'news-list-view'
-		@context.queryType = 'getFromCurrentPage'
+		prototype(Sfi.Listable:Listable) {
+			@context.queryType = 'getFromCurrentPage'
+		}
 	}
 
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping

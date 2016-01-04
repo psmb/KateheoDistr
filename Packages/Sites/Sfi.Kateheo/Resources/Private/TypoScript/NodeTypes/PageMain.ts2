@@ -12,7 +12,7 @@ prototype(Sfi.Kateheo:PageMain) {
 	newsList = Sfi.Listable:List {
 		@context.listClass = 'news-list-view'
 		prototype(Sfi.Listable:Listable) {
-			@context.limit = 7
+			@context.limit = 20
 			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "news"]').find('[instanceof Sfi.Kateheo:News]').get()}
 		}
 	}
