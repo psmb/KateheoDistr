@@ -10,7 +10,8 @@ CircleCI integration status:
 
 1. Install Docker [Docker-maintained Package Installation for Ubuntu](https://docs.docker.com/installation/ubuntulinux/#ubuntu-trusty-1404-lts-64-bit)
 2. Install docker-compose
- * Download the binary file to user folder (to avoid permission issues): `curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose`
+ * Download the binary file to user folder (to avoid permission issues): 
+ ```curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose```
  * Move to bin: `sudo mv ~/docker-compose /usr/local/bin/docker-compose`
  * Make executable: `sudo chmod +x /usr/local/bin/docker-compose`
 3. Create a directory where your project files will be. By convention `/home/username/docker/project-name`
