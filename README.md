@@ -2,7 +2,7 @@ Kateheo.ru Distribution
 ========
 
 CircleCI integration status:
-[![Circle CI](https://circleci.com/gh/sfi-ru/KateheoDistr/tree/master.svg?style=svg)](https://circleci.com/gh/sfi-ru/KateheoDistr/tree/master)
+[![Circle CI](https://circleci.com/gh/psmb/KateheoDistr/tree/master.svg?style=svg)](https://circleci.com/gh/psmb/KateheoDistr/tree/master)
 
 ##Installation
 
@@ -10,13 +10,14 @@ CircleCI integration status:
 
 1. Install Docker [Docker-maintained Package Installation for Ubuntu](https://docs.docker.com/installation/ubuntulinux/#ubuntu-trusty-1404-lts-64-bit)
 2. Install docker-compose
- * Download the binary file to user folder (to avoid permission issues): `curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose`
+ * Download the binary file to user folder (to avoid permission issues): 
+ ```curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose```
  * Move to bin: `sudo mv ~/docker-compose /usr/local/bin/docker-compose`
  * Make executable: `sudo chmod +x /usr/local/bin/docker-compose`
 3. Create a directory where your project files will be. By convention `/home/username/docker/project-name`
 4. Copy contents of https://github.com/sfi-ru/KateheoDistr/blob/master/docker/docker-compose.yml and adjust to match local environment.
 5. For local development:
-  * Add local domain name (e.g. `sfi` instead of `sfi.ru`) to `/etc/hosts` and point it to `127.0.0.1`
+  * Add local domain name (e.g. `kateheo.loc` instead of `kateheo.ru`) to `/etc/hosts` and point it to `127.0.0.1`
   * Define custom local port for web container to run on. E.g. `- 8080:80` to run on port 8080. This port needs to be different for every local project.
 6. To be able to login to your ssh docker container you need to follow this guide at least up to step 4: https://help.github.com/articles/generating-ssh-keys/
 7. Run `sudo docker-compose up -d` from the same directory and wait some minutes before all needed images are download and started (about 10 min on good connection).
