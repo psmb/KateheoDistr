@@ -6,11 +6,6 @@
         "vendor-dir": "Packages/Libraries",
         "bin-dir": "bin"
     },
-    "repositories": [
-        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.Migration.git" },
-        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.News.git" },
-        { "type": "git", "url": "https://github.com/sfi-ru/Sfi.Grid.git" }
-    ],
     "require": {
         "typo3/neos": "~2.1.0",
         "typo3/neos-nodetypes": "~2.1.0",
