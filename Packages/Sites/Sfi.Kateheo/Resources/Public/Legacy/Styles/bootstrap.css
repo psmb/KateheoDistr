@@ -191,7 +191,7 @@ input.gsc-search-button-v2 {
 
 .sn_icon {
 	font-size: 20px;
-	margin-left: 2px;
+	margin-left: 12pt;
 }
 
 .sn_icon a {
@@ -277,6 +277,13 @@ nav.page-navigation li{
     font-size: 11px;
 }
 
+i.fa {
+    width: 20pt;
+}
+
+.csc-textpic-text {
+    margin-left: 11pt;
+}
 /*!================ END OF CUSTOM CSS ======================*/
 
 audio,
