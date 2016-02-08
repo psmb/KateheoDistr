@@ -4,7 +4,7 @@ include: NodeTypes/**/*.ts2
 prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
 	innerAttributes = TYPO3.TypoScript:Attributes {
-		class = 'nav nav-list bs-docs-sidenav affix-top'
+		class = 'innerLevel'
 	}
 	entryLevel = 2
 	maximumLevels = 2
