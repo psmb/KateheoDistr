@@ -1,6 +1,18 @@
 include: Redirect.ts2
 include: NodeTypes/**/*.ts2
 
+prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
+	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
+	innerAttributes = TYPO3.TypoScript:Attributes {
+		class = 'innerLevel'
+	}
+	entryLevel = 2
+	maximumLevels = 2
+	filter = '!My.Site:News,Sfi.Kateheo:Category'
+	attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+	current.attributes.class = "active"
+}
+
 #This is a default page object. It's being extended and never used directly.
 prototype(Sfi.Kateheo:Page) >
 prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
@@ -28,12 +40,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
-		@context.sectionMenu = Menu {
-			entryLevel = 2
-			maximumLevels = 1
-			attributes.class = "nav nav-list bs-docs-sidenav affix-top"
-			current.attributes.class = "active"
-		}
+		@context.sectionMenu = Sfi.Kateheo:SectionMenu
 
 		main = PrimaryContent {
 			renderByType {
