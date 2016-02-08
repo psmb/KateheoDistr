@@ -9,7 +9,7 @@
 		<li{ts:render(path: '{item.state}.attributes', context: {item: item}) -> f:format.raw()}>
 		<neos:link.node node="{item.node}" />
 		<f:if condition="{item.subItems}">
-			<ul class="nav nav-list bs-docs-sidenav affix-top">
+			<ul{secondLevelAttributes -> f:format.raw()}>
 				<f:render section="itemsList" arguments="{items: item.subItems}" />
 			</ul>
 		</f:if>
