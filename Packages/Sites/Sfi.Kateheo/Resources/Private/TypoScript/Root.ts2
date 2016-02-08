@@ -29,8 +29,10 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 		}
 
 		@context.sectionMenu = Menu {
+		  templatePath = 'resource://Sfi.Kateheo/Private/Partials/2levelMenu.html'
 			entryLevel = 2
-			maximumLevels = 1
+			maximumLevels = 2
+			filter = '!My.Site:News,Sfi.Kateheo:Category'
 			attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 			current.attributes.class = "active"
 		}
