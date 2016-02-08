@@ -3,11 +3,14 @@ include: NodeTypes/**/*.ts2
 
 prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
-	secondLevelAttributes = TYPO3.TypoScript:Attributes {
+	innerAttributes = TYPO3.TypoScript:Attributes {
 		class = 'nav nav-list bs-docs-sidenav affix-top'
 	}
 	entryLevel = 2
 	maximumLevels = 2
+	filter = '!My.Site:News,Sfi.Kateheo:Category'
+	attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+	current.attributes.class = "active"
 }
 
 #This is a default page object. It's being extended and never used directly.
@@ -37,11 +40,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			attributes.class = "nav"
 		}
 
-		@context.sectionMenu = Sfi.Kateheo:SectionMenu {
-			filter = '!My.Site:News,Sfi.Kateheo:Category'
-			attributes.class = "nav nav-list bs-docs-sidenav affix-top"
-			current.attributes.class = "active"
-		}
+		@context.sectionMenu = Sfi.Kateheo:SectionMenu
 
 		main = PrimaryContent {
 			renderByType {
