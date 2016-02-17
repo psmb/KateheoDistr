@@ -1,4 +1,11 @@
 // Avoid `console` errors in browsers that lack a console.
+var headingAnchors = function() {
+    $(".js-anchor").each(function() {
+        var anchor = $('<a class="HeadingAnchor-Link"><i class="fa fa-anchor anchor-link"></i></a>').attr('href', '#' + $(this).attr('id'));
+        $(this).find("h1,h2,h3,h4,h5,h6").append(anchor);
+    });
+}
+
 (function() {
     var method;
     var noop = function () {};
@@ -21,4 +28,17 @@
     }
 }());
 
+var onReadyPlugins = function() {
+    headingAnchors();
+}
+
 // Place any jQuery/helper plugins in here.
+$(document).ready(function () {
+	onReadyPlugins();
+});
+
+if (typeof document.addEventListener === 'function') {
+	document.addEventListener('Neos.PageLoaded', function(event) {
+		onReadyPlugins();
+	}, false);
+}
