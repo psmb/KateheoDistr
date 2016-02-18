@@ -335,6 +335,32 @@ i.fa {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
     background-color: #0088cc;
 }
+
+*,*:before,*:after{box-sizing:border-box;}
+
+.HeadingAnchor-Link {
+	display: none;
+}
+.HeadingAnchor:hover .HeadingAnchor-Link {
+	display: inline;
+}
+
+.anchor-link:before, .anchor-link:before {
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 2em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 /*!================ END OF CUSTOM CSS ======================*/
 
 audio,
