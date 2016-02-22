@@ -1,0 +1,339 @@
+/*!================ START OF CUSTOM CSS ======================*/
+
+/* Для печати*/
+
+span.print {
+    background:url(../typo3conf/ext/speciality/Resources/Public/Images/icon_printer.gif) no-repeat;
+    display:inline-block;
+    line-height:20px;
+    padding-left:23px;
+}
+
+.printSelected div {display: none } /* скрываем весь контент на странице */
+.printSelected div.printSelection {display: block; } /* делаем видимым только тот блок, который подготовлен для печати */
+.printSelected div.printSelection div {display: block; } /* показываем всех его потомков, которые были скрыты первой строкой */
+
+h1, h2, h3, h4, h5, h6 {
+color: #444;
+font-weight: normal;
+line-height: 1;
+margin-bottom: 0.3em;
+}
+
+h2{
+	font-size: 2em;
+	margin-top: 5px;
+}
+
+#c312, #c314{
+	font-size: 11px;
+}
+
+#footer_ {
+  margin-top: 15px;
+  background: #FAFAFA;
+	border: 1px solid #E7E7E7;
+	overflow:hidden;
+}
+
+.footer_column{
+	width: 357px;
+	float: left;
+	padding: 14px 16px;
+}
+
+.csc-firstHeader {
+	background-color: #F2F6FA;
+	border-top: 2px solid #ABC;
+	font: bold 1.1em sans-serif;
+	margin-bottom: 5px;
+	min-height: 0;
+	padding: 5px 8px 6px;
+}
+
+h1, .csc-firstHeader {
+font-size: 15px;
+}
+
+.news-img-wrap {
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	padding: 3px;
+	display: inline-block;
+  max-width: 100px;
+  float: left;
+  margin: 3px 12px 5px 0;
+}
+
+.news{
+	margin-left: 8px;
+}
+
+.bodytext{margin-left: 8px;}
+
+.csc-menu-1{
+	-webkit-box-shadow: rgba(0, 0, 0, 0.0627451) 0px 1px 4px 0px;
+	background-color: rgb(255, 255, 255);
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.0627451) 0px 1px 4px 0px;
+	color: rgb(51, 51, 51);
+	display: block;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 20px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 12px 0 0 0;
+	padding: 0;
+	background-color: #F2F6FA;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+}
+
+.csc-menu-1 > li{
+	background-color: #F2F6FA;
+}
+
+.csc-menu-1 > li  > a{
+	display: block;
+	margin: 0 0 -1px;
+	padding: 6px 6px;
+	border: 1px solid #e5e5e5;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.bs-docs-sidenav > li > a {
+font-weight: bolder;
+}
+
+.csc-menu-1 > li:first-child  > a{
+	-webkit-border-radius: 6px 6px 0 0;
+	-moz-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
+}
+
+.csc-menu-1 > li:last-child  > a{
+	-webkit-border-radius: 0 0 6px 6px;
+	-moz-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
+}
+
+.row-fluid .span6 {
+width: 51.223%;
+}
+
+.row-fluid .span3 {
+margin-left: 10px;
+}
+
+.navbar-form.pull-right {
+width: 300px;
+}
+.nav-collapse.collapse {
+font-size: 16px;
+font-weight: bolder;
+}
+
+.sticky {
+	position:fixed; top: 40px;
+	width: 20.076923%;
+	*width: 20.076923%;
+}
+
+.sticky-top {
+  position: fixed;
+  top: 0;
+}
+
+.sticky-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.cse .gsc-search-button input.gsc-search-button-v2,
+input.gsc-search-button-v2 {
+  padding: 6px;
+}
+
+.sn_icon {
+	font-size: 20px;
+	margin-left: 12pt;
+}
+
+.sn_icon a {
+	font-size: 14px;
+	vertical-align: text-top;
+}
+
+.stats{
+	margin: 0 auto;
+	width: 300px;
+	padding: 5px 0;
+}
+
+#c202 p {
+  margin-left: 8px;
+}
+
+#c474 a {
+	margin-left: 2px;
+}
+
+.ul_subscribe {
+  margin: 0;
+}
+
+#subscribe li {
+  list-style: none;
+}
+
+.header h3 {
+	padding: 0;
+}
+
+.csc-default .csc-textpic-text {
+margin-left: 8px;
+}
+
+ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-category {
+  display: table;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.publicaton-list-view li, .news-list-view li {
+  float: left;
+  display: table-cell;
+  width: 100%;
+}
+
+
+.footer {
+    clear: both;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    color: #888;
+}
+
+span.news-list-date, span.news-list-author{
+    display: inline-block;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid #ddd;
+}
+
+.footer p {
+    line-height: 1em;
+}
+
+nav.page-navigation {
+    clear: both;
+    padding: 10px 0 0 0;
+    float: right;
+}
+nav.page-navigation li{
+    float: left;
+    padding: 4px;
+    display: table;
+}
+
+.PageMain-newsList {
+    font-size: 11px;
+}
+
+i.fa {
+    width: 20pt;
+}
+
+.csc-textpic-text {
+    margin-left: 11pt;
+}
+
+.innerLevel {
+  	width: 260px;
+  	margin: 0 0 0 10px;
+  	padding: 0;
+  	background-color: #fff;
+  	-webkit-border-radius: 6px;
+  	-moz-border-radius: 6px;
+  	border-radius: 6px;
+  	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+  	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+  	box-shadow: 0 1px 4px rgba(0, 0, 0, .065);
+  }
+
+  .innerLevel > li > a {
+  	display: block;
+  	width: 190px  \9;
+  	margin: 0 0 -1px;
+  	padding: 8px 14px;
+  	border: 1px solid #e5e5e5;
+  	text-decoration: none;
+  }
+
+  .innerLevel > li:first-child > a {
+  	-webkit-border-radius: 6px 6px 0 0;
+  	-moz-border-radius: 6px 6px 0 0;
+  	border-radius: 6px 6px 0 0;
+  }
+
+  .innerLevel > li:last-child > a {
+  	-webkit-border-radius: 0 0 6px 6px;
+  	-moz-border-radius: 0 0 6px 6px;
+  	border-radius: 0 0 6px 6px;
+  }
+
+  .innerLevel > .active > a {
+  	position: relative;
+  	z-index: 2;
+  	padding: 9px 15px;
+  	border: 0;
+  	text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+  	-webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .1);
+  	-moz-box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .1);
+  	box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1), inset -1px 0 0 rgba(0, 0, 0, .1);
+  }
+
+.innerLevel > .active > a, .nav-list > .active > a:hover {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #0088cc;
+}
+
+*,*:before,*:after{box-sizing:border-box;}
+
+.HeadingAnchor-Link {
+	display: none;
+}
+.HeadingAnchor:hover .HeadingAnchor-Link {
+	display: inline;
+}
+
+.anchor-link:before, .anchor-link:before {
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 2em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*!================ END OF CUSTOM CSS ======================*/
