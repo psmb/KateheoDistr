@@ -1,0 +1,26 @@
+prototype(Sfi.Kateheo:TagsPage) {
+	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
+	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+
+	aMenu = Menu {
+		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
+		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
+		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+		current.attributes.class = "active"
+	}
+
+	main = TYPO3.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+	newsList = Sfi.Listable:List {
+		@context.listClass = 'news-list-view'
+		prototype(Sfi.Listable:Listable) {
+			@context.sortProperty = 'date'
+			@context.sortOrder = 'DESC'
+			@context.limit = 10
+			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('tags', documentNode).get()}
+		}
+	}
+
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+}

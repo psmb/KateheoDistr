@@ -20,12 +20,24 @@
 							<meta itemprop="datePublished" content="{f:format.date(date:date, format:'Y-m-d')}" />
 						</time>
 					</span>
+					<!-- author -->
 					<f:for each="{authors}" as="item">
 						<f:if condition="{item.properties.title}">
-							<!-- author -->
+							<i class="fa fa-user"></i>
 							<neos:link.node node="{item}">
 								<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
 									<span itemprop="name">{item.properties.title}</span>
+								</span>
+							</neos:link.node>
+						</f:if>
+					</f:for>
+					<!-- tags -->
+					<f:for each="{tags}" as="item">
+						<f:if condition="{item.properties.title}">
+							<i class="fa fa-tag"></i>
+							<neos:link.node node="{item}">
+								<span class="news-list-tag" itemprop="tag" itemscope="itemscope" itemtype="http://schema.org/Person">
+									<span itemprop="tag">{item.properties.title}</span>
 								</span>
 							</neos:link.node>
 						</f:if>

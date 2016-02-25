@@ -82,6 +82,60 @@ blah: &alohaRich
       'Sfi.Listable:ListableMixin': true
       'Sfi.Listable:ListableCategoryMixin': true
 
+'Sfi.Kateheo:Author':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+  ui:
+    label: 'Автор'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    title:
+      ui:
+        inlineEditable: true
+        aloha:
+          <<: *alohaPlain
+          placeholder: 'Имя автора'
+    originalIdentifier:
+      type: string
+
+'Sfi.Kateheo:TagsPage':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+    - 'Sfi.Listable:ListableCategoryMixin'
+  ui:
+    label: 'Страница тэгов'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    originalIdentifier:
+      type: string
+  constraints:
+    nodeTypes:
+      '*': false
+      'Sfi.Listable:ListableMixin': true
+      'Sfi.Listable:ListableCategoryMixin': true
+
+'Sfi.Kateheo:Tags':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+  ui:
+    label: 'Тэг'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    title:
+      ui:
+        inlineEditable: true
+        aloha:
+          <<: *alohaPlain
+          placeholder: 'Тэг'
+    originalIdentifier:
+      type: string
+
 'Sfi.Kateheo:News':
   superTypes:
     - 'TYPO3.Neos:Document'
@@ -143,24 +197,5 @@ blah: &alohaRich
           editorOptions:
             nodeTypes:
               - 'TYPO3.Neos:Document'
-    originalIdentifier:
-      type: string
-
-
-'Sfi.Kateheo:Author':
-  superTypes:
-    - 'TYPO3.Neos:Document'
-  ui:
-    label: 'Автор'
-  childNodes:
-    main:
-      type: 'TYPO3.Neos:ContentCollection'
-  properties:
-    title:
-      ui:
-        inlineEditable: true
-        aloha:
-          <<: *alohaPlain
-          placeholder: 'Имя автора'
     originalIdentifier:
       type: string
