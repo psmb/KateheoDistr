@@ -227,10 +227,10 @@ ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-cate
 }
 
 .news .footer span, span.news-list-date, span.news-list-author, span.news-list-tags {
-    display: inherit;
-    padding-right: 0px;
-    margin-right: 0px;
-    border-right: 1px solid #ddd;
+  display: inherit;
+  padding-right: 0px;
+  margin-right: 0px;
+  border-right: 1px solid #ddd;
 }
 
 .footer p {
