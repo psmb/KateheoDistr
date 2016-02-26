@@ -226,10 +226,10 @@ ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-cate
     color: #888;
 }
 
-span.news-list-date, span.news-list-author{
-    display: inline-block;
-    padding-right: 8px;
-    margin-right: 8px;
+.news .footer span, span.news-list-date, span.news-list-author, span.news-list-tags {
+    display: inherit;
+    padding-right: 0px;
+    margin-right: 0px;
     border-right: 1px solid #ddd;
 }
 
@@ -254,6 +254,14 @@ nav.page-navigation li{
 
 i.fa {
     width: 20pt;
+}
+
+i.fa.fa-tag {
+    width: 8pt;
+}
+
+i.fa.fa-user {
+    width: 8pt;
 }
 
 .csc-textpic-text {
