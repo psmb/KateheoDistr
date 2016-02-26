@@ -256,12 +256,12 @@ i.fa {
     width: 20pt;
 }
 
-i.fa.fa-tag {
-    width: 8pt;
+i.fa.fa-tag, i.fa.fa-user, i.fa.fa-calendar {
+    width: 1em;
 }
 
-i.fa.fa-user {
-    width: 8pt;
+span.news-list-tags,  span.news-list-authors{
+    margin-top: 0.6em;
 }
 
 .csc-textpic-text {
