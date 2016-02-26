@@ -36,8 +36,8 @@
 						<f:if condition="{item.properties.title}">
 							<i class="fa fa-tag"></i>
 							<neos:link.node node="{item}">
-								<span class="news-list-tag" itemprop="tag" itemscope="itemscope" itemtype="http://schema.org/Person">
-									<span itemprop="tag">{item.properties.title}</span>
+								<span class="news-list-tag" itemprop="keywords" itemscope="itemscope" itemtype="http://schema.org/Person">
+									<span>{item.properties.title}</span>
 								</span>
 							</neos:link.node>
 						</f:if>
