@@ -100,6 +100,24 @@ blah: &alohaRich
     originalIdentifier:
       type: string
 
+'Sfi.Kateheo:TagsPage':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+    - 'Sfi.Listable:ListableCategoryMixin'
+  ui:
+    label: 'Страница тегов'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    originalIdentifier:
+      type: string
+  constraints:
+    nodeTypes:
+      '*': false
+      'Sfi.Listable:ListableMixin': true
+      'Sfi.Listable:ListableCategoryMixin': true
+
 'Sfi.Kateheo:Tags':
   superTypes:
     - 'TYPO3.Neos:Document'
