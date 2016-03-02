@@ -5,7 +5,7 @@
 
 <f:section name="Content">
 	<div class="Tags">
-		<h1 class="Tag-Name">{neos:contentElement.editable(property: 'title', tag: 'span')}</h1>
+		<h1 class="Tag-Name">Список материалов по тегу: {neos:contentElement.editable(property: 'title', tag: 'span')}</h1>
 		<div class="Tag-Content">{main -> f:format.raw()}</div>
 		<div class="Tag-NewsList">{newsList -> f:format.raw()}</div>
 	</div>
