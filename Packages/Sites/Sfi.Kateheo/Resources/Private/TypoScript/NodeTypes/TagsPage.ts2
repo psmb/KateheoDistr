@@ -3,7 +3,7 @@ prototype(Sfi.Kateheo:TagsPage) {
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
 	tagsList = Menu {
-		templatePath = 'resource://Sfi.Kateheo/Private/Templates/Pages/tagsList.html'
+		templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/tagsList.html'
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
 	}
