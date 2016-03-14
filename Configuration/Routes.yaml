@@ -18,7 +18,7 @@
       package: 'Sfi.Listable'
       variables:
         'defaultUriSuffix': ''
-        'pageSeparator': '-p'
+        'pageSeparator': '~p'
 
 -
   name: 'TYPO3Neos'
