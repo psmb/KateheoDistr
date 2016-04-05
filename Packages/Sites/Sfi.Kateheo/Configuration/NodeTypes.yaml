@@ -186,7 +186,7 @@ blah: &alohaRich
           group: news
           editorOptions:
             nodeTypes:
-              - 'TYPO3.Neos:Document'
+              - 'Sfi.Kateheo:Author'
     tags:
       type: references
       ui:
@@ -196,6 +196,6 @@ blah: &alohaRich
           group: news
           editorOptions:
             nodeTypes:
-              - 'TYPO3.Neos:Document'
+              - 'Sfi.Kateheo:Tags'
     originalIdentifier:
       type: string
