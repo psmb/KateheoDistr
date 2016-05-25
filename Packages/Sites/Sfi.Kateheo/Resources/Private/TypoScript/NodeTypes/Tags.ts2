@@ -17,8 +17,8 @@ prototype(Sfi.Kateheo:Tags) {
 		prototype(Sfi.Listable:Listable) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
-			@itemsPerPage = 50
-			@paginationEnabled = true
+			@context.itemsPerPage = 50
+			@context.paginationEnabled = ${true}
 			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('tags', documentNode).get()}
 		}
 	}
