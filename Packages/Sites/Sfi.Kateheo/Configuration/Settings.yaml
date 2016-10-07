@@ -1,9 +1,26 @@
 TYPO3:
+
+  Flow:
+    security:
+      authentication:
+        providers:
+          'Typo3BackendProvider':
+            requestPatterns:
+              'Flowpack\Neos\FrontendLogin\Security\NeosRequestPattern': 'backend'
+          'Flowpack.Neos.FrontendLogin:Frontend':
+            provider: 'PersistedUsernamePasswordProvider'
+            requestPatterns:
+              'Flowpack\Neos\FrontendLogin\Security\NeosRequestPattern': 'frontend'
+
   Neos:
     typoScript:
       autoInclude:
         'Sfi.Kateheo': TRUE
+        'Flowpack.Neos.FrontendLogin': TRUE
     userInterface:
       navigateComponent:
         nodeTree:
           loadingDepth: 1
+      translation:
+        autoInclude:
+          'Flowpack.Neos.FrontendLogin': ['NodeTypes/*']

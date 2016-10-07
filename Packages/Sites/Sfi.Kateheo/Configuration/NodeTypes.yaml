@@ -45,6 +45,12 @@ blah: &alohaRich
   ui:
     label: 'Главная страница'
 
+'Sfi.Kateheo:LoginPage':
+  superTypes:
+    - 'TYPO3.Neos.NodeTypes:Page'
+  ui:
+    label: 'Страница входа'
+
 'Sfi.Kateheo:Category':
   superTypes:
     - 'TYPO3.Neos:Document'
