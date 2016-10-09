@@ -5,9 +5,9 @@
 privilegeTargets:
   'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
 
-    Neos_Demo_RegistrationAccess:
+    Sfi_Kateheo_RegistrationAccess:
       matcher: method(Neos\Demo\Controller\RegistrationController->(index|newAccount|createAccount|createTemporaryAccount)Action())
-    Neos_Demo_FlickrAccess:
+    Sfi_Kateheo_FlickrAccess:
       matcher: method(Neos\Demo\Controller\FlickrController->(tagStream|userStream)Action())
 
   'TYPO3\TYPO3CR\Security\Authorization\Privilege\Node\ReadNodePrivilege':
@@ -21,10 +21,10 @@ roles:
   'TYPO3.Flow:Everybody':
     privileges:
       -
-        privilegeTarget: Neos_Demo_RegistrationAccess
+        privilegeTarget: Sfi_Kateheo_RegistrationAccess
         permission: GRANT
       -
-        privilegeTarget: Neos_Demo_FlickrAccess
+        privilegeTarget: Sfi_Kateheo_FlickrAccess
         permission: GRANT
 
 
