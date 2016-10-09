@@ -1,8 +1,6 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<div class="col-lg-4">
-	<div class="panel panel-default">
-		<div class="panel-heading">Форма входа</div>
-		<div class="panel-body">
+<div class="login-page">
+  <div class="form">
 			<f:security.ifAccess privilegeTarget="TYPO3.Neos:Backend.GeneralAccess">
 				<f:then>
 					<p>Форма входа отключена в режиме редактирования</p>
@@ -16,29 +14,14 @@
 							</f:form>
 						</f:then>
 						<f:else>
-							<f:form action="authenticate" method="post" class="form-horizontal clearfix" additionalAttributes="{role:'form'}">
-								<div class="form-group">
-									<label for="member-username" class="col-lg-4 control-label">Имя пользователя:</label>
-									<div class="col-lg-8">
-										<input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" class="form-control" id="member-username" type="text" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="member-password" class="col-lg-4 control-label">Пароль:</label>
-									<div class="col-lg-8">
-										<input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" class="form-control" id="member-password" type="password" />
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-lg-8 pull-right">
+							<f:form action="authenticate" method="post" class="login-form form-horizontal clearfix" additionalAttributes="{role:'form'}">
+										<input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" class="form-control" id="typo3-username" type="text" placeholder="имя пользователя"/>
+										<input name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" class="form-control" id="typo3-password" type="password" placeholder="пароль"/>
 										<f:form.submit value="Вход" class="btn btn-primary" />
-									</div>
-								</div>
 							</f:form>
 						</f:else>
 					</f:security.ifHasRole>
 				</f:else>
 			</f:security.ifAccess>
-		</div>
-	</div>
+  </div>
 </div>
