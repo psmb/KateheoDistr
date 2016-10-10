@@ -4,7 +4,6 @@ TYPO3:
     typoScript:
       autoInclude:
         'Sfi.Kateheo': TRUE
-        'Flowpack.Neos.FrontendLogin': TRUE
     userInterface:
       navigateComponent:
         nodeTree:
