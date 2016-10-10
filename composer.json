@@ -14,7 +14,7 @@
         "typo3/form": "@dev",
         "typo3/setup": "@dev",
 
-        "sfi/listable": "dev-master#856c85fd0bdd1f096c8789764229d551c29b4f76",
+        "flowpack/listable": "^0.4",
         "sfi/grid": "@dev",
         "sfi/youtube": "^0.1",
         "m12/neos-plugin-dbexport": "dev-master",

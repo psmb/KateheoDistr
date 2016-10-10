@@ -7,9 +7,9 @@ prototype(Sfi.Kateheo:Category) {
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
-	newsList = Sfi.Listable:List {
+	newsList = Flowpack.Listable:List {
 		@context.listClass = 'news-list-view'
-		prototype(Sfi.Listable:Listable) {
+		prototype(Flowpack.Listable:Listable) {
 			@context.queryType = 'getFromCurrentPage'
 		}
 	}
