@@ -1,7 +1,3 @@
-#                                                                        #
-# Security policy for the Neos.Demo package                 #
-#                                                                        #
-
 privilegeTargets:
   'TYPO3\TYPO3CR\Security\Authorization\Privilege\Node\ReadNodePrivilege':
 
