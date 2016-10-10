@@ -1,0 +1,4 @@
+-
+  requestFilter: 'isPackage("Flowpack.Neos.FrontendLogin") && isController("Authentication") && isAction("index")'
+  options:
+    templatePathAndFilename: 'resource://Sfi.Kateheo/Private/Templates/Authentication/index.html'

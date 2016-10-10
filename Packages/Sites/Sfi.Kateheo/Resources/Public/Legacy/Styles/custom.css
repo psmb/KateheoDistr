@@ -230,7 +230,6 @@ ul.news-list-view.sfi-kateheo-category, ul.publicaton-list-view.sfi-kateheo-cate
   display: inherit;
   padding-right: 0px;
   margin-right: 0px;
-  border-right: 1px solid #ddd;
 }
 
 .footer p {
@@ -349,5 +348,80 @@ li.tagsList-item {
     float: left;
     margin-right: 1em;
     font-size: 1.5em;
+    line-height: 2em;
 }
+
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #006dcc;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+
+input.btn.btn-primary {
+    background-color: green;
+}
+
+input.btn.btn-primary:hover, input.btn.btn-primary:active, input.btn.btn-primary:focus {
+    background: #006dcc;
+}
+
+.navbar .brand {
+  padding: 5px 0px 5px 15px;
+}
+
+p.lead {
+    padding-left: 7px;
+}
+
 /*!================ END OF CUSTOM CSS ======================*/

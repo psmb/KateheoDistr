@@ -6027,3 +6027,10 @@ td.gsc-input {
 figure {
   margin: 10px 0px;
 }
+
+.form-group {
+    width: 100%;
+    float: left;
+    display: block;
+    padding-top: 10pt;
+}
