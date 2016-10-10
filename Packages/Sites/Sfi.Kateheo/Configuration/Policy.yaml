@@ -7,8 +7,6 @@ privilegeTargets:
 
     Sfi_Kateheo_RegistrationAccess:
       matcher: method(Neos\Demo\Controller\RegistrationController->(index|newAccount|createAccount|createTemporaryAccount)Action())
-    Sfi_Kateheo_FlickrAccess:
-      matcher: method(Neos\Demo\Controller\FlickrController->(tagStream|userStream)Action())
 
   'TYPO3\TYPO3CR\Security\Authorization\Privilege\Node\ReadNodePrivilege':
 
@@ -23,10 +21,6 @@ roles:
       -
         privilegeTarget: Sfi_Kateheo_RegistrationAccess
         permission: GRANT
-      -
-        privilegeTarget: Sfi_Kateheo_FlickrAccess
-        permission: GRANT
-
 
   'Flowpack.Neos.FrontendLogin:User':
     privileges:
