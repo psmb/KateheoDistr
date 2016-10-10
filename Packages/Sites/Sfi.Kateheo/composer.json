@@ -4,7 +4,7 @@
     "description": "Website package. See distribution for more info.",
     "require": {
         "typo3/neos": "*",
-        "sfi/listable": "*",
+        "flowpack/listable": "*",
         "sfi/youtube": "*"
     },
     "autoload": {
