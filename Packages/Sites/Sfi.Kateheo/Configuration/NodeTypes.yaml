@@ -54,7 +54,7 @@ blah: &alohaRich
 'Sfi.Kateheo:Category':
   superTypes:
     - 'TYPO3.Neos:Document'
-    - 'Sfi.Listable:ListableCategoryMixin'
+    - 'Flowpack.Listable:ListableCategoryMixin'
   ui:
     label: 'Категория'
   childNodes:
@@ -66,14 +66,14 @@ blah: &alohaRich
   constraints:
     nodeTypes:
       '*': false
-      'Sfi.Listable:ListableMixin': true
-      'Sfi.Listable:ListableCategoryMixin': true
+      'Flowpack.Listable:ListableMixin': true
+      'Flowpack.Listable:ListableCategoryMixin': true
 
 
 'Sfi.Kateheo:AuthorsDirectoryPage':
   superTypes:
     - 'TYPO3.Neos:Document'
-    - 'Sfi.Listable:ListableCategoryMixin'
+    - 'Flowpack.Listable:ListableCategoryMixin'
   ui:
     label: 'Страница авторов'
   childNodes:
@@ -85,8 +85,8 @@ blah: &alohaRich
   constraints:
     nodeTypes:
       '*': false
-      'Sfi.Listable:ListableMixin': true
-      'Sfi.Listable:ListableCategoryMixin': true
+      'Flowpack.Listable:ListableMixin': true
+      'Flowpack.Listable:ListableCategoryMixin': true
 
 'Sfi.Kateheo:Author':
   superTypes:
@@ -109,7 +109,7 @@ blah: &alohaRich
 'Sfi.Kateheo:TagsPage':
   superTypes:
     - 'TYPO3.Neos:Document'
-    - 'Sfi.Listable:ListableCategoryMixin'
+    - 'Flowpack.Listable:ListableCategoryMixin'
   ui:
     label: 'Страница тегов'
   childNodes:
@@ -121,8 +121,8 @@ blah: &alohaRich
   constraints:
     nodeTypes:
       '*': false
-      'Sfi.Listable:ListableMixin': true
-      'Sfi.Listable:ListableCategoryMixin': true
+      'Flowpack.Listable:ListableMixin': true
+      'Flowpack.Listable:ListableCategoryMixin': true
 
 'Sfi.Kateheo:Tags':
   superTypes:
@@ -145,7 +145,7 @@ blah: &alohaRich
 'Sfi.Kateheo:News':
   superTypes:
     - 'TYPO3.Neos:Document'
-    - 'Sfi.Listable:ListableMixin'
+    - 'Flowpack.Listable:ListableMixin'
   ui:
     label: 'Новость'
     inspector:

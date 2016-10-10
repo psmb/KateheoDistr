@@ -12,13 +12,13 @@ prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
-	newsList = Sfi.Listable:List {
+	newsList = Flowpack.Listable:List {
 		@context.listClass = 'news-list-view'
-		prototype(Sfi.Listable:Listable) {
+		prototype(Flowpack.Listable:Listable) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
 			@context.limit = 10
-			collection = ${q(site).find('[instanceof Sfi.Listable:ListableMixin]').filterByReference('authors', documentNode).get()}
+			collection = ${q(site).find('[instanceof Flowpack.Listable:ListableMixin]').filterByReference('authors', documentNode).get()}
 		}
 	}
 

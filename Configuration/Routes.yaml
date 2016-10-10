@@ -15,7 +15,7 @@
   uriPattern: '<ListableSubroutes>'
   subRoutes:
     'ListableSubroutes':
-      package: 'Sfi.Listable'
+      package: 'Flowpack.Listable'
       variables:
         'defaultUriSuffix': ''
         'pageSeparator': '~p'
@@ -28,4 +28,3 @@
       package: 'TYPO3.Neos'
       variables:
         'defaultUriSuffix': ''
-

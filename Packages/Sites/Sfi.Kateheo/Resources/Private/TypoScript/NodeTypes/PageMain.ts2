@@ -2,24 +2,24 @@ prototype(Sfi.Kateheo:PageMain) {
 	main = TYPO3.Neos:ContentCollection{
 		nodePath = 'main'
 	}
-	publicationList = Sfi.Listable:List {
+	publicationList = Flowpack.Listable:List {
 		@context.listClass = 'publicaton-list-view'
-		prototype(Sfi.Listable:Listable) {
+		prototype(Flowpack.Listable:Listable) {
 			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "publication"]').find('[instanceof Sfi.Kateheo:News]').get()}
 		}
 	}
 
-	newsList = Sfi.Listable:List {
+	newsList = Flowpack.Listable:List {
 		@context.listClass = 'news-list-view'
-		prototype(Sfi.Listable:Listable) {
+		prototype(Flowpack.Listable:Listable) {
 			@context.limit = 20
 			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "news"]').find('[instanceof Sfi.Kateheo:News]').get()}
 		}
 	}
 
-	eventsList = Sfi.Listable:List {
+	eventsList = Flowpack.Listable:List {
 		@context.listClass = 'news-list-view'
-		prototype(Sfi.Listable:Listable) {
+		prototype(Flowpack.Listable:Listable) {
 			@context.limit = 3
 			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "news"]').find('[instanceof Sfi.Kateheo:News]').get()}
 		}
