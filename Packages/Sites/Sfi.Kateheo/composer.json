@@ -5,7 +5,8 @@
     "require": {
         "typo3/neos": "*",
         "flowpack/listable": "*",
-        "sfi/youtube": "*"
+        "sfi/youtube": "*",
+        "flownative/aws-s3": "*"
     },
     "autoload": {
         "psr-0": {

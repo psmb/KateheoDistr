@@ -16,7 +16,8 @@
         "flowpack/listable": "^0.4",
         "sfi/grid": "^1.0",
         "sfi/youtube": "^0.1",
-        "flowpack/neos-frontendlogin": "~2.0"
+        "flowpack/neos-frontendlogin": "~2.0",
+        "flownative/aws-s3": "^1.0"
     },
     "scripts": {
         "post-update-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",

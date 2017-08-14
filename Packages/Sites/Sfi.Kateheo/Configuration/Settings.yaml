@@ -1,5 +1,25 @@
 TYPO3:
-
+  Flow:
+    i18n:
+      defaultLocale: 'ru'
+    resource:
+      collections:
+        persistent:
+          storage: s3PersistentResourcesStorage
+          target: s3PersistentResourcesTarget
+      storages:
+        s3PersistentResourcesStorage:
+          storage: 'Flownative\Aws\S3\S3Storage'
+          storageOptions:
+            bucket: 'psmb-neos-resources'
+            keyPrefix: 'storage/kateheo/'
+      targets:
+        s3PersistentResourcesTarget:
+          target: 'Flownative\Aws\S3\S3Target'
+          targetOptions:
+            bucket: 'psmb-neos-resources'
+            keyPrefix: 'target/kateheo/'
+            baseUri: 'https://psmb-neos-resources.hb.bizmrg.com/target/kateheo/'
   Neos:
     typoScript:
       autoInclude:
@@ -8,3 +28,12 @@ TYPO3:
       navigateComponent:
         nodeTree:
           loadingDepth: 1
+Flownative:
+  Aws:
+    S3:
+      profiles:
+        default:
+          credentials:
+            key: '%env:AWS_ACCESS_KEY_ID%'
+            secret: '%env:AWS_SECRET_ACCESS_KEY%'
+          endpoint: 'https://hb.bizmrg.com'
