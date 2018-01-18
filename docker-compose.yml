@@ -27,8 +27,8 @@ services:
       - LETSENCRYPT_EMAIL=dimaip@gmail.com
       - AWS_ENDPOINT=https://hb.bizmrg.com
       - AWS_BACKUP_ARN=s3://psmb-neos-resources/db/kateheo/
-      - AWS_ACCESS_KEY_ID={{DOCKER-SECRET}}
-      - AWS_SECRET_ACCESS_KEY={{DOCKER-SECRET}}
+      - AWS_ACCESS_KEY_ID=DOCKER-SECRET
+      - AWS_SECRET_ACCESS_KEY=DOCKER-SECRET
 volumes:
   db-data:
 secrets:
