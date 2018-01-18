@@ -18,15 +18,21 @@ services:
     depends_on:
       - db
       - redis
+    secrets:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
     environment:
       - VIRTUAL_HOST=kateheo.ru,www.kateheo.ru,dev.kateheo.ru
       - LETSENCRYPT_HOST=kateheo.ru,www.kateheo.ru
       - LETSENCRYPT_EMAIL=dimaip@gmail.com
       - AWS_ENDPOINT=https://hb.bizmrg.com
       - AWS_BACKUP_ARN=s3://psmb-neos-resources/db/kateheo/
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
+      - AWS_ACCESS_KEY_ID={{DOCKER-SECRET}}
+      - AWS_SECRET_ACCESS_KEY={{DOCKER-SECRET}}
 volumes:
   db-data:
-
-  
+secrets:
+  AWS_ACCESS_KEY_ID:
+    external: true
+  AWS_SECRET_ACCESS_KEY:
+    external: true
