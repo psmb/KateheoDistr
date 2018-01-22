@@ -12,23 +12,26 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: pass
   web:
-    image: dimaip/kateheodistr:latest
+    image: dimaip/ermdistr:latest
+    hostname: 'kateheo'
+    networks:
+      - default
+      - main
+    secrets:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.port=80"
+        - "traefik.default.protocol=http"
+        - "traefik.docker.network=main"
+        - "traefik.frontend.rule=Host:kateheo.ru,www.kateheo.ru,dev.kateheo.ru"
     ports:
       - '80'
     depends_on:
       - db
       - redis
-    secrets:
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-    environment:
-      - VIRTUAL_HOST=kateheo.ru,www.kateheo.ru,dev.kateheo.ru
-      - LETSENCRYPT_HOST=kateheo.ru,www.kateheo.ru
-      - LETSENCRYPT_EMAIL=dimaip@gmail.com
-      - AWS_ENDPOINT=https://hb.bizmrg.com
-      - AWS_BACKUP_ARN=s3://psmb-neos-resources/db/kateheo/
-      - AWS_ACCESS_KEY_ID=DOCKER-SECRET
-      - AWS_SECRET_ACCESS_KEY=DOCKER-SECRET
 volumes:
   db-data:
 secrets:
@@ -36,3 +39,7 @@ secrets:
     external: true
   AWS_SECRET_ACCESS_KEY:
     external: true
+networks:
+  main:
+    external:
+      name: main
