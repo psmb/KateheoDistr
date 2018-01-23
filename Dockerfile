@@ -4,4 +4,5 @@ ENV REPOSITORY_URL=https://github.com/psmb/KateheoDistr
 ENV AWS_ENDPOINT=https://hb.bizmrg.com
 ENV AWS_BACKUP_ARN=s3://psmb-neos-resources/db/kateheo/
 ENV DONT_PUBLISH_PERSISTENT=1
+VOLUME /data/www/_Resources
 RUN /provision-neos.sh
