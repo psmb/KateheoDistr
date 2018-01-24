@@ -9,8 +9,8 @@ namespace Sfi\Kateheo\Command;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Cli\CommandController;
 use Neos\Eel\FlowQuery\FlowQuery;
-use TYPO3\TYPO3CR\Domain\Model\NodeType;
-use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use Neos\ContentRepository\Domain\Model\NodeType;
+use Neos\ContentRepository\Domain\Model\NodeInterface;
 
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\ResourceManagement\ResourceManager;
@@ -37,18 +37,18 @@ class MigrationCommandController extends CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\TYPO3CR\Domain\Service\NodeTypeManager
+	 * @var \Neos\ContentRepository\Domain\Service\NodeTypeManager
 	 */
 	protected $nodeTypeManager;
 
 	/**
-	 * @var \TYPO3\TYPO3CR\Domain\Service\Context
+	 * @var \Neos\ContentRepository\Domain\Service\Context
 	 */
 	protected $context;
 
 	/**
 	 * @Flow\Inject
-	 * @var \TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface
+	 * @var \Neos\ContentRepository\Domain\Service\ContextFactoryInterface
 	 */
 	protected $contextFactory;
 
@@ -107,7 +107,7 @@ class MigrationCommandController extends CommandController {
 			} else if (!count($categoryNode)) {
 				echo "Node ".$newsItem['uid']." has no category, skipped\n";
 			} else {
-				$newsNodeTemplate = new \TYPO3\TYPO3CR\Domain\Model\NodeTemplate();
+				$newsNodeTemplate = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
 				$newsNodeTemplate->setNodeType($this->nodeTypeManager->getNodeType($newsNodeType));
 				$newsNodeTemplate->setProperty('originalIdentifier', $newsItem['uid']);
 				$newsNodeTemplate->setProperty('title', $newsItem['title']);
@@ -123,7 +123,7 @@ class MigrationCommandController extends CommandController {
 				if ($newsItem['bodytext']) {
 					$bodytext = $this->parseBodytext($newsItem['bodytext']);
 					$mainContentNode = $newsNode->getNode('main');
-					$bodytextTemplate = new \TYPO3\TYPO3CR\Domain\Model\NodeTemplate();
+					$bodytextTemplate = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
 					$bodytextTemplate->setNodeType($this->nodeTypeManager->getNodeType($textNodeType));
 					$bodytextTemplate->setProperty('text', $bodytext);
 					$mainContentNode->createNodeFromTemplate($bodytextTemplate);
@@ -161,7 +161,7 @@ class MigrationCommandController extends CommandController {
 							echo "Missing file: " . $file . "\n";
 						} else {
 							$image = $this->importImage($file);
-							$imageNodeTemplate = new \TYPO3\TYPO3CR\Domain\Model\NodeTemplate();
+							$imageNodeTemplate = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
 							$imageNodeTemplate->setNodeType($this->nodeTypeManager->getNodeType($imageNodeType));
 							$imageNodeTemplate->setProperty('image', $image);
 							if (isset($mediaItem['caption'])) {
@@ -180,7 +180,7 @@ class MigrationCommandController extends CommandController {
 					}
 				} else if ($mediaItem['type'] == 1) {
 					$videoUrl = $mediaItem['multimedia'];
-					$videoTemplate = new \TYPO3\TYPO3CR\Domain\Model\NodeTemplate();
+					$videoTemplate = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
 					$videoTemplate->setNodeType($this->nodeTypeManager->getNodeType($videoNodeType));
 					$videoTemplate->setProperty('videoUrl', $videoUrl);
 					$mainCollectionNode->createNodeFromTemplate($videoTemplate);
@@ -287,7 +287,7 @@ class MigrationCommandController extends CommandController {
 				echo "Node " . $category['uid'] . " already exists, skipped\n";
 			} else {
 				echo "$parentcategory -- $targetPath\n";
-				$categoryNodeTemplate = new \TYPO3\TYPO3CR\Domain\Model\NodeTemplate();
+				$categoryNodeTemplate = new \Neos\ContentRepository\Domain\Model\NodeTemplate();
 				$categoryNodeTemplate->setNodeType($this->nodeTypeManager->getNodeType($categoryNodeType));
 				$categoryNodeTemplate->setProperty('originalIdentifier', $category['uid']);
 				$categoryNodeTemplate->setProperty('title', $category['title']);

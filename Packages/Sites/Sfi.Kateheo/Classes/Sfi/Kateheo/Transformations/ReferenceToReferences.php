@@ -2,7 +2,7 @@
 namespace Sfi\Kateheo\Transformations;
 
 use Neos\Flow\Annotations as Flow;
-use TYPO3\TYPO3CR\Migration\Transformations\AbstractTransformation;
+use Neos\ContentRepository\Migration\Transformations\AbstractTransformation;
 
 /**
  * Migrates from reference to references type property
@@ -38,19 +38,19 @@ class ReferenceToReferences extends AbstractTransformation
     }
 
     /**
-     * @param \TYPO3\TYPO3CR\Domain\Model\NodeData $node
+     * @param \Neos\ContentRepository\Domain\Model\NodeData $node
      * @return boolean
      */
-    public function isTransformable(\TYPO3\TYPO3CR\Domain\Model\NodeData $node)
+    public function isTransformable(\Neos\ContentRepository\Domain\Model\NodeData $node)
     {
         return ($node->hasProperty($this->sourcePropertyName));
     }
 
     /**
-     * @param \TYPO3\TYPO3CR\Domain\Model\NodeData $node
+     * @param \Neos\ContentRepository\Domain\Model\NodeData $node
      * @return void
      */
-    public function execute(\TYPO3\TYPO3CR\Domain\Model\NodeData $node)
+    public function execute(\Neos\ContentRepository\Domain\Model\NodeData $node)
     {
         $sourcePropertyValue = $node->getProperty($this->sourcePropertyName);
         $node->setProperty($this->targetPropertyName, [$sourcePropertyValue]);
