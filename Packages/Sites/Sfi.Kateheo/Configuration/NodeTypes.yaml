@@ -21,12 +21,12 @@ blah:
   alignment: {  }
 'Sfi.Kateheo:PageMain':
   superTypes:
-    'TYPO3.Neos.NodeTypes:Page': true
+    'Neos.NodeTypes:Page': true
   ui:
     label: 'Главная страница'
 'Sfi.Kateheo:LoginPage':
   superTypes:
-    'TYPO3.Neos.NodeTypes:Page': true
+    'Neos.NodeTypes:Page': true
   ui:
     label: 'Страница входа'
 'Sfi.Kateheo:Category':

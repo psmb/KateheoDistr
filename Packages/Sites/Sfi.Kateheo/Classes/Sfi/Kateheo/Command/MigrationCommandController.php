@@ -96,7 +96,7 @@ class MigrationCommandController extends CommandController {
 	 */
 	public function importNewsCommand() {
 		$newsNodeType = 'Sfi.Kateheo:News';
-		$textNodeType = 'TYPO3.Neos.NodeTypes:Text';
+		$textNodeType = 'Neos.NodeTypes:Text';
 
 		$this->init();
 		$news = $this->getNews();
@@ -141,7 +141,7 @@ class MigrationCommandController extends CommandController {
 	 */
 	public function importMediaCommand() {
 		$allowedImageFileTypes = array("jpg", "jpeg", "gif");
-		$imageNodeType = 'TYPO3.Neos.NodeTypes:Image';
+		$imageNodeType = 'Neos.NodeTypes:Image';
 		$videoNodeType = 'Sfi.YouTube:YouTube';
 
 		$this->init();
