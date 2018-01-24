@@ -4,7 +4,7 @@ prototype(Sfi.Kateheo:News) {
 
 	sectionMenu = ${sectionMenu}
 	authors =  ${q(node).property('authors')}
-	coverCollection = TYPO3.Neos:ContentCollection{
+	coverCollection = Neos.Neos:ContentCollection{
 		nodePath = 'coverCollection'
 		prototype(Neos.NodeTypes:Image){
 			maximumWidth = 980
@@ -13,15 +13,15 @@ prototype(Sfi.Kateheo:News) {
 		}
 	}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	category = ${q(node).parent().get(0)}
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }
 
 #Breif rendering of article, used in NewsList
-prototype(Sfi.Kateheo:NewsShort) < prototype(TYPO3.Neos:Content) {
+prototype(Sfi.Kateheo:NewsShort) < prototype(Neos.Neos:Content) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/NodeTypes/NewsShort.html'
 	configuration.thumbnailWidth = 250
 	configuration.thumbnailHeight = 180

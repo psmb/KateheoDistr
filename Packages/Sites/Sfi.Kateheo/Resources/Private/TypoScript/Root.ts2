@@ -2,7 +2,7 @@ include: Redirect.ts2
 include: OverrideStock.ts2
 include: NodeTypes/**/*.ts2
 
-prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
+prototype(Sfi.Kateheo:SectionMenu) < prototype(Neos.Neos:Menu) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
 	innerAttributes = Neos.Fusion:Attributes {
 		class = 'innerLevel'
@@ -16,7 +16,7 @@ prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
 
 #This is a default page object. It's being extended and never used directly.
 prototype(Sfi.Kateheo:Page) >
-prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
+prototype(Sfi.Kateheo:Page) < prototype(Neos.Neos:Page) {
 	head {
 		titleTag.content = ${String.stripTags(q(node).property('title'))}
 		stylesheets.site = Neos.Fusion:Template {

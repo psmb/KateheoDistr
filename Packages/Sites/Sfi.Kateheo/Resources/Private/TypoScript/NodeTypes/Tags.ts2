@@ -9,7 +9,7 @@ prototype(Sfi.Kateheo:Tags) {
 		current.attributes.class = "active"
 	}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	newsList = Flowpack.Listable:List {
@@ -23,5 +23,5 @@ prototype(Sfi.Kateheo:Tags) {
 		}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }

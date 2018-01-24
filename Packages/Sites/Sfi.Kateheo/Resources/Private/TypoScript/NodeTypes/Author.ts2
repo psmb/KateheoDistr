@@ -9,7 +9,7 @@ prototype(Sfi.Kateheo:Author) {
 		current.attributes.class = "active"
 	}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	newsList = Flowpack.Listable:List {
@@ -23,5 +23,5 @@ prototype(Sfi.Kateheo:Author) {
 		}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }

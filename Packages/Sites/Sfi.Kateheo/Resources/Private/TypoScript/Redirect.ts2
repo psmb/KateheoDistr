@@ -5,7 +5,7 @@ root.redirect {
 		@context.targetNode = ${q(site).find('[instanceof Sfi.Kateheo:News]').filter('[uriPathSegment = "' + request.arguments.newsPathSegment + '"]').get(0)}
 		httpResponseHead {
 			statusCode = 301
-			headers.Location = TYPO3.Neos:NodeUri{
+			headers.Location = Neos.Neos:NodeUri{
 				node = ${targetNode}
 			}
 			@if.nodeIsFound = ${targetNode ? true : false}

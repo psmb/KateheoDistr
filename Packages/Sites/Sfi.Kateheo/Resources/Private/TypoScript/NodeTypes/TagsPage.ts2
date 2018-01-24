@@ -8,5 +8,5 @@ prototype(Sfi.Kateheo:TagsPage) {
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }

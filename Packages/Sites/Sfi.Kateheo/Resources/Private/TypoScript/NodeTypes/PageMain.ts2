@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:PageMain) {
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	publicationList = Flowpack.Listable:List {
