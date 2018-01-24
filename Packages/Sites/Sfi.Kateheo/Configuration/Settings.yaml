@@ -10,6 +10,16 @@ Flownative:
           endpoint: 'https://hb.bizmrg.com'
 Neos:
   Flow:
+    mvc:
+      routes:
+        'Flowpack.Listable':
+          position: 'before Neos.Neos'
+          variables:
+            pageSeparator: '~p'
+            defaultUriSuffix: 'i'
+        'Neos.Neos':
+          variables:
+            'defaultUriSuffix': ''
     i18n:
       defaultLocale: ru
     resource:

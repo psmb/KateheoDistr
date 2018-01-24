@@ -3,3 +3,7 @@ prototype(Neos.NodeTypes:Headline) {
 	attributes.id = ${q(node).property('_name')}
 	attributes.class = 'RteText HeadingAnchor js-anchor'
 }
+
+prototype(Flowpack.Listable:Listable) {
+	@context.sortProperty = 'date'
+}
