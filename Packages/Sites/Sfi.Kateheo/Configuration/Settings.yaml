@@ -1,13 +1,4 @@
 
-TYPO3:
-  Neos:
-    typoScript:
-      autoInclude:
-        Sfi.Kateheo: true
-    userInterface:
-      navigateComponent:
-        nodeTree:
-          loadingDepth: 1
 Flownative:
   Aws:
     S3:
@@ -39,3 +30,11 @@ Neos:
             bucket: psmb-neos-resources
             keyPrefix: target/kateheo/
             baseUri: 'https://psmb-neos-resources.hb.bizmrg.com/target/kateheo/'
+  Neos:
+    typoScript:
+      autoInclude:
+        Sfi.Kateheo: true
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          loadingDepth: 1

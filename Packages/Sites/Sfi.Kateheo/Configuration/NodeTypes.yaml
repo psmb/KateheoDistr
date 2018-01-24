@@ -31,13 +31,13 @@ blah:
     label: 'Страница входа'
 'Sfi.Kateheo:Category':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
     'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: Категория
   childNodes:
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     originalIdentifier:
       type: string
@@ -48,13 +48,13 @@ blah:
       'Flowpack.Listable:ListableCategoryMixin': true
 'Sfi.Kateheo:AuthorsDirectoryPage':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
     'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: 'Страница авторов'
   childNodes:
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     originalIdentifier:
       type: string
@@ -65,12 +65,12 @@ blah:
       'Flowpack.Listable:ListableCategoryMixin': true
 'Sfi.Kateheo:Author':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
   ui:
     label: Автор
   childNodes:
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     title:
       ui:
@@ -98,13 +98,13 @@ blah:
       type: string
 'Sfi.Kateheo:TagsPage':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
     'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: 'Страница тегов'
   childNodes:
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     originalIdentifier:
       type: string
@@ -115,12 +115,12 @@ blah:
       'Flowpack.Listable:ListableCategoryMixin': true
 'Sfi.Kateheo:Tags':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
   ui:
     label: Тэг
   childNodes:
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     title:
       ui:
@@ -148,7 +148,7 @@ blah:
       type: string
 'Sfi.Kateheo:News':
   superTypes:
-    'TYPO3.Neos:Document': true
+    'Neos.Neos:Document': true
     'Flowpack.Listable:ListableMixin': true
   ui:
     label: Новость
@@ -158,9 +158,9 @@ blah:
           label: 'Атрибуты новости'
   childNodes:
     coverCollection:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
     main:
-      type: 'TYPO3.Neos:ContentCollection'
+      type: 'Neos.Neos:ContentCollection'
   properties:
     title:
       ui:
@@ -218,7 +218,7 @@ blah:
           editorOptions:
             format: 'd-m-Y H:i'
       validation:
-        TYPO3.Neos/Validation/DateTimeValidator: {  }
+        Neos.Neos/Validation/DateTimeValidator: {  }
     authors:
       type: references
       ui:
