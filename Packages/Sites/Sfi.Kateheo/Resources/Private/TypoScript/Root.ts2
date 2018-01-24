@@ -4,7 +4,7 @@ include: NodeTypes/**/*.ts2
 
 prototype(Sfi.Kateheo:SectionMenu) < prototype(TYPO3.Neos:Menu) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
-	innerAttributes = TYPO3.TypoScript:Attributes {
+	innerAttributes = Neos.Fusion:Attributes {
 		class = 'innerLevel'
 	}
 	entryLevel = 2
@@ -19,11 +19,11 @@ prototype(Sfi.Kateheo:Page) >
 prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 	head {
 		titleTag.content = ${String.stripTags(q(node).property('title'))}
-		stylesheets.site = TYPO3.TypoScript:Template {
+		stylesheets.site = Neos.Fusion:Template {
 			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
 			sectionName = 'stylesheets'
 		}
-		javascripts.headScripts = TYPO3.TypoScript:Template {
+		javascripts.headScripts = Neos.Fusion:Template {
 			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
 			sectionName = 'headScripts'
 		}
@@ -50,7 +50,7 @@ prototype(Sfi.Kateheo:Page) < prototype(TYPO3.Neos:Page) {
 			}
 		}
 
-		javascripts.bodyScripts = TYPO3.TypoScript:Template {
+		javascripts.bodyScripts = Neos.Fusion:Template {
 			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
 			partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 			sectionName = 'bodyScripts'

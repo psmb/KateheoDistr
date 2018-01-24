@@ -1,7 +1,7 @@
 root.redirect {
 	@position = 'before shortcut'
 	condition = ${q(documentNode).property('uriPathSegment') == 'redirect' && node.context.workspaceName == 'live'}
-	renderer = TYPO3.TypoScript:Http.Message {
+	renderer = Neos.Fusion:Http.Message {
 		@context.targetNode = ${q(site).find('[instanceof Sfi.Kateheo:News]').filter('[uriPathSegment = "' + request.arguments.newsPathSegment + '"]').get(0)}
 		httpResponseHead {
 			statusCode = 301
