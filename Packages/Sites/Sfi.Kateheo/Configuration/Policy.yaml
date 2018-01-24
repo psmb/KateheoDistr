@@ -1,5 +1,5 @@
 privilegeTargets:
-  'TYPO3\TYPO3CR\Security\Authorization\Privilege\Node\ReadNodePrivilege':
+  'Neos\ContentRepository\Security\Authorization\Privilege\Node\ReadNodePrivilege':
 
     'Sfi.Kateheo:MembersArea':
       matcher: 'isDescendantNodeOf("cd3431c7-3ab6-471e-902f-5d199ff7c379")'
@@ -13,7 +13,7 @@ roles:
         privilegeTarget: 'Sfi.Kateheo:MembersArea'
         permission: GRANT
 
-  'TYPO3.Neos:Editor':
+  'Neos.Neos:Editor':
     privileges:
       -
           # Grant "backend users" to access the "Member area" - Otherwise those pages would be hidden in the backend, too!

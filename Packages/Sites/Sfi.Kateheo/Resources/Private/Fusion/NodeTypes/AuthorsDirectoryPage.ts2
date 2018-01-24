@@ -1,15 +1,15 @@
-prototype(Sfi.Kateheo:Tags) {
+prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
 	aMenu = Menu {
-		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
+		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').get()}
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 		current.attributes.class = "active"
 	}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	newsList = Flowpack.Listable:List {
@@ -17,11 +17,10 @@ prototype(Sfi.Kateheo:Tags) {
 		prototype(Flowpack.Listable:Listable) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
-			@context.itemsPerPage = 50
-			@context.paginationEnabled = ${true}
-			collection = ${q(site).find('[instanceof Flowpack.Listable:ListableMixin]').filterByReference('tags', documentNode).get()}
+			@context.limit = 10
+			collection = ${q(site).find('[instanceof Flowpack.Listable:ListableMixin]').filterByReference('authors', documentNode).get()}
 		}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }

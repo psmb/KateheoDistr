@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
+prototype(Sfi.Kateheo:Author) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
@@ -9,7 +9,7 @@ prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
 		current.attributes.class = "active"
 	}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	newsList = Flowpack.Listable:List {
@@ -17,10 +17,11 @@ prototype(Sfi.Kateheo:AuthorsDirectoryPage) {
 		prototype(Flowpack.Listable:Listable) {
 			@context.sortProperty = 'date'
 			@context.sortOrder = 'DESC'
-			@context.limit = 10
+			@context.itemsPerPage = 15
+			@context.paginationEnabled = ${true}
 			collection = ${q(site).find('[instanceof Flowpack.Listable:ListableMixin]').filterByReference('authors', documentNode).get()}
 		}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }

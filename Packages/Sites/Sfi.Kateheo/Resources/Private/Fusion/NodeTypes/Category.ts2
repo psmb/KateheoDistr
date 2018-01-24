@@ -4,7 +4,7 @@ prototype(Sfi.Kateheo:Category) {
 
 	sectionMenu = ${sectionMenu}
 
-	main = TYPO3.Neos:ContentCollection{
+	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
 	newsList = Flowpack.Listable:List {
@@ -14,5 +14,5 @@ prototype(Sfi.Kateheo:Category) {
 		}
 	}
 
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 }
