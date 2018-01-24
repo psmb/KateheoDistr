@@ -1,28 +1,24 @@
 {
-    "name": "typo3/kateheo-distribution",
-    "description" : "Kateheo Distribution",
+    "name": "psmb/kateheo-distribution",
+    "description": "Kateheo Distribution",
     "config": {
         "vendor-dir": "Packages/Libraries",
         "bin-dir": "bin"
     },
     "require": {
-        "typo3/neos": "~2.3.0",
-        "typo3/neos-nodetypes": "~2.3.0",
-        "typo3/neos-seo": "@dev",
-        "typo3/imagine": "@dev",
-        "typo3/form": "@dev",
-        "typo3/setup": "@dev",
-
-        "flowpack/listable": "^0.4",
-        "sfi/grid": "^1.0",
-        "sfi/youtube": "^0.1",
-        "flowpack/neos-frontendlogin": "~2.0",
-        "flownative/aws-s3": "^1.0"
+        "neos/neos": "~3.3.0",
+        "neos/nodetypes": "~3.3.0",
+        "neos/seo": "~2.0.0",
+        "flowpack/listable": "^2.0",
+        "sfi/grid": "^2.0",
+        "sfi/youtube": "^2.0",
+        "flowpack/neos-frontendlogin": "^3.0",
+        "flownative/aws-s3": "^2.0"
     },
     "scripts": {
-        "post-update-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
-        "post-install-cmd": "TYPO3\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
-        "post-package-update":"TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "post-package-install":"TYPO3\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+        "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
     }
 }
