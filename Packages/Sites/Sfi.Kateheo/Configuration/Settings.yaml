@@ -31,10 +31,10 @@ Neos:
             keyPrefix: target/kateheo/
             baseUri: 'https://psmb-neos-resources.hb.bizmrg.com/target/kateheo/'
   Neos:
-    typoScript:
-      autoInclude:
-        Sfi.Kateheo: true
     userInterface:
       navigateComponent:
         nodeTree:
           loadingDepth: 1
+    fusion:
+      autoInclude:
+        Sfi.Kateheo: true
