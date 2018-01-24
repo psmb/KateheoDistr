@@ -1,13 +1,13 @@
 TYPO3_TypoScript_Content:
-  backend: Neos\Flow\Cache\Backend\RedisBackend
+  backend: Neos\Cache\Backend\RedisBackend
   backendOptions:
     hostname: redis
 Flow_Mvc_Routing_Resolve:
-  backend: Neos\Flow\Cache\Backend\RedisBackend
+  backend: Neos\Cache\Backend\RedisBackend
   backendOptions:
     hostname: redis
 Flow_Mvc_Routing_Route:
-  backend: Neos\Flow\Cache\Backend\RedisBackend
+  backend: Neos\Cache\Backend\RedisBackend
   backendOptions:
     hostname: redis
 
