@@ -14,7 +14,7 @@ services:
   web:
     volumes:
       - /data/www/Web/_Resources
-    image: dimaip/ermdistr:latest
+    image: dimaip/kateheodistr:latest
     hostname: 'kateheo'
     networks:
       - default
