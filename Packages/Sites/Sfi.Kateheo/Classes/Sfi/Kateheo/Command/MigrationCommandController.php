@@ -14,9 +14,9 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 
 use Neos\Flow\ObjectManagement\ObjectManagerInterface;
 use Neos\Flow\ResourceManagement\ResourceManager;
-use TYPO3\Media\Domain\Model\Image;
-use TYPO3\Media\Domain\Model\ImageVariant;
-use TYPO3\Media\Domain\Repository\ImageRepository;
+use Neos\Media\Domain\Model\Image;
+use Neos\Media\Domain\Model\ImageVariant;
+use Neos\Media\Domain\Repository\ImageRepository;
 
 /**
  * @Flow\Scope("singleton")
@@ -347,6 +347,6 @@ class MigrationCommandController extends CommandController {
 		$this->imageRepository->add($image);
 
 		$processingInstructions = Array();
-		return $this->objectManager->get('TYPO3\Media\Domain\Model\ImageVariant', $image, $processingInstructions);
+		return $this->objectManager->get('Neos\Media\Domain\Model\ImageVariant', $image, $processingInstructions);
 	}
 }
