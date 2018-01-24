@@ -1,4 +1,4 @@
-prototype(TYPO3.Neos.NodeTypes:Headline) {
+prototype(Neos.NodeTypes:Headline) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/NodeTypes/Headline.html'
 	attributes.id = ${q(node).property('_name')}
 	attributes.class = 'RteText HeadingAnchor js-anchor'
