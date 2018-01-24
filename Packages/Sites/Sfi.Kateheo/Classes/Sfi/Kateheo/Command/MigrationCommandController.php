@@ -6,14 +6,14 @@ namespace Sfi\Kateheo\Command;
  *																		*
  *																		*/
 
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Cli\CommandController;
+use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Cli\CommandController;
 use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\TYPO3CR\Domain\Model\NodeType;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 
-use TYPO3\Flow\ObjectManagement\ObjectManagerInterface;
-use TYPO3\Flow\ResourceManagement\ResourceManager;
+use Neos\Flow\ObjectManagement\ObjectManagerInterface;
+use Neos\Flow\ResourceManagement\ResourceManager;
 use TYPO3\Media\Domain\Model\Image;
 use TYPO3\Media\Domain\Model\ImageVariant;
 use TYPO3\Media\Domain\Repository\ImageRepository;
