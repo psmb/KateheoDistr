@@ -35,7 +35,7 @@ services:
         - "traefik.frontend.rule=Host:kateheo.ru,www.kateheo.ru,dev.kateheo.ru"
     ports:
       - '80'
-      - '1123:1123'
+      - '1123:22'
     depends_on:
       - db
       - redis
