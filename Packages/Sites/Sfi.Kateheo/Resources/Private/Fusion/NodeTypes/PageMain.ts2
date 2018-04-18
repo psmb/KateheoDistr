@@ -28,6 +28,7 @@ prototype(Sfi.Kateheo:PageMain) {
 	leftMenu = Menu {
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "publication"]').find('[instanceof Sfi.Kateheo:Category]').get()}
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+		maximumLevels = 1
 		current.attributes.class = "active"
 	}
 
