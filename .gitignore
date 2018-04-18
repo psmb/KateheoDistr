@@ -17,6 +17,7 @@
 /Upgrading.rst
 /composer.lock
 /beard.lock
+/.editorconfig
 
 # Various temporary files
 .fuse_hidden
