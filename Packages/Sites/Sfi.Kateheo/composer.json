@@ -1,9 +1,9 @@
 {
     "name": "sfi/kateheo",
-    "type": "typo3-flow-site",
+    "type": "neos-site",
     "description": "Website package. See distribution for more info.",
     "require": {
-        "typo3/neos": "*",
+        "neos/neos": "*",
         "flowpack/listable": "*",
         "sfi/youtube": "*",
         "flownative/aws-s3": "*"
