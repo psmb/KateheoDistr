@@ -35,7 +35,7 @@ prototype(Sfi.Kateheo:Page) < prototype(Neos.Neos:Page) {
 		templatePath = 'resource://Sfi.Kateheo/Private/Templates/Pages/Page.html'
 		partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
-		mainMenu = Menu {
+		mainMenu = Neos.Neos:Menu {
 			entryLevel = 1
 			maximumLevels = 1
 			attributes.class = "nav"
@@ -43,7 +43,7 @@ prototype(Sfi.Kateheo:Page) < prototype(Neos.Neos:Page) {
 
 		@context.sectionMenu = Sfi.Kateheo:SectionMenu
 
-		main = PrimaryContent {
+		main = Neos.Neos:PrimaryContent {
 			renderByType {
 				condition = TRUE
 				type = ${q(node).property('_nodeType.name')}

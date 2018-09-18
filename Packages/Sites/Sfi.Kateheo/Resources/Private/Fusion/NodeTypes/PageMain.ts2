@@ -25,7 +25,7 @@ prototype(Sfi.Kateheo:PageMain) {
 		}
 	}
 
-	leftMenu = Menu {
+	leftMenu = Neos.Neos:Menu {
 		itemCollection = ${q(site).children('[uriPathSegment = "missiologiia"]').add(q(site).children('[uriPathSegment = "katekhetika"]')).add(q(site).children('[uriPathSegment = "mission"]')).add(q(site).children('[uriPathSegment = "katekhizatsiia"]')).get()}
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 		maximumLevels = 1

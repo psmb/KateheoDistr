@@ -2,7 +2,7 @@ prototype(Sfi.Kateheo:TagsPage) {
 	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
 	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
 
-	tagsList = Menu {
+	tagsList = Neos.Neos:Menu {
 		templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/tagsList.html'
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}

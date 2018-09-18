@@ -6,7 +6,7 @@ prototype(Sfi.Kateheo:LoginPage) {
 		nodePath = 'main'
 	}
 
-	leftMenu = Menu {
+	leftMenu = Neos.Neos:Menu {
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "publication"]').find('[instanceof Sfi.Kateheo:Category]').get()}
 		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
 		current.attributes.class = "active"
