@@ -34,6 +34,7 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: Категория
+    icon: 'list-alt'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -64,6 +65,7 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: Автор
+    icon: 'user-edit'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -94,6 +96,7 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: 'Страница тегов'
+    icon: 'tags'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -109,6 +112,7 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: Тэг
+    icon: 'tag'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -139,6 +143,7 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: Новость
+    icon: 'newspaper'
     inspector:
       groups:
         news:
