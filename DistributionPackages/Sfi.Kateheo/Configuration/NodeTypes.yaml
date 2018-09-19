@@ -32,7 +32,6 @@ blah:
 'Sfi.Kateheo:Category':
   superTypes:
     'Neos.Neos:Document': true
-    'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: Категория
   childNodes:
@@ -44,12 +43,10 @@ blah:
   constraints:
     nodeTypes:
       '*': false
-      'Flowpack.Listable:ListableMixin': true
-      'Flowpack.Listable:ListableCategoryMixin': true
+      'Sfi.Kateheo:News': true
 'Sfi.Kateheo:AuthorsDirectoryPage':
   superTypes:
     'Neos.Neos:Document': true
-    'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: 'Страница авторов'
   childNodes:
@@ -61,8 +58,7 @@ blah:
   constraints:
     nodeTypes:
       '*': false
-      'Flowpack.Listable:ListableMixin': true
-      'Flowpack.Listable:ListableCategoryMixin': true
+      'Sfi.Kateheo:News': true
 'Sfi.Kateheo:Author':
   superTypes:
     'Neos.Neos:Document': true
@@ -96,7 +92,6 @@ blah:
 'Sfi.Kateheo:TagsPage':
   superTypes:
     'Neos.Neos:Document': true
-    'Flowpack.Listable:ListableCategoryMixin': true
   ui:
     label: 'Страница тегов'
   childNodes:
@@ -108,8 +103,7 @@ blah:
   constraints:
     nodeTypes:
       '*': false
-      'Flowpack.Listable:ListableMixin': true
-      'Flowpack.Listable:ListableCategoryMixin': true
+      'Sfi.Kateheo:News': true
 'Sfi.Kateheo:Tags':
   superTypes:
     'Neos.Neos:Document': true
@@ -143,7 +137,6 @@ blah:
 'Sfi.Kateheo:News':
   superTypes:
     'Neos.Neos:Document': true
-    'Flowpack.Listable:ListableMixin': true
   ui:
     label: Новость
     inspector:

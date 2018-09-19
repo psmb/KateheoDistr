@@ -1,0 +1,17 @@
+prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
+    homeLink = Neos.Neos:NodeUri {
+        node = ${site}
+    }
+    imageUri = Neos.Fusion:ResourceUri {
+        path = 'resource://Sfi.Kateheo/Public/Legacy/Images/logo.png'
+    }
+    renderer = afx`
+        <header class="hero-unit" role="banner">
+            <a href={props.homeLink} style="color:inherit; text-decoration: none">
+                <img src={props.imageUri} alt="Катехео" class="pull-left" style="padding-right: 1em" />
+                <h1>Идите, научите все народы</h1>
+                <p class="lead">Портал Научно-методического Центра по миссии и катехизации при СФИ</p>
+            </a>
+        </header>
+    `
+}

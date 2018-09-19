@@ -8,7 +8,7 @@
         "neos/neos-ui": "*@dev",
         "neos/neos-ui-compiled": "@dev",
         "neos/seo": "~2.0.0",
-        "flowpack/listable": "^2.0",
+        "flowpack/listable": "^3.0",
         "sfi/grid": "^2.0",
         "sfi/youtube": "^2.0",
         "flowpack/neos-frontendlogin": "^3.0",

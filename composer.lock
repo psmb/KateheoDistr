@@ -892,25 +892,25 @@
         },
         {
             "name": "flowpack/listable",
-            "version": "v2.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Flowpack/Flowpack.Listable.git",
-                "reference": "5f1eafbf1fcb68d0dec2c58eb403fc8d78829059"
+                "reference": "9b3f11421a71fdc395225cf27c743bddead50e46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Flowpack/Flowpack.Listable/zipball/5f1eafbf1fcb68d0dec2c58eb403fc8d78829059",
-                "reference": "5f1eafbf1fcb68d0dec2c58eb403fc8d78829059",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.Listable/zipball/9b3f11421a71fdc395225cf27c743bddead50e46",
+                "reference": "9b3f11421a71fdc395225cf27c743bddead50e46",
                 "shasum": ""
             },
             "require": {
-                "typo3/neos": "*"
+                "neos/neos": "^3.3 || ^4.0 || dev-master"
             },
             "replace": {
                 "sfi/listable": "v0.1"
             },
-            "type": "typo3-flow-package",
+            "type": "neos-package",
             "extra": {
                 "applied-flow-migrations": [
                     "TYPO3.FLOW3-201201261636",
@@ -975,12 +975,25 @@
                     "Neos.Neos-20161219094403",
                     "Neos.Neos-20161219122512",
                     "Neos.Fusion-20161219130100",
-                    "Neos.Neos-20161220163741"
+                    "Neos.Neos-20161220163741",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.SwiftMailer-20161130105617",
+                    "Neos.ContentRepository.Search-20161210231100",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102",
+                    "Neos.Fusion-20180211175500",
+                    "Neos.Fusion-20180211184832",
+                    "Neos.Flow-20180415105700"
                 ]
             },
             "autoload": {
-                "psr-0": {
-                    "Flowpack\\Listable": "Classes"
+                "psr-4": {
+                    "Flowpack\\Listable\\": "Classes"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -988,7 +1001,7 @@
                 "MIT"
             ],
             "description": "Tiny extension for listing things",
-            "time": "2016-12-27T12:08:21+00:00"
+            "time": "2018-05-04T15:09:42+00:00"
         },
         {
             "name": "flowpack/neos-frontendlogin",
@@ -5297,12 +5310,12 @@
             "dist": {
                 "type": "path",
                 "url": "DistributionPackages/Sfi.Kateheo",
-                "reference": "fe8b6807254d5a5d231342bcf3cd44b38017f36b",
+                "reference": "d55e5cb85e016915b60ff75512a662dfa4945217",
                 "shasum": null
             },
             "require": {
                 "flownative/aws-s3": "^2.0",
-                "flowpack/listable": "^2.0",
+                "flowpack/listable": "^3.0",
                 "flowpack/neos-frontendlogin": "^3.0",
                 "neos/fusion-afx": "^1.0",
                 "neos/neos": "^4.1",

@@ -1,15 +1,17 @@
-prototype(Sfi.Kateheo:LoginPage) < prototype(Neos.Neos:ContentComponent) {
-	main = Neos.Neos:ContentCollection{
-		nodePath = 'main'
-	}
+prototype(Sfi.Kateheo:LoginPage) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
 
-	renderer = afx`
-		<div class="row-fluid">
-			<div class="span12" role="main">
-				<div class="Category">
-					<div class="Category-Content">{props.main}</div>
+		renderer = afx`
+			<div class="row-fluid">
+				<div class="span12" role="main">
+					<div class="Category">
+						<div class="Category-Content">{props.main}</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	`
+		`
+	}
 }

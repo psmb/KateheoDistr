@@ -1,0 +1,15 @@
+#Breif rendering of article, used in NewsList
+prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:Content) {
+	templatePath = 'resource://Sfi.Kateheo/Private/Templates/NodeTypes/NewsShort.html'
+	configuration.thumbnailWidth = 250
+	configuration.thumbnailHeight = 180
+
+	title = ${String.stripTags(q(node).property('title'))}
+	date = ${q(node).property('date')}
+	teaser = ${String.stripTags(q(node).property('teaser'))}
+	# first image found becomes the thumbnail image TODO: remove legacy support for coverPhoto
+	thumbnailImage = ${q(node).children('coverCollection').children().count() > 0 ? q(node).children('coverCollection').children().get(0) : null}
+	#parrent node is the category
+	category = ${q(node).parent().get(0)}
+	authors =  ${q(node).property('authors')}
+}
