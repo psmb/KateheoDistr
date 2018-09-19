@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.67.14",
+            "version": "3.67.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f620d3abfb582f648e09456dbdf50ab11d4ec19d"
+                "reference": "527f7e6105ccfc27fd6d27aacdcaa293e66a4a96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f620d3abfb582f648e09456dbdf50ab11d4ec19d",
-                "reference": "f620d3abfb582f648e09456dbdf50ab11d4ec19d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/527f7e6105ccfc27fd6d27aacdcaa293e66a4a96",
+                "reference": "527f7e6105ccfc27fd6d27aacdcaa293e66a4a96",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-09-18T21:32:51+00:00"
+            "time": "2018-09-19T18:53:48+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -5310,7 +5310,7 @@
             "dist": {
                 "type": "path",
                 "url": "DistributionPackages/Sfi.Kateheo",
-                "reference": "d55e5cb85e016915b60ff75512a662dfa4945217",
+                "reference": "5581d128792dddf22c831febcafef773a32295a7",
                 "shasum": null
             },
             "require": {
@@ -5327,7 +5327,8 @@
                 "neos/redirecthandler-neosadapter": "^2.0",
                 "neos/seo": "~2.0.0",
                 "sfi/grid": "^2.0",
-                "sfi/youtube": "^2.0"
+                "sfi/youtube": "^2.0",
+                "sitegeist/silhouettes": "^1.0"
             },
             "type": "neos-site",
             "extra": {
@@ -5514,6 +5515,43 @@
             ],
             "description": "YouTube nodetype",
             "time": "2016-12-27T12:57:34+00:00"
+        },
+        {
+            "name": "sitegeist/silhouettes",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sitegeist/Sitegeist.Silhouettes.git",
+                "reference": "3339f52eb95ae9eff38ced5c672a0f12e7c0265f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Silhouettes/zipball/3339f52eb95ae9eff38ced5c672a0f12e7c0265f",
+                "reference": "3339f52eb95ae9eff38ced5c672a0f12e7c0265f",
+                "shasum": ""
+            },
+            "require": {
+                "neos/content-repository": "^3.0 || ^4.0 || dev-master",
+                "neos/neos": "^3.0 || ^4.0 || dev-master",
+                "neos/utility-arrays": "^4.0 || ^5.0 || dev-master"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.Silhouettes"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\Silhouettes\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Preconfigure property-silhuettes that can be applied to various properties of multiple NodeTypes.",
+            "time": "2018-07-12T06:22:24+00:00"
         },
         {
             "name": "symfony/console",

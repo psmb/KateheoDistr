@@ -13,19 +13,7 @@
         inlineEditable: true
         inline:
           editorOptions:
-            formatting:
-              u: false
-              sub: false
-              sup: false
-              p: false
-              h1: false
-              h2: false
-              h3: false
-              pre: false
-              removeFormat: false
-              a: false
-              strong: true
-              em: true
+            silhouette: 'formating'
             placeholder: 'Имя автора'
     originalIdentifier:
       type: string
