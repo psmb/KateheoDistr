@@ -18,7 +18,8 @@
         "flownative/aws-s3": "^2.0",
         "neos/redirecthandler": "^2.0",
         "neos/redirecthandler-databasestorage": "^3.0",
-        "neos/redirecthandler-neosadapter": "^2.0"
+        "neos/redirecthandler-neosadapter": "^2.0",
+        "neos/fusion-afx": "^1.0"
     },
     "scripts": {
         "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",

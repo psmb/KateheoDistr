@@ -1,12 +1,15 @@
-prototype(Sfi.Kateheo:TagsPage) {
-	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
-	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
-
+prototype(Sfi.Kateheo:TagsPage) < prototype(Neos.Neos:ContentComponent) {
 	tagsList = Neos.Neos:Menu {
 		templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/tagsList.html'
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
 	}
 
-	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
+	renderer = afx`
+		<div class="row-fluid">
+			<div class="span12" role="main">
+				{props.tagsList}
+			</div>
+		</div>
+	`
 }

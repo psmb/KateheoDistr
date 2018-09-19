@@ -1,0 +1,41 @@
+prototype(Sfi.Kateheo:Author) < prototype(Neos.Neos:ContentComponent) {
+	aMenu = Neos.Neos:Menu {
+		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').get()}
+		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
+		attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+		current.attributes.class = "active"
+	}
+
+	main = Neos.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+	newsList = Flowpack.Listable:List {
+		@context.listClass = 'news-list-view'
+		prototype(Flowpack.Listable:Listable) {
+			@context.sortProperty = 'date'
+			@context.sortOrder = 'DESC'
+			@context.itemsPerPage = 15
+			@context.paginationEnabled = ${true}
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').get()}
+			collection.@process.filterByAuthor = ${value ? q(value).filterByReference('authors', documentNode).get() : []}
+		}
+	}
+
+	renderer = afx`
+		<div class="row-fluid">
+			<div class="span3">
+				<div class="PageMain-authorMenu">{props.aMenu}</div>
+			</div>
+			<div class="span9" role="main">
+				<div class="Author">
+					<h1 class="Author-Name">
+						<Neos.Neos:Editable property="title" block={false}/>
+					</h1>
+					<div class="Author-Content">{props.main}</div>
+					<div class="Author-NewsList">{props.newsList}</div>
+				</div>
+			</div>
+		</div>
+		
+	`
+}

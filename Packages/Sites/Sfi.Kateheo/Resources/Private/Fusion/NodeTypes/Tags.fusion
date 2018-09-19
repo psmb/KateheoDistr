@@ -1,7 +1,4 @@
-prototype(Sfi.Kateheo:Tags) {
-	layoutRootPath = 'resource://Sfi.Kateheo/Private/Layouts'
-	partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
-
+prototype(Sfi.Kateheo:Tags) < prototype(Neos.Neos:ContentComponent) {
 	aMenu = Neos.Neos:Menu {
 		itemCollection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
 		itemCollection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
@@ -12,6 +9,7 @@ prototype(Sfi.Kateheo:Tags) {
 	main = Neos.Neos:ContentCollection{
 		nodePath = 'main'
 	}
+
 	newsList = Flowpack.Listable:List {
 		@context.listClass = 'news-list-view'
 		prototype(Flowpack.Listable:Listable) {
@@ -23,5 +21,18 @@ prototype(Sfi.Kateheo:Tags) {
 		}
 	}
 
-	@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
+	renderer = afx`
+		<div class="row-fluid">
+			<div class="span12" role="main">
+				<div class="Tags">
+					<h1 class="Tag-Name">
+						Список материалов по тегу:
+						<Neos.Neos:Editable property="title" block={false} />
+					</h1>
+					<div class="Tag-Content">{props.main}</div>
+					<div class="Tag-NewsList">{props.newsList}</div>
+				</div>
+			</div>
+		</div>
+	`
 }

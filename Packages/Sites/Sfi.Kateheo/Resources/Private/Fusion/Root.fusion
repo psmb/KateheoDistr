@@ -1,6 +1,7 @@
-include: Redirect.ts2
-include: OverrideStock.ts2
-include: NodeTypes/**/*.ts2
+include: Redirect.fusion
+include: OverrideStock.fusion
+include: Objects/**/*.fusion
+include: NodeTypes/**/*.fusion
 
 prototype(Sfi.Kateheo:SectionMenu) < prototype(Neos.Neos:Menu) {
 	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
@@ -59,7 +60,7 @@ prototype(Sfi.Kateheo:Page) < prototype(Neos.Neos:Page) {
 }
 
 root.fallbackPage {
-	@position = 'before default'
+	# @position = 'before default'
 	condition = TRUE
 	type = 'Sfi.Kateheo:Page'
 }

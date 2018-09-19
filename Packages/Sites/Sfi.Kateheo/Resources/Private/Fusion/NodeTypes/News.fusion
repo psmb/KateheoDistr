@@ -1,0 +1,123 @@
+prototype(Sfi.Kateheo:News) < prototype(Neos.Neos:ContentComponent) {
+	sectionMenu = ${sectionMenu}
+	authors =  ${q(node).property('authors')}
+	coverCollection = Neos.Neos:ContentCollection{
+		nodePath = 'coverCollection'
+		prototype(Neos.NodeTypes:Image){
+			maximumWidth = 980
+			maximumHeight = 653
+			allowCropping = TRUE
+		}
+	}
+
+	main = Neos.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+	category = ${q(node).parent().get(0)}
+
+	date = ${Date.format(node.properties.date, 'Y-m-d')}
+
+	authorsList = Neos.Fusion:Collection {
+		collection = ${node.properties.authors}
+		itemName = 'node'
+		itemRenderer = Neos.Fusion:Component {
+			link = Neos.Neos:NodeUri {
+				node = ${node}
+			}
+			title = ${node.properties.title}
+			renderer = afx`
+				<i class="fa fa-user"></i>
+				<a href={props.link}>
+					<span class="news-list-author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Article">
+						<span itemprop="name">{props.title}</span>
+					</span>
+				</a>
+			`
+			@if.notEmpty = ${node.properties.title}
+		}
+	}
+
+	tagsList = Neos.Fusion:Collection {
+		collection = ${node.properties.tags}
+		itemName = 'node'
+		itemRenderer = Neos.Fusion:Component {
+			link = Neos.Neos:NodeUri {
+				node = ${node}
+			}
+			title = ${node.properties.title}
+			renderer = afx`
+				<i class="fa fa-tag"></i>
+				<a href={props.link}>
+					<span itemprop="name">{props.title}</span>
+				</a>
+			`
+			@if.notEmpty = ${node.properties.title}
+		}
+	}
+
+	renderer = afx`
+		<div class="row-fluid">
+			<div class="span3">
+				{props.sectionMenu}
+			</div>
+			<div class="span9" role="main">
+				<div class="news news-single">
+					<div class="article" itemtype="http://schema.org/Article">
+
+						<div class="header">
+							<h2 itemprop="headline">
+								<Neos.Neos:Editable property="title" block={false} />
+							</h2>
+						</div>
+
+						<div class="footer">
+							<p>
+								<span class="news-list-date">
+									<i class="fa fa-calendar"></i>
+									<time datetime={props.date}>
+										{props.date}
+									</time>
+								</span>
+								<span class="news-list-authors">
+									{props.authorsList}
+								</span>
+								<span class="news-list-tags" itemprop="keywords" itemtype="http://schema.org/Article">
+									{props.tagsList}
+								</span>
+							</p>
+						</div>
+
+						<div class="teaser-text" itemprop="description">
+							<Neos.Neos:Editable property="teaser" block={false} />
+						</div>
+
+						{props.coverCollection}
+
+						<div class="news-text-wrap" itemprop="articleBody">
+							{props.main}
+						</div>
+
+						<Sfi.Kateheo:Disqus/>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	`
+}
+
+#Breif rendering of article, used in NewsList
+prototype(Sfi.Kateheo:NewsShort) < prototype(Neos.Neos:Content) {
+	templatePath = 'resource://Sfi.Kateheo/Private/Templates/NodeTypes/NewsShort.html'
+	configuration.thumbnailWidth = 250
+	configuration.thumbnailHeight = 180
+
+	title = ${String.stripTags(q(node).property('title'))}
+	date = ${q(node).property('date')}
+	teaser = ${String.stripTags(q(node).property('teaser'))}
+	# first image found becomes the thumbnail image TODO: remove legacy support for coverPhoto
+	thumbnailImage = ${q(node).children('coverCollection').children().count() > 0 ? q(node).children('coverCollection').children().get(0) : null}
+	#parrent node is the category
+	category = ${q(node).parent().get(0)}
+	authors =  ${q(node).property('authors')}
+}

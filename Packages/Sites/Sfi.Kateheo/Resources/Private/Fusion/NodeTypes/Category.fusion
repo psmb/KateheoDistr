@@ -1,0 +1,31 @@
+prototype(Sfi.Kateheo:Category) < prototype(Neos.Neos:ContentComponent) {
+	sectionMenu = ${sectionMenu}
+
+	main = Neos.Neos:ContentCollection{
+		nodePath = 'main'
+	}
+
+	newsList = Flowpack.Listable:List {
+		@context.listClass = 'news-list-view'
+		prototype(Flowpack.Listable:Listable) {
+			@context.queryType = 'getFromCurrentPage'
+		}
+	}
+
+	renderer = afx`
+		<div class="row-fluid">
+			<div class="span3">
+				{props.sectionMenu}
+			</div>
+			<div class="span9" role="main">
+				<div class="Category">
+					<h1 class="Category-Title">
+						<Neos.Neos:Editable property="title" block={false} />
+					</h1>
+					<div class="Category-Content">{props.main}</div>
+					<div class="Category-NewsList">{props.newsList}</div>
+				</div>
+			</div>
+		</div>
+	`
+}
