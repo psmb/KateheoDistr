@@ -1,0 +1,5 @@
+'Sfi.Kateheo:PageMain':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    label: 'Главная страница'

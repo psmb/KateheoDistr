@@ -1,0 +1,5 @@
+'Sfi.Kateheo:LoginPage':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    label: 'Страница входа'
