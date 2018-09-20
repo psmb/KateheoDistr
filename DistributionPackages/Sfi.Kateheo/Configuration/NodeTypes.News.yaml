@@ -19,19 +19,7 @@
         inlineEditable: true
         inline:
           editorOptions:
-            formatting:
-              u: false
-              sub: false
-              sup: false
-              p: false
-              h1: false
-              h2: false
-              h3: false
-              pre: false
-              removeFormat: false
-              a: false
-              strong: true
-              em: true
+            silhouette: 'formating'
             placeholder: 'Заголовок новости'
     teaser:
       type: string
@@ -39,19 +27,7 @@
         inlineEditable: true
         inline:
           editorOptions:
-            formatting:
-              u: false
-              sub: true
-              sup: true
-              p: false
-              h1: false
-              h2: false
-              h3: false
-              pre: false
-              removeFormat: false
-              a: true
-              strong: true
-              em: true
+            silhouette: 'formating'
             placeholder: Тизер
     date:
       type: DateTime
