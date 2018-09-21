@@ -1,0 +1,12 @@
+'Sfi.Kateheo:PageMain':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    label: 'Главная страница'
+  properties:
+    secondaryMenu:
+      type: references
+      ui:
+        label: 'Второстепенное меню'
+        inspector:
+          group: document
