@@ -1,0 +1,52 @@
+.Paragraph, .RteText p, .RteText li {
+    font-family: var(--fontFamily-main);
+    font-size: 14px;
+    line-height: var(--lineHeight-normal);
+}
+@media screen and (min-width: 640px) {
+    .Paragraph, .RteText p, .RteText li {
+        font-size: 18px;
+    }
+}
+
+.RteText p {
+    margin-bottom: 1.5em;
+}
+
+.Paragraph--Large {
+    font-family: var(--fontFamily-main);
+    font-size: 18px;
+    line-height: var(--lineHeight-normal);
+}
+@media screen and (min-width: 640px) {
+    .Paragraph--Large {
+        font-size: 24px;
+    }
+}
+
+.Paragraph--Small {
+    font-family: var(--fontFamily-main);
+    line-height: var(--lineHeight-normal);
+    font-size: 12px;
+}
+@media screen and (min-width: 640px) {
+    .Paragraph--Small {
+        font-size: 14px;
+    }
+}
+
+.ParagraphAlt {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-size: 14px;
+}
+.ParagraphAlt--Small {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-size: 12px;
+}
+.ParagraphAlt--Large {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-size: 18px;
+}

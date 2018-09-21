@@ -1,0 +1,88 @@
+'Sfi.Kateheo:Article':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Материал
+    inspector:
+      groups:
+        news:
+          label: 'Атрибуты материала'
+  childNodes:
+    coverCollection:
+      type: 'Neos.Neos:ContentCollection'
+    main:
+      type: 'Neos.Neos:ContentCollection'
+  properties:
+    title:
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            formatting:
+              u: false
+              sub: false
+              sup: false
+              p: false
+              h1: false
+              h2: false
+              h3: false
+              pre: false
+              removeFormat: false
+              a: false
+              strong: true
+              em: true
+            placeholder: 'Заголовок новости'
+    teaser:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            formatting:
+              u: false
+              sub: true
+              sup: true
+              p: false
+              h1: false
+              h2: false
+              h3: false
+              pre: false
+              removeFormat: false
+              a: true
+              strong: true
+              em: true
+            placeholder: Тизер
+    date:
+      type: DateTime
+      defaultValue: now
+      ui:
+        label: Дата
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            format: 'd-m-Y H:i'
+      validation:
+        Neos.Neos/Validation/DateTimeValidator: {  }
+    authors:
+      type: references
+      ui:
+        label: Авторы
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            nodeTypes:
+              - 'Sfi.Kateheo:Author'
+    tags:
+      type: references
+      ui:
+        label: Тэги
+        reloadIfChanged: true
+        inspector:
+          group: news
+          editorOptions:
+            nodeTypes:
+              - 'Sfi.Kateheo:Tags'
+    originalIdentifier:
+      type: string

@@ -1,0 +1,42 @@
+prototype(Sfi.Kateheo:PrimarySections) < prototype(Neos.Fusion:Collection) {
+	@context.mode = ${this.mode}
+	@process.wrap = afx`<div style="display: flex; flex-wrap: wrap; margin: -12px">{value}</div>`
+	collection = ${q(site).find('[instanceof Sfi.Kateheo:PrimarySection]').get()}
+	collection.@process.filterOutSelf = ${q(value).filter('[_identifier != "' + node.identifier + '"]').get()}
+	itemName = 'node'
+	itemRenderer = Neos.Neos:ContentComponent {
+		imageUri = Neos.Neos:ImageUri {
+			asset = ${node.properties.image}
+			width = 642
+			height = 293
+			allowCropping = true
+		}
+		renderer = afx`
+			<div style={mode == 'section' ? 'flex-basis: 33.33%; padding: 12px' : 'flex-basis: 50%; padding: 12px'}>
+				{props.style}
+				<a href={props.nodeLink} class={'primarySection' + node.name}>
+					<div style="padding-top: 12%">
+						<p class={(mode == 'section' ? 'H2' : 'H1') + ' color-white'} style="text-transform: uppercase; text-align: center"><Neos.Neos:Editable property="title" block={false} /></p>
+						<p @if.onlyMain={mode != 'section'} class="ServiceEm--Large color-white textAlign-center"><Neos.Neos:Editable property="description" block={false} /></p>
+						<div style="margin: 12px auto; border: 2px solid white; color: white; font-size: 20px; width: 100px; text-align: center;">⟶</div>
+					</div>
+				</a>
+			</div>
+		`
+		style = ${'<style>
+			.primarySection' + node.name + ' {
+				background-image: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ),url("' + this.imageUri + '");
+				background-size: cover;
+				display: block;
+				overflow: hidden;
+				height: 0;
+				padding-bottom: 50%;
+				cursor: pointer;
+			}
+			.primarySection' + node.name + ':hover {
+				background-blend-mode: multiply;
+				background-image: linear-gradient( rgba(215,194,105,.5), rgba(215,194,105,.5) ),url("' + this.imageUri + '");
+			}
+		</style>'}
+	}
+}

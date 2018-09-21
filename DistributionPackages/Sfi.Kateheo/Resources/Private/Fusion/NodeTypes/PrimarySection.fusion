@@ -1,0 +1,40 @@
+prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		title = ${node.properties.title}
+		categoriesList = Neos.Fusion:Collection {
+			collection = ${q(node).children('[instanceof Sfi.Kateheo:Category]').sort('_index', 'ASC').get()}
+			itemName = 'category'
+			itemRenderer = Neos.Fusion:Component {
+				categoryTitle = ${category.properties.title}
+				articlesList = Neos.Fusion:Collection {
+					collection = ${q(category).children('[instanceof Sfi.Kateheo:News]').sort('_index', 'ASC').get()}
+					itemName = 'node'
+					itemRenderer = Sfi.Kateheo:Article.Short
+				}
+				renderer = afx`
+					<h2 class="H3">{props.categoryTitle}</h2>
+					{props.articlesList}
+				`
+			}
+		}
+
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
+
+		renderer = afx`
+			<div style="display: flex; margin: -12px;">
+				<div style="flex-basis: 50%; padding: 12px;">
+					<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
+					{props.main}
+				</div>
+				<div style="flex-basis: 50%; padding: 12px;">
+					{props.categoriesList}
+				</div>
+			</div>
+			<div style="margin: 48px 0">
+				<Sfi.Kateheo:PrimarySections mode="section"/>
+			</div>
+		`
+	}
+}

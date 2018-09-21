@@ -11,6 +11,7 @@
         "flowpack/listable": "^3.0",
         "sfi/grid": "^2.0",
         "sfi/youtube": "^2.0",
+        "psmb/carousel": "^0.2.0",
         "flowpack/neos-frontendlogin": "^3.0",
         "flownative/aws-s3": "^2.0",
         "neos/redirecthandler": "^2.0",

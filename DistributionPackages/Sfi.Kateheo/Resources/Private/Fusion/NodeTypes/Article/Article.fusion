@@ -1,0 +1,45 @@
+prototype(Sfi.Kateheo:Article) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		@context.author = ${q(node.properties.authors).get(0)}
+		authorName = Neos.Fusion:Tag {
+			tagName = 'a'
+			attributes.href = Neos.Neos:NodeUri {
+				node = ${author}
+			}
+			content = ${String.stripTags(author.properties.title)}
+			@if.setAuthor = ${author}
+		}
+
+		authorInfo = Sfi.Kateheo:Article.AuthorInfo
+
+		main = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
+
+		date = ${Date.formatCldr(node.properties.date, 'dd MMMM yyyy')}
+
+		renderer = afx`
+			<div class="Paper-Article">
+				<div class="Article" style="margin-bottom: 60px">
+					<div class="row">
+						<div class="large-10 large-offset-1 columns">
+							<div class="textAlign-center">
+								<div class="Service--Large">{props.authorName}</div>
+								<h1 class="H1 textAlign-center"><Neos.Neos:Editable property="title" block={false}/></h1>
+								<div class="ServiceEm"><Neos.Neos:Editable property="teaser" block={false}/></div>
+								<span class="ServiceEm" style="text-transform: lowercase;">{props.date}</span>
+							</div>
+							<div class="color-primary"><Neos.Neos:Editable property="lead"/></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-8 medium-10 large-offset-2 medium-offset-1 columns">
+							<div class="Article-Content">{props.main}</div>
+							{props.authorInfo}
+						</div>
+					</div>
+				</div>
+			</div>
+		`
+	}
+}

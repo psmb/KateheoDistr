@@ -1,15 +1,16 @@
 prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
     renderer = afx`
-        <footer role="contentinfo" id="footer_">
-            <div class="footer_column">
-                <div id="c294" class="csc-default">
-                    <p>Наш почтовый адрес:&nbsp;<br/>105062 Москва, ул. Покровка, д. 29&nbsp;<br/>Тел./факс: +7 (495) 623-03-80<br/>E-mail:&nbsp;<a href="mailto:info@sfi.ru">info@kateheo.ru</a></p>
+        <footer class="color-white" role="contentinfo" style="padding: 12px; background-color: rgba(0, 0, 0, 0.9)">
+            <div class="fixedWidth">
+                <div style="display: flex;">
+                    <div style="flex-basis: 66.66%"></div>
+                    <div class="ParagraphAlt" style="flex-basis: 33.33%">
+                        Москва, ул. Покровка, д. 29<br/>
+                        <a href="tel:+74956230380">+7 (495) 623-03-80</a><br/>
+                        <a href="mailto:info@kateheo.ru">info@kateheo.ru</a>
+                    </div>
                 </div>
-            </div>
-            <div class="footer_column">
-            <div id="c304" class="csc-default">
-                <p>Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a>&nbsp;Мнение редакции может не совпадать с мнением авторов.</p>
-                </div>
+                <p class="ParagraphAlt">Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a>&nbsp;Мнение редакции может не совпадать с мнением авторов.</p>
             </div>
         </footer>
     `

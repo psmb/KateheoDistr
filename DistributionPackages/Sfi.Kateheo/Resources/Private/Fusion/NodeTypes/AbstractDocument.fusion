@@ -1,13 +1,15 @@
 prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	head {
 		titleTag.content = ${String.stripTags(q(node).property('title'))}
-		stylesheets.site = Neos.Fusion:Template {
-			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
-			sectionName = 'stylesheets'
-		}
-		javascripts.headScripts = Neos.Fusion:Template {
-			templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
-			sectionName = 'headScripts'
+		stylesheets.main = Neos.Fusion:Tag {
+			tagName = 'link'
+			attributes {
+				href = Neos.Fusion:ResourceUri {
+					path = 'resource://Sfi.Kateheo/Public/main.css'
+				}
+				type = 'text/css'
+				rel = 'stylesheet'
+			}
 		}
 	}
 	htmlTag.attributes.lang="ru"
@@ -15,4 +17,13 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	bodyTag.attributes.id = ${'Page-' + q(node).property('_name')}
 	body = 'override-me'
 	body.@process.defaultLayout = Sfi.Kateheo:DefaultLayout
+	body.javascripts.lory = Neos.Fusion:Tag {
+		tagName = 'script'
+		attributes {
+			src = Neos.Fusion:ResourceUri {
+				path = 'resource://Sfi.Kateheo/Public/vendor-lory.js'
+			}
+			type = 'application/javascript'
+		}
+	}
 }

@@ -1,0 +1,27 @@
+'Sfi.Kateheo:PrimarySection':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Основной раздел
+    icon: home
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+  properties:
+    description:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: Описание
+    image:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Фото на главную'
+        inspector:
+          group: 'document'
+  constraints:
+    nodeTypes:
+      '*': false
+      'Sfi.Kateheo:News': true

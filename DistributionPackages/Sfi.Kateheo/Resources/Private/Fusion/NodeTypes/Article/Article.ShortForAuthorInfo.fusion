@@ -1,0 +1,14 @@
+prototype(Sfi.Kateheo:Article.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
+	title = ${String.stripTags(q(node).property('title'))}
+	teaser = ${String.stripTags(q(node).property('teaser'))}
+	parent = ${q(node).parent().property('title')}
+	linkUri = Neos.Neos:NodeUri {
+		node = ${node}
+	}
+
+	renderer = afx`
+		<a href={props.linkUri}>
+			<h3 class="marginVertical-half Paragraph lineHeight-tight color-primary">{props.title}</h3>
+		</a>
+	`
+}

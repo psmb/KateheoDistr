@@ -1,29 +1,17 @@
 # Define Aloha presets to reuse throughout the document
 
-blah:
-  placeholder: 'Enter title here'
-  format:
-    b: true
-    i: true
-    u: false
-    sub: true
-    sup: true
-    p: false
-    h1: false
-    h2: false
-    h3: false
-    pre: false
-    removeFormat: false
-  table: {  }
-  list: {  }
-  link:
-    a: true
-  alignment: {  }
 'Sfi.Kateheo:PageMain':
   superTypes:
     'Neos.NodeTypes:Page': true
   ui:
     label: 'Главная страница'
+  properties:
+    secondaryMenu:
+      type: references
+      ui:
+        label: 'Второстепенное меню'
+        inspector:
+          group: document
 'Sfi.Kateheo:LoginPage':
   superTypes:
     'Neos.NodeTypes:Page': true
@@ -64,6 +52,10 @@ blah:
     'Neos.Neos:Document': true
   ui:
     label: Автор
+    inspector:
+      groups:
+        image:
+          label: 'Изображение'
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
@@ -73,20 +65,20 @@ blah:
         inlineEditable: true
         inline:
           editorOptions:
-            formatting:
-              u: false
-              sub: false
-              sup: false
-              p: false
-              h1: false
-              h2: false
-              h3: false
-              pre: false
-              removeFormat: false
-              a: false
-              strong: true
-              em: true
             placeholder: 'Имя автора'
+    info:
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Краткие сведения об авторе'
+    image:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Фото автора'
+        reloadIfChanged: true
+        inspector:
+          group: image
     originalIdentifier:
       type: string
 'Sfi.Kateheo:TagsPage':

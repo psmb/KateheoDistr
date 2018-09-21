@@ -22,6 +22,8 @@ Neos:
             'defaultUriSuffix': ''
     i18n:
       defaultLocale: ru
+    session:
+      inactivityTimeout: 604800
     resource:
       collections:
         persistent:
@@ -48,3 +50,14 @@ Neos:
     fusion:
       autoInclude:
         Sfi.Kateheo: true
+    userInterface:
+      navigateComponent:
+        structureTree:
+          loadingDepth: 0
+        nodeTree:
+          loadingDepth: 1
+    eventLog:
+      enabled: true
+  Ui:
+    fronendConfiguration:
+      defaultInlineEditor: 'ckeditor5'

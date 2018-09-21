@@ -14,6 +14,7 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 		main = Neos.Neos:ContentCollection{
 			nodePath = 'main'
 		}
+
 		category = ${q(node).parent().get(0)}
 
 		date = ${Date.format(node.properties.date, 'Y-m-d')}
@@ -105,6 +106,5 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 				</div>
 			</div>
 		`
-
 	}
 }

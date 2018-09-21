@@ -1,0 +1,39 @@
+'Sfi.Kateheo:Slide':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: Слайд с цитатой
+    icon: user
+    inspector:
+      groups:
+        image:
+          label: 'Изображение'
+  properties:
+    text:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Teкст цитаты'
+    name:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: Имя
+    about:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'О человеке, должность'
+    image:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Фото'
+        reloadIfChanged: true
+        inspector:
+          group: image

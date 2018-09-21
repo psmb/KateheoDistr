@@ -1,17 +1,52 @@
 prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
+    primaryMenu = Neos.Fusion:Collection {
+        collection = ${q(site).find('[instanceof Sfi.Kateheo:PrimarySection]').get()}
+        itemName = 'node'
+        itemRenderer = Neos.Fusion:Tag {
+            tagName = 'a'
+            attributes.style = 'padding: 12px'
+            attributes.class = 'H4'
+            attributes.href = Neos.Neos:NodeUri {
+                node = ${node}
+            }
+            content = ${node.properties.title}
+        }
+    }
+    secondaryMenu = Neos.Fusion:Collection {
+        collection = ${site.properties.secondaryMenu}
+        itemName = 'node'
+        itemRenderer = Neos.Fusion:Tag {
+            tagName = 'a'
+            attributes.style = 'padding: 12px'
+            attributes.class = 'Service--Small'
+            attributes.href = Neos.Neos:NodeUri {
+                node = ${node}
+            }
+            content = ${node.properties.title}
+        }
+    }
     homeLink = Neos.Neos:NodeUri {
         node = ${site}
     }
     imageUri = Neos.Fusion:ResourceUri {
-        path = 'resource://Sfi.Kateheo/Public/Legacy/Images/logo.png'
+        path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
     }
     renderer = afx`
-        <header class="hero-unit" role="banner">
-            <a href={props.homeLink} style="color:inherit; text-decoration: none">
-                <img src={props.imageUri} alt="Катехео" class="pull-left" style="padding-right: 1em" />
-                <h1>Идите, научите все народы</h1>
-                <p class="lead">Портал Научно-методического Центра по миссии и катехизации при СФИ</p>
+        <header role="banner" style="margin-bottom: 60px">
+            <div class="backgroundColor-kateheo" style="display: flex; justify-content: space-between; padding: 12px;">
+                <div>{props.primaryMenu}</div>
+                <div style="width: 33.333%">{props.secondaryMenu}</div>
+            </div>
+            <a href={props.homeLink} style="display: flex; justify-content: space-between;">
+                <img src={props.imageUri} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
+                <div style="width: 33.333%; padding-left: 6px; display: flex; align-items: center;">
+                    <div>
+                        <h1 class="H3" style="text-transform: uppercase">Научно-методический центр по миссии и катехизации</h1>
+                        <p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+                    </div>
+                </div>
             </a>
+            <Sfi.Kateheo:BreadcrumbMenu/>
         </header>
     `
 }
