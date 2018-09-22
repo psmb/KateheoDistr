@@ -1,11 +1,11 @@
-.H1 {
+.H0 {
     font-weight: bold;
     line-height: var(--lineHeight-single);
     font-family: var(--fontFamily-alt);
     font-size: 36px;
 }
 @media screen and (min-width: 640px) {
-    .H1 {
+    .H0 {
         line-height: var(--lineHeight-tight);
         font-size: 64px;
     }
@@ -80,7 +80,7 @@
     font-size: 12px;
 }
 @media screen and (min-width: 640px) {
-    .H1 {
+    .H6 {
         line-height: var(--lineHeight-tight);
     }
 }
