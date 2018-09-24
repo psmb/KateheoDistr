@@ -21,15 +21,15 @@ prototype(Sfi.Kateheo:News.AuthorInfo) < prototype(Neos.Fusion:Component) {
         <div style="margin: 60px 0">
             <div class="H2 textAlign-center" style="margin: 36px 0">Об авторе</div>
             <div style="display: flex">
-                <div @if.image={props.imageUri} class="marginRight-double" style="flex-shrink: 0">
+                <div @if.image={props.imageUri} style="margin-right: 24px; flex-shrink: 0">
                     <img style="border: 5px solid; border-color: var(--color-grayLine); border-radius: 50%" src={props.imageUri}/>
                 </div>
                 <div>
                     <a href={props.authorLink}>
                         <h4 class="H3">{props.authorName}</h4>
-                        <p class="Paragraph marginTop-half">{props.authorInfo}</p>
+                        <p class="Paragraph" style="margin-top: 6px">{props.authorInfo}</p>
                     </a>
-                    <div class="marginTop-triple paddingTop-double">
+                    <div class="marginTop-triple" style="margin-top: 24px">
                         {props.authorArticles}
                     </div>
                 </div>

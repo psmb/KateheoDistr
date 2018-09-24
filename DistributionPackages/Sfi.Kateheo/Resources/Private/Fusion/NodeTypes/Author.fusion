@@ -11,16 +11,17 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 			nodePath = 'main'
 		}
 
-		newsList = Flowpack.Listable:List {
-			@context.listClass = 'news-list-view'
-			prototype(Flowpack.Listable:Listable) {
-				@context.sortProperty = 'date'
-				@context.sortOrder = 'DESC'
-				@context.itemsPerPage = 15
-				@context.paginationEnabled = ${true}
-				collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').get()}
-				collection.@process.filterByAuthor = ${q(value).count() > 0 ? q(value).filterByReference('authors', documentNode).get() : []}
-			}
+		imageUri = Neos.Neos:ImageUri {
+			asset = ${author.properties.image}
+			width = 100
+			height = 100
+			allowCropping = true
+		}
+
+		newsList = Flowpack.Listable:Collection {
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').get()}
+			collection.@process.filterByAuthor = ${q(value).filterByReference('authors', node).get()}
+			itemRenderer = Sfi.Kateheo:News.ShortForAuthorInfo
 		}
 
 		renderer = afx`
@@ -30,6 +31,10 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 				</div>
 				<div class="medium-8 columns" role="main">
 					<div class="Author">
+						<div @if.image={props.imageUri} class="marginRight-double">
+							<img style="border: 5px solid; border-color: var(--color-grayLine); border-radius: 50%" src={props.imageUri}/>
+						</div>
+						{props.authorInfo}
 						<h1 class="H1">
 							<Neos.Neos:Editable property="title" block={false}/>
 						</h1>
