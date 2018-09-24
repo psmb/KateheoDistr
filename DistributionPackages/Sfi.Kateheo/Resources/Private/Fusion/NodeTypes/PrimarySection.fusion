@@ -9,7 +9,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 				articlesList = Neos.Fusion:Collection {
 					collection = ${q(category).children('[instanceof Sfi.Kateheo:News]').sort('_index', 'ASC').get()}
 					itemName = 'node'
-					itemRenderer = Sfi.Kateheo:Article.Short
+					itemRenderer = Sfi.Kateheo:News.Short
 				}
 				renderer = afx`
 					<h2 class="H3">{props.categoryTitle}</h2>
@@ -23,18 +23,21 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 		}
 
 		renderer = afx`
-			<div style="display: flex; margin: -12px;">
-				<div style="flex-basis: 50%; padding: 12px;">
-					<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
-					{props.main}
+			<div class="js-sticky-main-content" style="display: flex; margin: -12px;">
+				<div class="js-sticky-sidebar" style="flex-basis: 50%;">
+					<div class="js-sticky-sidebar__inner" style="padding: 12px">
+						<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
+						{props.main}
+					</div>
 				</div>
-				<div style="flex-basis: 50%; padding: 12px;">
+				<div class="js-sticky-content" style="flex-basis: 50%; padding: 12px;">
 					{props.categoriesList}
 				</div>
 			</div>
 			<div style="margin: 48px 0">
 				<Sfi.Kateheo:PrimarySections mode="section"/>
 			</div>
+			
 		`
 	}
 }

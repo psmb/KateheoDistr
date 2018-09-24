@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:BreadcrumbMenu) < prototype(Neos.Fusion:Collection) {
 	@if.notMain = ${node != site}
-	collection = ${q(node).parents().get()}
+	collection = ${Array.reverse(q(node).parents().get())}
 	itemName = 'node'
 	itemRenderer = Neos.Fusion:Component {
 		nodeUri = Neos.Neos:NodeUri {

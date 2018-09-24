@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:Article.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
+prototype(Sfi.Kateheo:News.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
 	title = ${String.stripTags(q(node).property('title'))}
 	teaser = ${String.stripTags(q(node).property('teaser'))}
 	parent = ${q(node).parent().property('title')}

@@ -1,9 +1,9 @@
-prototype(Sfi.Kateheo:Article.AuthorInfoArticlesList) < prototype(Neos.Fusion:Collection) {
+prototype(Sfi.Kateheo:News.AuthorInfoArticlesList) < prototype(Neos.Fusion:Collection) {
     @process.tmpl = ${'<div><h2 class="Service">Другие материалы автора</h2>' + value + '</div>'}
-    collection = ${q(site).find('[instanceof Sfi.Kateheo:Article]').get()}
+    collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').get()}
     collection.@process.filterOutSelf = ${q(value).filter('[_identifier != "' + node.identifier + '"]').get()}
     collection.@process.filterByAuthor = ${q(value).filterByReference('authors', author).get()}
     itemName = 'node'
-    itemRenderer = Sfi.Kateheo:Article.ShortForAuthorInfo
-    @if.notEmpty = ${q(this.collection).count() > 0}
+    itemRenderer = Sfi.Kateheo:News.ShortForAuthorInfo
+    @if.notEmpty = ${author && q(this.collection).count() > 0}
 }

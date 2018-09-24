@@ -26,4 +26,13 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 			type = 'application/javascript'
 		}
 	}
+	body.javascripts.sticky = Neos.Fusion:Tag {
+		tagName = 'script'
+		attributes {
+			src = Neos.Fusion:ResourceUri {
+				path = 'resource://Sfi.Kateheo/Public/vendor-sticky.js'
+			}
+			type = 'application/javascript'
+		}
+	}
 }

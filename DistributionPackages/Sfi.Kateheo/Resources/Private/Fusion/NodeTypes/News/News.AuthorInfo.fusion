@@ -1,4 +1,5 @@
-prototype(Sfi.Kateheo:Article.AuthorInfo) < prototype(Neos.Fusion:Component) {
+prototype(Sfi.Kateheo:News.AuthorInfo) < prototype(Neos.Fusion:Component) {
+    @if.notEmpty = ${author}
     authorName = ${String.stripTags(author.properties.title)}
 
     authorInfo = ${String.stripTags(author.properties.info)}
@@ -14,7 +15,7 @@ prototype(Sfi.Kateheo:Article.AuthorInfo) < prototype(Neos.Fusion:Component) {
         node = ${author}
     }
 
-    authorArticles = Sfi.Kateheo:Article.AuthorInfoArticlesList
+    authorArticles = Sfi.Kateheo:News.AuthorInfoArticlesList
 
     renderer = afx`
         <div style="margin: 60px 0">

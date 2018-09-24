@@ -4,7 +4,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
         itemName = 'node'
         itemRenderer = Neos.Fusion:Tag {
             tagName = 'a'
-            attributes.style = 'padding: 12px'
+            attributes.style = 'padding: 12px; display: inline-block;'
             attributes.class = 'H4'
             attributes.href = Neos.Neos:NodeUri {
                 node = ${node}
@@ -17,7 +17,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
         itemName = 'node'
         itemRenderer = Neos.Fusion:Tag {
             tagName = 'a'
-            attributes.style = 'padding: 12px'
+            attributes.style = 'padding: 12px; display: inline-block;'
             attributes.class = 'Service--Small'
             attributes.href = Neos.Neos:NodeUri {
                 node = ${node}
@@ -25,23 +25,40 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
             content = ${node.properties.title}
         }
     }
+    loginLink = Neos.Neos:NodeUri {
+        node = ${q(site).find('[instanceof Sfi.Kateheo:LoginPage]').get(0)}
+    }
     homeLink = Neos.Neos:NodeUri {
         node = ${site}
     }
     imageUri = Neos.Fusion:ResourceUri {
         path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
     }
+    iconUser = Neos.Fusion:ResourceUri {
+        path = 'resource://Sfi.Kateheo/Public/Images/IconUser.svg'
+    }
+    iconSearch = Neos.Fusion:ResourceUri {
+        path = 'resource://Sfi.Kateheo/Public/Images/IconSearch.svg'
+    }
     renderer = afx`
         <header role="banner" style="margin-bottom: 60px">
-            <div class="backgroundColor-kateheo" style="display: flex; justify-content: space-between; padding: 12px;">
+            <div class="backgroundColor-kateheo" style="display: flex; justify-content: space-between; padding: 0 12px;">
                 <div>{props.primaryMenu}</div>
-                <div style="width: 33.333%">{props.secondaryMenu}</div>
+                <div>
+                    {props.secondaryMenu}
+                    <a title="Вход" href={props.loginLink} style="border-left: 1px solid black; margin-left: 24px; padding: 0 4px;">
+                        <img src={props.iconUser} />
+                    </a>
+                    <a title="Поиск" href={props.loginLink} style="border-left: 1px solid black; padding: 0 12px">
+                        <img src={props.iconSearch} />
+                    </a>
+                </div>
             </div>
             <a href={props.homeLink} style="display: flex; justify-content: space-between;">
                 <img src={props.imageUri} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
-                <div style="width: 33.333%; padding-left: 6px; display: flex; align-items: center;">
+                <div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
                     <div>
-                        <h1 class="H3" style="text-transform: uppercase">Научно-методический центр по миссии и катехизации</h1>
+                        <h1 class="H2" style="text-transform: uppercase">Научно-методический центр по миссии и катехизации</h1>
                         <p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
                     </div>
                 </div>

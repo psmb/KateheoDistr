@@ -1,8 +1,13 @@
 #Breif rendering of article, used in NewsList
-prototype(Sfi.Kateheo:Article.Short) < prototype(Neos.Neos:ContentComponent) {
+prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 	title = ${String.stripTags(node.properties.title)}
 	nodeUri = Neos.Neos:NodeUri {
 		node = ${node}
+	}
+	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
+		content = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
 	}
 	author = ${q(node.properties.authors).get(0)}
 	authorName = ${this.author.properties.title}
@@ -10,7 +15,10 @@ prototype(Sfi.Kateheo:Article.Short) < prototype(Neos.Neos:ContentComponent) {
 	renderer = afx`
 		<a href={props.nodeUri}>
 			<div style="margin: 24px 0">
-				<div class="H4">{props.authorName}</div>
+				<div style="display: flex; justify-content: space-between;">
+					<div class="H4">{props.authorName}</div>
+					<div class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</div>
+				</div>
 				<div class="ServiceEm">{props.authorInfo}</div>
 				<h3 class="Paragraph color-primary">{props.title}</h3>
 			</div>

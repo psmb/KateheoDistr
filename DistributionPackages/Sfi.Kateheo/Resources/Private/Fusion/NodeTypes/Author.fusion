@@ -24,15 +24,18 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 		}
 
 		renderer = afx`
-			<div class="row-fluid">
-				<div class="span3">
+			<div class="row">
+				<div class="medium-4 columns">
 					<div class="PageMain-authorMenu">{props.aMenu}</div>
 				</div>
-				<div class="span9" role="main">
+				<div class="medium-8 columns" role="main">
 					<div class="Author">
-						<h1 class="Author-Name">
+						<h1 class="H1">
 							<Neos.Neos:Editable property="title" block={false}/>
 						</h1>
+						<p class="Paragraph--Large">
+							<Neos.Neos:Editable property="info" block={false}/>
+						</p>
 						<div class="Author-Content">{props.main}</div>
 						<div class="Author-NewsList">{props.newsList}</div>
 					</div>
