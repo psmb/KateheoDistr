@@ -11,6 +11,7 @@
 
 .RteText p {
     margin-bottom: 1.5em;
+    text-align: left !important;
 }
 
 .Paragraph--Large {

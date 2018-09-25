@@ -1,16 +1,23 @@
 prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 	body = Neos.Neos:ContentComponent {
-		@context.author = ${q(node.properties.authors).get(0)}
-		authorName = Neos.Fusion:Tag {
-			tagName = 'a'
-			attributes.href = Neos.Neos:NodeUri {
-				node = ${author}
+		authorName = Neos.Fusion:Collection {
+			collection = ${node.properties.authors}
+			itemName = 'author'
+			itemRenderer = Neos.Fusion:Tag {
+				tagName = 'a'
+				attributes.href = Neos.Neos:NodeUri {
+					node = ${author}
+				}
+				content = ${String.stripTags(author.properties.title) + ' '}
+				@if.setAuthor = ${author}
 			}
-			content = ${String.stripTags(author.properties.title)}
-			@if.setAuthor = ${author}
 		}
 
-		authorInfo = Sfi.Kateheo:News.AuthorInfo
+		authorInfo = Neos.Fusion:Collection {
+			collection = ${node.properties.authors}
+			itemName = 'author'
+			itemRenderer = Sfi.Kateheo:News.AuthorInfo
+		}
 
 		cover = Neos.Neos:ContentCollection{
 			nodePath = 'coverCollection'

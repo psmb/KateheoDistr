@@ -8,6 +8,10 @@ prototype(Neos.NodeTypes:Text) {
 	attributes.class = ${'RteText'}
 }
 
+prototype(Neos.NodeTypes:TextWithImage) {
+	attributes.class = ${'RteText'}
+}
+
 prototype(Psmb.Carousel:Carousel) {
 	arrowPrev = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><g><path d="M32.3,40.2c-0.3,0-0.5-0.1-0.7-0.3L16.7,25l14.9-14.9c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L19.5,25L33,38.5 c0.4,0.4,0.4,1,0,1.4C32.8,40.1,32.6,40.2,32.3,40.2z"/></g></svg>'
 	arrowNext = '<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><g><path d="M17.7,9.8c0.3,0,0.5,0.1,0.7,0.3L33.3,25L18.4,39.9c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4L30.5,25L17,11.5 c-0.4-0.4-0.4-1,0-1.4C17.2,9.9,17.4,9.8,17.7,9.8z"/></g></svg>'

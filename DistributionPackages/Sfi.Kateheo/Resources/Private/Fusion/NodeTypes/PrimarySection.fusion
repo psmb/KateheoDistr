@@ -12,8 +12,10 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 					itemRenderer = Sfi.Kateheo:News.Short
 				}
 				renderer = afx`
-					<h2 class="H3">{props.categoryTitle}</h2>
-					{props.articlesList}
+					<div style="margin-bottom: 48px">
+						<h2 class="H3">{props.categoryTitle}</h2>
+						{props.articlesList}
+					</div>
 				`
 			}
 		}
@@ -37,7 +39,6 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 			<div style="margin: 48px 0">
 				<Sfi.Kateheo:PrimarySections mode="section"/>
 			</div>
-			
 		`
 	}
 }
