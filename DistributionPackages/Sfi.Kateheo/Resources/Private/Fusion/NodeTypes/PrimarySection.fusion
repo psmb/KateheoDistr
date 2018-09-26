@@ -25,9 +25,9 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 		}
 
 		renderer = afx`
-			<div class="row js-sticky-main-content">
+			<div class="row js-sticky-main-content" style="margin-top: 36px">
 				<div class="large-6 medium-10 columns js-sticky-sidebar" style="padding-left: 0">
-					<div class="js-sticky-sidebar__inner" style="padding-bottom: 24px">
+					<div class="js-sticky-sidebar__inner" style="padding-bottom: 24px; padding-left: 12px">
 						<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
 						{props.main}
 					</div>
