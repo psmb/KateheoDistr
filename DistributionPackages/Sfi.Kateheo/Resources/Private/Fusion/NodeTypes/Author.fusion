@@ -26,9 +26,6 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 
 		renderer = afx`
 			<div class="row">
-				<div class="medium-4 columns">
-					<div class="PageMain-authorMenu">{props.aMenu}</div>
-				</div>
 				<div class="medium-8 columns" role="main">
 					<div class="Author">
 						<div @if.image={props.imageUri} class="marginRight-double">
@@ -44,6 +41,9 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 						<div class="Author-Content">{props.main}</div>
 						<div class="Author-NewsList">{props.newsList}</div>
 					</div>
+				</div>
+				<div class="medium-4 columns">
+					<div class="PageMain-authorMenu">{props.aMenu}</div>
 				</div>
 			</div>
 			

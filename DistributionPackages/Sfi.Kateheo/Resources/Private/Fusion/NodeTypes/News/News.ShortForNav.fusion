@@ -18,9 +18,9 @@ prototype(Sfi.Kateheo:News.ShortForNav) < prototype(Neos.Fusion:Component) {
 		<a href={props.nodeUri} class="backgroundColor-kateheo" style="display: flex; align-items: center; padding: 36px 12px; height: 100%;">
 			{props.mode == 'prev' && props.prevArrow}
 			<div style="padding: 0 12px; flex-grow: 1">
-				<div class="ParagraphAlt" style="maring-bottom: 12px">{props.readingTimeIndicator}</div>
 				<h3 class="ParagraphAlt">{props.title}</h3>
-				<div class="ServiceEm" style="margin-top: 1.5em">{props.author}</div>
+				<div class="ServiceEm" style="margin: 4px 0">{props.author}</div>
+				<div class="ParagraphAlt">{props.readingTimeIndicator}</div>
 			</div>
 			{props.mode == 'next' && props.nextArrow}
 		</a>
