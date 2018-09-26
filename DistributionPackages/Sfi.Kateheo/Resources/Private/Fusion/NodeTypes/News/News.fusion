@@ -56,9 +56,9 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 			}
 			renderer = afx`
 				{props.style}
-				<div style="display:flex; flex-wrap: wrap; margin: 8px -4px">
-					<div class="navItem" style="padding: 0 4px">{props.prev}</div>
-					<div class="navItem" style="padding: 0 4px; text-align: right">{props.next}</div>
+				<div style="display:flex; flex-wrap: wrap; margin: 24px -12px">
+					<div class="navItem" style="padding: 0 12px">{props.prev}</div>
+					<div class="navItem" style="padding: 0 12px; text-align: right">{props.next}</div>
 				</div>
 			`
 			style = ${'<style>
@@ -73,10 +73,9 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 			</style>'}
 		}
 
-		sectionLink = Sfi.Kateheo:PrimarySection.Short {
-			@context.node = ${q(node).parents('[instanceof Sfi.Kateheo:PrimarySection]').get(0)}
-			@context.mode = 'news'
-			@if.isInSection = ${node}
+		primarySections = Sfi.Kateheo:PrimarySections {
+			mode = 'front'
+			@context.currentSection = ${q(node).parents('[instanceof Sfi.Kateheo:PrimarySection]').get(0)}
 		}
 
 		tagsList = Neos.Fusion:Collection {
@@ -88,10 +87,7 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 				}
 				title = ${node.properties.title}
 				renderer = afx`
-					<i class="fa fa-tag"></i>
-					<a href={props.link}>
-						<span itemprop="name">{props.title}</span>
-					</a>
+					<a class="color-primary ParagraphAlt--Large" style="margin-right: 12px" href={props.link}>#{props.title} </a>
 				`
 				@if.notEmpty = ${node.properties.title}
 			}
@@ -115,12 +111,12 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 					<div class="row">
 						<div class="large-8 medium-10 large-offset-2 medium-offset-1 columns">
 							<div class="Article-Content">{props.main}</div>
+							<div>{props.tagsList}</div>
 							{props.authorInfo}
 						</div>
 					</div>
-					<div>{props.tagsList}</div>
 					{props.nav}
-					{props.sectionLink}
+					{props.primarySections}
 				</div>
 			</div>
 		`

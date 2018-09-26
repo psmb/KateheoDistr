@@ -18,6 +18,12 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 					</div>
 				`
 			}
+			@cache {
+				mode = 'cached'
+				entryIdentifier {
+					node = ${node}
+				}
+			}
 		}
 
 		main = Neos.Neos:ContentCollection{
@@ -32,7 +38,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 						{props.main}
 					</div>
 				</div>
-				<div class="large-6 columns js-sticky-content">
+				<div class="large-6 medium-10 columns end js-sticky-content">
 					{props.categoriesList}
 				</div>
 			</div>

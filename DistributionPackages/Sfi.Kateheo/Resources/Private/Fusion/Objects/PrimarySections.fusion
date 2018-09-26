@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:PrimarySections) < prototype(Neos.Fusion:Collection) {
 	@context.mode = ${this.mode}
-	@process.wrap = afx`<div style="display: flex; flex-wrap: wrap; margin: -12px">{value}</div>`
+	@process.wrap = afx`<div style="display: flex; flex-wrap: wrap; margin: 12px -12px">{value}</div>`
 	collection = ${q(site).find('[instanceof Sfi.Kateheo:PrimarySection]').get()}
 	collection.@process.filterOutSelf = ${q(value).filter('[_identifier != "' + node.identifier + '"]').get()}
 	itemName = 'node'

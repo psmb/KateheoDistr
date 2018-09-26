@@ -26,7 +26,7 @@ prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentCompone
 	renderer = afx`
 		<div class={'mode-' + mode}>
 			{props.style}
-			<a href={props.nodeUri} class={'primarySection primarySection' + node.name}>
+			<a href={props.nodeUri} class={'primarySection primarySection' + node.name + (currentSection == node && ' isCurrent')}>
 				<div class='primarySection-inner'>
 					<p class={(mode == 'section' ? 'H2' : 'H1') + ' color-white primarySection-title'} style="text-transform: uppercase; text-align: center"><Neos.Neos:Editable property="title" block={false} /></p>
 					<p @if.onlyMain={mode != 'section'} class="primarySection-description ServiceEm--Large color-white textAlign-center"><Neos.Neos:Editable property="description" block={false} /></p>
@@ -106,7 +106,7 @@ prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentCompone
 			}
 		}
 
-		.primarySection' + node.name + ':hover {
+		.primarySection' + node.name + ':hover, .primarySection' + node.name + '.isCurrent {
 			background-blend-mode: multiply;
 			background-image: linear-gradient( rgba(215,194,105,.5), rgba(215,194,105,.5) ),url("' + this.imageUri + '");
 		}
