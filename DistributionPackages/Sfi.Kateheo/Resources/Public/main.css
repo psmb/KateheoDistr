@@ -113,22 +113,28 @@ a.SkipToContent:focus, a.SkipToContent:active, a.SkipToContent:hover {
 .MobileNav-Menu {
 	position: fixed;
 	top: 0;
-	right: -240px;
+	left: -240px;
 	width: 240px;
 	height: 100%;
-	overflow: scroll;
-	box-shadow: var(--color-grayLine) -2px 0 2px;
+	overflow: auto;
+	box-shadow: var(--color-grayLine) 2px 0 2px;
 	transition: ease-in-out 0.3s;
+}
+.MobileNav-Menu a {
+    display: block !important;
 }
 .MobileNav-Content {
 	transition: ease-in-out 0.3s;
 }
+.js-MobileNav.isActive {
+	overflow: hidden;
+}
 .js-MobileNav.isActive .MobileNav-Content {
 	position: relative;
-	transform: translateX(-240px);
+	transform: translateX(240px);
 }
 .js-MobileNav.isActive .MobileNav-Menu {
-	transform: translateX(-240px);
+	transform: translateX(240px);
 }
 
 .MobileNav-Menu {
@@ -161,11 +167,11 @@ a.SkipToContent:focus, a.SkipToContent:active, a.SkipToContent:hover {
 }
 
 .js-sidebar{
-    will-change: min-height;
+	will-change: min-height;
 }
 
 .js-sidebar__inner{
-    transform: translate(0, 0);
-    transform: translate3d(0, 0, 0);
-    will-change: position, transform;
+	transform: translate(0, 0);
+	transform: translate3d(0, 0, 0);
+	will-change: position, transform;
 }

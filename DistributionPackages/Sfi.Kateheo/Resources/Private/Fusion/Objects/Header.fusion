@@ -3,26 +3,32 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		homeLink = Neos.Neos:NodeUri {
 			node = ${site}
 		}
+		siteLogo = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
+		}
 		iconMenu = Neos.Fusion:ResourceUri {
 			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
 		}
 		renderer =  afx`
-			<header role="banner" style="margin-bottom: 60px; border-bottom: 1px solid var(--color-grayLine)">
+			<header role="banner" style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
 				<div class="backgroundColor-kateheo" style="display:flex">
-					<div style="flex-grow: 1">
-					</div>
-					<div>
-						<Sfi.Kateheo:ServiceLinks/>
-					</div>
 					<div href="#menu" class="marginLeft-single MobileNav-Toggle js-MobileNav-Toggle">
 						<div class="IconMenu">
 							<img alt="Меню" src={props.iconMenu}/>
 						</div>
 					</div>
+					<div style="flex-grow: 1">
+					</div>
+					<div>
+						<Sfi.Kateheo:ServiceLinks/>
+					</div>
 				</div>
 				<a href={props.homeLink}>
 					<div style="margin: 24px 0">
 						<div>
+							<div style="text-align: center">
+								<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
+							</div>
 							<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
 							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
 						</div>
@@ -40,7 +46,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		}
 		renderer = afx`
 			{props.style}
-			<header role="banner" style="margin-bottom: 60px">
+			<header role="banner">
 				
 				<div class="backgroundColor-kateheo" style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 12px;">
 					<div><Sfi.Kateheo:PrimaryMenu/></div>

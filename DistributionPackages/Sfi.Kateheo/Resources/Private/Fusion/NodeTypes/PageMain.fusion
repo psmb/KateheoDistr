@@ -15,25 +15,30 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					flex-wrap: wrap;
 					margin: -12px;
 				}
-				.newsList-itme {
+				.newsList-item {
 					flex-basis: 100%;
 					padding: 12px;
 				}
 				@media screen and (min-width:640px) {
-					.newsList-itme {
+					.newsList-item {
 						flex-basis: 50%;
 					}
 				}
 				@media screen and (min-width:1024px) {
-					.newsList-itme {
+					.newsList-item {
 						flex-basis: 33.33%;
+					}
+				}
+				@media screen and (min-width:1024px) {
+					.newsList-item:nth-child(4) {
+						display: none;
 					}
 				}
 			</style>' + value}
 			listClass = 'newsList'
-			itemClass = 'newsList-itme'
+			itemClass = 'newsList-item'
 			itemRenderer = Sfi.Kateheo:News.ShortWithPicture
-			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "news"]').find('[instanceof Sfi.Kateheo:News]').sort('date', 'DESC').slice(0, 3).get()}
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:Category]').filter('[uriPathSegment = "news"]').find('[instanceof Sfi.Kateheo:News]').sort('date', 'DESC').slice(0, 4).get()}
 		}
 
 		renderer = afx`
@@ -43,7 +48,7 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
-				<h3 class="H1" style="margin-bottom: 12px">Новости</h3>
+				<h3 class="H1 color-grayLight" style="margin-bottom: 12px">Новости</h3>
 				{props.newsList}
 			</div>
 		`

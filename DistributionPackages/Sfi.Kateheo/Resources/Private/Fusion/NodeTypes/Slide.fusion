@@ -5,10 +5,11 @@ prototype(Sfi.Kateheo:Slide) < prototype(Neos.Neos:ContentComponent) {
         height = 468
         allowCropping = true
     }
+    name = ${node.properties.name}
     renderer = afx`
         <div class="backgroundColor-kateheo" style="display: flex">
-            <img src={props.imageUri}/>
-            <div style="display: flex; align-items: center; margin-right: 72px">
+            <div class="Slide-image" style="display: none"><img alt={props.name} src={props.imageUri}/></div>
+            <div style="display: flex; align-items: center; margin: 36px 72px">
                 <div>
                     <div class="Slide-text"><Neos.Neos:Editable property="text"/></div>
                     <div style="margin-top: 12px">
@@ -19,9 +20,17 @@ prototype(Sfi.Kateheo:Slide) < prototype(Neos.Neos:ContentComponent) {
         </div>
     `
     @process.styles = ${'<style>
+        @media screen and (min-width: 640px) {
+            .Slide-image {
+                display: block !important;
+            }
+        }
         .Slide-text {
             font-family: var(--fontFamily-main);
             line-height: var(--lineHeight-normal);
+            font-size: 16px;
+        }
+        @media screen and (min-width: 640px) {
             font-size: 21px;
         }
         .Slide-name {
