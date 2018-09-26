@@ -1,17 +1,28 @@
 prototype(Sfi.Kateheo:DefaultLayout) < prototype(Neos.Fusion:Component) {
-    main = ${value}
+	main = ${value}
 
-    #javascripts.bodyScripts = Neos.Fusion:Template {
-    #    templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
-    #    partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
-    #    sectionName = 'bodyScripts'
-    #}
+	#javascripts.bodyScripts = Neos.Fusion:Template {
+	#    templatePath = 'resource://Sfi.Kateheo/Private/Partials/SharedResources.html'
+	#    partialRootPath = 'resource://Sfi.Kateheo/Private/Partials'
+	#    sectionName = 'bodyScripts'
+	#}
 
-    renderer = afx`
-        <div class="fixedWidth">
-            <Sfi.Kateheo:Header/>
-            {props.main}
-        </div>
-        <Sfi.Kateheo:Footer/>
-    `
+	renderer = afx`
+		<a class="SkipToContent" href="#maincontent">Перейти к основному содержимому</a>
+		<div class="js-MobileNav">
+			<div class="MobileNav-Content">
+				<div class="fixedWidth">
+					<Sfi.Kateheo:Header/>
+					<div id="maincontent">
+						{props.main}
+					</div>
+				</div>
+				<Sfi.Kateheo:Footer/>
+			</div>
+			<div class="MobileNav-Menu show-for-small-only">
+				<div><Sfi.Kateheo:PrimaryMenu/></div>
+				<div><Sfi.Kateheo:SecondaryMenu/></div>
+			</div>
+		</div>
+	`
 }

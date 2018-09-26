@@ -1,0 +1,13 @@
+prototype(Sfi.Kateheo:PrimaryMenu) < prototype(Neos.Fusion:Collection) {
+	collection = ${q(site).find('[instanceof Sfi.Kateheo:PrimarySection]').get()}
+	itemName = 'node'
+	itemRenderer = Neos.Fusion:Tag {
+		tagName = 'a'
+		attributes.style = 'margin: 12px; display: inline-block;'
+		attributes.class = 'H4'
+		attributes.href = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		content = ${node.properties.title}
+	}
+}

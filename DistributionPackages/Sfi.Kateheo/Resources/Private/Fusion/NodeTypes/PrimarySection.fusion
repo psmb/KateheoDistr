@@ -12,7 +12,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 					itemRenderer = Sfi.Kateheo:News.Short
 				}
 				renderer = afx`
-					<div style="margin-bottom: 48px">
+					<div style="margin-bottom: 60px">
 						<h2 class="H3">{props.categoryTitle}</h2>
 						{props.articlesList}
 					</div>
@@ -25,14 +25,14 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 		}
 
 		renderer = afx`
-			<div class="js-sticky-main-content" style="display: flex; margin: -12px;">
-				<div class="js-sticky-sidebar" style="flex-basis: 50%;">
-					<div class="js-sticky-sidebar__inner" style="padding: 12px">
+			<div class="row js-sticky-main-content">
+				<div class="large-6 medium-10 columns js-sticky-sidebar" style="padding-left: 0">
+					<div class="js-sticky-sidebar__inner" style="padding-bottom: 24px">
 						<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
 						{props.main}
 					</div>
 				</div>
-				<div class="js-sticky-content" style="flex-basis: 50%; padding: 12px;">
+				<div class="large-6 columns js-sticky-content">
 					{props.categoriesList}
 				</div>
 			</div>

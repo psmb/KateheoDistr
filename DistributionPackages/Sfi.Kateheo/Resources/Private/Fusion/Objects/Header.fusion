@@ -1,69 +1,95 @@
 prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
-    primaryMenu = Neos.Fusion:Collection {
-        collection = ${q(site).find('[instanceof Sfi.Kateheo:PrimarySection]').get()}
-        itemName = 'node'
-        itemRenderer = Neos.Fusion:Tag {
-            tagName = 'a'
-            attributes.style = 'padding: 12px; display: inline-block;'
-            attributes.class = 'H4'
-            attributes.href = Neos.Neos:NodeUri {
-                node = ${node}
-            }
-            content = ${node.properties.title}
-        }
-    }
-    secondaryMenu = Neos.Fusion:Collection {
-        collection = ${site.properties.secondaryMenu}
-        itemName = 'node'
-        itemRenderer = Neos.Fusion:Tag {
-            tagName = 'a'
-            attributes.style = 'padding: 12px; display: inline-block;'
-            attributes.class = 'Service--Small'
-            attributes.href = Neos.Neos:NodeUri {
-                node = ${node}
-            }
-            content = ${node.properties.title}
-        }
-    }
-    loginLink = Neos.Neos:NodeUri {
-        node = ${q(site).find('[instanceof Sfi.Kateheo:LoginPage]').get(0)}
-    }
-    homeLink = Neos.Neos:NodeUri {
-        node = ${site}
-    }
-    imageUri = Neos.Fusion:ResourceUri {
-        path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
-    }
-    iconUser = Neos.Fusion:ResourceUri {
-        path = 'resource://Sfi.Kateheo/Public/Images/IconUser.svg'
-    }
-    iconSearch = Neos.Fusion:ResourceUri {
-        path = 'resource://Sfi.Kateheo/Public/Images/IconSearch.svg'
-    }
-    renderer = afx`
-        <header role="banner" style="margin-bottom: 60px">
-            <div class="backgroundColor-kateheo" style="display: flex; justify-content: space-between; padding: 0 12px;">
-                <div>{props.primaryMenu}</div>
-                <div>
-                    {props.secondaryMenu}
-                    <a title="Вход" href={props.loginLink} style="border-left: 1px solid black; margin-left: 24px; padding: 0 4px;">
-                        <img src={props.iconUser} />
-                    </a>
-                    <a title="Поиск" href={props.loginLink} style="border-left: 1px solid black; padding: 0 12px">
-                        <img src={props.iconSearch} />
-                    </a>
-                </div>
-            </div>
-            <a href={props.homeLink} style="display: flex; justify-content: space-between;">
-                <img src={props.imageUri} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
-                <div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
-                    <div>
-                        <h1 class="H2" style="text-transform: uppercase">Научно-методический центр по миссии и катехизации</h1>
-                        <p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
-                    </div>
-                </div>
-            </a>
-            <Sfi.Kateheo:BreadcrumbMenu/>
-        </header>
-    `
+	headerMobile = Neos.Fusion:Component {
+		homeLink = Neos.Neos:NodeUri {
+			node = ${site}
+		}
+		iconMenu = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
+		}
+		renderer =  afx`
+			<header role="banner" style="margin-bottom: 60px; border-bottom: 1px solid var(--color-grayLine)">
+				<div class="backgroundColor-kateheo" style="display:flex">
+					<div style="flex-grow: 1">
+					</div>
+					<div>
+						<Sfi.Kateheo:ServiceLinks/>
+					</div>
+					<div href="#menu" class="marginLeft-single MobileNav-Toggle js-MobileNav-Toggle">
+						<div class="IconMenu">
+							<img alt="Меню" src={props.iconMenu}/>
+						</div>
+					</div>
+				</div>
+				<a href={props.homeLink}>
+					<div style="margin: 24px 0">
+						<div>
+							<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
+							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+						</div>
+					</div>
+				</a>
+			</header>
+		`
+	}
+	headerDesktop = Neos.Fusion:Component {
+		homeLink = Neos.Neos:NodeUri {
+			node = ${site}
+		}
+		siteLogo = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
+		}
+		renderer = afx`
+			{props.style}
+			<header role="banner" style="margin-bottom: 60px">
+				
+				<div class="backgroundColor-kateheo" style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 0 12px;">
+					<div><Sfi.Kateheo:PrimaryMenu/></div>
+					<div>
+						<Sfi.Kateheo:SecondaryMenu/>
+						<Sfi.Kateheo:ServiceLinks/>
+					</div>
+				</div>
+				<a href={props.homeLink} style="display: flex; justify-content: space-between;">
+					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
+					<div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
+						<div>
+							<h1 class="H2 MainTitle" style="text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
+							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+						</div>
+					</div>
+				</a>
+				<Sfi.Kateheo:BreadcrumbMenu/>
+			</header>
+		`
+		style = ${'<style>
+			@media screen and (max-width: 1200px) {
+				.MainTitle {
+					font-size: 2.7vw !important;
+				}
+			}
+		</style>'}
+	}
+	renderer = afx`
+		<div class="show-for-small-only">
+			{props.headerMobile}
+		</div>
+		<div class="show-for-medium-up">
+			{props.headerDesktop}
+		</div>
+		{props.js}
+	`
+	js = ${'<script>
+		var toggle = document.querySelector(".js-MobileNav-Toggle");
+		var mobileNav = document.querySelector(".js-MobileNav");
+		if (toggle && mobileNav) {
+			toggle.addEventListener("click", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				mobileNav.classList.toggle("isActive");
+			});
+			document.body.addEventListener("click", function(e) {
+				mobileNav.classList.remove("isActive");
+			});
+		}
+	</script>'}
 }

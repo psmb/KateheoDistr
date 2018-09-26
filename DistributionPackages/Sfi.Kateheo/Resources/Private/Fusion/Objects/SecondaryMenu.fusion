@@ -1,0 +1,13 @@
+prototype(Sfi.Kateheo:SecondaryMenu) < prototype(Neos.Fusion:Collection) {
+	collection = ${site.properties.secondaryMenu}
+	itemName = 'node'
+	itemRenderer = Neos.Fusion:Tag {
+		tagName = 'a'
+		attributes.style = 'margin: 12px; display: inline-block;'
+		attributes.class = 'Service--Small'
+		attributes.href = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		content = ${node.properties.title}
+	}
+}

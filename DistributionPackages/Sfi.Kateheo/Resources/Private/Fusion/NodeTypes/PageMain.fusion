@@ -9,14 +9,25 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 		}
 
 		newsList = Flowpack.Listable:Collection {
-			@process.wrap = ${'<style>
+			@process.styles = ${'<style>
 				.newsList {
 					display: flex;
+					flex-wrap: wrap;
 					margin: -12px;
 				}
 				.newsList-itme {
-					flex-basis: 33.33%;
+					flex-basis: 100%;
 					padding: 12px;
+				}
+				@media screen and (min-width:640px) {
+					.newsList-itme {
+						flex-basis: 50%;
+					}
+				}
+				@media screen and (min-width:1024px) {
+					.newsList-itme {
+						flex-basis: 33.33%;
+					}
 				}
 			</style>' + value}
 			listClass = 'newsList'

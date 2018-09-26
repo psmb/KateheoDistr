@@ -1,0 +1,26 @@
+prototype(Sfi.Kateheo:ServiceLinks) < prototype(Neos.Fusion:Component) {
+	loginLink = Neos.Neos:NodeUri {
+		node = ${q(site).find('[instanceof Sfi.Kateheo:LoginPage]').get(0)}
+	}
+
+	iconUser = Neos.Fusion:ResourceUri {
+		path = 'resource://Sfi.Kateheo/Public/Images/IconUser.svg'
+	}
+
+	iconSearch = Neos.Fusion:ResourceUri {
+		path = 'resource://Sfi.Kateheo/Public/Images/IconSearch.svg'
+	}
+
+	renderer = afx`
+		<a title="Вход" href={props.loginLink} style="margin-left: 24px; padding: 0 4px;">
+			<img src={props.iconUser} />
+		</a>
+		<a title="Поиск" href="" style="border-left: 1px solid black; padding: 0 12px">
+			<img src={props.iconSearch} />
+		</a>
+	`
+}
+
+
+
+		
