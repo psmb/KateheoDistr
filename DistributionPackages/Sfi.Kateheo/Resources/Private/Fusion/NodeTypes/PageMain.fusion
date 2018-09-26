@@ -37,10 +37,22 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 		}
 
 		renderer = afx`
-			{props.main}
-			<div style="margin: 48px 0">{props.primarySections}</div>
-			<h3 class="H1" style="margin-bottom: 12px">Новости</h3>
-			{props.newsList}
+			{props.style}
+			<div style="display:flex; flex-direction: column">
+				<div style="margin-bottom: 48px">
+					{props.main}
+				</div>
+				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
+				<h3 class="H1" style="margin-bottom: 12px">Новости</h3>
+				{props.newsList}
+			</div>
 		`
+		style = ${'<style>
+		@media screen and (max-width: 640px) {
+			.primarySectionsMain {
+				order: -1;
+			}
+		}
+		</style>'}
 	}
 }
