@@ -1,5 +1,6 @@
 prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentComponent) {
 	nodeUri = Neos.Neos:NodeUri {
+		@if.notInBackend = ${!node.context.inBackend}
 		node = ${node}
 	}
 	imageUri = Neos.Neos:ImageUri {
