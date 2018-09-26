@@ -13,7 +13,7 @@ prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 		collection = ${node.properties.authors}
 		itemName = 'author'
 		itemRenderer = Neos.Fusion:Component {
-			authorName = ${author.properties.title + !iterator.isLast && ', ' }
+			authorName = ${author.properties.title + (iterator.isLast ? '' : ', ') }
 			renderer = afx`
 				<div class="H4">{props.authorName}</div>
 			`
