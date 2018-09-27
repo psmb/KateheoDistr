@@ -23,17 +23,15 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 						<Sfi.Kateheo:ServiceLinks/>
 					</div>
 				</div>
-				<a href={props.homeLink}>
-					<div style="margin: 24px 0">
-						<div>
-							<div style="text-align: center">
-								<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
-							</div>
-							<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
-							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+				<div style="margin: 24px 0" @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'}>
+					<div>
+						<div style="text-align: center">
+							<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
 						</div>
+						<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
+						<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
 					</div>
-				</a>
+				</div>
 			</header>
 		`
 	}
@@ -55,7 +53,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 						<Sfi.Kateheo:ServiceLinks/>
 					</div>
 				</div>
-				<a href={props.homeLink} style="display: flex; justify-content: space-between;">
+				<div @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'} style="display: flex; justify-content: space-between;">
 					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
 					<div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
 						<div>
@@ -63,7 +61,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
 						</div>
 					</div>
-				</a>
+				</div>
 				<Sfi.Kateheo:BreadcrumbMenu/>
 			</header>
 		`
