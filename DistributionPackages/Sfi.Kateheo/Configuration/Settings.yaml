@@ -25,6 +25,10 @@ Neos:
     session:
       inactivityTimeout: 604800
     resource:
+      collections:	
+        persistent:	
+          storage: s3PersistentResourcesStorage	
+          target: s3PersistentResourcesTarget
       storages:
         s3PersistentResourcesStorage:
           storage: Flownative\Aws\S3\S3Storage
