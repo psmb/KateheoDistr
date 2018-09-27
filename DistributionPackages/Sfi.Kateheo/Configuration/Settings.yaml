@@ -58,9 +58,10 @@ Neos:
           loadingDepth: 1
     eventLog:
       enabled: true
-  Ui:
-    fronendConfiguration:
-      defaultInlineEditor: 'ckeditor5'
+  Neos:
+    Ui:
+      fronendConfiguration:
+        defaultInlineEditor: 'ckeditor5'
 Sitegeist:
    Silhouettes:
     formatting:
