@@ -22,7 +22,7 @@ prototype(Sfi.Kateheo:PersonCardBoss) < prototype(Neos.Neos:ContentComponent) {
 	name = ${node.properties.name}
 
 	renderer = afx`
-		<div style="margin: 36px 0">
+		<div class="row" style="margin: 36px 0">
 			<div class="medium-6 columns">
 				<img alt={props.name} src={props.imageUri}/>
 			</div>
