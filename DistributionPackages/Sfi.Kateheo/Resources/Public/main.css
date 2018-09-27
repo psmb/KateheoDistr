@@ -129,7 +129,7 @@ a.SkipToContent:focus, a.SkipToContent:active, a.SkipToContent:hover {
 .MobileNav-Menu {
 	position: fixed;
 	top: 0;
-	left: -240px;
+	left: -245px;
 	width: 240px;
 	height: 100%;
 	overflow: auto;
