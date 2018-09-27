@@ -15,14 +15,14 @@ prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 		itemRenderer = Neos.Fusion:Component {
 			authorName = ${author.properties.title + (iterator.isLast ? '' : ', ') }
 			renderer = afx`
-				<div class="H4">{props.authorName}</div>
+				<div class="ServiceEm--Large">{props.authorName}</div>
 			`
 		}
 	}
 	renderer = afx`
 		<a href={props.nodeUri}>
 			<div style="margin: 24px 0">
-				<h3 class="Paragraph color-primary" style="line-height: var(--lineHeight-tight)">{props.title}</h3>
+				<h3 class="H4" style="line-height: var(--lineHeight-tight)">{props.title}</h3>
 				{props.authors}
 				<div class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</div>
 			</div>

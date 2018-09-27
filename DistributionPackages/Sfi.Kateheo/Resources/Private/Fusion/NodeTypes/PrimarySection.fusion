@@ -13,7 +13,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 				}
 				renderer = afx`
 					<div style="margin-bottom: 60px">
-						<h2 class="H3">{props.categoryTitle}</h2>
+						<h2 class="H2">{props.categoryTitle}</h2>
 						{props.articlesList}
 					</div>
 				`

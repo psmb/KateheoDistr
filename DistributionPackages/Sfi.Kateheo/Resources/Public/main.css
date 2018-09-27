@@ -20,6 +20,22 @@
 	--color-primary: #00b0f0;
 }
 
+.lineHeight-single {
+	line-height: var(--lineHeight-single);
+}
+
+.lineHeight-tight {
+	line-height: var(--lineHeight-tight);
+}
+
+.lineHeight-normal {
+	line-height: var(--lineHeight-normal);
+}
+
+.lineHeight-loose {
+	line-height: var(--lineHeight-loose);
+}
+
 .fontFamily-main {
 	font-family: var(--fontFamily-main);
 }

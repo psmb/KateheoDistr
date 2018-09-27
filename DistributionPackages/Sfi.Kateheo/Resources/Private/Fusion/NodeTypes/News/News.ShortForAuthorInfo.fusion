@@ -8,7 +8,7 @@ prototype(Sfi.Kateheo:News.ShortForAuthorInfo) < prototype(Neos.Fusion:Component
 
 	renderer = afx`
 		<a href={props.linkUri}>
-			<h3 class="marginVertical-half Paragraph lineHeight-tight color-primary">{props.title}</h3>
+			<h3 style="padding: 6px 0" class="Paragraph lineHeight-tight color-primary">{props.title}</h3>
 		</a>
 	`
 }
