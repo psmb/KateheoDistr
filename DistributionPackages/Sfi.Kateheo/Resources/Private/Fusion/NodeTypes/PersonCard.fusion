@@ -1,0 +1,80 @@
+prototype(Sfi.Kateheo:PersonCard) < prototype(Neos.Fusion:Value) {
+	value = Neos.Fusion:Case {
+		isBoss {
+			condition = ${node.properties.isBoss}
+			renderer = Sfi.Kateheo:PersonCardBoss
+		}
+		default {
+			condition = ${true}
+			renderer = Sfi.Kateheo:PersonCardPlain
+		}
+	}
+}
+
+prototype(Sfi.Kateheo:PersonCardBoss) < prototype(Neos.Neos:ContentComponent) {
+	imageUri = Neos.Neos:ImageUri {
+		asset = ${node.properties.image}
+		width = 370
+		height = 493
+		allowCropping = true
+	}
+
+	name = ${node.properties.name}
+
+	renderer = afx`
+		<div style="margin: 36px 0">
+			<div class="medium-6 columns">
+				<img alt={props.name} src={props.imageUri}/>
+			</div>
+			<div class="medium-6 columns">
+				<h3 class="MediaPerson-Title Paragraph--Large lineHeight-tight">
+					<Neos.Neos:Editable property="name" block={false}/>
+				</h3>
+				<div class="ServiceEm--Large">
+					<Neos.Neos:Editable property="about" block={false}/>
+				</div>
+				<div class="BlockquoteSmall" style="margin-top: 36px">
+					<Neos.Neos:Editable property="text" block={false}/>
+				</div>
+			</div>
+		</div>
+	`
+	@process.styles = ${'<style>
+		.MediaPerson-Title:hover {
+			color: var(--color-primary);
+			text-decoration: underline;
+		}
+	</style>' + value}
+}
+prototype(Sfi.Kateheo:PersonCardPlain) < prototype(Neos.Neos:ContentComponent) {
+	imageUri = Neos.Neos:ImageUri {
+		asset = ${node.properties.image}
+		width = 370
+		height = 493
+		allowCropping = true
+	}
+
+	name = ${node.properties.name}
+
+	renderer = afx`
+		<div class="MediaPerson">
+			<div>
+				<img alt={props.name} src={props.imageUri} />
+			</div>
+			<div>
+				<h3 class="MediaPerson-Title Paragraph--Large lineHeight-tight">
+					<Neos.Neos:Editable property="name" block={false}/>
+				</h3>
+				<div class="ServiceEm">
+					<Neos.Neos:Editable property="about" block={false}/>
+				</div>
+			</div>
+		</div>
+	`
+	@process.styles = ${'<style>
+		.MediaPerson-Title:hover {
+			color: var(--color-primary);
+			text-decoration: underline;
+		}
+	</style>' + value}
+}

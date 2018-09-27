@@ -1,0 +1,55 @@
+'Sfi.Kateheo:PersonCard':
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    label: Карточка персоны
+    icon: user
+    inspector:
+      groups:
+        card:
+          label: 'Персона'
+  properties:
+    text:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Teкст цитаты'
+    name:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: Имя
+    about:
+      type: string
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'О человеке, должность'
+    isBoss:
+      type: boolean
+      ui:
+        label: 'Босс?'
+        reloadIfChanged: true
+        inspector:
+          group: card
+    image:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Фото'
+        reloadIfChanged: true
+        inspector:
+          group: card
+          editorOptions:
+            features:
+              crop: true
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 3
+                  height: 4

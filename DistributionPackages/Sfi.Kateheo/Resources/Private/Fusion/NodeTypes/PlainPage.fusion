@@ -1,0 +1,30 @@
+prototype(Sfi.Kateheo:PlainPage) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
+
+		sidebar = Neos.Neos:ContentCollection{
+			nodePath = 'sidebar'
+		}
+
+		renderer = afx`
+			<div class="row" style="margin-top: 24px">
+				<div class="medium-8 columns">
+					<h1 class="H1 lineHeight-single" style="margin: 24px 0">
+						<Neos.Neos:Editable property="title" block={false}/>
+					</h1>
+				</div>
+			</div>
+			<div class="row" style="margin-bottom: 24px">
+				<div class="medium-8 columns">
+					{props.main}
+				</div>
+				<div class="medium-4 columns">
+					{props.sidebar}
+				</div>
+			</div>
+			
+		`
+	}
+}

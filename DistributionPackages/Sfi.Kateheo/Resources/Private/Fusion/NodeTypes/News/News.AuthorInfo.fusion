@@ -1,36 +1,36 @@
 prototype(Sfi.Kateheo:News.AuthorInfo) < prototype(Neos.Fusion:Component) {
-    @if.notEmpty = ${author}
-    authorName = ${String.stripTags(author.properties.title)}
+	@if.notEmpty = ${author}
+	authorName = ${String.stripTags(author.properties.title)}
 
-    authorInfo = ${String.stripTags(author.properties.info)}
+	authorInfo = ${String.stripTags(author.properties.info)}
 
-    imageUri = Neos.Neos:ImageUri {
-        asset = ${author.properties.image}
-        width = 100
-        height = 100
-        allowCropping = true
-    }
+	imageUri = Neos.Neos:ImageUri {
+		asset = ${author.properties.image}
+		width = 100
+		height = 100
+		allowCropping = true
+	}
 
-    authorLink = Neos.Neos:NodeUri {
-        node = ${author}
-    }
+	authorLink = Neos.Neos:NodeUri {
+		node = ${author}
+	}
 
-    authorArticles = Sfi.Kateheo:News.AuthorInfoArticlesList
+	authorArticles = Sfi.Kateheo:News.AuthorInfoArticlesList
 
-    renderer = afx`
-        <div style="display: flex">
-            <div @if.image={props.imageUri} style="margin-right: 24px; flex-shrink: 0">
-                <img style="border: 5px solid; border-color: var(--color-grayLine); border-radius: 50%" src={props.imageUri}/>
-            </div>
-            <div>
-                <a href={props.authorLink}>
-                    <h4 class="H3">{props.authorName}</h4>
-                    <p class="Paragraph" style="margin-top: 6px">{props.authorInfo}</p>
-                </a>
-                <div class="marginTop-triple" style="margin-top: 24px">
-                    {props.authorArticles}
-                </div>
-            </div>
-        </div>
-    `
+	renderer = afx`
+		<div style="display: flex; margin-bottom: 24px">
+			<div @if.image={props.imageUri} style="margin-right: 24px; flex-shrink: 0">
+				<img style="border: 5px solid; border-color: var(--color-grayLine); border-radius: 50%" src={props.imageUri}/>
+			</div>
+			<div>
+				<a href={props.authorLink}>
+					<h4 class="H3">{props.authorName}</h4>
+					<p class="Paragraph" style="margin-top: 6px">{props.authorInfo}</p>
+				</a>
+				<div class="marginTop-triple" style="margin-top: 24px">
+					{props.authorArticles}
+				</div>
+			</div>
+		</div>
+	`
 }

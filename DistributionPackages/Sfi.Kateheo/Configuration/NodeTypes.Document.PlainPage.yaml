@@ -1,0 +1,12 @@
+'Sfi.Kateheo:PlainPage':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Простая страница
+    icon: 'file'
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+    sidebar:
+      type: 'Neos.Neos:ContentCollection'
+
