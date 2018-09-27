@@ -59,7 +59,7 @@ Neos:
     eventLog:
       enabled: true
     Ui:
-      fronendConfiguration:
+      frontendConfiguration:
         defaultInlineEditor: 'ckeditor5'
 Sitegeist:
    Silhouettes:
