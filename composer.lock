@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "66775c850eb76cb8d3ec5e1165f6444e",
+    "content-hash": "280e5d09fa06ccb0f4f743fda83836b2",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.67.15",
+            "version": "3.67.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "527f7e6105ccfc27fd6d27aacdcaa293e66a4a96"
+                "reference": "6c8bc0f42ba73bab85da67c3af9131e455c3f14c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/527f7e6105ccfc27fd6d27aacdcaa293e66a4a96",
-                "reference": "527f7e6105ccfc27fd6d27aacdcaa293e66a4a96",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c8bc0f42ba73bab85da67c3af9131e455c3f14c",
+                "reference": "6c8bc0f42ba73bab85da67c3af9131e455c3f14c",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-09-19T18:53:48+00:00"
+            "time": "2018-09-26T20:06:30+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -891,6 +891,216 @@
             "time": "2018-08-09T14:46:17+00:00"
         },
         {
+            "name": "flowpack/elasticsearch",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/Flowpack.ElasticSearch.git",
+                "reference": "635a3692d601ab3e938092145d06f7534ec4f7c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.ElasticSearch/zipball/635a3692d601ab3e938092145d06f7534ec4f7c4",
+                "reference": "635a3692d601ab3e938092145d06f7534ec4f7c4",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "^1.0",
+                "doctrine/collections": "^1.0",
+                "doctrine/orm": "^2.0",
+                "ext-curl": "*",
+                "neos/error-messages": "^4.0 || ^5.0 || dev-master",
+                "neos/flow": "^4.0 || ^5.0 || dev-master",
+                "neos/utility-arrays": "^4.0 || ^5.0 || dev-master",
+                "neos/utility-objecthandling": "^4.0 || ^5.0 || dev-master"
+            },
+            "type": "neos-package",
+            "extra": {
+                "applied-flow-migrations": [
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Party-20161124225257",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.SiteKickstarter-20161125002311",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.SiteKickstarter-20161125095901",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Flow-20161125124112"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\ElasticSearch\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "This package provides wrapper functionality for the Elasticsearch engine.",
+            "time": "2018-04-27T20:07:52+00:00"
+        },
+        {
+            "name": "flowpack/elasticsearch-contentrepositoryadaptor",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/Flowpack.ElasticSearch.ContentRepositoryAdaptor.git",
+                "reference": "4a7f016f0bd1c78f62fe3d6009b2426e59150ece"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.ElasticSearch.ContentRepositoryAdaptor/zipball/4a7f016f0bd1c78f62fe3d6009b2426e59150ece",
+                "reference": "4a7f016f0bd1c78f62fe3d6009b2426e59150ece",
+                "shasum": ""
+            },
+            "require": {
+                "flowpack/elasticsearch": "^2.0 || dev-master",
+                "neos/content-repository": "^3.0 || ^4.0 || dev-master",
+                "neos/content-repository-search": "^3.0 || ^4.0 || dev-master",
+                "neos/eel": "^4.0 || ^5.0 || dev-master",
+                "neos/flow": "^4.0 || ^5.0 || dev-master",
+                "neos/fluid-adaptor": "^4.0 || ^5.0 || dev-master",
+                "neos/utility-arrays": "^4.0 || ^5.0 || dev-master",
+                "php": ">=7.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "applied-flow-migrations": [
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Party-20161124225257",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.SiteKickstarter-20161125002311",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.SiteKickstarter-20161125095901",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Neos-20161201222211",
+                    "Neos.Fusion-20161202215034",
+                    "Neos.ContentRepository.Search-20161210231100",
+                    "Neos.Fusion-20161219092345",
+                    "Neos.ContentRepository-20161219093512",
+                    "Neos.Media-20161219094126",
+                    "Neos.Neos-20161219094403",
+                    "Neos.Neos-20161219122512",
+                    "Neos.Fusion-20161219130100",
+                    "Neos.Neos-20161220163741",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\ElasticSearch\\ContentRepositoryAdaptor\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "description": "This package provides functionality for using Elasticsearch on top of Neos.ContentRepository.Search",
+            "homepage": "http://flowpack.org/",
+            "time": "2018-07-04T10:00:12+00:00"
+        },
+        {
             "name": "flowpack/listable",
             "version": "v3.1.1",
             "source": {
@@ -1108,6 +1318,36 @@
             ],
             "description": "Neos plugin demonstrating a simple frontend login",
             "time": "2018-04-21T06:42:42+00:00"
+        },
+        {
+            "name": "flowpack/nodetemplates",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/Flowpack.NodeTemplates.git",
+                "reference": "92d6870698ce1f533fd4e3a4a89261cff330d038"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.NodeTemplates/zipball/92d6870698ce1f533fd4e3a4a89261cff330d038",
+                "reference": "92d6870698ce1f533fd4e3a4a89261cff330d038",
+                "shasum": ""
+            },
+            "require": {
+                "neos/neos-ui": "*"
+            },
+            "type": "neos-package",
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\NodeTemplates\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "description": "Neos package that allows to modify nodes on creation via templates.",
+            "time": "2018-04-12T14:08:24+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1697,6 +1937,113 @@
             ],
             "description": "Content repository based on Flow, specifically made for Neos.",
             "time": "2018-08-06T13:53:50+00:00"
+        },
+        {
+            "name": "neos/content-repository-search",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neos/typo3cr-search.git",
+                "reference": "b276e887a335433e3f0f20b4744e6d84083107b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neos/typo3cr-search/zipball/b276e887a335433e3f0f20b4744e6d84083107b4",
+                "reference": "b276e887a335433e3f0f20b4744e6d84083107b4",
+                "shasum": ""
+            },
+            "require": {
+                "neos/content-repository": "^3.0 || ^4.0 || dev-master",
+                "neos/flow": "^4.0 || ^5.0 || dev-master"
+            },
+            "replace": {
+                "typo3/typo3cr-search": "self.version"
+            },
+            "type": "neos-package",
+            "extra": {
+                "applied-flow-migrations": [
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.Neos.NodeTypes-130516220640",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Party-20161124225257",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.SiteKickstarter-20161125002311",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.SiteKickstarter-20161125095901",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Neos-20161201222211",
+                    "Neos.Fusion-20161202215034",
+                    "Neos.Fusion-20161219092345",
+                    "Neos.ContentRepository-20161219093512",
+                    "Neos.Media-20161219094126",
+                    "Neos.Neos-20161219094403",
+                    "Neos.Neos-20161219122512",
+                    "Neos.Fusion-20161219130100",
+                    "Neos.Neos-20161220163741",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Neos\\ContentRepository\\Search\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Common code and interface for a Neos CR search implementation",
+            "time": "2018-09-26T06:28:16+00:00"
         },
         {
             "name": "neos/diff",
@@ -2697,21 +3044,21 @@
         },
         {
             "name": "neos/neos-ui",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui.git",
-                "reference": "0374964eccd349459d01e8c7ab92be0eada9b966"
+                "reference": "713387c79dbe591d039d0ab0c5789ae1cf9bf854"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui/zipball/0374964eccd349459d01e8c7ab92be0eada9b966",
-                "reference": "0374964eccd349459d01e8c7ab92be0eada9b966",
+                "url": "https://api.github.com/repos/neos/neos-ui/zipball/713387c79dbe591d039d0ab0c5789ae1cf9bf854",
+                "reference": "713387c79dbe591d039d0ab0c5789ae1cf9bf854",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^3.3 || ^4.0 || dev-master",
-                "neos/neos-ui-compiled": "1.3.3 || master"
+                "neos/neos-ui-compiled": "1.3.4 || master"
             },
             "type": "neos-package",
             "extra": {
@@ -2802,20 +3149,20 @@
                 "GPL-3.0-or-later"
             ],
             "description": "NEOS CMS UI rewritten in React",
-            "time": "2018-08-21T13:02:11+00:00"
+            "time": "2018-09-24T15:28:02+00:00"
         },
         {
             "name": "neos/neos-ui-compiled",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/neos-ui-compiled.git",
-                "reference": "cffe870c95cc1b6c2cfda90a5e5cc397dd139410"
+                "reference": "386cb52759c0498a7eeade1680c40df021b101df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/cffe870c95cc1b6c2cfda90a5e5cc397dd139410",
-                "reference": "cffe870c95cc1b6c2cfda90a5e5cc397dd139410",
+                "url": "https://api.github.com/repos/neos/neos-ui-compiled/zipball/386cb52759c0498a7eeade1680c40df021b101df",
+                "reference": "386cb52759c0498a7eeade1680c40df021b101df",
                 "shasum": ""
             },
             "require": {
@@ -2833,7 +3180,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2018-08-21T13:16:06+00:00"
+            "time": "2018-09-24T15:32:36+00:00"
         },
         {
             "name": "neos/nodetypes",
@@ -4733,16 +5080,16 @@
         },
         {
             "name": "ocramius/proxy-manager",
-            "version": "2.2.1",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/ProxyManager.git",
-                "reference": "306da837ddf12aa5a85a8ca343587ec822802ac3"
+                "reference": "14b137b06b0f911944132df9d51e445a35920ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/306da837ddf12aa5a85a8ca343587ec822802ac3",
-                "reference": "306da837ddf12aa5a85a8ca343587ec822802ac3",
+                "url": "https://api.github.com/repos/Ocramius/ProxyManager/zipball/14b137b06b0f911944132df9d51e445a35920ab1",
+                "reference": "14b137b06b0f911944132df9d51e445a35920ab1",
                 "shasum": ""
             },
             "require": {
@@ -4799,7 +5146,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2018-08-26T15:07:25+00:00"
+            "time": "2018-09-27T13:45:01+00:00"
         },
         {
             "name": "packagefactory/afx",
@@ -4881,6 +5228,110 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "psmb/carousel",
+            "version": "0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/psmb/Psmb.Carousel.git",
+                "reference": "0d2d8c99b76fbd30cc1adcf52c6fa1902a516cbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/psmb/Psmb.Carousel/zipball/0d2d8c99b76fbd30cc1adcf52c6fa1902a516cbd",
+                "reference": "0d2d8c99b76fbd30cc1adcf52c6fa1902a516cbd",
+                "shasum": ""
+            },
+            "require": {
+                "neos/neos": "^3.0 | ^4.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Psmb.Carousel"
+                },
+                "applied-flow-migrations": [
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Party-20161124225257",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Neos-20161201222211",
+                    "Neos.Fusion-20161202215034",
+                    "Neos.Fusion-20161219092345",
+                    "Neos.ContentRepository-20161219093512",
+                    "Neos.Media-20161219094126",
+                    "Neos.Neos-20161219094403",
+                    "Neos.Neos-20161219122512",
+                    "Neos.Fusion-20161219130100",
+                    "Neos.Neos-20161220163741",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102",
+                    "Neos.Fusion-20180211175500",
+                    "Neos.Fusion-20180211184832",
+                    "Neos.Flow-20180415105700"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psmb\\Carousel\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "A simple carousel/slider nodetype",
+            "time": "2018-09-21T08:04:16+00:00"
         },
         {
             "name": "psr/cache",
@@ -5206,22 +5657,23 @@
         },
         {
             "name": "sfi/grid",
-            "version": "2.0",
+            "version": "2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psmb/Sfi.Grid.git",
-                "reference": "a16c55cceedd658aa4ab89909604c0168f3c7fc6"
+                "reference": "b4edc998cfeef162b75ce0e9a74d168374d5f643"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psmb/Sfi.Grid/zipball/a16c55cceedd658aa4ab89909604c0168f3c7fc6",
-                "reference": "a16c55cceedd658aa4ab89909604c0168f3c7fc6",
+                "url": "https://api.github.com/repos/psmb/Sfi.Grid/zipball/b4edc998cfeef162b75ce0e9a74d168374d5f643",
+                "reference": "b4edc998cfeef162b75ce0e9a74d168374d5f643",
                 "shasum": ""
             },
             "require": {
-                "typo3/flow": "*"
+                "flowpack/nodetemplates": "@dev",
+                "neos/neos": "^3.0|^4.0"
             },
-            "type": "typo3-flow-package",
+            "type": "neos-package",
             "extra": {
                 "applied-flow-migrations": [
                     "TYPO3.Neos-20150303231600",
@@ -5293,8 +5745,8 @@
                 ]
             },
             "autoload": {
-                "psr-0": {
-                    "Sfi\\Grid": "Classes"
+                "psr-4": {
+                    "Sfi\\Grid\\": "Classes"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5302,7 +5754,7 @@
                 "LGPL-3.0+"
             ],
             "description": "Foundation Grid",
-            "time": "2016-12-27T11:33:13+00:00"
+            "time": "2018-09-27T14:09:06+00:00"
         },
         {
             "name": "sfi/kateheo",
@@ -5310,11 +5762,12 @@
             "dist": {
                 "type": "path",
                 "url": "DistributionPackages/Sfi.Kateheo",
-                "reference": "5581d128792dddf22c831febcafef773a32295a7",
+                "reference": "3dd68c2e390d328224ad63a694dc02b1d6d39f4c",
                 "shasum": null
             },
             "require": {
                 "flownative/aws-s3": "^2.0",
+                "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0",
                 "flowpack/listable": "^3.0",
                 "flowpack/neos-frontendlogin": "^3.0",
                 "neos/fusion-afx": "^1.0",
@@ -5326,8 +5779,9 @@
                 "neos/redirecthandler-databasestorage": "^3.0",
                 "neos/redirecthandler-neosadapter": "^2.0",
                 "neos/seo": "~2.0.0",
-                "sfi/grid": "^2.0",
-                "sfi/youtube": "^2.0",
+                "psmb/carousel": "^0.3.0",
+                "sfi/grid": "^2.2",
+                "sfi/youtube": "^2.2",
                 "sitegeist/silhouettes": "^1.0"
             },
             "type": "neos-site",
@@ -5421,22 +5875,22 @@
         },
         {
             "name": "sfi/youtube",
-            "version": "2.0",
+            "version": "2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psmb/Sfi.YouTube.git",
-                "reference": "c06c9fb540bdbcddf37a8dfb8f4d26e368ac7cd9"
+                "reference": "8f7a2c09c34c055051d88df84a3a9d4ee05e7873"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psmb/Sfi.YouTube/zipball/c06c9fb540bdbcddf37a8dfb8f4d26e368ac7cd9",
-                "reference": "c06c9fb540bdbcddf37a8dfb8f4d26e368ac7cd9",
+                "url": "https://api.github.com/repos/psmb/Sfi.YouTube/zipball/8f7a2c09c34c055051d88df84a3a9d4ee05e7873",
+                "reference": "8f7a2c09c34c055051d88df84a3a9d4ee05e7873",
                 "shasum": ""
             },
             "require": {
-                "typo3/neos": ">2.0"
+                "neos/neos": "^3.0|^4.0"
             },
-            "type": "typo3-flow-package",
+            "type": "neos-package",
             "extra": {
                 "applied-flow-migrations": [
                     "TYPO3.FLOW3-201201261636",
@@ -5501,7 +5955,18 @@
                     "Neos.Neos-20161219094403",
                     "Neos.Neos-20161219122512",
                     "Neos.Fusion-20161219130100",
-                    "Neos.Neos-20161220163741"
+                    "Neos.Neos-20161220163741",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102",
+                    "Neos.Fusion-20180211175500",
+                    "Neos.Fusion-20180211184832",
+                    "Neos.Flow-20180415105700"
                 ]
             },
             "autoload": {
@@ -5514,7 +5979,7 @@
                 "MIT"
             ],
             "description": "YouTube nodetype",
-            "time": "2016-12-27T12:57:34+00:00"
+            "time": "2018-09-27T14:16:30+00:00"
         },
         {
             "name": "sitegeist/silhouettes",

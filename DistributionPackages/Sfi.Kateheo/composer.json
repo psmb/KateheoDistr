@@ -9,8 +9,8 @@
         "neos/neos-ui-compiled": "@dev",
         "neos/seo": "~2.0.0",
         "flowpack/listable": "^3.0",
-        "sfi/grid": "^2.1",
-        "sfi/youtube": "^2.0",
+        "sfi/grid": "^2.2",
+        "sfi/youtube": "^2.2",
         "psmb/carousel": "^0.3.0",
         "flowpack/neos-frontendlogin": "^3.0",
         "flownative/aws-s3": "^2.0",
@@ -18,7 +18,8 @@
         "neos/redirecthandler-databasestorage": "^3.0",
         "neos/redirecthandler-neosadapter": "^2.0",
         "neos/fusion-afx": "^1.0",
-        "sitegeist/silhouettes" : "^1.0"
+        "sitegeist/silhouettes" : "^1.0",
+        "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0"
     },
     "autoload": {
         "psr-0": {
