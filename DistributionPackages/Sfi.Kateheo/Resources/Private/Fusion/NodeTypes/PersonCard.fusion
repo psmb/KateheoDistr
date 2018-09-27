@@ -27,7 +27,7 @@ prototype(Sfi.Kateheo:PersonCardBoss) < prototype(Neos.Neos:ContentComponent) {
 				<img alt={props.name} src={props.imageUri}/>
 			</div>
 			<div class="medium-6 columns">
-				<h3 class="MediaPerson-Title Paragraph--Large lineHeight-tight">
+				<h3 class="Paragraph--Large lineHeight-tight">
 					<Neos.Neos:Editable property="name" block={false}/>
 				</h3>
 				<div class="ServiceEm--Large">
@@ -39,12 +39,6 @@ prototype(Sfi.Kateheo:PersonCardBoss) < prototype(Neos.Neos:ContentComponent) {
 			</div>
 		</div>
 	`
-	@process.styles = ${'<style>
-		.MediaPerson-Title:hover {
-			color: var(--color-primary);
-			text-decoration: underline;
-		}
-	</style>' + value}
 }
 prototype(Sfi.Kateheo:PersonCardPlain) < prototype(Neos.Neos:ContentComponent) {
 	imageUri = Neos.Neos:ImageUri {
@@ -62,7 +56,7 @@ prototype(Sfi.Kateheo:PersonCardPlain) < prototype(Neos.Neos:ContentComponent) {
 				<img alt={props.name} src={props.imageUri} />
 			</div>
 			<div>
-				<h3 class="MediaPerson-Title Paragraph--Large lineHeight-tight">
+				<h3 class="Paragraph--Large lineHeight-tight">
 					<Neos.Neos:Editable property="name" block={false}/>
 				</h3>
 				<div class="ServiceEm">
@@ -71,10 +65,4 @@ prototype(Sfi.Kateheo:PersonCardPlain) < prototype(Neos.Neos:ContentComponent) {
 			</div>
 		</div>
 	`
-	@process.styles = ${'<style>
-		.MediaPerson-Title:hover {
-			color: var(--color-primary);
-			text-decoration: underline;
-		}
-	</style>' + value}
 }

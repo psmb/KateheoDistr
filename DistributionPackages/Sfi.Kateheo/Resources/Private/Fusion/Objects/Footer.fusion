@@ -1,17 +1,53 @@
 prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
     renderer = afx`
-        <footer class="color-white" role="contentinfo" style="padding: 12px; background-color: rgba(0, 0, 0, 0.9)">
+        <footer class="color-white" role="contentinfo" style="padding: 24px 12px; background-color: rgba(0, 0, 0, 0.9)">
             <div class="fixedWidth">
-                <div style="display: flex;">
-                    <div style="flex-basis: 66.66%"></div>
-                    <div class="ParagraphAlt" style="flex-basis: 33.33%">
-                        Москва, ул. Покровка, д. 29<br/>
-                        <a href="tel:+74956230380">+7 (495) 623-03-80</a><br/>
-                        <a href="mailto:info@kateheo.ru">info@kateheo.ru</a>
+                <div class="row" style="margin-bottom: 24px">
+                    <div class="medium-6 columns">
+                        <h3 class="H4">Подписка на дайджест портала</h3>
+                        <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: var(--color-grayLight); border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)"/>
+                    </div>
+                    <div class="medium-6 columns">
                     </div>
                 </div>
-                <p class="ParagraphAlt">Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a>&nbsp;Мнение редакции может не совпадать с мнением авторов.</p>
+                <div class="row" style="margin-bottom: 24px">
+                    <div class="large-3 medium-4 columns">
+                        <p class="ParagraphAlt--Small">
+                            <strong>Контакты НМЦМиК</strong><br/>
+                            Адрес: 105062 Москва, Покровка 29<br/>
+                            Тел./факс: <a style="text-decoration: underline" href="tel:+74956230380">+7 (495) 623-03-80</a><br/>
+                            E-mail: <a style="text-decoration: underline" href="mailto:info@kateheo.ru">info@kateheo.ru</a>
+                        </p>
+                    </div>
+                    <div class="large-3 medium-4 columns">
+                        <p class="ParagraphAlt--Small">
+                            По вопросам работы портала<br/>
+                            kateheo.ru обращайтесь:<br/>
+                            Редактор портала С.М. Бурлака<br/>
+                            E-mail: <a style="text-decoration: underline" href="mailto:burlakas@sfi.ru">burlakas@sfi.ru</a>
+                        </p>
+                    </div>
+                    <div class="large-3 medium-4 columns">
+                        <div class="ParagraphAlt--Small">
+                            <strong>Проект <a href="http://sfi.ru" target="_blank" style="text-decoration: underline">Свято-Филаретовского православно-христианского института</a></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns medium-6">
+                        <p class="ParagraphAlt--Small">Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a style="text-decoration: underline" href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a>&nbsp;Мнение редакции может не совпадать с мнением авторов.</p>
+                    </div>
+                </div>
             </div>
         </footer>
     `
+    @process.style = ${'<style>
+        .digestSubscribe-input:focus {
+            background-color: white !important;
+            color: black !important;
+        }
+        .digestSubscribe-input::placeholder {
+            color: white;
+        }
+    </style>' + value}
 }

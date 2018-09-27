@@ -58,7 +58,6 @@ Neos:
           loadingDepth: 1
     eventLog:
       enabled: true
-  Neos:
     Ui:
       fronendConfiguration:
         defaultInlineEditor: 'ckeditor5'
