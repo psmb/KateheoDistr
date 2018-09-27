@@ -1,6 +1,5 @@
 prototype(Sfi.Kateheo:News.ShortWithPicture) < prototype(Neos.Neos:ContentComponent) {
 	title = ${String.stripTags(node.properties.title)}
-	date = ${Date.formatCldr(node.properties.date, 'dd MMMM yyyy')}
 	teaser = ${String.stripTags(node.properties.teaser)}
 	imageUri = Neos.Neos:ImageUri {
 		asset = ${q(node).children('coverCollection').children().first().property('image')}
@@ -22,7 +21,6 @@ prototype(Sfi.Kateheo:News.ShortWithPicture) < prototype(Neos.Neos:ContentCompon
 				<div class="Media-Body">
 					<h3 class="Paragraph--Large Media-Title">{props.title}</h3>
 					<div class="ParagraphAlt">{props.teaser}</div>
-					<div class="ParagraphAlt Media-Date">{props.date}</div>
 				</div>
 			</a>
 		</div>
