@@ -24,7 +24,7 @@ prototype(Sfi.Kateheo:PersonCardBoss) < prototype(Neos.Neos:ContentComponent) {
 	renderer = afx`
 		<div class="row" style="margin: 36px 0">
 			<div class="medium-6 columns">
-				<img alt={props.name} src={props.imageUri}/>
+				<img alt={props.name} style="width:100%" src={props.imageUri}/>
 			</div>
 			<div class="medium-6 columns">
 				<h3 class="Paragraph--Large lineHeight-tight">
@@ -51,11 +51,11 @@ prototype(Sfi.Kateheo:PersonCardPlain) < prototype(Neos.Neos:ContentComponent) {
 	name = ${node.properties.name}
 
 	renderer = afx`
-		<div class="MediaPerson">
+		<div class="MediaPerson" style="margin: 24px 0">
 			<div>
-				<img alt={props.name} src={props.imageUri} />
+				<img alt={props.name} style="width:100%" src={props.imageUri} />
 			</div>
-			<div>
+			<div style="margin-top: 12px">
 				<h3 class="Paragraph--Large lineHeight-tight">
 					<Neos.Neos:Editable property="name" block={false}/>
 				</h3>
