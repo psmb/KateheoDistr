@@ -11,7 +11,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                     </div>
                 </div>
                 <div class="row" style="margin-bottom: 24px">
-                    <div class="large-3 medium-4 columns">
+                    <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                         <p class="ParagraphAlt--Small">
                             <strong>Контакты НМЦМиК</strong><br/>
                             Адрес: 105062 Москва, Покровка 29<br/>
@@ -19,7 +19,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                             E-mail: <a style="text-decoration: underline" href="mailto:info@kateheo.ru">info@kateheo.ru</a>
                         </p>
                     </div>
-                    <div class="large-3 medium-4 columns">
+                    <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                         <p class="ParagraphAlt--Small">
                             По вопросам работы портала<br/>
                             kateheo.ru обращайтесь:<br/>
