@@ -6,7 +6,7 @@ prototype(Sfi.Kateheo:PrimaryMenu) < prototype(Neos.Fusion:Collection) {
 		attributes.style = 'margin: 12px; display: inline-block;'
 		attributes.class = Neos.Fusion:RawArray {
 			main = 'H4 primaryMenu-item'
-			active = ${q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0 && 'isCurrent'}
+			active = ${(documentNode == node || q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0) && 'isCurrent'}
 		}
 		attributes.href = Neos.Neos:NodeUri {
 			node = ${node}

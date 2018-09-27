@@ -36,11 +36,11 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 
 		authorArticles = Sfi.Kateheo:News.AuthorInfoArticlesList {
 			@context.author = ${node}
-			@process.tmpl = ${'<div><h2 class="Service">Материалы автора</h2>' + value + '</div>'}
+			@process.tmpl = ${'<div><h2 class="Service--Large" style="margin: 24px 0 12px 0">Материалы автора</h2>' + value + '</div>'}
 		}
 
 		renderer = afx`
-			<div class="row">
+			<div class="row" style="margin-bottom: 24px">
 				<div class="medium-8 columns" role="main">
 					<div class="Author" style="margin-top: 24px">
 						<div @if.image={props.imageUri} class="marginRight-double">

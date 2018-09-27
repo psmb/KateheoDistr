@@ -5,10 +5,15 @@ prototype(Sfi.Kateheo:News.ShortForAuthorInfo) < prototype(Neos.Fusion:Component
 	linkUri = Neos.Neos:NodeUri {
 		node = ${node}
 	}
+	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
+		content = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
+	}
 
 	renderer = afx`
 		<a href={props.linkUri}>
-			<h3 style="padding: 6px 0" class="Paragraph lineHeight-tight color-primary">{props.title}</h3>
+			<h3 style="padding: 6px 0" class="Paragraph lineHeight-tight color-primary">{props.title} <span class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</span></h3>
 		</a>
 	`
 }

@@ -8,7 +8,7 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 				attributes.href = Neos.Neos:NodeUri {
 					node = ${author}
 				}
-				content = ${String.stripTags(author.properties.title) + ' '}
+				content = ${String.stripTags(author.properties.title) + (iterator.isLast ? '' : ', ')}
 				@if.setAuthor = ${author}
 			}
 		}
@@ -17,6 +17,13 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 			collection = ${node.properties.authors}
 			itemName = 'author'
 			itemRenderer = Sfi.Kateheo:News.AuthorInfo
+			@if.notEmpty = ${node.properties.authors}
+			@process.header = afx`
+				<div style="margin: 60px 0">
+					<div class="H2 textAlign-center" style="margin: 36px 0">Об авторе</div>
+					{value}
+				</div>
+			`
 		}
 
 		cover = Neos.Neos:ContentCollection{
@@ -95,17 +102,19 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 
 		renderer = afx`
 			<div class="Paper-Article">
-				<div class="Article" style="margin-bottom: 60px">
+				<div class="Article" style="margin-top: 24px; margin-bottom: 60px">
 					<div class="row">
-						<div class="large-10 large-offset-1 columns">
+						<div class="large-8 medium-10 large-offset-2 medium-offset-1 columns">
 							<div class="textAlign-center">
 								<div class="Service--Large">{props.authorName}</div>
-								<h1 class="H1 textAlign-center" style="margin-bottom: 24px"><Neos.Neos:Editable property="title" block={false}/></h1>
-								<div class="ServiceEm"><Neos.Neos:Editable property="teaser" block={false}/></div>
+								<h1 class="H1 textAlign-center lineHeight-single" style="margin-top: 12px; margin-bottom: 24px"><Neos.Neos:Editable property="title" block={false}/></h1>
+								<div class="ServiceEm--Large"><Neos.Neos:Editable property="teaser" block={false}/></div>
 								<span class="ServiceEm" style="text-transform: lowercase;">{props.date}<span class="color-grayLight">{props.readingTimeIndicator && ' • ' + props.readingTimeIndicator}</span></span>
 							</div>
 							<div class="color-primary"><Neos.Neos:Editable property="lead"/></div>
-							{props.cover}
+							<div style="margin: 24px 0">
+								{props.cover}
+							</div>
 						</div>
 					</div>
 					<div class="row">
