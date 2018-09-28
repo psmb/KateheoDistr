@@ -34,8 +34,7 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 			itemRenderer = Sfi.Kateheo:News.ShortForAuthorInfo
 		}
 
-		authorArticles = Sfi.Kateheo:News.AuthorInfoArticlesList {
-			@context.author = ${node}
+		authorArticles = Sfi.Kateheo:Overview {
 			@process.tmpl = ${'<div><h2 class="Service--Large" style="margin: 24px 0 12px 0">Материалы автора</h2>' + value + '</div>'}
 		}
 

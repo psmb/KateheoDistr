@@ -1,8 +1,8 @@
-'Sfi.Kateheo:PlainPage':
+'Sfi.Kateheo:Repository':
   superTypes:
     'Neos.Neos:Document': true
   ui:
-    label: Простая страница
+    label: Хранилище контента
     icon: 'file'
   childNodes:
     main:

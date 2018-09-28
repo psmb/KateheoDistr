@@ -1,41 +1,56 @@
-#Breif rendering of article, used in NewsList
 prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 	title = ${String.stripTags(node.properties.title)}
+	teaser = ${String.stripTags(node.properties.teaser)}
+	imageUri = Neos.Neos:ImageUri {
+		asset = ${q(node).children('coverCollection').children().first().property('image')}
+		width = 640
+		height = 338
+		allowCropping = TRUE
+	}
 	nodeUri = Neos.Neos:NodeUri {
 		node = ${node}
 	}
-	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
-		content = Neos.Neos:ContentCollection {
-			nodePath = 'main'
-		}
-	}
-	authors = Neos.Fusion:Collection {
-		collection = ${node.properties.authors}
-		itemName = 'author'
-		itemRenderer = Neos.Fusion:Component {
-			authorName = ${author.properties.title + (iterator.isLast ? '' : ', ') }
-			renderer = afx`
-				<div class="ServiceEm--Large">{props.authorName}</div>
-			`
-		}
-	}
+
 	renderer = afx`
-		<a href={props.nodeUri}>
-			<div style="margin: 24px 0">
-				<h3 class="H4" style="line-height: var(--lineHeight-tight)">{props.title}</h3>
-				{props.authors}
-				<div class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</div>
-			</div>
-		</a>
+		{props.style}
+		<div class="Media">
+			<a href={props.nodeUri}>
+				<div class="Media-Image">
+					<img src={props.imageUri} alt={props.title} />
+				</div>
+				<div class="Media-Body">
+					<h3 class="Paragraph--Large Media-Title">{props.title}</h3>
+					<div class="ParagraphAlt">{props.teaser}</div>
+				</div>
+			</a>
+		</div>
 	`
-	@cache {
-		mode = 'cached'
-		entryIdentifier {
-			node = ${node}
+	style = ${'<style>
+		.Media {
+			margin-bottom: 30px;
+			transition: all 0.4s linear;
 		}
-		entryTags {
-			1 = ${Neos.Caching.nodeTag(node)}
-			2 = ${Neos.Caching.descendantOfTag(node)}
+		.Media:hover .Media-Title {
+			color: var(--color-primary);
+			text-decoration: underline;
 		}
-	}
+		.Media-Title {
+			line-height: var(--lineHeight-tight);
+			margin-top: 18px;
+			border-bottom: 1px solid var(--color-grayLine);
+			padding-bottom: 3px;
+			margin-bottom: 3px;
+		}
+		.Media-Date {
+			text-transform: lowercase;
+			color: var(--color-grayLight);
+			margin-bottom: 6px;
+		}
+		.Media-Category {
+			display: none;
+		}
+		.Media-Image img {
+			width: 100%;
+		}
+	</style>'}
 }

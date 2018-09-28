@@ -37,8 +37,8 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 			</style>' + value}
 			listClass = 'newsList'
 			itemClass = 'newsList-item'
-			itemRenderer = Sfi.Kateheo:News.ShortWithPicture
-			collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').sort('date', 'DESC').slice(0, 4).get()}
+			itemRenderer = Flowpack.Listable:ContentCaseShort
+			collection = ${Search.query(site).nodeType("Sfi.Kateheo:News").sortDesc('date').from(0).limit(4).execute().toArray()}
 		}
 
 		renderer = afx`

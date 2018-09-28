@@ -1,0 +1,86 @@
+prototype(Sfi.Kateheo:Repository) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		searchFilter = Sfi.Kateheo:SearchFilter
+		overview = Sfi.Kateheo:Overview
+		title = ${node.properties.title}
+		renderer = afx`
+			{props.searchFilter}
+			<div class="backgroundColor-kateheo">
+				<div class="fixedWidth">
+					<div @if.isTag={documentNode.nodeType.name == 'Sfi.Kateheo:Tags'} class="row" style="margin-top: 36px">
+						<div class="columns">
+							<h1 class="H1 color-white" style="text-transform: uppercase">#{props.title}</h1>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom: 24px">
+						<div class="large-8 large-offset-2 columns">
+							{props.overview}
+						</div>
+					</div>
+				</div>
+			</div>
+		`
+	}
+	body.@process.defaultLayout {
+		fixedWidth = ${false}
+	}
+}
+
+prototype(Sfi.Kateheo:Tags) < prototype(Sfi.Kateheo:Repository)
+
+
+# TODO: refactor and rename the mess below
+prototype(Sfi.Kateheo:Query) < prototype(Neos.Fusion:Value) {
+	value = ${Search.query(site).nodeType(facetConfig.type)}
+	#value.@process.tags = ${documentNode.nodeType.name == 'Sfi.Kateheo:Tags' ? value.exactMatch('tags', documentNode) : value}
+	value.@process.author = ${documentNode.nodeType.name == 'Sfi.Kateheo:Author' ? value.exactMatch('authors', documentNode) : value}
+	value.@process.result = ${value.sortDesc('date').from(0).limit(4).execute().toArray()}
+}
+
+prototype(Sfi.Kateheo:OverviewQuery) < prototype(Neos.Fusion:RawCollection) {
+	collection = Sfi.Kateheo:FacetTypes
+	itemName = 'facetConfig'
+	itemRenderer = Neos.Fusion:RawArray {
+		result = Sfi.Kateheo:Query
+		label = ${facetConfig.label}
+		type = ${facetConfig.type}
+	}
+}
+prototype(Sfi.Kateheo:Overview) < prototype(Neos.Fusion:Collection) {
+	collection = Sfi.Kateheo:OverviewQuery
+	itemName = 'facetNodes'
+	itemRenderer = Neos.Fusion:Collection {
+		@process.style = Neos.Fusion:Case {
+			news {
+				condition = ${facetNodes.type == 'Sfi.Kateheo:News'}
+				renderer = afx`<ul class="medium-block-grid-2">{value}</ul>`
+			}
+			default {
+				condition = ${true}
+				renderer = ${value}
+			}
+		}
+		@process.wrap = afx`
+			<div style="margin: 48px 0; padding: 24px; background-color: white; border: 2px solid var(--color-kateheo)">
+				<h3 class="H2 color-grayLight" style="margin-bottom: 24px">{facetNodes.label}</h3>
+				{value}
+			</div>
+		`
+		collection = ${facetNodes.result}
+		itemName = 'node'
+		itemRenderer = Flowpack.Listable:ContentCaseShort {
+			@process.style = Neos.Fusion:Case {
+				news {
+					condition = ${facetNodes.type == 'Sfi.Kateheo:News'}
+					renderer = afx`<li>{value}</li>`
+				}
+				default {
+					condition = ${true}
+					renderer = ${value}
+				}
+			}
+		}
+		@if.notEmpty = ${facetNodes.result}
+	}
+}
+

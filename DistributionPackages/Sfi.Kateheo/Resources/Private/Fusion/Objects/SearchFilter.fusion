@@ -1,0 +1,104 @@
+prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
+	tagsList = Neos.Fusion:Collection {
+		collection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').slice(0, 5).get()}
+		itemName = 'node'
+		itemRenderer = Neos.Fusion:Component {
+			nodeUri = Neos.Neos:NodeUri {
+				node = ${node}
+			}
+			title = ${node.properties.title}
+			renderer = afx`
+				<a
+					href={props.nodeUri}
+					style="
+						font-size: 14px;
+						text-tranform: uppercase;
+						font-family: var(--fontFamily-alt);
+						margin-right: 18px;
+					"
+					>
+					#{props.title}
+				</a>
+			`
+		}
+	}
+	authorsList = Neos.Fusion:Collection {
+		collection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').slice(0, 5).get()}
+		itemName = 'node'
+		itemRenderer = Neos.Fusion:Component {
+			nodeUri = Neos.Neos:NodeUri {
+				node = ${node}
+			}
+			title = ${String.replace(node.properties.title, ' ', '&nbsp;')}
+			renderer = afx`
+				<a
+					href={props.nodeUri}
+					style="
+						font-size: 14px;
+						text-tranform: uppercase;
+						font-family: var(--fontFamily-alt);
+						margin-right: 12px;
+					"
+					>
+					#{props.title}&shy;
+				</a>
+			`
+		}
+	}
+	facetsList = Neos.Fusion:Collection {
+		@process.wrap = afx`<div><a class="Service isActive" style="margin-right: 36px" href="#all">Все</a>{value}</div>`
+		collection = Sfi.Kateheo:FacetTypes
+		itemName = 'facetConfig'
+		itemRenderer = afx`<a class="Service" style="margin-right: 36px" href={'#' + facetConfig.type}>{facetConfig.label}</a>`
+	}
+	renderer = afx`
+		<div class="color-white" style="padding: 36px 12px; background-color: rgba(0, 0, 0, 0.9)">
+			<div class="fixedWidth">
+				<div class="row">
+					<div class="columns">
+						<input class="search-input color-grayLight"
+							style="
+								padding: 12px 24px;
+								margin: 12px 0;
+								width: 100%;
+								background: rgba(255,255,255,0.9);
+								border-radius: 3px;
+								border: 3px solid var(--color-kateheo);
+								box-shadow: 0 0 6px var(--color-kateheo);
+								font-size: 36px;
+								font-style: italic;
+								font-family: var(--fontFamily-main)
+							"
+							placeholder="поиск"
+							/>
+						{props.tagsList}
+						<div style="margin-top: 0px">
+							{props.authorsList}
+						</div>
+						<div style="margin-top: 24px">
+							{props.facetsList}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	`
+	@process.style = ${'<style>
+		.search-input:focus {
+			background-color: white !important;
+			color: black !important;
+		}
+		.search-input::placeholder {
+			color: var(--color-grayLight);
+		}
+	</style>' + value}
+}
+
+prototype(Sfi.Kateheo:FacetTypes) < prototype(Neos.Fusion:Value) {
+	value = ${[
+		{type:'Sfi.Kateheo:Article', label: 'Доклады'},
+		{type: 'Sfi.Kateheo:News', label: 'Новости'},
+		{type: 'Sfi.Kateheo:News', label: 'Аудио'},
+		{type: 'Sfi.Kateheo:News', label: 'Видео'}
+	]}
+}

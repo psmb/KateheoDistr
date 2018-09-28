@@ -10,7 +10,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
 		}
 		renderer =  afx`
-			<header role="banner" style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
+			<header style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
 				<div class="backgroundColor-kateheo" style="display:flex">
 					<div href="#menu" class="marginLeft-single MobileNav-Toggle js-MobileNav-Toggle">
 						<div class="IconMenu">
@@ -44,8 +44,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		}
 		renderer = afx`
 			{props.style}
-			<header role="banner">
-				
+			<header>
 				<div class="backgroundColor-kateheo" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 12px;">
 					<div><Sfi.Kateheo:PrimaryMenu/></div>
 					<div>

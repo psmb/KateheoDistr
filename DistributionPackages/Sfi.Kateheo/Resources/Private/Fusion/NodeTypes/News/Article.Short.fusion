@@ -1,0 +1,41 @@
+prototype(Sfi.Kateheo:Article.Short) < prototype(Neos.Neos:ContentComponent) {
+	title = ${String.stripTags(node.properties.title)}
+	nodeUri = Neos.Neos:NodeUri {
+		node = ${node}
+	}
+	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
+		content = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
+	}
+	authors = Neos.Fusion:Collection {
+		collection = ${node.properties.authors}
+		itemName = 'author'
+		itemRenderer = Neos.Fusion:Component {
+			authorName = ${author.properties.title + (iterator.isLast ? '' : ', ') }
+			renderer = afx`
+				<div class="ServiceEm--Large">{props.authorName}</div>
+			`
+			@if.notCurrentAuthor = ${author != documentNode}
+		}
+	}
+	renderer = afx`
+		<a href={props.nodeUri}>
+			<div style="margin: 24px 0">
+				<h3 class="H4" style="line-height: var(--lineHeight-tight)">{props.title}</h3>
+				{props.authors}
+				<div class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</div>
+			</div>
+		</a>
+	`
+	@cache {
+		mode = 'cached'
+		entryIdentifier {
+			node = ${node}
+		}
+		entryTags {
+			1 = ${Neos.Caching.nodeTag(node)}
+			2 = ${Neos.Caching.descendantOfTag(node)}
+		}
+	}
+}
