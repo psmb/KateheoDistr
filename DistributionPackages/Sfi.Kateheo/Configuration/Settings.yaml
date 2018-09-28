@@ -6,8 +6,30 @@ Flowpack:
     clients:
       default:
         -
-          host: es
+          host: shared-es_es
           port: 9200
+  JobQueue:
+    Common:
+      queues:
+        'Flowpack.ElasticSearch.ContentRepositoryQueueIndexer':
+          className: 'Flowpack\JobQueue\Redis\Queue\RedisQueue'
+          executeIsolated: true
+          options:
+            client:
+              host: redis
+              port: 6379
+              database: 15
+            defaultTimeout: 20
+
+        'Flowpack.ElasticSearch.ContentRepositoryQueueIndexer.Live':
+          className: 'Flowpack\JobQueue\Redis\Queue\RedisQueue'
+          executeIsolated: true
+          options:
+            client:
+              host: redis
+              port: 6379
+              database: 15
+            defaultTimeout: 20
 Flownative:
   Aws:
     S3:
@@ -70,6 +92,11 @@ Neos:
     Ui:
       frontendConfiguration:
         defaultInlineEditor: 'ckeditor5'
+  ContentRepository:
+    Search:
+      indexAllWorkspaces: false
+      elasticSearch:
+        indexName: kateheo
 Sitegeist:
    Silhouettes:
     formatting:

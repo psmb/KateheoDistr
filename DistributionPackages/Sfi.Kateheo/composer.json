@@ -19,7 +19,9 @@
         "neos/redirecthandler-neosadapter": "^2.0",
         "neos/fusion-afx": "^1.0",
         "sitegeist/silhouettes" : "^1.0",
-        "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0"
+        "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0",
+        "flowpack/elasticsearch-contentrepositoryqueueindexer": "^3.2.0",
+        "flowpack/jobqueue-redis": "^3.1.0"
     },
     "autoload": {
         "psr-0": {
