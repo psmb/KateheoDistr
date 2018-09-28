@@ -10,7 +10,7 @@ prototype(Sfi.Kateheo:Category) < prototype(Sfi.Kateheo:AbstractDocument) {
 			@process.list = Flowpack.Listable:List {
 				wrapClass = 'news-list-view'
 			}
-			collection = ${q(node).children('[instanceof Sfi.Kateheo:News]').sort('date', 'DESC').get()}
+			collection = ${q(node).children('[instanceof Sfi.Kateheo:AbstractArticle]').sort('date', 'DESC').get()}
 		}
 
 		renderer = afx`

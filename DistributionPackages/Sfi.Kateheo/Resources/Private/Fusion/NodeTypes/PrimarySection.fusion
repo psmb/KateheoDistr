@@ -7,7 +7,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 			itemRenderer = Neos.Fusion:Component {
 				categoryTitle = ${category.properties.title}
 				articlesList = Neos.Fusion:Collection {
-					collection = ${q(category).children('[instanceof Sfi.Kateheo:News]').sort('_index', 'ASC').get()}
+					collection = ${q(category).children('[instanceof Sfi.Kateheo:Article]').sort('_index', 'ASC').get()}
 					itemName = 'node'
 					itemRenderer = Sfi.Kateheo:News.Short
 				}

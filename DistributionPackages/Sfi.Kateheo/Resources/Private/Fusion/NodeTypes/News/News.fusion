@@ -50,15 +50,15 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 			prev = Sfi.Kateheo:News.ShortForNav {
 				mode = 'prev'
 				@context.node = Neos.Fusion:Value {
-					inCurrent = ${q(node).prev('[instanceof Sfi.Kateheo:News]').get(0)}
-					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').prev('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:News]').last().get(0)}
+					inCurrent = ${q(node).prev('[instanceof Sfi.Kateheo:AbstractArticle]').get(0)}
+					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').prev('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:AbstractArticle]').last().get(0)}
 				}
 			}
-			next = Sfi.Kateheo:News.ShortForNav {
+			next = Sfi.Kateheo:AbstractArticlertForNav {
 				mode = 'next'
 				@context.node = Neos.Fusion:Value {
-					inCurrent = ${q(node).next('[instanceof Sfi.Kateheo:News]').get(0)}
-					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').next('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:News]').first().get(0)}
+					inCurrent = ${q(node).next('[instanceof Sfi.Kateheo:AbstractArticle]').get(0)}
+					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').next('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:AbstractArticle]').first().get(0)}
 				}
 			}
 			renderer = afx`

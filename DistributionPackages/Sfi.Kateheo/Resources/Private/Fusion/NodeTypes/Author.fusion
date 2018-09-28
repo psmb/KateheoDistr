@@ -29,7 +29,7 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 		}
 
 		newsList = Flowpack.Listable:Collection {
-			collection = ${q(site).find('[instanceof Sfi.Kateheo:News]').get()}
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:AbstractArticle]').get()}
 			collection.@process.filterByAuthor = ${q(value).filterByReference('authors', node).get()}
 			itemRenderer = Sfi.Kateheo:News.ShortForAuthorInfo
 		}
