@@ -3,9 +3,12 @@ prototype(Sfi.Kateheo:Repository) < prototype(Sfi.Kateheo:AbstractDocument) {
 		searchFilter = Sfi.Kateheo:SearchFilter
 		listing = Sfi.Kateheo:Listing
 		title = ${node.properties.title}
+		backgroundUri = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/Background.jpg'
+		}
 		renderer = afx`
 			{props.searchFilter}
-			<div class="backgroundColor-kateheo">
+			<div class="backgroundColor-kateheo" style={'background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-image: url(' + props.backgroundUri + ')'}>
 				<div class="fixedWidth">
 					<div @if.isTag={documentNode.nodeType.name == 'Sfi.Kateheo:Tags'} class="row" style="margin-top: 36px">
 						<div class="columns">
