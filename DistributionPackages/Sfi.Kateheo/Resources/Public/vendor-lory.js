@@ -64,6 +64,10 @@
     }
 
     [].slice.call(document.querySelectorAll('[data-carousel]')).forEach(function (el) {
+        var ul = el.querySelector('ul');
+        for (var i = el.children.length; i >= 0; i--) {
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
         Carousel(el);
     });
 })();
