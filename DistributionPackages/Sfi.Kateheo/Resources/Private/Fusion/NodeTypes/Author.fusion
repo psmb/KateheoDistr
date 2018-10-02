@@ -34,7 +34,7 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 			itemRenderer = Sfi.Kateheo:News.ShortForAuthorInfo
 		}
 
-		authorArticles = Sfi.Kateheo:Overview {
+		authorArticles = Sfi.Kateheo:Listing {
 			@process.tmpl = ${'<div><h2 class="Service--Large" style="margin: 24px 0 12px 0">Материалы автора</h2>' + value + '</div>'}
 		}
 
@@ -53,7 +53,9 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 							<Neos.Neos:Editable property="info" block={false}/>
 						</p>
 						<div class="Author-Content" style="margin-top: 1.5em">{props.main}</div>
-						<div class="Author-NewsList">{props.authorArticles}</div>
+						<div class="Author-NewsList">
+							{props.authorArticles}
+						</div>
 					</div>
 				</div>
 				<div class="medium-4 columns">

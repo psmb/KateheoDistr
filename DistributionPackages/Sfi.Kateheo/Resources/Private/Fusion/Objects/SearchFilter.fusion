@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 	tagsList = Neos.Fusion:Collection {
-		collection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').slice(0, 5).get()}
+		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Tags]').get()), 0, 5)}
 		itemName = 'node'
 		itemRenderer = Neos.Fusion:Component {
 			nodeUri = Neos.Neos:NodeUri {
@@ -21,9 +21,15 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 				</a>
 			`
 		}
+		@cache {
+			mode = 'uncached'
+			context {
+				1 = 'site'
+			}
+		}
 	}
 	authorsList = Neos.Fusion:Collection {
-		collection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').slice(0, 5).get()}
+		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Author]').get()), 0, 5)}
 		itemName = 'node'
 		itemRenderer = Neos.Fusion:Component {
 			nodeUri = Neos.Neos:NodeUri {
@@ -44,39 +50,57 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 				</a>
 			`
 		}
+		@cache {
+			mode = 'uncached'
+			context {
+				1 = 'site'
+			}
+		}
 	}
-	facetsList = Neos.Fusion:Collection {
-		@process.wrap = afx`<div><a class="Service isActive" style="margin-right: 36px" href="#all">Все</a>{value}</div>`
-		collection = Sfi.Kateheo:FacetTypes
-		itemName = 'facetConfig'
-		itemRenderer = afx`<a class="Service" style="margin-right: 36px" href={'#' + facetConfig.type}>{facetConfig.label}</a>`
+	facetTypes = Sfi.Kateheo:FacetsFilter
+	nodeUri = Neos.Neos:NodeUri {
+		node = ${node}
 	}
+	query = ${request.arguments.q}
 	renderer = afx`
 		<div class="color-white" style="padding: 36px 12px; background-color: rgba(0, 0, 0, 0.9)">
 			<div class="fixedWidth">
 				<div class="row">
 					<div class="columns">
-						<input class="search-input color-grayLight"
-							style="
-								padding: 12px 24px;
-								margin: 12px 0;
-								width: 100%;
-								background: rgba(255,255,255,0.9);
-								border-radius: 3px;
-								border: 3px solid var(--color-kateheo);
-								box-shadow: 0 0 6px var(--color-kateheo);
-								font-size: 36px;
-								font-style: italic;
-								font-family: var(--fontFamily-main)
-							"
-							placeholder="поиск"
-							/>
+						<form
+							method="get"
+							action={props.nodeUri}
+							style="position: relative"
+							>
+							<input class="search-input"
+								name="q"
+								style="
+									padding: 12px 24px;
+									margin: 12px 0;
+									width: 100%;
+									background: rgba(255,255,255,0.9);
+									border-radius: 3px;
+									border: 3px solid var(--color-kateheo);
+									box-shadow: 0 0 6px var(--color-kateheo);
+									font-size: 36px;
+									font-style: italic;
+									font-family: var(--fontFamily-main)
+								"
+								placeholder="поиск"
+								value={props.query}
+								/>
+							<button type="submit" class="search-submit" style="position: absolute; right: 0; top: 14px; padding: 12px; cursor: pointer;">
+								<svg fill="#828282" width="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+									<path d="M428.9 762.5c184.2 0 333.6-149.4 333.6-333.6S613.2 95.3 428.9 95.3 95.3 244.7 95.3 428.9s149.4 333.6 333.6 333.6zm345.4-79.2l230.9 230.9c25.1 25.1 25.1 65.9 0 91-25.1 25.1-65.9 25.1-91 0L683.3 774.3c-73.6 54.4-162.8 83.7-254.4 83.5C192 857.8 0 665.8 0 428.9S192 0 428.9 0s428.9 192 428.9 428.9c.2 91.6-29.1 180.7-83.5 254.4z"/>
+								</svg>
+							</button>
+						</form>
 						{props.tagsList}
 						<div style="margin-top: 0px">
 							{props.authorsList}
 						</div>
 						<div style="margin-top: 24px">
-							{props.facetsList}
+							{props.facetTypes}
 						</div>
 					</div>
 				</div>
@@ -91,14 +115,49 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 		.search-input::placeholder {
 			color: var(--color-grayLight);
 		}
+		.search-submit:focus {
+			outline: 0;
+		}
+		.search-submit:hover svg {
+			fill: rgba(0, 0, 0, 0.9);
+		}
 	</style>' + value}
 }
 
-prototype(Sfi.Kateheo:FacetTypes) < prototype(Neos.Fusion:Value) {
-	value = ${[
-		{type:'Sfi.Kateheo:Article', label: 'Доклады'},
-		{type: 'Sfi.Kateheo:News', label: 'Новости'},
-		{type: 'Sfi.Kateheo:News', label: 'Аудио'},
-		{type: 'Sfi.Kateheo:News', label: 'Видео'}
-	]}
+prototype(Sfi.Kateheo:FacetTypes) < prototype(Neos.Fusion:RawArray) {
+	article = ${{type:'Sfi.Kateheo:Article', label: 'Доклады'}}
+	news = ${{type: 'Sfi.Kateheo:News', label: 'Новости'}}
+	audio = ${{type: 'Sfi.Kateheo:News', label: 'Аудио'}}
+	video = ${{type: 'Sfi.Kateheo:News', label: 'Видео'}}
+}
+
+prototype(Sfi.Kateheo:FacetsFilter) < prototype(Neos.Fusion:Collection) {
+	@process.wrap = Neos.Fusion:Component {
+		nodeUri = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		renderer = afx`<div><a class={'FacetTypesNav-item Service ' + (request.arguments.type ? '' : 'isActive')} style="margin-right: 36px" href={props.nodeUri}>Все</a>{value}</div>`
+	}
+	collection = Sfi.Kateheo:FacetTypes
+	itemName = 'facetConfig'
+	itemKey = 'facetType'
+	itemRenderer = Neos.Fusion:Component {
+		nodeUri = Neos.Neos:NodeUri {
+			node = ${node}
+			additionalParams {
+				type = ${facetType}
+				q = ${request.arguments.q}
+			}
+		}
+		title = ${facetConfig.label}
+		renderer = afx`
+			{value}
+			<a class={'FacetTypesNav-item Service ' + (request.arguments.type == facetType && 'isActive')} style="margin-right: 36px" href={props.nodeUri}>{props.title}</a>
+		`
+	}
+	@process.styles = ${'<style>
+	.FacetTypesNav-item.isActive {
+		text-decoration: underline;
+	}
+	</style>' + value}
 }

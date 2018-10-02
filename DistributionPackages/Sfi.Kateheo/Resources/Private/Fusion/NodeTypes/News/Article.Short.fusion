@@ -16,7 +16,6 @@ prototype(Sfi.Kateheo:Article.Short) < prototype(Neos.Neos:ContentComponent) {
 			renderer = afx`
 				<div class="ServiceEm--Large">{props.authorName}</div>
 			`
-			@if.notCurrentAuthor = ${author != documentNode}
 		}
 	}
 	renderer = afx`

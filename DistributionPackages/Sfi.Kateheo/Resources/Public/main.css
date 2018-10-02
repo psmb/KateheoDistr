@@ -191,3 +191,30 @@ a.SkipToContent:focus, a.SkipToContent:active, a.SkipToContent:hover {
 	transform: translate3d(0, 0, 0);
 	will-change: position, transform;
 }
+
+
+.Pagination {
+	display: flex;
+}
+.Pagination-item a {
+	font-family: var(--fontFamily-alt);
+	padding: 6px 12px;
+	display: inline-block;
+}
+.Pagination-item.isCurrent, .Pagination-item:hover {
+	background: var(--color-kateheo);
+	color: white;
+}
+
+
+.Button {
+	padding: 12px;
+	background-color: rgba(0, 0, 0, 0.9);
+	color: white;
+	font-family: var(--fontFamily-alt);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.Button:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
