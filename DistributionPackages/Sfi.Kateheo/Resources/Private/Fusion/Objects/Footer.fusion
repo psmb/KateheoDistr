@@ -14,7 +14,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                     <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                         <p class="ParagraphAlt--Small">
                             <strong>Контакты НМЦМиК</strong><br/>
-                            Адрес: 105062 Москва, Покровка 29<br/>
+                            Адрес: 105062, Москва, Покровка, 29<br/>
                             Тел./факс: <a style="text-decoration: underline" href="tel:+74956230380">+7 (495) 623-03-80</a><br/>
                             E-mail: <a style="text-decoration: underline" href="mailto:info@kateheo.ru">info@kateheo.ru</a>
                         </p>
@@ -23,7 +23,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                         <p class="ParagraphAlt--Small">
                             По вопросам работы портала<br/>
                             kateheo.ru обращайтесь:<br/>
-                            Редактор портала С.М. Бурлака<br/>
+                            редактор портала С.М. Бурлака<br/>
                             E-mail: <a style="text-decoration: underline" href="mailto:burlakas@sfi.ru">burlakas@sfi.ru</a>
                         </p>
                     </div>
@@ -35,7 +35,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                 </div>
                 <div class="row">
                     <div class="columns medium-6">
-                        <p class="ParagraphAlt--Small">Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a style="text-decoration: underline" href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a>&nbsp;Мнение редакции может не совпадать с мнением авторов.</p>
+                        <p class="ParagraphAlt--Small">Использование в любой форме материалов этого сайта допустимо только при наличии активной ссылки на&nbsp;<a style="text-decoration: underline" href="http://www.kateheo.ru/" target="_blank">http://www.kateheo.ru</a></p>
                     </div>
                 </div>
             </div>
