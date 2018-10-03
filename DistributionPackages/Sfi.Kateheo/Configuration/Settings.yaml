@@ -10,6 +10,7 @@ Flowpack:
           port: 9200
     ContentRepositoryQueueIndexer:
       batchSize: 100
+      enableLiveAsyncIndexing: false
   JobQueue:
     Common:
       queues:

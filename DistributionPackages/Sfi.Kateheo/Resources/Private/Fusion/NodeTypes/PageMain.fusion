@@ -42,6 +42,10 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 			collection = ${Search.query(site).nodeType("Sfi.Kateheo:News").sortDesc('date').from(0).limit(4).execute().toArray()}
 		}
 
+		soundCloudPlayer = Sfi.Kateheo:SoundCloudPlayer {
+			soundCloudLink = ${site.properties.soundCloudLink}
+		}
+
 		renderer = afx`
 			{props.style}
 			<div style="display:flex; flex-direction: column">
@@ -49,6 +53,7 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
+				{props.soundCloudPlayer}
 				<h3 class="H1 color-grayLight" style="margin-bottom: 12px">Новости</h3>
 				{props.newsList}
 			</div>

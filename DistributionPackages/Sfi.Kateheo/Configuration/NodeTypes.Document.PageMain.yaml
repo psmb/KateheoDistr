@@ -10,3 +10,12 @@
         label: 'Второстепенное меню'
         inspector:
           group: document
+    soundCloudLink:
+      type: string
+      ui:
+        label: Ссылка на запись или плэйлист SoundCloud для главной
+        reloadIfChanged: true
+        inspector:
+          group: document
+      validation:
+        Neos.Neos/Validation/NotEmptyValidator: []
