@@ -53,7 +53,17 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
-				{props.soundCloudPlayer}
+				<div style="background-color: var(--color-grayLight); padding: 36px 24px; margin-bottom: 48px">
+					<div class="row">
+						<div class="columns medium-4">
+							<h3 class="H2 color-white">Медиа</h3>
+							<p class="ServiceEm--Large color-white" style="margin-top: 24px">Лекции в аудио формате</p>
+						</div>
+						<div class="columns medium-8">
+							{props.soundCloudPlayer}
+						</div>
+					</div>
+				</div>
 				<h3 class="H1 color-grayLight" style="margin-bottom: 12px">Новости</h3>
 				{props.newsList}
 			</div>
