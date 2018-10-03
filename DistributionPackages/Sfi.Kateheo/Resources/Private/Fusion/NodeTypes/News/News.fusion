@@ -44,7 +44,7 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 			content = ${main}
 		}
 
-		date = ${Date.formatCldr(node.properties.date, 'dd MMMM yyyy')}
+		date = ${node.properties.date ? Date.formatCldr(node.properties.date, 'dd MMMM yyyy') : ''}
 
 		nav = Neos.Fusion:Component {
 			prev = Sfi.Kateheo:News.ShortForNav {

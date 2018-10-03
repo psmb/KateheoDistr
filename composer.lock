@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "280e5d09fa06ccb0f4f743fda83836b2",
+    "content-hash": "df1992e13cebcd9e2ced7db49c5a9ffd",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -889,6 +889,42 @@
                 }
             ],
             "time": "2018-08-09T14:46:17+00:00"
+        },
+        {
+            "name": "flowpack/cachebuster",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/Flowpack.CacheBuster.git",
+                "reference": "537967106fa3a68a2ab8bd8874dda480e3f10171"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/Flowpack.CacheBuster/zipball/537967106fa3a68a2ab8bd8874dda480e3f10171",
+                "reference": "537967106fa3a68a2ab8bd8874dda480e3f10171",
+                "shasum": ""
+            },
+            "require": {
+                "neos/flow": "^4.0 || ^5.0"
+            },
+            "type": "neos-package",
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\CacheBuster\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Helzle",
+                    "email": "sebastian@helzle.it"
+                }
+            ],
+            "description": "Cache buster for static resources in Neos",
+            "time": "2018-06-29T10:00:58+00:00"
         },
         {
             "name": "flowpack/elasticsearch",

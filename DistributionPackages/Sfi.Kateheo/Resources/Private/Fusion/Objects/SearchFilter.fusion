@@ -125,10 +125,9 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 }
 
 prototype(Sfi.Kateheo:FacetTypes) < prototype(Neos.Fusion:RawArray) {
+	audio = ${{type: 'Sfi.Kateheo:Audio', label: 'Аудио'}}
 	article = ${{type:'Sfi.Kateheo:Article', label: 'Доклады'}}
 	news = ${{type: 'Sfi.Kateheo:News', label: 'Новости'}}
-	audio = ${{type: 'Sfi.Kateheo:News', label: 'Аудио'}}
-	video = ${{type: 'Sfi.Kateheo:News', label: 'Видео'}}
 }
 
 prototype(Sfi.Kateheo:FacetsFilter) < prototype(Neos.Fusion:Collection) {

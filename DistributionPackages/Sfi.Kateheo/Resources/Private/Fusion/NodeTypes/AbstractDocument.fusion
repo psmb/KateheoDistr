@@ -1,11 +1,21 @@
 prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	head {
 		titleTag.content = ${String.stripTags(q(node).property('title'))}
-		stylesheets.main = Neos.Fusion:Tag {
+		stylesheets.vendor = Neos.Fusion:Tag {
 			tagName = 'link'
 			attributes {
 				href = Neos.Fusion:ResourceUri {
-					path = 'resource://Sfi.Kateheo/Public/main.css'
+					path = 'resource://Sfi.Kateheo/Public/Frontend/built/vendor.css'
+				}
+				type = 'text/css'
+				rel = 'stylesheet'
+			}
+		}
+		stylesheets.app = Neos.Fusion:Tag {
+			tagName = 'link'
+			attributes {
+				href = Neos.Fusion:ResourceUri {
+					path = 'resource://Sfi.Kateheo/Public/Frontend/built/app.css'
 				}
 				type = 'text/css'
 				rel = 'stylesheet'
@@ -27,20 +37,11 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	bodyTag.attributes.id = ${'Page-' + q(node).property('_name')}
 	body = 'override-me'
 	body.@process.defaultLayout = Sfi.Kateheo:DefaultLayout
-	body.javascripts.lory = Neos.Fusion:Tag {
+	body.javascripts.index = Neos.Fusion:Tag {
 		tagName = 'script'
 		attributes {
 			src = Neos.Fusion:ResourceUri {
-				path = 'resource://Sfi.Kateheo/Public/vendor-lory.js'
-			}
-			type = 'application/javascript'
-		}
-	}
-	body.javascripts.sticky = Neos.Fusion:Tag {
-		tagName = 'script'
-		attributes {
-			src = Neos.Fusion:ResourceUri {
-				path = 'resource://Sfi.Kateheo/Public/vendor-sticky.js'
+				path = 'resource://Sfi.Kateheo/Public/Frontend/built/index.js'
 			}
 			type = 'application/javascript'
 		}
