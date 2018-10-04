@@ -101,11 +101,12 @@ prototype(Sfi.Kateheo:ListingOverview) < prototype(Neos.Fusion:Collection) {
 			label = ${facetConfig.label}
 		}
 		listClass = ${facetConfig.type == 'Sfi.Kateheo:News' && 'medium-block-grid-2'}
-		collection = Sfi.Kateheo:Query {
+		@context.query = Sfi.Kateheo:Query {
 			type = ${facetConfig.type}
 			value.@process.paginate = ${displayAll ? value.from(0).limit(1000) : value.from(0).limit(4)}
-			value.@process.result = ${value.execute().toArray()}
+			value.@process.result = ${value.log().execute()}
 		}
+		collection = ${query.toArray()}
 	}
 }
 

@@ -1,4 +1,4 @@
-prototype(Sfi.Kateheo:News.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
+prototype(Sfi.Kateheo:Article.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
 	title = ${String.stripTags(q(node).property('title'))}
 	teaser = ${String.stripTags(q(node).property('teaser'))}
 	parent = ${q(node).parent().property('title')}
@@ -6,7 +6,8 @@ prototype(Sfi.Kateheo:News.ShortForAuthorInfo) < prototype(Neos.Fusion:Component
 		node = ${node}
 	}
 	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
-		content = Neos.Neos:ContentCollection {
+		characterCount = ${query.searchHitForNode(node)._source.characterCount}
+		@context.content = Neos.Neos:ContentCollection {
 			nodePath = 'main'
 		}
 	}

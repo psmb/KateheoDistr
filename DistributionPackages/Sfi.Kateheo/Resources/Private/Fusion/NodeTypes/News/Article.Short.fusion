@@ -4,9 +4,7 @@ prototype(Sfi.Kateheo:Article.Short) < prototype(Neos.Neos:ContentComponent) {
 		node = ${node}
 	}
 	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
-		content = Neos.Neos:ContentCollection {
-			nodePath = 'main'
-		}
+		characterCount = ${query.searchHitForNode(node)._source.characterCount}
 	}
 	authors = Neos.Fusion:Collection {
 		collection = ${node.properties.authors}

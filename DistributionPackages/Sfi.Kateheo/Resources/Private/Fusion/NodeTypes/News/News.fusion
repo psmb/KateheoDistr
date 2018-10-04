@@ -16,7 +16,7 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 		authorInfo = Neos.Fusion:Collection {
 			collection = ${node.properties.authors}
 			itemName = 'author'
-			itemRenderer = Sfi.Kateheo:News.AuthorInfo
+			itemRenderer = Sfi.Kateheo:Article.AuthorInfo
 			@if.notEmpty = ${node.properties.authors}
 			@process.header = afx`
 				<div style="margin: 60px 0">
@@ -38,10 +38,10 @@ prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
 		main = Neos.Neos:ContentCollection {
 			nodePath = 'main'
 		}
-
 		@context.main = ${this.main}
+
 		readingTimeIndicator = Sfi.Kateheo:ReadingTime {
-			content = ${main}
+			characterCount = ${String.length(String.stripTags(main))}
 		}
 
 		date = ${node.properties.date ? Date.formatCldr(node.properties.date, 'dd MMMM yyyy') : ''}

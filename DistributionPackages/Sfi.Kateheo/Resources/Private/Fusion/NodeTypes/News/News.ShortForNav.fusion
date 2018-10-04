@@ -10,6 +10,7 @@ prototype(Sfi.Kateheo:News.ShortForNav) < prototype(Neos.Fusion:Component) {
 		content = Neos.Neos:ContentCollection {
 			nodePath = 'main'
 		}
+		characterCount = ${String.length(String.stripTags(this.content))}
 	}
 
 	arrowPrev = '<div><svg width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.6 30.4"><path d="M15.6 30.4c-.3 0-.5-.1-.7-.3L0 15.2 14.9.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4L2.8 15.2l13.5 13.5c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z" fill="#1d1d1b"/></svg></div>'

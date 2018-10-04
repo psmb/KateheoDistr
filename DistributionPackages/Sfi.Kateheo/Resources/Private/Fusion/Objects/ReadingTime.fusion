@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:ReadingTime) < prototype(Neos.Fusion:Component) {
-	content = ${main}
-	readingTime = ${Math.round(String.length(String.stripTags(this.content))/1700)}
+	characterCount = 'to-be-set'
+	readingTime = ${Math.round(this.characterCount/1700)}
 	@if.notNull = ${this.readingTime > 0}
 	iconClock = Neos.Fusion:ResourceUri {
 		path = 'resource://Sfi.Kateheo/Public/Images/IconClock.svg'

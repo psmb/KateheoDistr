@@ -1,3 +1,10 @@
 'Sfi.Kateheo:Article':
   superTypes:
     'Sfi.Kateheo:AbstractArticle': true
+  properties:
+    characterCount:
+      type: integer
+      search:
+        elasticSearchMapping:
+          type: integer
+        indexing: '${CharacterCount.childrenTextLength(node)}'
