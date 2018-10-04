@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	head {
-		titleTag.content = ${String.stripTags(q(node).property('title'))}
+		titleTag.content = ${String.stripTags(q(node).property('title') + ' | Катехео')}
 		stylesheets.vendor = Neos.Fusion:Tag {
 			tagName = 'link'
 			attributes {
