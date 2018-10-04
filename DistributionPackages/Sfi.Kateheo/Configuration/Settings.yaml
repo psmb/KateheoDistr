@@ -3,6 +3,14 @@ Flowpack:
     ContentRepositoryAdaptor:
       driver:
         version: 2.x
+        mapping:
+          '2.x':
+            query:
+              arguments:
+                request:
+                  _source:
+                    - '__path'
+                    - characterCount
     clients:
       default:
         -
@@ -97,6 +105,8 @@ Neos:
         defaultInlineEditor: 'ckeditor5'
   ContentRepository:
     Search:
+      defaultContext:
+        CharacterCount: Sfi\Kateheo\Eel\CharacterCountIndexingHelper
       indexAllWorkspaces: false
       elasticSearch:
         indexName: kateheo

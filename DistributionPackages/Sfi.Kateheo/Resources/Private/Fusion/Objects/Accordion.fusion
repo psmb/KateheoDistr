@@ -1,0 +1,40 @@
+prototype(Sfi.Kateheo:Accordion) < prototype(Neos.Fusion:Collection) {
+	@process.wrap = afx`<div class="Accordion">{value}</div>`
+	collection = 'to-be-set'
+	itemName = 'item'
+	itemRenderer = afx`<div class="AccordionItem">
+		<h2
+			class="AccordionItem-Title H3 backgroundColor-kateheo"
+			style="display: flex; cursor: pointer; border-top: 1px solid var(--color-grayLight); padding: 12px">
+			<div style="flex-grow: 1; flex-shrink: 1">
+				{item.title}
+			</div>
+			<div class="AccordionItem-Chevron">
+				<svg width="16" height="16" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/></svg>
+			</div>
+		</h2>
+		<div class="AccordionItem-Content">{item.content}</div>
+	</div>`
+
+	@process.js = ${value + '<script>
+		const accordion = el => {
+			const items = el.querySelectorAll(".AccordionItem");
+			Array.prototype.forEach.call(items, item => {
+				const header = item.querySelector(".AccordionItem-Title");
+				header.addEventListener("click", () => item.classList.toggle("isActive"));
+			});
+		};
+		Array.prototype.forEach.call(document.querySelectorAll(".Accordion"), el => accordion(el));
+	</script>'}
+	@process.css = ${'<style>
+		.AccordionItem-Content {
+			display: none;
+		}
+		.AccordionItem.isActive .AccordionItem-Chevron {
+			transform: rotate(180deg);
+		}
+		.AccordionItem.isActive .AccordionItem-Content {
+			display: initial;
+		}
+	</style>' + value}
+}
