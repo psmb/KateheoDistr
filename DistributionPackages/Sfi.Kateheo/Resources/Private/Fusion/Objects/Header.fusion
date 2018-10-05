@@ -27,7 +27,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 						<Sfi.Kateheo:ServiceLinks/>
 					</div>
 				</div>
-				<div class="js-headerSearch" style="display: none; position: absolute; left: 12px; right: 12px">
+				<div class="js-headerSearch" style="display: none; position: absolute; z-index: 1; left: 12px; right: 12px">
 					{props.searchFilter}
 				</div>
 				<div style="margin: 24px 0" @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'}>
@@ -60,7 +60,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 						<Sfi.Kateheo:ServiceLinks/>
 					</div>
 				</div>
-				<div class="js-headerSearch" style="display: none; position: absolute; left: 0; right: 0">
+				<div class="js-headerSearch" style="display: none; position: absolute; z-index: 1; left: 0; right: 0">
 					<div class="fixedWidth">
 						{props.searchFilter}
 					</div>
