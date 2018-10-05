@@ -89,8 +89,8 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 								placeholder="поиск"
 								value={props.query}
 								/>
-							<button type="submit" class="search-submit" style="position: absolute; right: 0; top: 14px; padding: 12px; cursor: pointer;">
-								<svg fill="#828282" width="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+							<button type="submit" class="search-submit" style="position: absolute; right: 0; top: 14px; padding: 20px; cursor: pointer;">
+								<svg fill="#828282" width="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
 									<path d="M428.9 762.5c184.2 0 333.6-149.4 333.6-333.6S613.2 95.3 428.9 95.3 95.3 244.7 95.3 428.9s149.4 333.6 333.6 333.6zm345.4-79.2l230.9 230.9c25.1 25.1 25.1 65.9 0 91-25.1 25.1-65.9 25.1-91 0L683.3 774.3c-73.6 54.4-162.8 83.7-254.4 83.5C192 857.8 0 665.8 0 428.9S192 0 428.9 0s428.9 192 428.9 428.9c.2 91.6-29.1 180.7-83.5 254.4z"/>
 								</svg>
 							</button>
