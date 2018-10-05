@@ -59,11 +59,11 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 	}
 	facetTypes = Sfi.Kateheo:FacetsFilter
 	nodeUri = Neos.Neos:NodeUri {
-		node = ${node}
+		node = ${q(site).children('[uriPathSegment = "archiv"]').get(0)}
 	}
 	query = ${request.arguments.q}
 	renderer = afx`
-		<div class="color-white" style="padding: 36px 12px; background-color: rgba(0, 0, 0, 0.9)">
+		<div class="color-white" style="padding: 36px 12px; background-color: rgb(25, 25, 25)">
 			<div class="fixedWidth">
 				<div class="row">
 					<div class="columns">
@@ -119,7 +119,7 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 			outline: 0;
 		}
 		.search-submit:hover svg {
-			fill: rgba(0, 0, 0, 0.9);
+			fill: rgb(25, 25, 25);
 		}
 	</style>' + value}
 }

@@ -1,4 +1,7 @@
 prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
+	@context.searchFilter = Sfi.Kateheo:SearchFilter {
+		@context.value = ''
+	}
 	headerMobile = Neos.Fusion:Component {
 		homeLink = Neos.Neos:NodeUri {
 			node = ${site}
@@ -9,6 +12,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		iconMenu = Neos.Fusion:ResourceUri {
 			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
 		}
+		searchFilter = ${searchFilter}
 		renderer =  afx`
 			<header style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
 				<div class="backgroundColor-kateheo" style="display:flex">
@@ -22,6 +26,9 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 					<div>
 						<Sfi.Kateheo:ServiceLinks/>
 					</div>
+				</div>
+				<div class="js-headerSearch" style="display: none; position: absolute; left: 12px; right: 12px">
+					{props.searchFilter}
 				</div>
 				<div style="margin: 24px 0" @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'}>
 					<div>
@@ -42,6 +49,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		siteLogo = Neos.Fusion:ResourceUri {
 			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
 		}
+		searchFilter = ${searchFilter}
 		renderer = afx`
 			{props.style}
 			<header>
@@ -50,6 +58,11 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 					<div>
 						<Sfi.Kateheo:SecondaryMenu/>
 						<Sfi.Kateheo:ServiceLinks/>
+					</div>
+				</div>
+				<div class="js-headerSearch" style="display: none; position: absolute; left: 0; right: 0">
+					<div class="fixedWidth">
+						{props.searchFilter}
 					</div>
 				</div>
 				<div @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'} style="display: flex; justify-content: space-between;">
@@ -70,6 +83,16 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 					font-size: 2.7vw !important;
 				}
 			}
+			.js-headerSearch-toggle.isActive:after {
+				content: "✕";
+				color: white;
+				position: absolute;
+				left: 0;
+				font-weight: bold;
+				text-align: center;
+				right: 0;
+				top: 14px;
+			}
 		</style>'}
 	}
 	renderer = afx`
@@ -79,9 +102,28 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		<div class="show-for-medium-up">
 			{props.headerDesktop}
 		</div>
-		{props.js}
 	`
-	js = ${'<script>
+	@process.jsSearchToggle = ${value + '<script>
+		(function () {
+			var searchToggles = [].slice.call(document.querySelectorAll(".js-headerSearch-toggle"));
+			var searchPanels = [].slice.call(document.querySelectorAll(".js-headerSearch"));
+			if (searchToggles && searchPanels) {
+				searchToggles.forEach(function(searchToggle) {
+					searchToggle.addEventListener("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						searchToggles.forEach(function(searchToggle) {
+							searchToggle.classList.toggle("isActive");
+						});
+						searchPanels.forEach(function(searchPanel) {
+							searchPanel.classList.toggle("isActive");
+						});
+					});
+				});
+			}
+		}());
+	</script>'}
+	@process.jsMobileNaveToggle = ${value + '<script>
 		var toggle = document.querySelector(".js-MobileNav-Toggle");
 		var mobileNav = document.querySelector(".js-MobileNav");
 		if (toggle && mobileNav) {
@@ -95,4 +137,12 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 			});
 		}
 	</script>'}
+	@process.style = ${'<style>
+		.js-headerSearch.isActive {
+			display: block !important;
+		}
+		.js-headerSearch-toggle.isActive {
+			background-color: black;
+		}
+	</style>' + value}
 }

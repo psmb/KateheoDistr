@@ -60,5 +60,9 @@
 
 .RteTextLinkable a {
 	color: var(--color-kateheo);
+}
+
+.LinkHover:hover, .LinkHover:hover a {
+	color: var(--color-kateheo);
 	text-decoration: underline;
 }

@@ -79,9 +79,9 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 				</div>
 				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
 				{props.newsList}
-				<a href={props.archiveUri}>
-					<p class="RteTextLinkable ParagraphAlt--Small color-grayLight" style="margin-top: 24px">Архив всех материалов сайта ›</p>
-				</a>
+				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
+					<a href={props.archiveUri}>Архив всех материалов сайта ›</a>
+				</div>
 			</div>
 		`
 		style = ${'<style>

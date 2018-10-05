@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
     renderer = afx`
-        <footer class="color-white" role="contentinfo" style="padding: 24px 12px; background-color: rgba(0, 0, 0, 0.9)">
+        <footer class="color-white" role="contentinfo" style="padding: 24px 12px; background-color: rgb(25, 25, 25)">
             <div class="fixedWidth">
                 <div class="row" style="margin-bottom: 24px">
                     <div class="medium-6 columns">
