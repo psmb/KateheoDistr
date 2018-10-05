@@ -4,8 +4,8 @@ prototype(Sfi.Kateheo:Accordion) < prototype(Neos.Fusion:Collection) {
 	itemName = 'item'
 	itemRenderer = afx`<div class="AccordionItem">
 		<h2
-			class="AccordionItem-Title H3 backgroundColor-kateheo"
-			style="display: flex; cursor: pointer; border-top: 1px solid var(--color-grayLight); padding: 12px">
+			class="AccordionItem-Title"
+			style="display: flex; cursor: pointer; border-bottom: 1px solid var(--color-grayLine); padding: 12px">
 			<div style="flex-grow: 1; flex-shrink: 1">
 				{item.title}
 			</div>
@@ -30,6 +30,9 @@ prototype(Sfi.Kateheo:Accordion) < prototype(Neos.Fusion:Collection) {
 		.AccordionItem-Content {
 			display: none;
 		}
+        .AccordionItem.isActive .AccordionItem-Title {
+            background-color: var(--color-kateheo);
+        }
 		.AccordionItem.isActive .AccordionItem-Chevron {
 			transform: rotate(180deg);
 		}

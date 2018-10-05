@@ -5,7 +5,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                 <div class="row" style="margin-bottom: 24px">
                     <div class="medium-6 columns">
                         <h3 class="H4">Подписка на дайджест портала</h3>
-                        <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: var(--color-grayLight); border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)"/>
+                        <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)"/>
                     </div>
                     <div class="medium-6 columns">
                     </div>

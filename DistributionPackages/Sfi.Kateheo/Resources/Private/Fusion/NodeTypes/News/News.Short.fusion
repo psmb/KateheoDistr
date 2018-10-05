@@ -19,7 +19,7 @@ prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 					<img src={props.imageUri} alt={props.title} />
 				</div>
 				<div class="Media-Body">
-					<h3 class="Paragraph--Large Media-Title">{props.title}</h3>
+					<h3 class="Paragraph Media-Title">{props.title}</h3>
 					<div class="ParagraphAlt">{props.teaser}</div>
 				</div>
 			</a>
@@ -31,7 +31,7 @@ prototype(Sfi.Kateheo:News.Short) < prototype(Neos.Neos:ContentComponent) {
 			transition: all 0.4s linear;
 		}
 		.Media:hover .Media-Title {
-			color: var(--color-primary);
+			color: var(--color-kateheo);
 			text-decoration: underline;
 		}
 		.Media-Title {

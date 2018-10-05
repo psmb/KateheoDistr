@@ -6,7 +6,7 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 				collection = ${q(node).children('[instanceof Sfi.Kateheo:Category]').sort('_index', 'ASC').get()}
 				itemName = 'category'
 				itemRenderer = Neos.Fusion:RawArray {
-					title = afx`<div class="H3" >{category.properties.title}</div>`
+					title = afx`<div class="H4" >{category.properties.title}</div>`
 					content = Neos.Fusion:Collection {
 						@context.query = ${Search.query(category).nodeType('Sfi.Kateheo:Article').sortAsc('_index').limit(1000).execute()}
 						collection = ${query.toArray()}
