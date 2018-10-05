@@ -1,0 +1,19 @@
+'Sfi.Kateheo:Tags':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Тэг
+    icon: 'tag'
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+  properties:
+    title:
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            silhouette: 'formating'
+            placeholder: Тэг
+    originalIdentifier:
+      type: string

@@ -1,0 +1,114 @@
+prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentComponent) {
+	nodeUri = Neos.Neos:NodeUri {
+		@if.notInBackend = ${!node.context.inBackend}
+		node = ${node}
+	}
+	imageUri = Neos.Neos:ImageUri {
+		asset = ${node.properties.image}
+		width = ${mode == 'news' ? 1200 : 642}
+		height = 293
+		allowCropping = true
+	}
+	wrapStyle = Neos.Fusion:Case {
+		news {
+			condition = ${mode == 'news'}
+			renderer = ''
+		}
+		section {
+			condition = ${mode == 'section'}
+			renderer = 'flex-basis: 33.33%; padding: 12px'
+		}
+		front {
+			condition = ${mode == 'front'}
+			renderer = 'flex-basis: 50%; padding: 12px'
+		}
+	}
+	renderer = afx`
+		<div class={'mode-' + mode}>
+			{props.style}
+			<a href={props.nodeUri} class={'primarySection primarySection' + node.name + (currentSection == node && ' isCurrent')}>
+				<div class='primarySection-inner'>
+					<p class={(mode == 'section' ? 'H2' : 'H1') + ' color-white primarySection-title'} style="text-transform: uppercase; text-align: center"><Neos.Neos:Editable property="title" block={false} /></p>
+					<p @if.onlyMain={mode != 'section'} class="primarySection-description ServiceEm--Large color-white textAlign-center"><Neos.Neos:Editable property="description" block={false} /></p>
+					<div style="margin: 12px auto; border: 2px solid white; color: white; font-size: 20px; width: 100px; text-align: center;">⟶</div>
+				</div>
+			</a>
+		</div>
+	`
+	style = ${'<style>
+		.primarySection {
+			background-size: cover;
+			display: block;
+			overflow: hidden;
+			height: 0;
+			padding-bottom: 50%;
+			cursor: pointer;
+		}
+		.primarySection-inner {
+			padding-top: 12%;
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+		.mode-news .primarySection-inner {
+			padding-top: 12%;
+			padding-top: 6%;
+		}
+		.primarySection' + node.name + ' {
+			background-image: linear-gradient( rgba(0,0,0,.5), rgba(0,0,0,.5) ),url("' + this.imageUri + '");
+		}
+		.mode-news .primarySection {
+			padding-bottom: 24%;
+		}
+
+		.mode-section {
+			flex-basis: 100%;
+			padding: 12px;
+		}
+		@media screen and (min-width: 640px) {
+			.mode-section {
+				flex-basis: 50%;
+			}
+		}
+		@media screen and (min-width: 1024px) {
+			.mode-section {
+				flex-basis: 33.33%;
+			}
+		}
+
+		.mode-front {
+			flex-basis: 100%;
+			padding: 12px
+		}
+		@media screen and (min-width: 640px) {
+			.mode-front {
+				flex-basis: 50%;
+			}
+		}
+
+		@media screen and (min-width: 640px) and (max-width: 920px) {
+			.primarySection-description {
+				display: none;
+			}
+		}
+		@media screen and (max-width: 420px) {
+			.primarySection-description {
+				display: none;
+			}
+		}
+		@media screen and (min-width: 480px) and (max-width: 640px) {
+			.primarySection-title {
+				font-size: 48px;
+			}
+		}
+		@media screen and (min-width: 640px) and (max-width: 930px) {
+			.primarySection-title {
+				font-size: 36px;
+			}
+		}
+
+		.primarySection' + node.name + ':hover, .primarySection' + node.name + '.isCurrent {
+			background-blend-mode: multiply;
+			background-image: linear-gradient( rgba(215,194,105,.5), rgba(215,194,105,.5) ),url("' + this.imageUri + '");
+		}
+	</style>'}
+}

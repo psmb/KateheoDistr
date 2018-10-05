@@ -1,0 +1,21 @@
+'Sfi.Kateheo:PageMain':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    label: 'Главная страница'
+  properties:
+    secondaryMenu:
+      type: references
+      ui:
+        label: 'Второстепенное меню'
+        inspector:
+          group: document
+    soundCloudLink:
+      type: string
+      ui:
+        label: Ссылка на запись или плэйлист SoundCloud для главной
+        reloadIfChanged: true
+        inspector:
+          group: document
+      validation:
+        Neos.Neos/Validation/NotEmptyValidator: []

@@ -1,0 +1,12 @@
+.Pagination {
+	display: flex;
+}
+.Pagination-item a {
+	font-family: var(--fontFamily-alt);
+	padding: 6px 12px;
+	display: inline-block;
+}
+.Pagination-item.isCurrent, .Pagination-item:hover {
+	background: var(--color-kateheo);
+	color: white;
+}

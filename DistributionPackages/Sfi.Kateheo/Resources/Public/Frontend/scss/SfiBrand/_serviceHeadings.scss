@@ -1,0 +1,94 @@
+.Service {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.Service--Large {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+@media screen and (min-width: 640px) {
+    .Service--Large {
+        font-size: 18px !important;
+    }
+}
+
+.Service--Small {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.ServiceClassic {
+    font-family: var(--fontFamily-main);
+    line-height: var(--lineHeight-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+@media screen and (min-width: 640px) {
+    .ServiceClassic {
+        font-size: 18px;
+    }
+}
+
+.ServiceLight {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-size: 18px;
+}
+.ServiceLight--Small {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-size: 14px;
+}
+.ServiceLight--Large {
+    font-family: var(--fontFamily-alt);
+    line-height: var(--lineHeight-normal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-size: 21px;
+}
+
+.ServiceTiny {
+    font-family: var(--fontFamily-main);
+    font-size: 10px;
+    line-height: var(--lineHeight-normal);
+}
+
+.ServiceEm {
+    font-family: var(--fontFamily-main);
+    font-size: 14px;
+    line-height: var(--lineHeight-normal);
+    font-style: italic;
+}
+
+.ServiceEm--Large {
+    font-family: var(--fontFamily-main);
+    font-size: 14px;
+    line-height: var(--lineHeight-normal);
+    font-style: italic;
+}
+@media screen and (min-width: 640px) {
+    .ServiceEm--Large {
+        font-size: 18px;
+    }
+}

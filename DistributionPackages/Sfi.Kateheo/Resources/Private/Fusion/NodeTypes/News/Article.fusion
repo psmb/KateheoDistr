@@ -1,0 +1,1 @@
+prototype(Sfi.Kateheo:Article) < prototype(Sfi.Kateheo:News)

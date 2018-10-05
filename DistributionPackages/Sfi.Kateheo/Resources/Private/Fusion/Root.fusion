@@ -1,0 +1,4 @@
+include: Redirect.fusion
+include: OverrideStock.fusion
+include: Objects/**/*.fusion
+include: NodeTypes/**/*.fusion

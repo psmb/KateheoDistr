@@ -1,0 +1,11 @@
+prototype(Sfi.Kateheo:SectionMenu) < prototype(Neos.Neos:Menu) {
+	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
+	innerAttributes = Neos.Fusion:Attributes {
+		class = 'innerLevel'
+	}
+	entryLevel = 2
+	maximumLevels = 2
+	filter = '!My.Site:News,Sfi.Kateheo:Category'
+	attributes.class = "nav nav-list bs-docs-sidenav affix-top"
+	current.attributes.class = "active"
+}

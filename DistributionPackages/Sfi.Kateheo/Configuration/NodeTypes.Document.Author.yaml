@@ -1,0 +1,43 @@
+'Sfi.Kateheo:Author':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Автор
+    inspector:
+      groups:
+        image:
+          label: 'Изображение'
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+  properties:
+    title:
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Имя автора'
+    info:
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Краткие сведения об авторе'
+    image:
+      type: Neos\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Фото автора'
+        reloadIfChanged: true
+        inspector:
+          group: image
+          editorOptions:
+            features:
+              crop: true
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 1
+                  height: 1
+    originalIdentifier:
+      type: string

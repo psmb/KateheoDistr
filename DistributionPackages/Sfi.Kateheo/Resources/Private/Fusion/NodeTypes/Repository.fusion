@@ -1,0 +1,121 @@
+prototype(Sfi.Kateheo:Repository) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		searchFilter = Sfi.Kateheo:SearchFilter
+		listing = Sfi.Kateheo:Listing
+		title = ${node.properties.title}
+		backgroundUri = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/Background.jpg'
+		}
+		renderer = afx`
+			{props.searchFilter}
+			<div class="backgroundColor-kateheo" style={'background-repeat: no-repeat; background-attachment: fixed; background-size: cover; background-image: url(' + props.backgroundUri + ')'}>
+				<div class="fixedWidth">
+					<div @if.isTag={documentNode.nodeType.name == 'Sfi.Kateheo:Tags'} class="row" style="margin-top: 36px">
+						<div class="columns">
+							<h1 class="H1 color-white" style="text-transform: uppercase">#{props.title}</h1>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom: 24px">
+						<div class="large-8 large-offset-2 columns">
+							{props.listing}
+						</div>
+					</div>
+				</div>
+			</div>
+		`
+	}
+	body.@process.defaultLayout {
+		fixedWidth = ${false}
+	}
+}
+
+prototype(Sfi.Kateheo:Listing) < prototype(Neos.Fusion:Case) {
+	byType {
+		condition = ${request.arguments.type}
+		renderer = Sfi.Kateheo:ListingByType
+	}
+	default {
+		condition = ${true}
+		renderer = Sfi.Kateheo:ListingOverview
+	}
+}
+
+prototype(Sfi.Kateheo:Tags) < prototype(Sfi.Kateheo:Repository)
+
+
+prototype(Sfi.Kateheo:ListingByType) < prototype(Flowpack.Listable:PaginatedCollection) {
+	@if.notEmpty = ${this.collection.count() > 0}
+	facetTypes = Sfi.Kateheo:FacetTypes
+	@context.facetConfig = ${this.facetTypes[request.arguments.type]}
+	@process.wrap = Sfi.Kateheo:FacetWrapper {
+		label = ${facetConfig.label}
+	}
+	collection = Sfi.Kateheo:Query {
+		type = ${facetConfig.type}
+	}
+	prototype(Flowpack.Listable:Collection) {
+		listClass = ${facetConfig.type == 'Sfi.Kateheo:News' && 'medium-block-grid-2'}
+	}
+	@cache {
+		entryDiscriminator = Neos.Fusion:Array {
+			1 = ${request.arguments.currentPage}
+			2 = ${request.arguments.type}
+			3 = ${request.arguments.q}
+		}
+	}
+}
+
+
+# TODO: refactor and rename the mess below
+prototype(Sfi.Kateheo:Query) < prototype(Neos.Fusion:Value) {
+	type = 'to-be-set'
+	value = ${Search.query(site).nodeType(this.type)}
+	value.@process.search = ${request.arguments.q ? value.fulltext(request.arguments.q) : value}
+	value.@process.tags = ${documentNode.nodeType.name == 'Sfi.Kateheo:Tags' ? value.exactMatch('tags', documentNode) : value}
+	value.@process.author = ${documentNode.nodeType.name == 'Sfi.Kateheo:Author' ? value.exactMatch('authors', documentNode) : value}
+	value.@process.sort = ${request.arguments.q ? value : value.sortDesc('date')}
+}
+
+prototype(Sfi.Kateheo:ListingOverview) < prototype(Neos.Fusion:Collection) {
+	@context.displayAll = ${documentNode.nodeType.name != 'Sfi.Kateheo:Repository' || request.arguments.q}
+	collection = Sfi.Kateheo:FacetTypes
+	itemName = 'facetConfig'
+	itemKey = 'facetType'
+	itemRenderer = Flowpack.Listable:Collection {
+		@if.notEmpty = ${this.collection}
+		@process.link = Neos.Fusion:Component {
+			@if.onlyRepository = ${!displayAll}
+			nodeUri = Neos.Neos:NodeUri {
+				node = ${node}
+				additionalParams {
+					type = ${facetType}
+				}
+			}
+			title = ${facetConfig.label}
+			renderer = afx`
+				{value}
+				<div style="padding: 24px 0; text-align: center"><a class="Button" href={props.nodeUri}>все {props.title}</a></div>
+			`
+		}
+		@process.wrap = Sfi.Kateheo:FacetWrapper {
+			label = ${facetConfig.label}
+		}
+		listClass = ${facetConfig.type == 'Sfi.Kateheo:News' && 'medium-block-grid-2'}
+		@context.query = Sfi.Kateheo:Query {
+			type = ${facetConfig.type}
+			value.@process.paginate = ${displayAll ? value.from(0).limit(1000) : value.from(0).limit(4)}
+			value.@process.result = ${value.execute()}
+		}
+		collection = ${query.toArray()}
+	}
+}
+
+prototype(Sfi.Kateheo:FacetWrapper) < prototype(Neos.Fusion:Component) {
+	label = 'to-be-set'
+	renderer = afx`
+		<div style="margin: 48px 0; padding: 24px; background-color: white; border: 2px solid var(--color-kateheo)">
+			<h3 class="H2 color-grayLight" style="margin-bottom: 24px">{props.label}</h3>
+			{value}
+		</div>
+	`
+}

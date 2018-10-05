@@ -1,0 +1,21 @@
+prototype(Sfi.Kateheo:SecondaryMenu) < prototype(Neos.Fusion:Collection) {
+	collection = ${site.properties.secondaryMenu}
+	itemName = 'node'
+	itemRenderer = Neos.Fusion:Tag {
+		tagName = 'a'
+		attributes.style = 'margin: 12px; display: inline-block;'
+		attributes.class = Neos.Fusion:RawArray {
+			main = 'Service--Small secondaryMenu-item'
+			active = ${(documentNode == node || q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0) ? 'isCurrent' : ''}
+		}
+		attributes.href = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		content = ${node.properties.title}
+	}
+	@process.style = ${'<style>
+	.secondaryMenu-item.isCurrent {
+		text-decoration: underline;
+	}
+	</style>' + value}
+}

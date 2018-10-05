@@ -1,0 +1,11 @@
+'Sfi.Kateheo:Repository':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Хранилище контента
+    icon: 'file'
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+    sidebar:
+      type: 'Neos.Neos:ContentCollection'

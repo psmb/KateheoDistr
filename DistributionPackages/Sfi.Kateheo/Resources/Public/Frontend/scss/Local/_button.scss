@@ -1,0 +1,11 @@
+.Button {
+	padding: 12px;
+	background-color: rgb(25, 25, 25);
+	color: white;
+	font-family: var(--fontFamily-alt);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.Button:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}

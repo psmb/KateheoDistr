@@ -1,0 +1,33 @@
+prototype(Sfi.Kateheo:Category) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		sectionMenu = Sfi.Kateheo:SectionMenu
+
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
+
+		newsList = Flowpack.Listable:PaginatedCollection {
+			@process.list = Flowpack.Listable:List {
+				wrapClass = 'news-list-view'
+			}
+			collection = ${q(node).children('[instanceof Sfi.Kateheo:AbstractArticle]').sort('date', 'DESC').get()}
+		}
+
+		renderer = afx`
+			<div class="row-fluid">
+				<div class="span3">
+					{props.sectionMenu}
+				</div>
+				<div class="span9" role="main">
+					<div class="Category">
+						<h1 class="Category-Title">
+							<Neos.Neos:Editable property="title" block={false} />
+						</h1>
+						<div class="Category-Content">{props.main}</div>
+						<div class="Category-NewsList">{props.newsList}</div>
+					</div>
+				</div>
+			</div>
+		`
+	}
+}

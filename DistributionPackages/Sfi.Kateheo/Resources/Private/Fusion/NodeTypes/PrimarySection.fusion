@@ -1,0 +1,47 @@
+prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		title = ${node.properties.title}
+		categoriesList = Sfi.Kateheo:Accordion {
+			collection = Neos.Fusion:RawCollection {
+				collection = ${q(node).children('[instanceof Sfi.Kateheo:Category]').sort('_index', 'ASC').get()}
+				itemName = 'category'
+				itemRenderer = Neos.Fusion:RawArray {
+					title = afx`<div class="H4" >{category.properties.title}</div>`
+					content = Neos.Fusion:Collection {
+						@context.query = ${Search.query(category).nodeType('Sfi.Kateheo:Article').sortAsc('_index').limit(1000).execute()}
+						collection = ${query.toArray()}
+						itemName = 'node'
+						itemRenderer = Sfi.Kateheo:Article.Short
+					}
+				}
+			}
+			@cache {
+				mode = 'cached'
+				entryIdentifier {
+					node = ${node}
+				}
+			}
+		}
+
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
+
+		renderer = afx`
+			<div class="row js-sticky-main-content" style="margin-top: 36px">
+				<div class="large-6 medium-10 columns js-sticky-sidebar" style="padding-left: 0">
+					<div class="js-sticky-sidebar__inner" style="padding-bottom: 24px; padding-left: 12px">
+						<h1 class="H1" style="margin-bottom: 48px">{props.title}</h1>
+						{props.main}
+					</div>
+				</div>
+				<div class="large-6 medium-10 columns end js-sticky-content">
+					{props.categoriesList}
+				</div>
+			</div>
+			<div style="margin: 48px 0">
+				<Sfi.Kateheo:PrimarySections mode="section"/>
+			</div>
+		`
+	}
+}

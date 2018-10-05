@@ -1,0 +1,68 @@
+
+.lineHeight-single {
+	line-height: var(--lineHeight-single);
+}
+
+.lineHeight-tight {
+	line-height: var(--lineHeight-tight);
+}
+
+.lineHeight-normal {
+	line-height: var(--lineHeight-normal);
+}
+
+.lineHeight-loose {
+	line-height: var(--lineHeight-loose);
+}
+
+.fontFamily-main {
+	font-family: var(--fontFamily-main);
+}
+
+.fontFamily-alt {
+	font-family: var(--fontFamily-alt);
+}
+
+.fixedWidth {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 12px;
+	overflow: hidden;
+}
+
+.textAlign-center {
+	text-align: center;
+}
+
+.color-white {
+	color: white;
+}
+
+.color-primary {
+	color: var(--color-primary);
+}
+
+.color-grayLight {
+	color: var(--color-grayLight);
+}
+
+.backgroundColor-white {
+	background-color: white;
+}
+
+.color-kateheo {
+	color: var(--color-kateheo);
+}
+
+.backgroundColor-kateheo {
+	background-color: var(--color-kateheo);
+}
+
+.RteTextLinkable a {
+	color: var(--color-kateheo);
+}
+
+.LinkHover:hover, .LinkHover:hover a {
+	color: var(--color-kateheo);
+	text-decoration: underline;
+}

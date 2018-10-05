@@ -1,0 +1,127 @@
+Flowpack:
+  ElasticSearch:
+    ContentRepositoryAdaptor:
+      driver:
+        version: 2.x
+        mapping:
+          '2.x':
+            query:
+              arguments:
+                request:
+                  _source:
+                    - '__path'
+                    - characterCount
+    clients:
+      default:
+        -
+          host: shared-es_es
+          port: 9200
+    ContentRepositoryQueueIndexer:
+      batchSize: 100
+      enableLiveAsyncIndexing: false
+  JobQueue:
+    Common:
+      queues:
+        'Flowpack.ElasticSearch.ContentRepositoryQueueIndexer':
+          className: 'Flowpack\JobQueue\Redis\Queue\RedisQueue'
+          executeIsolated: true
+          options:
+            client:
+              host: redis
+              port: 6379
+              database: 15
+            defaultTimeout: 20
+
+        'Flowpack.ElasticSearch.ContentRepositoryQueueIndexer.Live':
+          className: 'Flowpack\JobQueue\Redis\Queue\RedisQueue'
+          executeIsolated: true
+          options:
+            client:
+              host: redis
+              port: 6379
+              database: 15
+            defaultTimeout: 20
+Flownative:
+  Aws:
+    S3:
+      profiles:
+        default:
+          credentials:
+            key: '%env:AWS_ACCESS_KEY_ID%'
+            secret: '%env:AWS_SECRET_ACCESS_KEY%'
+          endpoint: 'https://hb.bizmrg.com'
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Flowpack.Listable':
+          position: 'before Neos.Neos'
+          variables:
+            pageSeparator: '~p'
+            defaultUriSuffix: 'i'
+        'Neos.Neos':
+          variables:
+            'defaultUriSuffix': ''
+    i18n:
+      defaultLocale: ru
+    session:
+      inactivityTimeout: 604800
+    resource:
+      collections:	
+        persistent:	
+          storage: s3PersistentResourcesStorage	
+          target: s3PersistentResourcesTarget
+      storages:
+        s3PersistentResourcesStorage:
+          storage: Flownative\Aws\S3\S3Storage
+          storageOptions:
+            bucket: psmb-neos-resources
+            keyPrefix: storage/kateheo/
+      targets:
+        s3PersistentResourcesTarget:
+          target: Flownative\Aws\S3\S3Target
+          targetOptions:
+            bucket: psmb-neos-resources
+            keyPrefix: target/kateheo/
+            baseUri: 'https://psmb-neos-resources.hb.bizmrg.com/target/kateheo/'
+  Neos:
+    userInterface:
+      navigateComponent:
+        nodeTree:
+          loadingDepth: 1
+    fusion:
+      autoInclude:
+        Sfi.Kateheo: true
+    userInterface:
+      navigateComponent:
+        structureTree:
+          loadingDepth: 0
+        nodeTree:
+          loadingDepth: 1
+    eventLog:
+      enabled: true
+    Ui:
+      frontendConfiguration:
+        defaultInlineEditor: 'ckeditor5'
+  ContentRepository:
+    Search:
+      defaultContext:
+        CharacterCount: Sfi\Kateheo\Eel\CharacterCountIndexingHelper
+      indexAllWorkspaces: false
+      elasticSearch:
+        indexName: kateheo
+Sitegeist:
+   Silhouettes:
+    formatting:
+      u: false
+      sub: false
+      sup: false
+      p: false
+      h1: false
+      h2: false
+      h3: false
+      pre: false
+      removeFormat: false
+      a: false
+      strong: true
+      em: true

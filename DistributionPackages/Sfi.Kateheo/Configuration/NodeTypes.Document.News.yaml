@@ -1,0 +1,5 @@
+'Sfi.Kateheo:News':
+  superTypes:
+    'Sfi.Kateheo:AbstractArticle': true
+  ui:
+    label: Новость

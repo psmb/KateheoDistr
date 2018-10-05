@@ -1,0 +1,26 @@
+prototype(Neos.NodeTypes:Headline) {
+	attributes.id = ${q(node).property('_name')}
+	attributes.class = 'RteText HeadingAnchor js-anchor'
+}
+
+prototype(Neos.NodeTypes:Text) {
+	attributes.class = ${'RteText'}
+}
+
+prototype(Neos.NodeTypes:TextWithImage) {
+	attributes.class = ${'RteText'}
+}
+
+prototype(Psmb.Carousel:Carousel) {
+	arrowPrev = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.6 30.4"><path d="M15.6 30.4c-.3 0-.5-.1-.7-.3L0 15.2 14.9.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4L2.8 15.2l13.5 13.5c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z" fill="#1d1d1b"/></svg>'
+	arrowNext = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.6 30.4"><path d="M1 0c.3 0 .5.1.7.3l14.9 14.9L1.7 30.1c-.4.4-1 .4-1.4 0s-.4-1 0-1.4l13.5-13.5L.3 1.7C-.1 1.3-.1.7.3.3.5.1.7 0 1 0z" fill="#1d1d1b"/></svg>'
+}
+
+prototype(Neos.Fusion:GlobalCacheIdentifiers) {
+	type = ${request.arguments.type}
+	q = ${request.arguments.q}
+}
+prototype(Flowpack.Listable:PaginationParameters) {
+	type = ${request.arguments.type}
+	q = ${request.arguments.q}
+}

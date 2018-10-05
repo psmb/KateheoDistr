@@ -1,0 +1,9 @@
+prototype(Sfi.Kateheo:ReadingTime) < prototype(Neos.Fusion:Component) {
+	characterCount = 'to-be-set'
+	readingTime = ${Math.round(this.characterCount/1700)}
+	@if.notNull = ${this.readingTime > 0}
+	iconClock = Neos.Fusion:ResourceUri {
+		path = 'resource://Sfi.Kateheo/Public/Images/IconClock.svg'
+	}
+	renderer = afx`<span title={'Чтения ' + props.readingTime + ' мин.'}><img style="fill: var(--color-grayLight)" src={props.iconClock}/> {props.readingTime} мин.</span>`
+}

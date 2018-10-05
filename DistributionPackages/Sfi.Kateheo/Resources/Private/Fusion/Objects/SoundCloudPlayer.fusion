@@ -1,0 +1,8 @@
+prototype(Sfi.Kateheo:SoundCloudPlayer) < prototype(Neos.Fusion:Component) {
+	soundCloudLink = 'to-be-set'
+	soundCloudUri = ${'https://w.soundcloud.com/player/?color=dfc264&show_reposts=false&show_user=false&show_teaser=false&hide_related=true&visual=false&url=' + String.rawUrlEncode(this.soundCloudLink)}
+	isPlaylist = ${String.indexOf(this.soundCloudLink, '/sets/') != -1}
+	renderer = afx`
+		<iframe width="100%" height={props.isPlaylist ? 400 : 150} scrolling="no" frameborder="no" src={props.soundCloudUri}></iframe>
+	`
+}

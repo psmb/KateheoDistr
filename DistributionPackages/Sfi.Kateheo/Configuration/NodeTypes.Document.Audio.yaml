@@ -1,0 +1,17 @@
+'Sfi.Kateheo:Audio':
+  superTypes:
+    'Sfi.Kateheo:AbstractArticle': true
+  ui:
+    label: Аудио SoundCloud
+    icon: soundcloud
+  properties:
+    soundCloudLink:
+      type: string
+      ui:
+        label: Ссылка на запись или плэйлист SoundCloud
+        reloadIfChanged: true
+        inspector:
+          group: news
+          position: start
+      validation:
+        Neos.Neos/Validation/NotEmptyValidator: []

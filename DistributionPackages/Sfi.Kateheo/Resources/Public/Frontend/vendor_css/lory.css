@@ -1,0 +1,52 @@
+[data-carousel] {
+    position: relative;
+}
+
+[data-carousel] .frame {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+[data-carousel] .slides {
+    width: 100%;
+    display: inline-block;
+}
+
+[data-carousel] li {
+    position: relative;
+    display: inline-block;
+    white-space: normal;
+    width: 100%;
+}
+
+[data-carousel] li > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[data-carousel] .prev, [data-carousel] .next {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    display: block;
+    cursor: pointer;
+    fill: black;
+}
+[data-carousel] .prev.disabled, [data-carousel] .next.disabled {
+    display: none;
+}
+
+[data-carousel] .next {
+    right: 12px;
+}
+
+[data-carousel] .prev {
+    left: 12px;
+}
+
+[data-carousel] .next svg, [data-carousel] .prev svg {
+    width: 24px;
+}

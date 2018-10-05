@@ -1,0 +1,44 @@
+prototype(Sfi.Kateheo:BreadcrumbMenu) < prototype(Neos.Fusion:Collection) {
+	@if.notMain = ${node != site}
+	collection = ${Array.reverse(q(node).parents().get())}
+	itemName = 'node'
+	itemRenderer = Neos.Fusion:Component {
+		nodeUri = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		title = ${node.properties.title}
+		renderer = afx`
+			<a href={props.nodeUri} class="ParagraphAlt--Small BreadcrumbMenu-item">
+				{props.title}
+			</a>
+		`
+	}
+	@process.addStyle = ${'<style>
+		.BreadcrumbMenu {
+			overflow: auto;
+			border-top: 1px solid var(--color-grayLine);
+			padding: 6px 0;
+		}
+		.BreadcrumbMenu-item {
+			float: left;
+			margin: 0;
+			margin-left: 12px;
+		}
+		.BreadcrumbMenu-item:last-child:after {
+			content: "";
+			color: var(--color-lightGray);
+		}
+		.BreadcrumbMenu-item:after {
+			content: "»";
+			display: inline-block;
+			position: relative;
+			left: 3px;
+			width: 7px;
+			margin-right: -7px;
+		}
+	</style><div class="BreadcrumbMenu">' + value + '<span class="ParagraphAlt--Small BreadcrumbMenu-item color-grayLight">' + node.properties.title + '</span></div>'}
+}
+
+
+
+

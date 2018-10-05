@@ -1,0 +1,11 @@
+.OrderedList, .RteText ol {
+	list-style-type: decimal;
+	padding-left: 36px;
+	list-style-position: outside;
+}
+
+.UnorderedList, .RteText ul {
+	list-style-type: disc;
+	padding-left: 36px;
+	list-style-position: outside;
+}

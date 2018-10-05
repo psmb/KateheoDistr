@@ -1,9 +1,0 @@
-prototype(Neos.NodeTypes:Headline) {
-	templatePath = 'resource://Sfi.Kateheo/Private/Templates/NodeTypes/Headline.html'
-	attributes.id = ${q(node).property('_name')}
-	attributes.class = 'RteText HeadingAnchor js-anchor'
-}
-
-prototype(Flowpack.Listable:Listable) {
-	@context.sortProperty = 'date'
-}

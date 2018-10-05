@@ -5,20 +5,14 @@
         "vendor-dir": "Packages/Libraries",
         "bin-dir": "bin"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "DistributionPackages/*"
+        }
+    ],
     "require": {
-        "neos/neos": "~3.3.0",
-        "neos/nodetypes": "~3.3.0",
-        "neos/neos-ui": "dev-master",
-        "neos/neos-ui-compiled": "dev-master",
-        "neos/seo": "~2.0.0",
-        "flowpack/listable": "^2.0",
-        "sfi/grid": "^2.0",
-        "sfi/youtube": "^2.0",
-        "flowpack/neos-frontendlogin": "^3.0",
-        "flownative/aws-s3": "^2.0",
-        "neos/redirecthandler": "^2.0",
-        "neos/redirecthandler-databasestorage": "2",
-        "neos/redirecthandler-neosadapter": "^2.0"
+        "sfi/kateheo": "1.0.x-dev"
     },
     "scripts": {
         "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",

@@ -1,0 +1,148 @@
+prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
+	@context.searchFilter = Sfi.Kateheo:SearchFilter {
+		@context.value = ''
+	}
+	headerMobile = Neos.Fusion:Component {
+		homeLink = Neos.Neos:NodeUri {
+			node = ${site}
+		}
+		siteLogo = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
+		}
+		iconMenu = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
+		}
+		searchFilter = ${searchFilter}
+		renderer =  afx`
+			<header style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
+				<div class="backgroundColor-kateheo" style="display:flex">
+					<div href="#menu" class="marginLeft-single MobileNav-Toggle js-MobileNav-Toggle">
+						<div class="IconMenu">
+							<img alt="Меню" src={props.iconMenu}/>
+						</div>
+					</div>
+					<div style="flex-grow: 1">
+					</div>
+					<div>
+						<Sfi.Kateheo:ServiceLinks/>
+					</div>
+				</div>
+				<div class="js-headerSearch" style="display: none; position: absolute; z-index: 1; left: 12px; right: 12px">
+					{props.searchFilter}
+				</div>
+				<div style="margin: 24px 0" @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'}>
+					<div>
+						<div style="text-align: center">
+							<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
+						</div>
+						<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
+						<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+					</div>
+				</div>
+			</header>
+		`
+	}
+	headerDesktop = Neos.Fusion:Component {
+		homeLink = Neos.Neos:NodeUri {
+			node = ${site}
+		}
+		siteLogo = Neos.Fusion:ResourceUri {
+			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
+		}
+		searchFilter = ${searchFilter}
+		renderer = afx`
+			{props.style}
+			<header>
+				<div class="backgroundColor-kateheo" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 12px;">
+					<div><Sfi.Kateheo:PrimaryMenu/></div>
+					<div>
+						<Sfi.Kateheo:SecondaryMenu/>
+						<Sfi.Kateheo:ServiceLinks/>
+					</div>
+				</div>
+				<div class="js-headerSearch" style="display: none; position: absolute; z-index: 1; left: 0; right: 0">
+					<div class="fixedWidth">
+						{props.searchFilter}
+					</div>
+				</div>
+				<div @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'} style="display: flex; justify-content: space-between;">
+					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
+					<div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
+						<div>
+							<h1 class="H2 MainTitle" style="text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
+							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+						</div>
+					</div>
+				</div>
+				<Sfi.Kateheo:BreadcrumbMenu/>
+			</header>
+		`
+		style = ${'<style>
+			@media screen and (max-width: 1200px) {
+				.MainTitle {
+					font-size: 2.7vw !important;
+				}
+			}
+			.js-headerSearch-toggle.isActive:after {
+				content: "✕";
+				color: white;
+				position: absolute;
+				left: 0;
+				font-weight: bold;
+				text-align: center;
+				right: 0;
+				top: 14px;
+			}
+		</style>'}
+	}
+	renderer = afx`
+		<div class="show-for-small-only">
+			{props.headerMobile}
+		</div>
+		<div class="show-for-medium-up">
+			{props.headerDesktop}
+		</div>
+	`
+	@process.jsSearchToggle = ${value + '<script>
+		(function () {
+			var searchToggles = [].slice.call(document.querySelectorAll(".js-headerSearch-toggle"));
+			var searchPanels = [].slice.call(document.querySelectorAll(".js-headerSearch"));
+			if (searchToggles && searchPanels) {
+				searchToggles.forEach(function(searchToggle) {
+					searchToggle.addEventListener("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						searchToggles.forEach(function(searchToggle) {
+							searchToggle.classList.toggle("isActive");
+						});
+						searchPanels.forEach(function(searchPanel) {
+							searchPanel.classList.toggle("isActive");
+						});
+					});
+				});
+			}
+		}());
+	</script>'}
+	@process.jsMobileNaveToggle = ${value + '<script>
+		var toggle = document.querySelector(".js-MobileNav-Toggle");
+		var mobileNav = document.querySelector(".js-MobileNav");
+		if (toggle && mobileNav) {
+			toggle.addEventListener("click", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				mobileNav.classList.toggle("isActive");
+			});
+			document.body.addEventListener("click", function(e) {
+				mobileNav.classList.remove("isActive");
+			});
+		}
+	</script>'}
+	@process.style = ${'<style>
+		.js-headerSearch.isActive {
+			display: block !important;
+		}
+		.js-headerSearch-toggle.isActive {
+			background-color: black;
+		}
+	</style>' + value}
+}

@@ -1,0 +1,20 @@
+prototype(Sfi.Kateheo:Article.ShortForAuthorInfo) < prototype(Neos.Fusion:Component) {
+	title = ${String.stripTags(q(node).property('title'))}
+	teaser = ${String.stripTags(q(node).property('teaser'))}
+	parent = ${q(node).parent().property('title')}
+	linkUri = Neos.Neos:NodeUri {
+		node = ${node}
+	}
+	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
+		characterCount = ${query.searchHitForNode(node)._source.characterCount}
+		@context.content = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
+	}
+
+	renderer = afx`
+		<a href={props.linkUri}>
+			<h3 style="padding: 6px 0" class="Paragraph lineHeight-tight color-primary">{props.title} <span class="ParagraphAlt color-grayLight">{props.readingTimeIndicator}</span></h3>
+		</a>
+	`
+}
