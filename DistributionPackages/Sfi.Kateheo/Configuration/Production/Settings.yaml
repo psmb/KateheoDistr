@@ -1,0 +1,4 @@
+Neos:
+  Flow:
+    http:
+      baseUri: 'https://kateheo.ru/'
