@@ -8,7 +8,8 @@ prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) 
 				itemRenderer = Neos.Fusion:RawArray {
 					title = afx`<div class="H3" >{category.properties.title}</div>`
 					content = Neos.Fusion:Collection {
-						collection = ${q(category).children('[instanceof Sfi.Kateheo:Article]').sort('_index', 'ASC').get()}
+						@context.query = ${Search.query(category).nodeType('Sfi.Kateheo:Article').sortAsc('_index').limit(1000).execute()}
+						collection = ${query.toArray()}
 						itemName = 'node'
 						itemRenderer = Sfi.Kateheo:Article.Short
 					}
