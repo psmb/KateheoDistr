@@ -1,0 +1,9 @@
+'Sfi.Kateheo:InternalSection':
+  superTypes:
+    'Neos.Neos:Document': true
+  ui:
+    label: Внутрений раздел
+    icon: key
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'

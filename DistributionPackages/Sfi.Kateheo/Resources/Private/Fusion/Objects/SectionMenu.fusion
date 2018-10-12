@@ -1,11 +1,21 @@
-prototype(Sfi.Kateheo:SectionMenu) < prototype(Neos.Neos:Menu) {
-	templatePath = 'resource://Sfi.Kateheo/Private/Templates/TypoScriptObjects/2levelMenu.html'
-	innerAttributes = Neos.Fusion:Attributes {
-		class = 'innerLevel'
+prototype(Sfi.Kateheo:SectionMenu) < prototype(Neos.Fusion:Collection) {
+	collection = ${q(documentNode).parent().children('[instanceof Sfi.Kateheo:Category]').get()}
+	itemName = 'node'
+	itemRenderer = Neos.Fusion:Tag {
+		tagName = 'a'
+		attributes.style = 'display: block; border-bottom: 1px solid var(--color-grayLine); padding: 12px'
+		attributes.class = Neos.Fusion:RawArray {
+			main = 'H4 sectionMenu-item'
+			active = ${(documentNode == node || q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0) && 'isCurrent'}
+		}
+		attributes.href = Neos.Neos:NodeUri {
+			node = ${node}
+		}
+		content = ${node.properties.title}
 	}
-	entryLevel = 2
-	maximumLevels = 2
-	filter = '!My.Site:News,Sfi.Kateheo:Category'
-	attributes.class = "nav nav-list bs-docs-sidenav affix-top"
-	current.attributes.class = "active"
+	@process.style = ${'<style>
+	.sectionMenu-item.isCurrent {
+		background-color: var(--color-kateheo);
+	}
+	</style>' + value}
 }

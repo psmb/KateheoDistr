@@ -10,7 +10,3 @@
   properties:
     originalIdentifier:
       type: string
-  constraints:
-    nodeTypes:
-      '*': false
-      'Sfi.Kateheo:News': true
