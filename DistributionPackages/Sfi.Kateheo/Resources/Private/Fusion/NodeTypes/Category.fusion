@@ -13,20 +13,23 @@ prototype(Sfi.Kateheo:Category) < prototype(Sfi.Kateheo:AbstractDocument) {
 			collection = ${q(node).children('[instanceof Sfi.Kateheo:AbstractArticle]').sort('date', 'DESC').get()}
 		}
 
+		title = ${node.properties.title}
+
 		renderer = afx`
-			<div class="row-fluid">
-				<div class="span3">
-					{props.sectionMenu}
-				</div>
-				<div class="span9" role="main">
-					<div class="Category">
-						<h1 class="Category-Title">
-							<Neos.Neos:Editable property="title" block={false} />
-						</h1>
-						<div class="Category-Content">{props.main}</div>
-						<div class="Category-NewsList">{props.newsList}</div>
+			<div class="row js-sticky-main-content" style="margin-top: 36px">
+				<div class="large-6 medium-10 columns js-sticky-sidebar" style="padding-left: 0">
+					<div class="js-sticky-sidebar__inner" style="padding-bottom: 24px; padding-left: 12px">
+						{props.sectionMenu}
 					</div>
 				</div>
+				<div class="large-6 medium-10 columns end js-sticky-content">
+					<h1 class="H1">{props.title}</h1>
+					<div style="margin-bottom: 48px">{props.main}</div>
+					{props.newsList}
+				</div>
+			</div>
+			<div style="margin: 48px 0">
+				<Sfi.Kateheo:PrimarySections mode="section"/>
 			</div>
 		`
 	}

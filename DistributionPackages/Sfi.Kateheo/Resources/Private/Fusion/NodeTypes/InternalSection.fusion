@@ -1,0 +1,1 @@
+prototype(Sfi.Kateheo:InternalSection) < prototype(Sfi.Kateheo:PrimarySection)
