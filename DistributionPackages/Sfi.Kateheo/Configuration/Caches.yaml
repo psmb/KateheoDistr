@@ -1,19 +1,23 @@
 Neos_Fusion_Content:
-  backend: Neos\Cache\Backend\RedisBackend
+  backend: Sandstorm\OptimizedRedisCacheBackend\OptimizedRedisCacheBackend
   backendOptions:
     hostname: redis
 Flow_Mvc_Routing_Resolve:
-  backend: Neos\Cache\Backend\RedisBackend
+  backend: Sandstorm\OptimizedRedisCacheBackend\OptimizedRedisCacheBackend
   backendOptions:
     hostname: redis
 Flow_Mvc_Routing_Route:
-  backend: Neos\Cache\Backend\RedisBackend
+  backend: Sandstorm\OptimizedRedisCacheBackend\OptimizedRedisCacheBackend
   backendOptions:
     hostname: redis
 
 Flow_Session_MetaData:
+  backend: Sandstorm\OptimizedRedisCacheBackend\OptimizedRedisCacheBackend
+  persistent: TRUE
   backendOptions:
-    cacheDirectory: '%FLOW_PATH_DATA%Session/Flow_Session_MetaData'
+    hostname: redis
 Flow_Session_Storage:
+  backend: Sandstorm\OptimizedRedisCacheBackend\OptimizedRedisCacheBackend
+  persistent: TRUE
   backendOptions:
-    cacheDirectory: '%FLOW_PATH_DATA%Session/Flow_Session_Storage'
+    hostname: redis

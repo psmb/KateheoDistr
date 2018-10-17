@@ -9,10 +9,15 @@
         {
             "type": "path",
             "url": "DistributionPackages/*"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/zaveryukha/OptimizedRedisCacheBackend"
         }
     ],
     "require": {
-        "sfi/kateheo": "1.0.x-dev"
+        "sfi/kateheo": "1.0.x-dev",
+        "sandstorm/optimizedrediscachebackend": "dev-patch-1@dev"
     },
     "scripts": {
         "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
