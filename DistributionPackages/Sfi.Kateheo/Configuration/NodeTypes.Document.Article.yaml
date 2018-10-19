@@ -1,6 +1,8 @@
 'Sfi.Kateheo:Article':
   superTypes:
     'Sfi.Kateheo:AbstractArticle': true
+  ui:
+    icon: 'file-alt'
   properties:
     characterCount:
       type: integer

@@ -3,6 +3,7 @@
     'Neos.NodeTypes:Page': true
   ui:
     label: 'Главная страница'
+    icon: 'globe'
   properties:
     secondaryMenu:
       type: references
