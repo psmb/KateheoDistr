@@ -1,5 +1,5 @@
 {namespace neos=Neos\Neos\ViewHelpers}
-<div class="login-page">
+<div class="login-page" style="margin: 48px 12px">
     <div class="form">
         <f:security.ifAccess privilegeTarget="Neos.Neos:Backend.GeneralAccess">
             <f:then>
@@ -14,13 +14,14 @@
                         </f:form>
                     </f:then>
                     <f:else>
+                        <h1 class="H1">Вход</h1>
                         <f:form action="authenticate" method="post" class="login-form form-horizontal clearfix"
                             additionalAttributes="{role:'form'}">
-                            <input name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]"
-                                class="form-control" id="typo3-username" type="text" placeholder="имя пользователя" />
-                            <input name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]"
-                                class="form-control" id="typo3-password" type="password" placeholder="пароль" />
-                            <f:form.submit value="Вход" class="btn btn-primary" />
+                            <input style="padding: 8px 12px; margin-bottom: 12px; border: 1px solid #ccc" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]"
+                                class="form-control" id="typo3-username" type="text" placeholder="имя пользователя" /><br/>
+                            <input style="padding: 8px 12px; margin-bottom: 12px; border: 1px solid #ccc" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]"
+                                class="form-control" id="typo3-password" type="password" placeholder="пароль" /><br/>
+                            <f:form.submit value="Вход" class="Button" style="border: none" />
                         </f:form>
                     </f:else>
                 </f:security.ifHasRole>
