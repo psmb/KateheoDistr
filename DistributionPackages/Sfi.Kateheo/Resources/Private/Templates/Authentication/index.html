@@ -17,11 +17,11 @@
                         <h1 class="H1">Вход</h1>
                         <f:form action="authenticate" method="post" class="login-form form-horizontal clearfix"
                             additionalAttributes="{role:'form'}">
-                            <input style="padding: 8px 12px; margin-bottom: 12px; border: 1px solid #ccc" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]"
+                            <input style="padding: 8px 12px; margin: 12px 0px; border: 1px solid #ccc" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][username]"
                                 class="form-control" id="typo3-username" type="text" placeholder="имя пользователя" /><br/>
                             <input style="padding: 8px 12px; margin-bottom: 12px; border: 1px solid #ccc" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]"
                                 class="form-control" id="typo3-password" type="password" placeholder="пароль" /><br/>
-                            <f:form.submit value="Вход" class="Button" style="border: none" />
+                            <f:form.submit value="Вход" class="Button" style="border: none; margin-top: 12px;" />
                         </f:form>
                     </f:else>
                 </f:security.ifHasRole>
