@@ -6,16 +6,20 @@ prototype(Sfi.Kateheo:DefaultLayout) < prototype(Neos.Fusion:Component) {
 	renderer = afx`
 		<a class="SkipToContent" href="#maincontent">Перейти к основному содержимому</a>
 		<div class="js-MobileNav">
-			<div class="MobileNav-Content">
-				<div class="fixedWidth">
-					<Sfi.Kateheo:Header/>
-				</div>
-				<div class={props.fixedWidth && 'fixedWidth'}>
-					<div id="maincontent">
-						{props.main}
+			<div class="MobileNav-Content" style="display: flex; min-height: 100vh; flex-direction: column;">
+				<div class="content" style="flex: 1 0 auto;">
+					<div class="fixedWidth">
+						<Sfi.Kateheo:Header/>
+					</div>
+					<div class={props.fixedWidth && 'fixedWidth'}>
+						<div id="maincontent">
+							{props.main}
+						</div>
 					</div>
 				</div>
-				<Sfi.Kateheo:Footer/>
+				<div class="footer" style="flex-shrink: 0;">
+					<Sfi.Kateheo:Footer/>
+				</div>
 			</div>
 			<div class="MobileNav-Menu show-for-small-only">
 				<div><Sfi.Kateheo:PrimaryMenu/></div>
