@@ -18,7 +18,11 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                         <input type="hidden" name="draftResponse" value="[null,null,&quot;3939533176468895765&quot;]"/>
                         <input type="hidden" name="pageHistory" value="0"/>
                         <input type="hidden" name="fbzx" value="3939533176468895765"/>
-                        <input type="submit" name="submit" value="Отправить" id="ss-submit" class="Button" style="margin-top: 8px" />
+                        <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
+                            <p class="ParagraphAlt--Small">
+                                <input type="submit" name="submit" value="Отправить" id="ss-submit" class="Button" style="padding: 9px 12px; margin: 12px 0; border: 1px solid white;" />
+                            </p>
+                        </div>
                     </form>
                 </div>
                 <div class="row" style="margin-bottom: 24px">
