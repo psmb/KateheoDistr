@@ -1,14 +1,29 @@
 prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
     renderer = afx`
-        <footer class="color-white" role="contentinfo" style="padding: 24px 12px; background-color: rgb(25, 25, 25)">
+        <footer class="color-white" role="contentinfo" style="padding: 24px 0px; background-color: rgb(25, 25, 25)">
             <div class="fixedWidth">
                 <div class="row" style="margin-bottom: 24px">
-                    <div class="medium-6 columns">
-                        <h3 class="H4">Подписка на дайджест портала</h3>
-                        <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)"/>
-                    </div>
-                    <div class="medium-6 columns">
-                    </div>
+                    <h3 class="H4" style="margin-left: 12px">Подписка на дайджест портала</h3>
+                    <form target="_blank" action="https://docs.google.com/forms/d/e/1FAIpQLScEdQsFLDaogvJbYVSnmQJfWQo9EMCS-PzZSdcrBQJXOy0dvA/formResponse?embedded=true" method="POST" id="ss-form" autocomplete="on">
+                        <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
+                            <p class="ParagraphAlt--Small">
+                                <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваше имя" type="text" name="entry.1165045165" value="" id="entry_1165045165" dir="auto" aria-label="Пожалуйста введите Ваше имя  " aria-required="true" required="" title=""/>
+                            </p>
+                        </div>
+                        <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
+                            <p class="ParagraphAlt--Small">
+                                <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)" type="text" name="entry.90545406" value="" id="entry_90545406" dir="auto" aria-label="Пожалуйста введите Ваш электронный адрес (e-mail), на который будет высылаться еженедельный дайджест портала" aria-required="true" required="" title=""/>
+                            </p>
+                        </div>
+                        <input type="hidden" name="draftResponse" value="[null,null,&quot;3939533176468895765&quot;]"/>
+                        <input type="hidden" name="pageHistory" value="0"/>
+                        <input type="hidden" name="fbzx" value="3939533176468895765"/>
+                        <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
+                            <p class="ParagraphAlt--Small">
+                                <input type="submit" name="submit" value="Отправить" id="ss-submit" class="Button" style="padding: 9px 12px; margin: 12px 0; border: 1px solid white;" />
+                            </p>
+                        </div>
+                    </form>
                 </div>
                 <div class="row" style="margin-bottom: 24px">
                     <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
@@ -47,7 +62,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
             color: black !important;
         }
         .digestSubscribe-input::placeholder {
-            color: white;
+            color: white !important;
         }
     </style>' + value}
 }
