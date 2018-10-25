@@ -12,7 +12,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                         </div>
                         <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                             <p class="ParagraphAlt--Small">
-                                <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)" type="text" name="entry.90545406" value="" id="entry_90545406" dir="auto" aria-label="Пожалуйста введите Ваш электронный адрес (e-mail) Ваш рабочий электронный адрес, на который будет высылаться еженедельный дайджест портала " aria-required="true" required="" title=""/>
+                                <input class="digestSubscribe-input color-white" style="padding: 8px 12px; margin: 12px 0; width: 100%; background: #555; border: 1px solid white; font-style: italic; font-family: var(--fontFamily-main)" placeholder="Ваш электронный адрес (e-mail)" type="text" name="entry.90545406" value="" id="entry_90545406" dir="auto" aria-label="Пожалуйста введите Ваш электронный адрес (e-mail), на который будет высылаться еженедельный дайджест портала" aria-required="true" required="" title=""/>
                             </p>
                         </div>
                         <input type="hidden" name="draftResponse" value="[null,null,&quot;3939533176468895765&quot;]"/>
