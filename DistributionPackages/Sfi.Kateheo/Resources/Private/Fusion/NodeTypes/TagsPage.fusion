@@ -1,0 +1,68 @@
+prototype(Sfi.Kateheo:Tags) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body = Neos.Neos:ContentComponent {
+		sectionMenu = Neos.Fusion:Collection {
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
+			collection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
+			itemName = 'node'
+			itemRenderer = Neos.Fusion:Component {
+				nodeUri = Neos.Neos:NodeUri {
+					node = ${node}
+				}
+				title = ${node.properties.title}
+				renderer = afx`
+					<a class="ParagraphAlt" style={(node == documentNode ? 'background-color: var(--color-kateheo); font-weight: bold;' : '') + 'line-height: var(--lineHeight-tight); padding: 8px; display: block; border-bottom: 1px solid var(--color-grayLine)'} href={props.nodeUri}>
+						{props.title}
+					</a>
+				`
+			}
+		}
+
+		main = Neos.Neos:ContentCollection{
+			nodePath = 'main'
+		}
+
+		imageUri = Neos.Neos:ImageUri {
+			asset = ${node.properties.image}
+			width = 150
+			height = 150
+			allowCropping = true
+		}
+
+		newsList = Flowpack.Listable:Collection {
+			collection = ${q(site).find('[instanceof Sfi.Kateheo:AbstractArticle]').get()}
+			collection.@process.filterByTags = ${q(value).filterByReference('tags', node).get()}
+			itemRenderer = Sfi.Kateheo:Article.ShortForTagInfo
+		}
+
+		tagsArticles = Sfi.Kateheo:Listing {
+			@process.tmpl = ${'<div><h2 class="Service--Large" style="margin: 24px 0 12px 0">Материалы по тегу</h2>' + value + '</div>'}
+		}
+
+		renderer = afx`
+			<div class="row" style="margin-bottom: 24px">
+				<div class="medium-8 columns" role="main">
+					<div class="Tags" style="margin-top: 24px">
+						<div @if.image={props.imageUri} class="marginRight-double">
+							<img style="border-radius: 50%" src={props.imageUri}/>
+						</div>
+						{props.tagsInfo}
+						<h1 class="H2 lineHeight-single" style="margin: 24px 0">
+							<Neos.Neos:Editable property="title" block={false}/>
+						</h1>
+						<p class="ServiceEm--Large">
+							<Neos.Neos:Editable property="info" block={false}/>
+						</p>
+						<div class="Tags-Content" style="margin-top: 1.5em">{props.main}</div>
+						<div class="Tags-NewsList">
+							{props.tagsArticles}
+						</div>
+					</div>
+				</div>
+				<div class="medium-4 columns">
+					<div class="PageMain-tagsMenu">{props.sectionMenu}</div>
+				</div>
+			</div>
+			
+		`
+	}
+}
