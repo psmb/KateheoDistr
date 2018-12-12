@@ -1,6 +1,8 @@
-prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
-	tagsList = Neos.Fusion:Collection {
-		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Tags]').get()), 0, 5)}
+prototype(Sfi.Kateheo:TagsList) < prototype(Neos.Fusion:Component) {
+	showAll = ${false}
+	renderer = Neos.Fusion:Collection {
+		collection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
+		collection.@process.shuffle = ${props.showAll ? value : Array.slice(Array.shuffle(value), 0, 5)}
 		itemName = 'node'
 		itemRenderer = Neos.Fusion:Component {
 			nodeUri = Neos.Neos:NodeUri {
@@ -13,7 +15,6 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 					href={props.nodeUri}
 					style="
 						font-size: 14px;
-						text-tranform: uppercase;
 						font-family: var(--fontFamily-alt);
 						margin-right: 18px;
 					"
@@ -22,13 +23,29 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 				</a>
 			`
 		}
-		@cache {
-			mode = 'uncached'
-			context {
-				1 = 'site'
-			}
+		
+	}
+	@cache {
+		mode = 'uncached'
+		context {
+			1 = 'site'
+			2 = 'props'
 		}
 	}
+}
+
+root.allTags {
+	condition = ${request.arguments.showAllTags == 'true' }
+	renderer = Sfi.Kateheo:TagsList {
+		showAll = ${true}
+	}
+}
+prototype(Neos.Fusion:GlobalCacheIdentifiers) {
+	showAllTags = ${request.arguments.showAllTags}
+}
+
+prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
+	tagsList = Sfi.Kateheo:TagsList
 	authorsList = Neos.Fusion:Collection {
 		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Author]').get()), 0, 5)}
 		itemName = 'node'
@@ -97,20 +114,22 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 								</svg>
 							</button>
 						</form>
-							{props.tagsList}
-							<div style="font-size: 14px; text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
-								<a href='/tags'>все тэги
-									<div style="height: 16px; width: 16px; background-color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.6 30.4" width="10px" height="10px" style="margin-left: 4px"><path d="M1 0c.3 0 .5.1.7.3l14.9 14.9L1.7 30.1c-.4.4-1 .4-1.4 0s-.4-1 0-1.4l13.5-13.5L.3 1.7C-.1 1.3-.1.7.3.3.5.1.7 0 1 0z" fill="#1d1d1b"></path></svg>
-									</div>
-								</a>
+							<div class="js-TagsList">
+								<div>{props.tagsList}</div>
+								<div class="Service--Small" style="text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
+									<a class="js-TagsListBtn" href='?showAllTags=true'>все тэги
+										<div class="js-TagsListIcon" style="vertical-align: -17%; height: 14px; width: 14px; color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
+											<svg aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-right" class="svg-inline--fa fa-chevron-circle-right fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>
+										</div>
+									</a>
+								</div>
 							</div>
 						<div style="margin-top: 0px">
 							{props.authorsList}
-							<div style="font-size: 14px; text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
+							<div class="Service--Small" style="text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
 								<a href='/autors'>все авторы
-									<div style="height: 16px; width: 16px; background-color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.6 30.4" width="10px" height="10px" style="margin-left: 4px"><path d="M1 0c.3 0 .5.1.7.3l14.9 14.9L1.7 30.1c-.4.4-1 .4-1.4 0s-.4-1 0-1.4l13.5-13.5L.3 1.7C-.1 1.3-.1.7.3.3.5.1.7 0 1 0z" fill="#1d1d1b"></path></svg>
+									<div style="vertical-align: -17%; height: 14px; width: 14px; color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
+										<svg aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-right" class="svg-inline--fa fa-chevron-circle-right fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>
 									</div>
 								</a>
 							</div>
