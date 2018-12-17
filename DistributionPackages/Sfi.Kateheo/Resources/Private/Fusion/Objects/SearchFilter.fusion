@@ -1,10 +1,13 @@
-prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
-	tagsList = Neos.Fusion:Collection {
-		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Tags]').get()), 0, 5)}
+prototype(Sfi.Kateheo:TagsList) < prototype(Neos.Fusion:Component) {
+	showAll = ${false}
+	renderer = Neos.Fusion:Collection {
+		collection = ${q(site).find('[instanceof Sfi.Kateheo:Tags]').get()}
+		collection.@process.shuffle = ${props.showAll ? value : Array.slice(Array.shuffle(value), 0, 5)}
 		itemName = 'node'
 		itemRenderer = Neos.Fusion:Component {
 			nodeUri = Neos.Neos:NodeUri {
 				node = ${node}
+				baseNodeName = 'site'
 			}
 			title = ${node.properties.title}
 			renderer = afx`
@@ -12,7 +15,6 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 					href={props.nodeUri}
 					style="
 						font-size: 14px;
-						text-tranform: uppercase;
 						font-family: var(--fontFamily-alt);
 						margin-right: 18px;
 					"
@@ -21,19 +23,36 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 				</a>
 			`
 		}
-		@cache {
-			mode = 'uncached'
-			context {
-				1 = 'site'
-			}
+		
+	}
+	@cache {
+		mode = 'uncached'
+		context {
+			1 = 'site'
+			2 = 'props'
 		}
 	}
+}
+
+root.allTags {
+	condition = ${request.arguments.showAllTags == 'true' }
+	renderer = Sfi.Kateheo:TagsList {
+		showAll = ${true}
+	}
+}
+prototype(Neos.Fusion:GlobalCacheIdentifiers) {
+	showAllTags = ${request.arguments.showAllTags}
+}
+
+prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
+	tagsList = Sfi.Kateheo:TagsList
 	authorsList = Neos.Fusion:Collection {
 		collection = ${Array.slice(Array.shuffle(q(site).find('[instanceof Sfi.Kateheo:Author]').get()), 0, 5)}
 		itemName = 'node'
 		itemRenderer = Neos.Fusion:Component {
 			nodeUri = Neos.Neos:NodeUri {
 				node = ${node}
+				baseNodeName = 'site'
 			}
 			title = ${String.replace(node.properties.title, ' ', '&nbsp;')}
 			renderer = afx`
@@ -95,9 +114,25 @@ prototype(Sfi.Kateheo:SearchFilter) < prototype(Neos.Fusion:Component) {
 								</svg>
 							</button>
 						</form>
-						{props.tagsList}
+							<div class="js-TagsList">
+								<div>{props.tagsList}</div>
+								<div class="Service--Small" style="text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
+									<a class="js-TagsListBtn" href='?showAllTags=true'>все тэги
+										<div class="js-TagsListIcon" style="vertical-align: -17%; height: 14px; width: 14px; color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
+											<svg aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-right" class="svg-inline--fa fa-chevron-circle-right fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>
+										</div>
+									</a>
+								</div>
+							</div>
 						<div style="margin-top: 0px">
 							{props.authorsList}
+							<div class="Service--Small" style="text-tranform: uppercase; font-family: var(--fontFamily-alt); margin-right: 12px; display: initial; display:inline-flex;">
+								<a href='/autors'>все авторы
+									<div style="vertical-align: -17%; height: 14px; width: 14px; color: var(--color-kateheo); border-radius: 50%; display: inline-block; margin-left:4px">
+										<svg aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-right" class="svg-inline--fa fa-chevron-circle-right fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm113.9 231L234.4 103.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L285.1 256 183.5 357.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L369.9 273c9.4-9.4 9.4-24.6 0-34z"></path></svg>
+									</div>
+								</a>
+							</div>
 						</div>
 						<div style="margin-top: 24px">
 							{props.facetTypes}
