@@ -21,10 +21,17 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 			nodePath = 'main'
 		}
 
-		imageUri = Neos.Neos:ImageUri {
+		imageUri1x = Neos.Neos:ImageUri {
 			asset = ${node.properties.image}
 			width = 150
 			height = 150
+			allowCropping = true
+		}
+
+		imageUri2x = Neos.Neos:ImageUri {
+			asset = ${node.properties.image}
+			width = 300
+			height = 300
 			allowCropping = true
 		}
 
@@ -42,8 +49,8 @@ prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
 			<div class="row" style="margin-bottom: 24px">
 				<div class="medium-8 columns" role="main">
 					<div class="Author" style="margin-top: 24px">
-						<div @if.image={props.imageUri} class="marginRight-double">
-							<img style="border-radius: 50%" src={props.imageUri}/>
+						<div @if.image={props.imageUri1x} class="marginRight-double">
+							<img style="border-radius: 50%" src={props.imageUri1x} srcset={props.imageUri1x + ", " + props.imageUri2x + " 2x"}/>
 						</div>
 						{props.authorInfo}
 						<h1 class="H2 lineHeight-single" style="margin: 24px 0">
