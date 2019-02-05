@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:PlainPage) < prototype(Sfi.Kateheo:AbstractDocument) {
-	body = Neos.Neos:ContentComponent {
+	body.content = Neos.Neos:ContentComponent {
 		main = Neos.Neos:ContentCollection{
 			nodePath = 'main'
 		}

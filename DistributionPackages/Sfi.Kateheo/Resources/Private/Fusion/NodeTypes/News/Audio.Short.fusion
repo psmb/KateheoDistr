@@ -3,11 +3,6 @@ prototype(Sfi.Kateheo:Audio.Short) < prototype(Neos.Neos:ContentComponent) {
 	nodeUri = Neos.Neos:NodeUri {
 		node = ${node}
 	}
-	readingTimeIndicator = Sfi.Kateheo:ReadingTime {
-		content = Neos.Neos:ContentCollection {
-			nodePath = 'main'
-		}
-	}
 	authors = Neos.Fusion:Collection {
 		collection = ${node.properties.authors}
 		itemName = 'author'
@@ -26,7 +21,6 @@ prototype(Sfi.Kateheo:Audio.Short) < prototype(Neos.Neos:ContentComponent) {
 			<div style="margin: 24px 0">
 				<h3 class="H4" style="line-height: var(--lineHeight-tight)">{props.title}</h3>
 				{props.authors}
-				<div class="ParagraphAlt color-grayLight" style="margin-bottom: 12px">{props.readingTimeIndicator}</div>
 				{props.soundCloudPlayer}
 			</div>
 		</a>

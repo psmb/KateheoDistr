@@ -1,6 +1,6 @@
 prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 	prototype(Psmb.Carousel:Carousel).@process.wrap = afx`<div class="backgroundColor-kateheo">{value}</div>`
-	body = Neos.Fusion:Component {
+	body.content = Neos.Fusion:Component {
 		main = Neos.Neos:ContentCollection{
 			nodePath = 'main'
 		}

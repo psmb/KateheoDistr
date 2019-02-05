@@ -35,8 +35,7 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 	htmlTag.attributes.lang="ru"
 	bodyTag.attributes.class = 'Page'
 	bodyTag.attributes.id = ${'Page-' + q(node).property('_name')}
-	body = 'override-me'
-	body.@process.defaultLayout = Sfi.Kateheo:DefaultLayout
+	body = Sfi.Kateheo:DefaultLayout
 	body.javascripts.index = Neos.Fusion:Tag {
 		tagName = 'script'
 		attributes {
@@ -46,4 +45,5 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 			type = 'application/javascript'
 		}
 	}
+	body.javascripts.analytics = Sfi.Kateheo:Analytics
 }
