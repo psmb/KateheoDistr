@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:News) < prototype(Sfi.Kateheo:AbstractDocument) {
-	body = Neos.Neos:ContentComponent {
+	body.content = Neos.Neos:ContentComponent {
 		authorName = Neos.Fusion:Collection {
 			collection = ${node.properties.authors}
 			itemName = 'author'

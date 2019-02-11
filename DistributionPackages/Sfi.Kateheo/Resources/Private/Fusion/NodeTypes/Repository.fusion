@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:Repository) < prototype(Sfi.Kateheo:AbstractDocument) {
-	body = Neos.Neos:ContentComponent {
+	body.content = Neos.Neos:ContentComponent {
 		searchFilter = Sfi.Kateheo:SearchFilter
 		listing = Sfi.Kateheo:Listing
 		title = ${node.properties.title}
@@ -24,9 +24,7 @@ prototype(Sfi.Kateheo:Repository) < prototype(Sfi.Kateheo:AbstractDocument) {
 			</div>
 		`
 	}
-	body.@process.defaultLayout {
-		fixedWidth = ${false}
-	}
+	body.fixedWidth = ${false}
 }
 
 prototype(Sfi.Kateheo:Listing) < prototype(Neos.Fusion:Case) {

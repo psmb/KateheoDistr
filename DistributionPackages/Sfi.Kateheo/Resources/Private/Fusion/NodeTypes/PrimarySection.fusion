@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:PrimarySection) < prototype(Sfi.Kateheo:AbstractDocument) {
-	body = Neos.Neos:ContentComponent {
+	body.content = Neos.Neos:ContentComponent {
 		title = ${node.properties.title}
 		categoriesList = Sfi.Kateheo:Accordion {
 			collection = Neos.Fusion:RawCollection {

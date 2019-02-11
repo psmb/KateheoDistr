@@ -1,5 +1,5 @@
 prototype(Sfi.Kateheo:Author) < prototype(Sfi.Kateheo:AbstractDocument) {
-	body = Neos.Neos:ContentComponent {
+	body.content = Neos.Neos:ContentComponent {
 		sectionMenu = Neos.Fusion:Collection {
 			collection = ${q(site).find('[instanceof Sfi.Kateheo:Author]').get()}
 			collection.@process.sort = ${q(value).count() > 0 ? q(value).sort('title', 'ASC').get() : value}
