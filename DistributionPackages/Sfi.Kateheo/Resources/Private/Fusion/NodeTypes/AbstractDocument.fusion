@@ -30,6 +30,7 @@ prototype(Sfi.Kateheo:AbstractDocument) < prototype(Neos.Neos:Page) {
 			<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#dfc264"/>
 			<meta name="msapplication-TileColor" content="#dfc264"/>
 			<meta name="theme-color" content="#dfc264"/>
+			<meta name="yandex-verification" content="58485fd9d8bfeca3" />
 		`
 	}
 	htmlTag.attributes.lang="ru"
