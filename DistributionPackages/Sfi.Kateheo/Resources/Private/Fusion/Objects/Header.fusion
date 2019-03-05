@@ -13,6 +13,8 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 			path = 'resource://Sfi.Kateheo/Public/Images/IconMenu.svg'
 		}
 		searchFilter = ${searchFilter}
+		title = ${site.properties.title}
+		siteSubTitle = ${site.properties.siteSubTitle}
 		renderer =  afx`
 			<header style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
 				<div class="backgroundColor-kateheo" style="display:flex">
@@ -35,8 +37,8 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 						<div style="text-align: center">
 							<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
 						</div>
-						<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
-						<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+						<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">{props.title}</h1>
+						<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">{props.siteSubTitle}</p>
 					</div>
 				</div>
 			</header>
@@ -50,6 +52,8 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 			path = 'resource://Sfi.Kateheo/Public/Images/SiteLogoRu.svg'
 		}
 		searchFilter = ${searchFilter}
+		title = ${site.properties.title}
+		siteSubTitle = ${site.properties.siteSubTitle}
 		renderer = afx`
 			{props.style}
 			<header>
@@ -69,8 +73,8 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
 					<div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
 						<div>
-							<h1 class="H2 MainTitle" style="text-transform: uppercase">Научно-методический центр<br/>по миссии и катехизации</h1>
-							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">при Свято-Филаретовском православно-христианском институте</p>
+							<h1 class="H2 MainTitle" style="text-transform: uppercase">{props.title}</h1>
+							<p class="Paragraph" style="line-height: 1.2; margin-top: 12px">{props.siteSubTitle}</p>
 						</div>
 					</div>
 				</div>

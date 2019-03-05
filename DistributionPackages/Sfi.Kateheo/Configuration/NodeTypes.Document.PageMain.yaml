@@ -5,6 +5,16 @@
     label: 'Главная страница'
     icon: 'globe'
   properties:
+    siteSubTitle:
+      type: string
+      ui:
+        label: 'Подзаголовок сайта'
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Текст подзаголовка сайта'
+        inspector:
+          group: document
     secondaryMenu:
       type: references
       ui:
