@@ -1,0 +1,133 @@
+prototype(Sfi.Kateheo:Announce) < prototype(Sfi.Kateheo:AbstractDocument) {
+	body.content = Neos.Neos:ContentComponent {
+		authorName = Neos.Fusion:Collection {
+			collection = ${node.properties.authors}
+			itemName = 'author'
+			itemRenderer = Neos.Fusion:Tag {
+				tagName = 'a'
+				attributes.href = Neos.Neos:NodeUri {
+					node = ${author}
+				}
+				content = ${String.stripTags(author.properties.title) + (iterator.isLast ? '' : ', ')}
+				@if.setAuthor = ${author}
+			}
+		}
+
+		authorInfo = Neos.Fusion:Collection {
+			collection = ${node.properties.authors}
+			itemName = 'author'
+			itemRenderer = Sfi.Kateheo:Article.AuthorInfo
+			@if.notEmpty = ${node.properties.authors}
+			@process.header = afx`
+				<div style="margin: 60px 0">
+					<div class="H2 textAlign-center" style="margin: 36px 0">Об авторе</div>
+					{value}
+				</div>
+			`
+		}
+
+		cover = Neos.Neos:ContentCollection{
+			nodePath = 'coverCollection'
+			prototype(Neos.NodeTypes:Image){
+				maximumWidth = 980
+				maximumHeight = 653
+				allowCropping = TRUE
+			}
+		}
+
+		main = Neos.Neos:ContentCollection {
+			nodePath = 'main'
+		}
+		@context.main = ${this.main}
+
+		readingTimeIndicator = Sfi.Kateheo:ReadingTime {
+			characterCount = ${String.length(String.stripTags(main))}
+		}
+
+		date = ${node.properties.date ? Date.formatCldr(node.properties.date, 'dd MMMM yyyy') : ''}
+
+		nav = Neos.Fusion:Component {
+			prev = Sfi.Kateheo:News.ShortForNav {
+				mode = 'prev'
+				@context.node = Neos.Fusion:Value {
+					inCurrent = ${q(node).prev('[instanceof Sfi.Kateheo:AbstractArticle]').get(0)}
+					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').prev('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:AbstractArticle]').last().get(0)}
+				}
+			}
+			next = Sfi.Kateheo:News.ShortForNav {
+				mode = 'next'
+				@context.node = Neos.Fusion:Value {
+					inCurrent = ${q(node).next('[instanceof Sfi.Kateheo:AbstractArticle]').get(0)}
+					value = ${this.inCurrent || q(node).parent('[instanceof Sfi.Kateheo:PrimarySection]').next('[instanceof Sfi.Kateheo:Category]').children('[instanceof Sfi.Kateheo:AbstractArticle]').first().get(0)}
+				}
+			}
+			renderer = afx`
+				{props.style}
+				<div style="display:flex; flex-wrap: wrap; margin: 24px -12px">
+					<div class="navItem" style="padding: 0 12px">{props.prev}</div>
+					<div class="navItem" style="padding: 0 12px; text-align: right">{props.next}</div>
+				</div>
+			`
+			style = ${'<style>
+				.navItem {
+					flex-basis: 100%;
+				}
+				@media screen and (min-width: 640px) {
+					.navItem {
+						flex-basis: 50%;
+					}
+				}
+			</style>'}
+		}
+
+		primarySections = Sfi.Kateheo:PrimarySections {
+			mode = 'front'
+			@context.currentSection = ${q(node).parents('[instanceof Sfi.Kateheo:PrimarySection]').get(0)}
+		}
+
+		tagsList = Neos.Fusion:Collection {
+			collection = ${node.properties.tags}
+			itemName = 'node'
+			itemRenderer = Neos.Fusion:Component {
+				link = Neos.Neos:NodeUri {
+					node = ${node}
+				}
+				title = ${node.properties.title}
+				renderer = afx`
+					<a class="color-primary ParagraphAlt--Large" style="margin-right: 12px" href={props.link}>#{props.title} </a>
+				`
+				@if.notEmpty = ${node.properties.title}
+			}
+		}
+
+		renderer = afx`
+			<div class="Paper-Article">
+				<div class="Article" style="margin-top: 24px; margin-bottom: 60px">
+					<div class="row">
+						<div class="large-8 medium-10 large-offset-2 medium-offset-1 columns">
+							<div class="textAlign-center">
+								<div class="Service--Large">{props.authorName}</div>
+								<h1 class="H1 textAlign-center lineHeight-single" style="margin-top: 12px; margin-bottom: 24px"><Neos.Neos:Editable property="title" block={false}/></h1>
+								<div class="ServiceEm--Large"><Neos.Neos:Editable property="teaser" block={false}/></div>
+								<span class="ServiceEm" style="text-transform: lowercase;">{props.date}<span class="color-grayLight">{props.readingTimeIndicator && ' • ' + props.readingTimeIndicator}</span></span>
+							</div>
+							<div class="color-primary"><Neos.Neos:Editable property="lead"/></div>
+							<div style="margin: 24px 0">
+								{props.cover}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-8 medium-10 large-offset-2 medium-offset-1 columns">
+							<div class="Article-Content">{props.main}</div>
+							<div>{props.tagsList}</div>
+							{props.authorInfo}
+						</div>
+					</div>
+					{props.nav}
+					{props.primarySections}
+				</div>
+			</div>
+		`
+	}
+}

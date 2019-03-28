@@ -1,0 +1,6 @@
+'Sfi.Kateheo:Announce':
+  superTypes:
+    'Sfi.Kateheo:AbstractArticle': true
+  ui:
+    label: Анонс
+    icon: 'bullhorn'
