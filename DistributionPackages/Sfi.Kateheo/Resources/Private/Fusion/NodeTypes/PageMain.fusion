@@ -63,7 +63,7 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
-				<div style="background-color: #EDEDED; padding: 36px 24px; margin-bottom: 48px">
+				<div style="background-color: var(--color-graySoundCloud); padding: 36px 24px; margin-bottom: 48px">
 					<div class="row">
 						<div class="columns medium-4">
 							<a href={props.audioUri}>
