@@ -99,13 +99,13 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
-				<div style="background-color: var(--color-grayLight); padding: 36px 24px; margin-bottom: 48px">
+				<div style="background-color: #EDEDED; padding: 36px 24px; margin-bottom: 48px">
 					<div class="row">
 						<div class="columns medium-4">
 							<a href={props.audioUri}>
-								<h3 class="H2 color-white">Аудио</h3>
-								<p class="ServiceEm--Large color-white" style="margin-top: 24px">Лекции и беседы в аудио-формате</p>
-								<div style="margin: 24px 0; border: 2px solid white; color: white; font-size: 20px; width: 100px; text-align: center;">⟶</div>
+								<h3 class="H2 color-black">Аудио</h3>
+								<p class="ServiceEm--Large color-black" style="margin-top: 24px">Лекции и беседы в аудио-формате</p>
+								<div style="margin: 24px 0; border: 2px solid black; color: black; font-size: 20px; width: 100px; text-align: center;">⟶</div>
 							</a>
 						</div>
 						<div class="columns medium-8">
