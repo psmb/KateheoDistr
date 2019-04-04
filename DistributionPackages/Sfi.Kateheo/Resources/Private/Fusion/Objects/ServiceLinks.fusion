@@ -4,11 +4,11 @@ prototype(Sfi.Kateheo:ServiceLinks) < prototype(Neos.Fusion:Component) {
 	}
 
 	iconUser = Neos.Fusion:ResourceUri {
-		path = 'resource://Sfi.Kateheo/Public/Images/IconUser.svg'
+		path = 'resource://Sfi.Kateheo/Public/Images/IconUserKateheo.svg'
 	}
 
 	iconSearch = Neos.Fusion:ResourceUri {
-		path = 'resource://Sfi.Kateheo/Public/Images/IconSearch.svg'
+		path = 'resource://Sfi.Kateheo/Public/Images/IconSearchKateheo.svg'
 	}
 
 	archiveUri = Neos.Neos:NodeUri {
@@ -16,11 +16,11 @@ prototype(Sfi.Kateheo:ServiceLinks) < prototype(Neos.Fusion:Component) {
 	}
 
 	renderer = afx`
-		<a title="Вход" href={props.loginLink} style="border-right: 1px solid black; margin-left: 24px; padding: 0 4px;">
-			<img src={props.iconUser} />
+		<a title="Вход" href={props.loginLink} style="border-right: 1px solid black; padding: 0 4px;">
+			<img src={props.iconUser} style="width: 36px"/>
 		</a>
-		<a class="js-headerSearch-toggle" title="Поиск" href={props.archiveUri} style="position: relative; left: -1px; padding: 12px">
-			<img src={props.iconSearch} />
+		<a class="js-headerSearch-toggle" title="Поиск" href={props.archiveUri} style="position: relative; left: -1px; padding-left: 12px;">
+			<img src={props.iconSearch} style="width: 18px"/>
 		</a>
 	`
 }
