@@ -23,7 +23,8 @@
         "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0",
         "flowpack/elasticsearch-contentrepositoryqueueindexer": "^3.2.0",
         "flowpack/jobqueue-redis": "^3.1.0",
-        "flowpack/cachebuster": "^1.0"
+        "flowpack/cachebuster": "^1.0",
+        "yeebase/graylog": "^3.1"
     },
     "autoload": {
         "psr-0": {
