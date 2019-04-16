@@ -5,8 +5,7 @@
     "require": {
         "neos/neos": "~4.2.0",
         "neos/nodetypes": "~4.2.0",
-        "neos/neos-ui": "dev-master",
-        "neos/neos-ui-compiled": "dev-master",
+        "neos/neos-ui": "^3",
         "neos/seo": "~2.1.0",
         "flowpack/listable": "^3.0",
         "sfi/grid": "^2.2",
