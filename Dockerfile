@@ -6,6 +6,7 @@ ENV AWS_BACKUP_ARN=s3://psmb-neos-resources/db/kateheo/
 ENV DONT_PUBLISH_PERSISTENT=1
 WORKDIR /data/www-provisioned
 RUN chown -R 80:80 /composer/ && \
+    chown -R 80:80 /data/www-provisioned && \
     /bin/bash -c "source /init-php-conf.sh"
 USER 80
 COPY --chown=80:80 composer.json /data/www-provisioned/composer.json
