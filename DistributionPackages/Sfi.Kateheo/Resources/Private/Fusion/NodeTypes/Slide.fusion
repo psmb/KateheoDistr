@@ -11,16 +11,25 @@ prototype(Sfi.Kateheo:Slide) < prototype(Neos.Neos:ContentComponent) {
 			<div class="Slide-image" style="min-width: 72px"><img style="display: none" alt={props.name} src={props.imageUri}/></div>
 			<div style="display: flex; align-items: center; margin: 36px 0">
 				<div>
-					<div class="Slide-text"><Neos.Neos:Editable property="text"/></div>
-					<div style="margin-top: 12px">
-						<span class="Slide-name"><Neos.Neos:Editable property="name" block={false}/>, </span><span class="Slide-about"><Neos.Neos:Editable property="about" block={false}/></span>
+					<div class="Slide-text"><Neos.Neos:Editable property="text"/>
+						<div style="margin-top: 12px">
+							<span class="Slide-name"><Neos.Neos:Editable property="name" block={false}/>, </span><span class="Slide-about"><Neos.Neos:Editable property="about" block={false}/></span>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	`
 	@process.styles = ${'<style>
-		@media screen and (min-width: 640px) {
+		@media screen and (max-width: 899px){
+			.Slide-image {
+				display: none;
+			}
+			.Slide-image img {
+				display: none;
+			}
+		}
+		@media screen and (min-width: 900px) {
 			.Slide-image {
 				flex-shrink: 0;
 				align-self: flex-end;
@@ -34,7 +43,13 @@ prototype(Sfi.Kateheo:Slide) < prototype(Neos.Neos:ContentComponent) {
 			line-height: var(--lineHeight-normal);
 			font-size: 16px;
 		}
-		@media screen and (min-width: 640px) {
+		@media screen and (max-width: 899px){
+			.Slide-text {
+				font-size: 21px;
+				padding-left: 72px;
+			}
+		}
+		@media screen and (min-width: 900px) {
 			.Slide-text {
 				font-size: 21px;
 			}
