@@ -13,7 +13,7 @@ prototype(Neos.NodeTypes:TextWithImage) {
 
 prototype(Psmb.Carousel:Carousel) {
 	arrowPrev = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><style type="text/css"> .st0{fill:none;stroke:#1D1D1B;stroke-width:3;stroke-miterlimit:10;}</style><polyline class="st0" points="33.51,7.11 15.25,25 33.51,42.89 "/></svg>'
-	arrowNext = '<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><style type="text/css">	.st0{fill:none;stroke:#1D1D1B;stroke-width:3;stroke-miterlimit:10;}</style><polyline class="st0" points="16.49,7.11 34.75,25 16.49,42.89 "/></svg>'
+	arrowNext = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve"><style type="text/css">	.st0{fill:none;stroke:#1D1D1B;stroke-width:3;stroke-miterlimit:10;}</style><polyline class="st0" points="16.49,7.11 34.75,25 16.49,42.89 "/></svg>'
 }
 
 prototype(Neos.Fusion:GlobalCacheIdentifiers) {

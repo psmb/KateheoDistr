@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 100 34" style="enable-background:new 0 0 100 34;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-	.st1{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
-</style>
-<g>
-	<path class="st0" d="M98,2v30H2V2H98 M100,0h-2H2H0v2v30v2h2h96h2v-2V2V0L100,0z"/>
-</g>
-<g>
-	<g>
-		<line class="st1" x1="35.96" y1="17" x2="62.62" y2="17"/>
-	</g>
-	<polyline class="st1" points="58.62,12.99 62.62,17 58.62,21.01 	"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 34"><style>.st1{fill:none;stroke:#fff;stroke-width:2;stroke-miterlimit:10}</style><path d="M98 2v30H2V2h96m2-2H0v34h100V0z" fill="#fff"/><path class="st1" d="M35.96 17h26.66M58.62 12.99l4 4.01-4 4.01"/></svg>
