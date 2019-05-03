@@ -1,8 +1,7 @@
 Kateheo.ru Distribution
 ========
 
-CircleCI integration status:
-[![Circle CI](https://circleci.com/gh/psmb/KateheoDistr/tree/master.svg?style=svg)](https://circleci.com/gh/psmb/KateheoDistr/tree/master)
+[![](https://images.microbadger.com/badges/image/dimaip/kateheodistr.svg)](https://microbadger.com/images/dimaip/kateheodistr "Get your own image badge on microbadger.com")
 
 ## Installation
 
