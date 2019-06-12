@@ -1,3 +1,37 @@
+prototype(Sfi.Kateheo:AbstractList) < prototype(Flowpack.Listable:Collection) {
+	@process.styles = ${'<style>
+		.newsList {
+			display: flex;
+			flex-wrap: wrap;
+			margin: -12px;
+		}
+		.newsList-item {
+			flex-basis: 100%;
+			padding: 12px;
+		}
+		@media screen and (min-width:640px) {
+			.newsList-item {
+				flex-basis: 50%;
+			}
+		}
+		@media screen and (min-width:1024px) {
+			.newsList-item {
+				flex-basis: 33.33%;
+			}
+		}
+		@media screen and (min-width:1024px) {
+			.newsList-item:nth-child(4) {
+				display: none;
+			}
+		}
+	</style>' + value}
+	listClass = 'newsList'
+	itemClass = 'newsList-item'
+	itemRenderer = Flowpack.Listable:ContentCaseShort
+	collection = Neos.Neos:ContentCollection 
+}
+
+
 prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 	prototype(Psmb.Carousel:Carousel).@process.wrap = afx`<div class="backgroundColor-kateheo">{value}</div>`
 	body.content = Neos.Fusion:Component {
@@ -9,37 +43,12 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 			mode = 'front'
 		}
 
-		newsList = Flowpack.Listable:Collection {
-			@process.styles = ${'<style>
-				.newsList {
-					display: flex;
-					flex-wrap: wrap;
-					margin: -12px;
-				}
-				.newsList-item {
-					flex-basis: 100%;
-					padding: 12px;
-				}
-				@media screen and (min-width:640px) {
-					.newsList-item {
-						flex-basis: 50%;
-					}
-				}
-				@media screen and (min-width:1024px) {
-					.newsList-item {
-						flex-basis: 33.33%;
-					}
-				}
-				@media screen and (min-width:1024px) {
-					.newsList-item:nth-child(4) {
-						display: none;
-					}
-				}
-			</style>' + value}
-			listClass = 'newsList'
-			itemClass = 'newsList-item'
-			itemRenderer = Flowpack.Listable:ContentCaseShort
+		newsList = Sfi.Kateheo:AbstractList {
 			collection = ${Search.query(site).nodeType("Sfi.Kateheo:News").sortDesc('date').from(0).limit(4).execute().toArray()}
+		}
+
+		lastAdded = Sfi.Kateheo:AbstractList {
+			collection = ${Search.query(site).nodeType("Sfi.Kateheo:Article").sortDesc('date').from(0).limit(6).execute().toArray()}
 		}
 
 		soundCloudPlayer = Sfi.Kateheo:SoundCloudPlayer {
@@ -63,6 +72,13 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 					{props.main}
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Последние материалы сайта</h3>
+				{props.lastAdded}
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
+				{props.newsList}
+				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
+					<a href={props.archiveUri}>Архив всех материалов сайта ›</a>
+				</div>
 				<div style="background-color: var(--color-graySoundCloud); padding: 36px 24px; margin-bottom: 48px">
 					<div class="row">
 						<div class="columns medium-4">
@@ -76,11 +92,6 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 							{props.soundCloudPlayer}
 						</div>
 					</div>
-				</div>
-				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
-				{props.newsList}
-				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
-					<a href={props.archiveUri}>Архив всех материалов сайта ›</a>
 				</div>
 			</div>
 		`
