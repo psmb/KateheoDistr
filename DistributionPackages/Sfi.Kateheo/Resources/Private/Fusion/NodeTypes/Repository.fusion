@@ -52,7 +52,7 @@ prototype(Sfi.Kateheo:ListingByType) < prototype(Flowpack.Listable:PaginatedColl
 		type = ${facetConfig.type}
 	}
 	prototype(Flowpack.Listable:Collection) {
-		listClass = ${facetConfig.type == 'Sfi.Kateheo:News' && 'medium-block-grid-2'}
+		listClass = ${(facetConfig.type == 'Sfi.Kateheo:News' || facetConfig.type == 'Sfi.Kateheo:Article') && 'medium-block-grid-2'}
 	}
 	@cache {
 		entryDiscriminator = Neos.Fusion:Array {
@@ -98,7 +98,7 @@ prototype(Sfi.Kateheo:ListingOverview) < prototype(Neos.Fusion:Collection) {
 		@process.wrap = Sfi.Kateheo:FacetWrapper {
 			label = ${facetConfig.label}
 		}
-		listClass = ${facetConfig.type == 'Sfi.Kateheo:News' && 'medium-block-grid-2'}
+		listClass = ${(facetConfig.type == 'Sfi.Kateheo:News' || facetConfig.type == 'Sfi.Kateheo:Article') && 'medium-block-grid-2'}
 		@context.query = Sfi.Kateheo:Query {
 			type = ${facetConfig.type}
 			value.@process.paginate = ${displayAll ? value.from(0).limit(1000) : value.from(0).limit(4)}
