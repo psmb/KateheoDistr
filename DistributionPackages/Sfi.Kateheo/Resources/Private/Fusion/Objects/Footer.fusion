@@ -38,8 +38,7 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                         <p class="ParagraphAlt--Small">
                             По вопросам работы портала<br/>
                             kateheo.ru обращайтесь:<br/>
-                            редактор портала С.М. Бурлака<br/>
-                            E-mail: <a style="text-decoration: underline" href="mailto:burlakas@sfi.ru">burlakas@sfi.ru</a>
+                            редактор портала Н.А. Адаменко
                         </p>
                     </div>
                     <div class="large-3 medium-4 columns">
