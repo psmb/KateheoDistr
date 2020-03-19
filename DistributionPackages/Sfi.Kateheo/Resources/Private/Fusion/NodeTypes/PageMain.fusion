@@ -74,7 +74,7 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
 				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Последние материалы сайта</h3>
 				{props.lastAdded}
-				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">События</h3>
 				{props.newsList}
 				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
 					<a href={props.archiveUri}>Архив всех материалов сайта ›</a>
