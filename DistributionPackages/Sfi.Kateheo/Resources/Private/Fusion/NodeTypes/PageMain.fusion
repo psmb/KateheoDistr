@@ -98,6 +98,11 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 				<div style="margin-bottom: 48px">
 					{props.main}
 				</div>
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
+				{props.newsList}
+				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
+					<a href={props.newsArchiveUri}>Архив всех материалов сайта ›</a>
+				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
 				<div style="background-color: var(--color-grayLight); padding: 36px 24px; margin-bottom: 48px">
 					<div class="row">
@@ -117,11 +122,6 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 				{props.announceList}
 				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
 					<a href={props.announceArchiveUri}>Архив анонсов сайта ›</a>
-				</div>
-				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
-				{props.newsList}
-				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
-					<a href={props.newsArchiveUri}>Архив всех материалов сайта ›</a>
 				</div>
 			</div>
 		`
