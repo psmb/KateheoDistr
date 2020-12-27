@@ -3,3 +3,4 @@
     'Sfi.Kateheo:AbstractArticle': true
   ui:
     label: Новость
+    icon: 'newspaper'

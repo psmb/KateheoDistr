@@ -42,12 +42,48 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 			collection = ${Search.query(site).nodeType("Sfi.Kateheo:News").sortDesc('date').from(0).limit(4).execute().toArray()}
 		}
 
+		announceList = Flowpack.Listable:Collection {
+			@process.styles = ${'<style>
+				.newsList {
+					display: flex;
+					flex-wrap: wrap;
+					margin: -12px;
+				}
+				.newsList-item {
+					flex-basis: 100%;
+					padding: 12px;
+				}
+				@media screen and (min-width:640px) {
+					.newsList-item {
+						flex-basis: 50%;
+					}
+				}
+				@media screen and (min-width:1024px) {
+					.newsList-item {
+						flex-basis: 33.33%;
+					}
+				}
+				@media screen and (min-width:1024px) {
+					.newsList-item:nth-child(4) {
+						display: none;
+					}
+				}
+			</style>' + value}
+			listClass = 'newsList'
+			itemClass = 'newsList-item'
+			itemRenderer = Flowpack.Listable:ContentCaseShort
+			collection = ${Search.query(site).nodeType("Sfi.Kateheo:Announce").sortDesc('date').from(0).limit(4).execute().toArray()}
+		}
+
 		soundCloudPlayer = Sfi.Kateheo:SoundCloudPlayer {
 			soundCloudLink = ${site.properties.soundCloudLink}
 		}
 
-		archiveUri = Neos.Neos:NodeUri {
+		newsArchiveUri = Neos.Neos:NodeUri {
 			node = ${q(site).children('[uriPathSegment = "archiv"]').get(0)}
+		}
+		announceArchiveUri = Neos.Neos:NodeUri {
+			node = ${q(site).children('[uriPathSegment = "announce"]').get(0)}
 		}
 		audioUri = Neos.Neos:NodeUri {
 			node = ${q(site).children('[uriPathSegment = "archiv"]').get(0)}
@@ -61,6 +97,11 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 			<div style="display:flex; flex-direction: column">
 				<div style="margin-bottom: 48px">
 					{props.main}
+				</div>
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Новости</h3>
+				{props.newsList}
+				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
+					<a href={props.newsArchiveUri}>Архив всех материалов сайта ›</a>
 				</div>
 				<div class="primarySectionsMain" style="margin-bottom: 48px">{props.primarySections}</div>
 				<div style="background-color: var(--color-graySoundCloud); padding: 36px 24px; margin-bottom: 48px">
@@ -77,10 +118,10 @@ prototype(Sfi.Kateheo:PageMain) < prototype(Sfi.Kateheo:AbstractDocument) {
 						</div>
 					</div>
 				</div>
-				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">События</h3>
-				{props.newsList}
+				<h3 class="H2 color-grayLight" style="margin-bottom: 12px">Анонсы</h3>
+				{props.announceList}
 				<div class="LinkHover ParagraphAlt--Small color-grayLight" style="margin-bottom: 24px">
-					<a href={props.archiveUri}>Архив всех материалов сайта ›</a>
+					<a href={props.announceArchiveUri}>Архив анонсов сайта ›</a>
 				</div>
 			</div>
 		`

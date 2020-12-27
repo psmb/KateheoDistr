@@ -3,6 +3,7 @@
     'Neos.Neos:Document': true
   ui:
     label: Автор
+    icon: 'user-edit'
     inspector:
       groups:
         image:
