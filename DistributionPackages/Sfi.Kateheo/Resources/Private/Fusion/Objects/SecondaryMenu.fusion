@@ -3,7 +3,7 @@ prototype(Sfi.Kateheo:SecondaryMenu) < prototype(Neos.Fusion:Collection) {
 	itemName = 'node'
 	itemRenderer = Neos.Fusion:Tag {
 		tagName = 'a'
-		attributes.style = 'margin: 12px; display: inline-block;'
+		attributes.style = 'margin: 12px; display: inline-block; font-size: 10px;'
 		attributes.class = Neos.Fusion:RawArray {
 			main = 'Service--Small secondaryMenu-item'
 			active = ${(documentNode == node || q(documentNode).parents('[_identifier = "' + node.identifier + '"]').count() > 0) ? 'isCurrent' : ''}

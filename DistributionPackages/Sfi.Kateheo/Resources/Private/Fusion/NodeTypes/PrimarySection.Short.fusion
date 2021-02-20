@@ -23,6 +23,9 @@ prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentCompone
 			renderer = 'flex-basis: 50%; padding: 12px'
 		}
 	}
+	arrowFrame = Neos.Fusion:ResourceUri {
+		path = 'resource://Sfi.Kateheo/Public/Images/ArrowFrame.svg'
+	}
 	renderer = afx`
 		<div class={'mode-' + mode}>
 			{props.style}
@@ -30,7 +33,7 @@ prototype(Sfi.Kateheo:PrimarySection.Short) < prototype(Neos.Neos:ContentCompone
 				<div class='primarySection-inner'>
 					<p class={(mode == 'section' ? 'H2' : 'H1') + ' color-white primarySection-title'} style="text-transform: uppercase; text-align: center"><Neos.Neos:Editable property="title" block={false} /></p>
 					<p @if.onlyMain={mode != 'section'} class="primarySection-description ServiceEm--Large color-white textAlign-center"><Neos.Neos:Editable property="description" block={false} /></p>
-					<div style="margin: 12px auto; border: 2px solid white; color: white; font-size: 20px; width: 100px; text-align: center;">⟶</div>
+					<div style="margin: 12px auto; font-size: 20px; width: 100px; text-align: center;"><img src={props.arrowFrame}/></div>
 				</div>
 			</a>
 		</div>
