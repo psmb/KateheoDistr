@@ -19,6 +19,7 @@
         "neos/fusion-afx": "^1.2",
         "sitegeist/silhouettes": "^1.0",
         "flowpack/jobqueue-beanstalkd": "^4.0",
+        "neos/content-repository-search": "^3.0",
         "flowpack/elasticsearch-contentrepositoryadaptor": "^4.1.0",
         "flowpack/elasticsearch-contentrepositoryqueueindexer": "^3.2.0",
         "flowpack/jobqueue-redis": "^3.1.0",
