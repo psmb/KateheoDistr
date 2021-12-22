@@ -17,6 +17,7 @@
     ],
     "require": {
         "sfi/kateheo": "1.0.x-dev",
+        "typo3fluid/fluid": "2.5.3",
         "sandstorm/optimizedrediscachebackend": "dev-patch-1@dev"
     },
     "scripts": {
