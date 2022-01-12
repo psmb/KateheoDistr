@@ -10,6 +10,7 @@ RUN chown -R 80:80 /composer/ && \
     /bin/bash -c "source /init-php-conf.sh"
 USER 80
 COPY --chown=80:80 composer.json /data/www-provisioned/composer.json
+COPY --chown=80:80 composer.lock /data/www-provisioned/composer.lock
 COPY --chown=80:80 DistributionPackages/Sfi.Kateheo/composer.json /data/www-provisioned/DistributionPackages/Sfi.Kateheo/composer.json
 RUN composer install && \
     rm -rf /composer/cache && \
