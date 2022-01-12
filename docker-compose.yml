@@ -16,7 +16,7 @@ services:
       - "neos"
     volumes:
       - /data/www-provisioned/Web/_Resources
-    image: dimaip/kateheodistr:latest
+    image: ghcr.io/psmb/kateheodistr:master
     hostname: 'kateheo'
     networks:
       - default
