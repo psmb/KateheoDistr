@@ -14,7 +14,7 @@ Flowpack:
     clients:
       default:
         -
-          host: es
+          host: shared-es-es-1
           port: 9200
     ContentRepositoryQueueIndexer:
       batchSize: 100
