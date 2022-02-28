@@ -29,21 +29,21 @@ prototype(Sfi.Kateheo:Footer) < prototype(Neos.Fusion:Component) {
                     <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                         <p class="ParagraphAlt--Small">
                             <strong>Контакты НМЦМиК</strong><br/>
-                            Адрес: 105062, Москва, Покровка, 29<br/>
+                            Адрес: 105066, Москва, Токмаков пер., д. 11<br/>
                             Тел./факс: <a style="text-decoration: underline" href="tel:+74956230380">+7 (495) 623-03-80</a><br/>
                             E-mail: <a style="text-decoration: underline" href="mailto:info@kateheo.ru">info@kateheo.ru</a>
                         </p>
                     </div>
                     <div class="large-3 medium-4 columns" style="margin-bottom: 12px">
                         <p class="ParagraphAlt--Small">
-                            По вопросам работы портала<br/>
-                            kateheo.ru обращайтесь:<br/>
-                            редактор портала Н.А. Адаменко
+                            По вопросам работы сайта <br/>
+                            kateheo.ru обращайтесь: <br/>
+                            редактор сайта Наталья Адаменко
                         </p>
                     </div>
                     <div class="large-3 medium-4 columns">
                         <div class="ParagraphAlt--Small">
-                            <strong>Проект <a href="http://sfi.ru" target="_blank" style="text-decoration: underline">Свято-Филаретовского православно-христианского института</a></strong>
+                            <strong>Проект <a href="http://sfi.ru" target="_blank" style="text-decoration: underline">Свято-Филаретовского института</a></strong>
                         </div>
                     </div>
                 </div>
