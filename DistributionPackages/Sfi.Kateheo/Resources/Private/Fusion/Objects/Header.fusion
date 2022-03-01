@@ -34,7 +34,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 				</div>
 				<div style="margin: 24px 0" @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'}>
 					<div>
-						<div style="text-align: center; height:200px">
+						<div style="text-align: center">
 							<img @if.isMain={node == site} src={props.siteLogo} alt="Катехео" style="padding: 12px 48px 36px 48px;" />
 						</div>
 						<h1 class="H2" style="font-size: 5.5vw; text-transform: uppercase">{props.title}</h1>
