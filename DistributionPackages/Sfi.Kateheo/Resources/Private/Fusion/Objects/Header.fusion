@@ -70,7 +70,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 					</div>
 				</div>
 				<div @process.wrap={node == site ? value : '<a href="' + props.homeLink + '" title="На главную">' + value + '</a>'} style="display: flex; justify-content: space-between;">
-					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px;" />
+					<img src={props.siteLogo} alt="Катехео" class="pull-left" style="padding: 36px 48px; width: 350px;" />
 					<div style="width: 50%; padding-left: 6px; display: flex; align-items: center;">
 						<div>
 							<h1 class="H2 MainTitle" style="text-transform: uppercase">{props.title}</h1>
