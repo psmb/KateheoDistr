@@ -16,8 +16,8 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		title = ${site.properties.title}
 		siteSubTitle = ${site.properties.siteSubTitle}
 		renderer =  afx`
-			<header style="margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
-				<div style="display:flex; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #e6e6e6;">
+			<header style="color: var(--color-grayLight); margin-bottom: 36px; border-bottom: 1px solid var(--color-grayLine)">
+				<div style="display:flex; border-bottom-style: solid; border-bottom: 1px solid var(--color-grayLine);">
 					<div href="#menu" class="marginLeft-single MobileNav-Toggle js-MobileNav-Toggle">
 						<div class="IconMenu">
 							<img alt="Меню" src={props.iconMenu}/>
@@ -57,7 +57,7 @@ prototype(Sfi.Kateheo:Header) < prototype(Neos.Fusion:Component) {
 		renderer = afx`
 			{props.style}
 			<header>
-				<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 12px; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #e6e6e6;">
+				<div style="color: var(--color-grayLight); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--color-grayLine);">
 					<div><Sfi.Kateheo:PrimaryMenu/></div>
 					<div>
 						<Sfi.Kateheo:SecondaryMenu/>
